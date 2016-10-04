@@ -1,0 +1,11 @@
+'use babel'
+// @flow
+import type {DevToolsInfosReducer} from "../ExecutionControlEpic/DevToolsSummaryFeature/Reducers/DevToolsInfos";
+import type {TargetConfigSchemasReducer} from "../ExecutionControlEpic/TargetConfigurationFeature/Reducers/TargetConfigSchemas";
+import type {TargetConfigsReducer} from "../ExecutionControlEpic/TargetConfigurationFeature/Reducers/TargetConfigs";
+
+export type State = {
+  devtools: DevToolsInfosReducer,
+  targets: TargetConfigsReducer,
+  targetConfigSchemas: TargetConfigSchemasReducer
+};

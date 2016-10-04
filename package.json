@@ -1,0 +1,33 @@
+{
+  "name": "molecule-dev-environment",
+  "main": "./lib/molecule-dev-environment",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [],
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
+    "jest": "BABEL_ENV=jest jest --watch"
+  },
+  "repository": "https://github.com/atom/molecule-dev-environment",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "babel-plugin-react-for-atom": "github:alanzanattadev/babel-plugin-react-for-atom",
+    "classnames": "^2.2.5",
+    "immutable": "^3.8.1",
+    "react-for-atom": "^15.3.1-0",
+    "react-redux": "^4.4.5",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "@kadira/storybook": "^2.18.1",
+    "babel-jest": "^15.0.0",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "enzyme": "^2.4.1",
+    "jest": "^16.0.0"
+  }
+}

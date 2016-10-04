@@ -1,0 +1,16 @@
+{
+  "context-menu": {
+    "atom-text-editor": []
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "molecule-dev-environment",
+          "submenu": []
+        }
+      ]
+    }
+  ]
+}

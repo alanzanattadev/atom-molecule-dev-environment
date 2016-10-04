@@ -1,0 +1,8 @@
+'use babel'
+// @flow
+
+export type DevTool = {
+  id: string,
+  name: string,
+  iconUri: string
+};

@@ -1,0 +1,12 @@
+'use babel'
+// @flow
+
+import type {ConfigSchemaPart} from "../../TargetConfigurationFeature/Types/types.js.flow";
+
+export type ProvidedDevTool = {
+  infos: {
+    name: string,
+    iconUri: string,
+  },
+  configSchema: ConfigSchemaPart
+};

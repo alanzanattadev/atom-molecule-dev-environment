@@ -1,0 +1,64 @@
+'use babel'
+// @flow
+
+import type {DevToolTargetConfig} from "../../../types";
+
+type ConfigSchemaPartBase = {
+  title?: string,
+  description?: string,
+};
+
+type ObjectConfigSchema = {
+  type: 'object',
+  default: Object,
+  schemas: {[key: string]: ConfigSchemaPart}
+};
+
+type ArrayConfigSchema = {
+  type: 'array',
+  default: ConfigSchemaPart,
+  items: ConfigSchemaPart,
+};
+
+type StringConfigSchema = {
+  type: 'string',
+  default: string,
+  placeholder?: string,
+};
+
+type BooleanConfigSchema = {
+  type: 'boolean',
+  default: boolean,
+};
+
+type NumberConfigSchema = {
+  type: 'number',
+  default: number,
+  placeholder?: string,
+};
+
+type ConditionalConfigSchema<T> = {
+  type: 'conditional',
+  default: T,
+  expression: T,
+  cases: {[key: T]: ConfigSchemaPart}
+}
+
+type EnumConfigSchema = {
+  type: 'enum',
+  default: DevToolTargetConfig,
+  enum: Array<{value: mixed, description: string}>,
+};
+
+export type ConfigSchemaPart = ConfigSchemaPartBase &
+                                (ArrayConfigSchema | StringConfigSchema | BooleanConfigSchema | NumberConfigSchema | EnumConfigSchema | ObjectConfigSchema | ConditionalConfigSchema<mixed>);
+
+export type DevToolInfos = {
+  id: string,
+  name: string,
+  iconUri: string,
+}
+
+export type DevToolTargetConfigSchema = ConfigSchemaPart & {tool: DevToolInfos};
+
+export type TargetConfig = {tool: DevToolInfos, config: mixed, pinned: boolean, name: string};
