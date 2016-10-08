@@ -2,7 +2,7 @@
 // @flow
 import type {DevToolInfos} from "../../TargetConfigurationFeature/Types/types.js.flow";
 
-export type TaskState = "created" | "running" | "finished" | "crashed";
+export type TaskState = "created" | "running" | "stopped" | "crashed" | "succeed" | "failed";
 
 export type Task = {
   id: string,
@@ -11,6 +11,8 @@ export type Task = {
     tool: DevToolInfos
   },
   state: TaskState,
+  debut: number, // Date's timestamp
+  end?: number // Date's timestamp
 };
 
 export type Process = mixed;
