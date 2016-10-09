@@ -3,9 +3,11 @@
 import type {DevToolsInfosReducer} from "../ExecutionControlEpic/DevToolsSummaryFeature/Reducers/DevToolsInfos";
 import type {TargetConfigSchemasReducer} from "../ExecutionControlEpic/TargetConfigurationFeature/Reducers/TargetConfigSchemas";
 import type {TargetConfigsReducer} from "../ExecutionControlEpic/TargetConfigurationFeature/Reducers/TargetConfigs";
+import type {TasksReducer} from "../ExecutionControlEpic/TaskExecutionFeature/Reducers/Tasks";
 
 export type State = {
   devtools: DevToolsInfosReducer,
   targets: TargetConfigsReducer,
-  targetConfigSchemas: TargetConfigSchemasReducer
+  targetConfigSchemas: TargetConfigSchemasReducer,
+  tasks: TasksReducer,
 };
