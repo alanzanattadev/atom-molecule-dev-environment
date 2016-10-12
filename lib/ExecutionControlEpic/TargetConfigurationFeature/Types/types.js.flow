@@ -47,11 +47,11 @@ type ConditionalConfigSchema<T> = {
 type EnumConfigSchema = {
   type: 'enum',
   default: DevToolTargetConfig,
-  enum: Array<{value: mixed, description: string}>,
+  enum: Array<{value: any, description: string}>,
 };
 
 export type ConfigSchemaPart = ConfigSchemaPartBase &
-                                (ArrayConfigSchema | StringConfigSchema | BooleanConfigSchema | NumberConfigSchema | EnumConfigSchema | ObjectConfigSchema | ConditionalConfigSchema<mixed>);
+                                (ArrayConfigSchema | StringConfigSchema | BooleanConfigSchema | NumberConfigSchema | EnumConfigSchema | ObjectConfigSchema | ConditionalConfigSchema<any>);
 
 export type DevToolInfos = {
   id: string,
@@ -61,4 +61,4 @@ export type DevToolInfos = {
 
 export type DevToolTargetConfigSchema = ConfigSchemaPart & {tool: DevToolInfos};
 
-export type TargetConfig = {tool: DevToolInfos, config: mixed, pinned: boolean, name: string};
+export type TargetConfig = {tool: DevToolInfos, config: any, pinned?: boolean, name?: string};

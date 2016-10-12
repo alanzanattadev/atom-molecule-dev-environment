@@ -10,12 +10,13 @@ export type Task = {
     config: mixed,
     tool: DevToolInfos
   },
+  strategy: Strategy,
   state: TaskState,
   debut: number, // Date's timestamp
   end?: number // Date's timestamp
 };
 
-export type Process = mixed;
+export type Process = child_process$ChildProcess;
 
 export type TaskExecution = {
   task: Task,
@@ -25,5 +26,14 @@ export type TaskExecution = {
 export type TaskManager = {
   executions: Array<TaskExecution>
 };
+
+export type Strategy = {
+  type: string
+} & any;
+
+export type Controller = any;
+
+export type StrategyRunner = (strategy: Strategy, controller: Controller) => Process;
+export type StagerRunner = (strategy: Strategy, controller: Controller) => ?Process;
 
 export type {DevToolInfos};

@@ -2,11 +2,15 @@
 // @flow
 
 import type {ConfigSchemaPart} from "../../TargetConfigurationFeature/Types/types.js.flow";
+import type {Strategy, Controller} from "../../TaskExecutionFeature/Types/types.js.flow";
+import type {TargetConfig} from "../../TargetConfigurationFeature/Types/types.js.flow";
 
 export type ProvidedDevTool = {
   infos: {
+    id?: string,
     name: string,
     iconUri: string,
   },
-  configSchema: ConfigSchemaPart
+  configSchema: ConfigSchemaPart,
+  getStrategyForTarget(target: TargetConfig): {strategy: Strategy, controller: Controller}
 };
