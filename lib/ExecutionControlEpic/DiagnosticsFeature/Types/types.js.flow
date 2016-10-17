@@ -1,0 +1,4 @@
+'use babel'
+// @flow
+
+export type DiagnosticType = 'error' | 'warning' | 'success' | 'info';
