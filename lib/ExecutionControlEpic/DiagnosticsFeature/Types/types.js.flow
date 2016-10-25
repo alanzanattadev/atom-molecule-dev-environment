@@ -2,3 +2,8 @@
 // @flow
 
 export type DiagnosticType = 'error' | 'warning' | 'success' | 'info';
+
+export type Diagnostic = {
+  type: DiagnosticType,
+  message: string
+};
