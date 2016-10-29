@@ -25,3 +25,8 @@ strategy: (Payload of execution, determined by plugin)
   - http (request infos in params)
 
 controller: (Binding between strategies and stagers)
+
+filters:
+  - project (group of apps)
+  - package (app)
+  - working set (feature)

@@ -6,3 +6,10 @@ export type DevTool = {
   name: string,
   iconUri: string
 };
+
+export type DevToolWithDiagnostics = DevTool & {
+  errors: number,
+  successes: number,
+  warnings: number,
+  infos: number,
+};

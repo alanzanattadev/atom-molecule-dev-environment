@@ -1,9 +1,13 @@
 'use babel'
 // @flow
 
+import type {Task} from "../../TaskExecutionFeature/Types/types.js";
+
 export type DiagnosticType = 'error' | 'warning' | 'success' | 'info';
 
 export type Diagnostic = {
   type: DiagnosticType,
-  message: string
+  message: string,
+  date?: number,
+  task?: string
 };
