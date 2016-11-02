@@ -4,6 +4,7 @@
 import type {ConfigSchemaPart} from "../../TargetConfigurationFeature/Types/types.js.flow";
 import type {Strategy, Controller} from "../../TaskExecutionFeature/Types/types.js.flow";
 import type {TargetConfig} from "../../TargetConfigurationFeature/Types/types.js.flow";
+import type {Diagnostic} from "../../DiagnosticsFeature/Types/types.js";
 
 export type ProvidedDevTool = {
   infos: {
@@ -13,4 +14,8 @@ export type ProvidedDevTool = {
   },
   configSchema: ConfigSchemaPart,
   getStrategyForTarget(target: TargetConfig): {strategy: Strategy, controller: Controller}
+};
+
+export type TaskAPI = {
+  addDiagnostics: (diagnostics: Array<Diagnostic>) => void,
 };
