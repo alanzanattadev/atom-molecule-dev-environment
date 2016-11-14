@@ -59,6 +59,58 @@ export type DevToolInfos = {
   iconUri: string,
 }
 
+export type SSHConfigSchema = {
+  type: 'object',
+  schemas: {
+    username: {
+      type: 'string',
+      default: '',
+      title: 'username'
+    },
+    privateKeyPath: {
+      type: 'string',
+      default: '',
+      title: 'key path'
+    }
+  }
+};
+
+export type SSHConfig = {
+  username: string,
+  privateKeyPath: string,
+}
+
+export type HostConfigSchema = {
+  type: 'object',
+  schemas: {
+    host: {
+      type: 'string',
+      default: '',
+      title: 'host'
+    },
+    port: {
+      type: 'number',
+      default: 22,
+      title: 'port'
+    }
+  }
+};
+
+export type HostConfig = {
+  host: string,
+  port: number,
+  transport: SSHConfig,
+};
+
+export type Stager = {
+  type: 'integrated'
+} | {
+  type: 'local'
+} | {
+  type: 'remote',
+  host: HostConfig
+};
+
 export type DevToolTargetConfigSchema = ConfigSchemaPart & {tool: DevToolInfos};
 
-export type TargetConfig = {tool: DevToolInfos, config: any, pinned?: boolean, name?: string};
+export type TargetConfig = {tool: DevToolInfos, config: any, pinned?: boolean, name?: string, stager: Stager};
