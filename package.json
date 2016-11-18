@@ -26,6 +26,7 @@
     "react-motion": "^0.4.5",
     "react-redux": "^4.4.5",
     "redux-thunk": "^2.1.0",
+    "ssh2": "^0.5.4",
     "tree-kill": "^1.1.0"
   },
   "devDependencies": {
