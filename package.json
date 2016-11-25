@@ -15,10 +15,12 @@
   },
   "dependencies": {
     "ansi-to-html": "^0.4.2",
+    "autoprefixer": "^6.4.1",
     "babel-plugin-react-for-atom": "github:alanzanattadev/babel-plugin-react-for-atom",
     "babel-register": "^6.18.0",
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
+    "inline-style-prefixer": "^2.0.1",
     "moment": "^2.15.1",
     "radium": "^0.18.1",
     "react-for-atom": "^15.3.1-0",
