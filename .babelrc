@@ -2,10 +2,10 @@
   "presets": ["es2015", "react"],
   "env": {
     "development": {
-      "plugins": ["react-for-atom"],
+      "plugins": ["react-for-atom", "glamor/babel"],
     },
     "production": {
-      "plugins": ["react-for-atom"],
+      "plugins": ["react-for-atom", "glamor/babel"],
     },
     "process": {
       "plugins": []
