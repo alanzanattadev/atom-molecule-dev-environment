@@ -5,6 +5,7 @@ import type {TargetConfigSchemasReducer} from "../ExecutionControlEpic/TargetCon
 import type {TargetConfigsReducer} from "../ExecutionControlEpic/TargetConfigurationFeature/Reducers/TargetConfigs";
 import type {TasksReducer} from "../ExecutionControlEpic/TaskExecutionFeature/Reducers/Tasks";
 import type {DiagnosticsReducer} from "../ExecutionControlEpic/DiagnosticsFeature/Reducers/Diagnostics";
+import type {GitIndexReducer} from "../VersionningEpic/CommitFeature/Reducers/GitIndex";
 
 export type State = {
   devtools: DevToolsInfosReducer,
@@ -12,4 +13,5 @@ export type State = {
   targetConfigSchemas: TargetConfigSchemasReducer,
   tasks: TasksReducer,
   diagnostics: DiagnosticsReducer,
+  gitIndex: GitIndexReducer,
 };
