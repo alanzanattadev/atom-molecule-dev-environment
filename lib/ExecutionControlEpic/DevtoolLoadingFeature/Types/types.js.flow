@@ -5,6 +5,7 @@ import type {ConfigSchemaPart} from "../../TargetConfigurationFeature/Types/type
 import type {Strategy, Controller} from "../../TaskExecutionFeature/Types/types.js.flow";
 import type {TargetConfig} from "../../TargetConfigurationFeature/Types/types.js.flow";
 import type {Diagnostic} from "../../DiagnosticsFeature/Types/types.js";
+import type {PackageTester} from '../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow';
 
 export type ProvidedDevTool = {
   infos: {
@@ -13,7 +14,8 @@ export type ProvidedDevTool = {
     iconUri: string,
   },
   configSchema: ConfigSchemaPart,
-  getStrategyForTarget(target: TargetConfig): {strategy: Strategy, controller: Controller}
+  getStrategyForTarget(target: TargetConfig): {strategy: Strategy, controller: Controller},
+  isPackage: PackageTester,
 };
 
 export type TaskAPI = {

@@ -7,6 +7,7 @@ import type {TasksReducer} from "../ExecutionControlEpic/TaskExecutionFeature/Re
 import type {DiagnosticsReducer} from "../ExecutionControlEpic/DiagnosticsFeature/Reducers/Diagnostics";
 import type {GitIndexReducer} from "../VersionningEpic/CommitFeature/Reducers/GitIndex";
 import type {StashesReducer} from "../VersionningEpic/StashFeature/Reducers/Stashes";
+import type {PackagesReducer} from '../ProjectSystemEpic/PackageFeature/Reducers/Packages';
 
 export type State = {
   devtools: DevToolsInfosReducer,
@@ -16,4 +17,5 @@ export type State = {
   diagnostics: DiagnosticsReducer,
   gitIndex: GitIndexReducer,
   stashes: StashesReducer,
+  packages: PackagesReducer,
 };

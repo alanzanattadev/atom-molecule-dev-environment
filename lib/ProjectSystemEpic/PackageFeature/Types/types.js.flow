@@ -2,9 +2,11 @@
 // @flow
 import type {DevTool} from '../../../ExecutionControlEpic/DevToolsSummaryFeature/Types/types.js.flow';
 
+export type PackageTester = RegExp | string | (file: string, directory: ?Directory) => (boolean | Package);
+
 export type Plugin = {
   tool: DevTool,
-  isPackage: RegExp | string | (file: string, directory: ?Directory) => (boolean | Package),
+  isPackage: PackageTester,
 };
 
 export type Directory = {
@@ -12,9 +14,12 @@ export type Directory = {
   files: Array<string | Directory>
 }
 
-export type Package = {
+export type PackageInfos = {
   name: string,
   path: string,
-  plugin: Plugin,
   type: "file" | "directory",
+}
+
+export type Package = PackageInfos & {
+  plugin: Plugin,
 };

@@ -2,6 +2,7 @@
 // @flow
 
 import type {DevToolTargetConfig} from "../../../types";
+import type {PackageInfos} from '../../../ProjectSystemEpic/PackageFeature/Types/types.js';
 
 type ConfigSchemaPartBase = {
   title?: string,
@@ -113,4 +114,4 @@ export type Stager = {
 
 export type DevToolTargetConfigSchema = ConfigSchemaPart & {tool: DevToolInfos};
 
-export type TargetConfig = {tool: DevToolInfos, config: any, pinned?: boolean, name?: string, stager: Stager};
+export type TargetConfig = {tool: DevToolInfos, config: any, pinned?: boolean, name?: string, stager: Stager, packageInfos: PackageInfos};
