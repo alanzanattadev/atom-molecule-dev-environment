@@ -1,0 +1,20 @@
+'use babel'
+// @flow
+import type {DevTool} from '../../../ExecutionControlEpic/DevToolsSummaryFeature/Types/types.js.flow';
+
+export type Plugin = {
+  tool: DevTool,
+  isPackage: RegExp | string | (file: string, directory: ?Directory) => (boolean | Package),
+};
+
+export type Directory = {
+  name: string,
+  files: Array<string | Directory>
+}
+
+export type Package = {
+  name: string,
+  path: string,
+  plugin: Plugin,
+  type: "file" | "directory",
+};
