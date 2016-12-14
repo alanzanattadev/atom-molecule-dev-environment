@@ -2,7 +2,7 @@
 // @flow
 
 import type {DevToolTargetConfig} from "../../../types";
-import type {PackageInfos} from '../../../ProjectSystemEpic/PackageFeature/Types/types.js';
+import type {PackageInfos} from '../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow';
 
 type ConfigSchemaPartBase = {
   title?: string,
