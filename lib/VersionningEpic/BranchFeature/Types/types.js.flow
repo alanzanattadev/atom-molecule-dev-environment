@@ -1,0 +1,12 @@
+'use babel'
+// @flow
+
+export type Branch = {
+  name: string,
+  current: boolean,
+  remote: ?Remote,
+}
+
+export type Remote = {
+  name: string,
+}

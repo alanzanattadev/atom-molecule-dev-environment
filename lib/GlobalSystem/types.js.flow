@@ -8,6 +8,8 @@ import type {DiagnosticsReducer} from "../ExecutionControlEpic/DiagnosticsFeatur
 import type {GitIndexReducer} from "../VersionningEpic/CommitFeature/Reducers/GitIndex";
 import type {StashesReducer} from "../VersionningEpic/StashFeature/Reducers/Stashes";
 import type {PackagesReducer} from '../ProjectSystemEpic/PackageFeature/Reducers/Packages';
+import type {Remotes} from '../VersionningEpic/BranchFeature/Reducers/Remotes';
+import type {Branches} from '../VersionningEpic/BranchFeature/Reducers/Branches';
 
 export type State = {
   devtools: DevToolsInfosReducer,
@@ -18,4 +20,6 @@ export type State = {
   gitIndex: GitIndexReducer,
   stashes: StashesReducer,
   packages: PackagesReducer,
+  remotes: RemotesReducer,
+  branches: BranchesReducer,
 };
