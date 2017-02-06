@@ -1,0 +1,382 @@
+# Integration API: Documentation
+**If you didn't read the README.md do it before going any further.**
+
+You must export as an object every information that is asked in the sections below.
+The final result of the integration must look like:
+
+    export default {
+      infos: {
+        ...
+      },
+      configSchema: {
+        ...
+      },
+      getStrategyForTarget(target: TargetConfig) {
+        ...
+         return {
+           strategy: {
+             ...
+           },
+           controller: {
+             onStdoutData(data: string, taskAPI: TaskAPI): void {
+               ...
+             },
+             onStderrData(data: string, taskAPI: TaskAPI): void {
+               ...
+             },
+             onExit(code: number, taskAPI: TaskAPI): void {
+               ...
+             },
+             onError(err: any, taskAPI: TaskAPI): void {
+               ...
+             }
+           }
+         };
+      },
+      isPackage: ...
+    };
+
+
+
+## Requirements
+
+First of all, add your *js* file in the **lib/ExecutionControlEpic/Plugins/** directory.
+
+Then add the following imports to your file:
+
+    import type {TargetConfig} from "../TargetConfigurationFeature/Types/types.js.flow";
+    import type {TaskAPI} from "../DevtoolLoadingFeature/Types/types.js";
+    import ansiToHtml from 'ansi-to-html';
+    import moment from 'moment';
+    import path from 'path';
+
+>Don't worry about them for now, we'll use them in a couple of steps.
+
+Of course don't forget to *export default* your object, like:
+
+    export default {
+    };
+
+>Note that every object you will create in the next steps has to be inside the *export default*
+
+Now you can go on the following sections !
+
+## Infos
+
+First, you'll have to create an **infos** object that has only 2 attributes:
+
+* **name**: the name of the tool
+* **iconUri**: the uri pointing to the icon of the tool (which should be in *atom://molecule-dev-environment/.storybook/public/tool-name.png*)
+
+For exemple:
+
+    infos: {
+      name: 'docker',
+      iconUri: 'atom://molecule-dev-environment/.storybook/public/devtool-icon-docker.png'
+    }
+
+
+
+## ConfigSchema
+
+This section is very important, you are going to define the way a user can create a target for a better use of your tool.
+
+---
+>Here is an example of the creation of a target:
+
+>![NPM tool target creation base](./Target-creation-base.png)
+
+>**MUST READ**: The *name* box is a default one, it will be the name of your target once created. The last 2 boxes before the *Create* button are also default ones:
+>They allow the user to chose the package in which the target will be executed and whether the package is **integrated** to Atom OR to be executed **locally** on the user's machine OR to be executed **remotely** on another machine.
+
+>![NPM tool target creation](./Target-creation.png)
+
+>This is the **npm** tool target configuration. As you can see, only the 2 circled boxes are required for npm to create a target:
+* action (= run/start/test)
+* script (= name of the script)
+
+>They are defined by the following configSchema:
+>```
+configSchema: {
+  type: 'conditional',
+  expression: {
+    type: 'enum',
+    enum: [
+      {value: 'run', description: 'run'},
+      {value: 'start', description: 'start'},
+      {value: 'test', description: 'test'}
+    ]
+  },
+  cases: {
+    run: {
+      type: 'string',
+      default: '',
+      title: 'script',
+      placeholder: 'script'
+    },
+    start: null,
+    test: null
+  }
+},
+```
+Note that a configSchema is the (only) way of Molecule to ask the user for input. So make sure to collect every user-related data you need in order to execute your tool properly in those configSchemas.
+
+---
+
+A **configSchema** can be divided in several **configSchemaParts**, and every part shares a basis composed of 4 attributes:
+* **type** : the type of the config part.
+* **default** : the default value of the corresponding type.
+* **title** : depending on the type declared beforehand, a title will generally be displayed as a 'label' of the element (see the example above).
+* **description** : depending on the type declared beforehand, a description will be adding details after the title.
+
+First, here are the available types (and their attributes) for your tool's configSchema:
+
+* **string** : asks the user for input as a string (= input box).
+  * *placeholder* - a hint inside the input box (optional)
+
+>Example:
+```
+type: 'string',
+default: '',
+title: 'script',
+placeholder: 'Script name'
+```
+---
+
+* **number** : asks the user for input as a number (= input box).
+  * *placeholder* - a hint inside the input box (optional)
+
+>Example:
+```
+type: 'number',
+default: '80',
+title: 'port',
+placeholder: 'Port number'
+```
+---
+
+* **boolean** : asks the user for a true/false input (= check box).
+
+>Example:
+```
+type: 'boolean',
+default: 'true',
+title: 'Enable potato mode'
+```
+---
+
+* **object** : the object type allows you to create your own schema through the *schemas* attribute.
+  * *schemas* - a schema is a configSchemaPart associated with a key. An object can contain mutliple schemas.
+
+>Example:
+```
+type: 'object',
+schemas: {
+  image: {
+    type: 'string',
+    default: '',
+    placeholder: 'ex: ubuntu'
+  },
+  port: {
+    type: 'number',
+    default: '80',
+    title: 'port',
+    placeholder: 'Port number'
+  }
+}
+```
+---
+
+* **array** : this type enables the possibility for the user to generate (0 to n) items defined in the *items* attribute. (Thanks to a '+' button)
+  * *items* - an item is a **configSchemaPart** which will appear when the '+' button is clicked
+
+>Example:
+```
+type: 'array',
+default: [],
+items: {
+  type: 'object',
+  schemas: {
+    image: {
+      type: 'string',
+      default: '',
+      placeholder: 'ex: ubuntu'
+    },
+    port: {
+      type: 'number',
+      default: '80',
+      title: 'port',
+      placeholder: 'Port number'
+    }
+  }
+}
+```
+---
+
+* **enum** : this type allows you to declare an array of elements from which the user can chose using a drop-down menu. (generally used with **conditional** as the *expression*)
+  * *enum* - it is an array of mixed elements having 2 attributes:
+    * value : equivalent to a *key*, code-related value
+    * description : the caption displayed in the drop-down menu
+
+>Example:
+```
+type: 'enum',
+enum: [
+  {value: 'local', description: 'Local'},
+  {value: 'global', description: 'Global'}
+]
+```
+---
+
+* **conditional** : this type allows you to create different configSchemaParts depending on the *expression* input. Think of it as a switch function.
+  * *expression* - ask the user for input using one of the above types
+  * *cases* - for each value declared in the *expression* attribute, another configSchemaPart is expected
+
+>Example:
+```
+type: 'conditional',
+expression: {
+  type: 'enum',
+  enum: [
+    {value: 'local', description: 'Local'},
+    {value: 'global', description: 'Global'}
+  ]
+},
+cases: {
+  local: {
+    type: 'string',
+    default: '',
+    title: 'cmd',
+    placeholder: 'Shell command'
+  },
+  global: {
+    type: 'number',
+    default: '0',
+    title: 'iterations',
+    placeholder: 'Number of iterations'
+  }
+}
+```
+---
+
+
+## Target Strategy
+
+This is the part where you get to use the imports you previously added to your file. Make sure you didn't forget those [imports](#requirements), and then add the **getStrategyForTarget(target: TargetConfig)** function as in:
+
+```
+export default {
+  infos: {
+    [tool infos]
+  },
+  configSchema: {
+    [tool configSchema]
+  },
+  getStrategyForTarget(target: TargetConfig) {
+    /* TO-DO */
+  }
+};
+```
+
+This function will contain the content of the notifications you are going to provide to the user through the bottom dock of Molecule.
+
+To get started, know that this function has to return an object composed of two objects: **strategy** and **controller** like
+```
+getStrategyForTarget(target: TargetConfig) {
+  /* You're free to do whatever operations you need to
+  in order to be ready to pass informations through the return */
+  ...
+   return {
+     strategy: {
+       ...
+     },
+     controller: {
+       ...
+     }
+   };
+ }
+```
+
+Here is a description of the content of those two:
+* **strategy** : the way you are going to execute your tool
+  * **type** - the type of the process, it can be 'shell' or 'node'
+  * **command** - the command you want to run
+  * **cwd** - the directory from which the command will be executed
+
+>Example:
+```
+strategy: {
+  type: 'shell',
+  command: `${binaryPath} ${target.config.task}`,
+  cwd: path.dirname(target.packageInfos.path),
+}
+```
+> The **path** import is used so we can properly set the directory in which the command will be executed.
+
+---
+
+
+* **controller** : the controller provides you 4 functions in which you will be able to add diagnostics to the bottom dock of Molecule, you will have to use the **addDiagnostics()** function through the taskAPI
+  * **onStdoutData(data: string, taskAPI: TaskAPI): void** - function called if your tool communicates through STDOUT
+  * **onStderrData(data: string, taskAPI: TaskAPI): void** - function called if your tool communicates through STDERR
+  * **onExit(code: number, taskAPI: TaskAPI): void** - function called on the tool's exit
+  * **onError(err: any, taskAPI: TaskAPI): void** - function called if the command executed in **strategy** fails
+
+>Example:
+```
+controller: {
+  onStdoutData(data: string, taskAPI: TaskAPI): void {
+    let Convert = new ansiToHtml();
+    taskAPI.addDiagnostics([{
+      type: "info",
+      message: Convert.toHtml(data.toString()),
+      date: moment().unix(),
+    }]);
+  },
+  onStderrData(data: string, taskAPI: TaskAPI): void {
+    let Convert = new ansiToHtml();
+    taskAPI.addDiagnostics([{
+      type: "error",
+      message: Convert.toHtml(data.toString()),
+      date: moment().unix(),
+    }]);
+  },
+  onExit(code: number, taskAPI: TaskAPI): void {
+    if (code == -42) {
+      taskAPI.addDiagnostics([{
+        type: "error",
+        message: Convert.toHtml(code.toString()),
+        date: moment().unix(),
+      }]);
+    }
+  },
+  onError(err: any, taskAPI: TaskAPI): void {
+    let Convert = new ansiToHtml();
+    taskAPI.addDiagnostics([{
+      type: "error",
+      message: Convert.toHtml(err.toString()),
+      date: moment().unix(),
+    }]);
+  }
+}
+```
+>The **ansiToHtml** import is used so we can convert the **data** string to a displayable HTML element.
+The **moment** import is used so we can associate a time to the data.
+
+---
+
+## Package definition
+
+Last but not least, add a **isPackage** object. This will define the way your tool can identify packages and so operate on the proper projects.
+>By default any tool should consider 'package.json' a viable project.
+
+The **isPackage** object can recieve several type of variables: function, string or regexp.
+
+>Example:
+```
+isPackage: (packagePath, dirname) =>
+ path.basename(packagePath).indexOf("jest.config") != -1 ||
+ path.basename(packagePath).indexOf(".jest.") != -1 ||
+ path.basename(packagePath) == 'package.json',
+```
+---
