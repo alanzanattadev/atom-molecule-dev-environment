@@ -3,6 +3,7 @@
 // See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
 // for a full listing of what's available.
 @import "ui-variables";
+@import "diagnostic-color";
 
 @font-face {
   font-family: 'Inconsolata';
@@ -19,7 +20,7 @@
 background-color: @pane-item-border-color;
 }
 
-.dev-tool-name-color {
+.text-color-highlight {
 color: @text-color-selected;
 }
 
@@ -29,4 +30,12 @@ background-color: @background-color-selected;
 
 .diagnostics-mode-selector {
 background-color: @button-background-color-selected;
+}
+
+.target-background-color {
+background-color: @button-background-color;
+}
+
+.stash-color {
+
 }
