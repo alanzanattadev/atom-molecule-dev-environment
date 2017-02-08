@@ -385,9 +385,9 @@ controller: {
 
 ## Package definition
 
-Last but not least, add a **isPackage** object. This will define the way your tool can identify packages and so operate on the proper projects.
+Last but not least, add a **isPackage** attribute. This will define the way your tool can identify packages and so operate on the proper projects.
 
->The **isPackage** object can receive several type of value: function, string or regexp.
+>The **isPackage** attribute can receive several type of value: function, string or regexp.
 
 * **function** : if you chose to express your isPackage with a function, note that you will receive two arguments: packagePath & dirname
   * **packagePath** - full path + file name (*ex: /home/toto/projectdir/package.json*)
