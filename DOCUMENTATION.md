@@ -335,7 +335,7 @@ strategy: {
   * **onExit** *(code: number, taskAPI: TaskAPI, helperAPI): void* - function called on the tool's exit
   * **onError** *(err: any, taskAPI: TaskAPI, helperAPI): void* - function called if the command executed in **strategy** fails
 
-As you can see there are two variables you get from each function:
+As you can see there are two APIs you get from each function:
   * **taskAPI** : this is your way of adding notifications to the bottom dock of Molecule, you'll have to go trough the *addDiagnostics* function
     >* **addDiagnostics** - takes an array of *Diagnostics* as parameter, a Diagnostic is an object composed of:
       * **type** - can be 'error', 'warning', 'success' or 'info' (each of them has a different display on the dock)
@@ -387,7 +387,7 @@ controller: {
 
 Last but not least, add a **isPackage** object. This will define the way your tool can identify packages and so operate on the proper projects.
 
->The **isPackage** object can receive several type of variables: function, string or regexp.
+>The **isPackage** object can receive several type of value: function, string or regexp.
 
 * **function** : if you chose to express your isPackage with a function, note that you will receive two arguments: packagePath & dirname
   * **packagePath** - full path + file name (*ex: /home/toto/projectdir/package.json*)
