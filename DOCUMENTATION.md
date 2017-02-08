@@ -46,8 +46,6 @@ Then add the following imports to your file:
 
     import type {TargetConfig} from "../TargetConfigurationFeature/Types/types.js.flow";
     import type {TaskAPI} from "../DevtoolLoadingFeature/Types/types.js";
-    import ansiToHtml from 'ansi-to-html';
-    import moment from 'moment';
     import path from 'path';
 
 >Don't worry about them for now, we'll use them in a couple of steps.
@@ -87,7 +85,10 @@ This section is very important, you are going to define the way a user can creat
 >![NPM tool target creation base](./Target-creation-base.png)
 
 >**MUST READ**: The *name* box is a default one, it will be the name of your target once created. The last 2 boxes before the *Create* button are also default ones:
->They allow the user to chose the package in which the target will be executed and whether the package is **integrated** to Atom OR to be executed **locally** on the user's machine OR to be executed **remotely** on another machine.
+>They allow the user to chose the package in which the target will be executed and how the process will be executed:
+* **integrated** : process as child of atom process
+* **local** : process as child of process launched as child of atom
+* **remote** : process launched on a remote machine
 
 >![NPM tool target creation](./Target-creation.png)
 
@@ -277,10 +278,21 @@ export default {
   }
 };
 ```
+>As you can see you get a **target** variable from the **getStrategyForTarget** function. This variable will provide you the different parameters of the target configuration:
+* the path of the package (through *target.packageInfos.path*)
+* the data of your configSchema (through *target.config*)
+
+>For example, let's say your configSchema is composed of an object containing a boolean type which has as name 'check', this is how you access it:
+>```
+let cmdArgs;
+if (target.config.check) {
+  cmdArgs = '--check-all-files';
+}
+```
 
 This function will contain the content of the notifications you are going to provide to the user through the bottom dock of Molecule.
 
-To get started, know that this function has to return an object composed of two objects: **strategy** and **controller** like
+To get started, know that this function has to return an object composed of two objects: **strategy** and **controller** like:
 ```
 getStrategyForTarget(target: TargetConfig) {
   /* You're free to do whatever operations you need to
@@ -300,7 +312,8 @@ getStrategyForTarget(target: TargetConfig) {
 Here is a description of the content of those two:
 * **strategy** : the way you are going to execute your tool
   * **type** - the type of the process, it can be 'shell' or 'node'
-  * **command** - the command you want to run
+    * **shell** - if the shell type is selected, you must set the **command** variable with the command you want to execute through shell
+    * **node** - if the node type is selected, you must set the **path** variable with the path to the script you want to execute
   * **cwd** - the directory from which the command will be executed
 
 >Example:
@@ -317,60 +330,68 @@ strategy: {
 
 
 * **controller** : the controller provides you 4 functions in which you will be able to add diagnostics to the bottom dock of Molecule, you will have to use the **addDiagnostics()** function through the taskAPI
-  * **onStdoutData(data: string, taskAPI: TaskAPI): void** - function called if your tool communicates through STDOUT
-  * **onStderrData(data: string, taskAPI: TaskAPI): void** - function called if your tool communicates through STDERR
-  * **onExit(code: number, taskAPI: TaskAPI): void** - function called on the tool's exit
-  * **onError(err: any, taskAPI: TaskAPI): void** - function called if the command executed in **strategy** fails
+  * **onStdoutData** *(data: string, taskAPI: TaskAPI, helperAPI): void* - function called if your tool communicates through STDOUT
+  * **onStderrData** *(data: string, taskAPI: TaskAPI, helperAPI): void* - function called if your tool communicates through STDERR
+  * **onExit** *(code: number, taskAPI: TaskAPI, helperAPI): void* - function called on the tool's exit
+  * **onError** *(err: any, taskAPI: TaskAPI, helperAPI): void* - function called if the command executed in **strategy** fails
+
+As you can see there are two variables you get from each function:
+  * **taskAPI** : this is your way of adding notifications to the bottom dock of Molecule, you'll have to go trough the *addDiagnostics* function
+    >* **addDiagnostics** - takes an array of *Diagnostics* as parameter, a Diagnostic is an object composed of:
+      * **type** - can be 'error', 'warning', 'success' or 'info' (each of them has a different display on the dock)
+      * **message** - the message you want to display as logs
+      * **date** - the date associated with the message
+
+  * **helperAPI** : its only use (for now) is through the *outputToHTML* function, as it transforms a string into a displayable HTML element
 
 >Example:
 ```
 controller: {
-  onStdoutData(data: string, taskAPI: TaskAPI): void {
-    let Convert = new ansiToHtml();
+  onStdoutData(data: string, taskAPI: TaskAPI, helperAPI): void {
     taskAPI.addDiagnostics([{
       type: "info",
-      message: Convert.toHtml(data.toString()),
+      message: helperAPI.outputToHTML(data.toString()),
       date: moment().unix(),
     }]);
   },
-  onStderrData(data: string, taskAPI: TaskAPI): void {
-    let Convert = new ansiToHtml();
+  onStderrData(data: string, taskAPI: TaskAPI, helperAPI): void {
     taskAPI.addDiagnostics([{
       type: "error",
-      message: Convert.toHtml(data.toString()),
+      message: helperAPI.outputToHTML(data.toString()),
       date: moment().unix(),
     }]);
   },
-  onExit(code: number, taskAPI: TaskAPI): void {
+  onExit(code: number, taskAPI: TaskAPI, helperAPI): void {
     if (code == -42) {
       taskAPI.addDiagnostics([{
         type: "error",
-        message: Convert.toHtml(code.toString()),
+        message: helperAPI.outputToHTML(code.toString()),
         date: moment().unix(),
       }]);
     }
   },
-  onError(err: any, taskAPI: TaskAPI): void {
-    let Convert = new ansiToHtml();
+  onError(err: any, taskAPI: TaskAPI, helperAPI): void {
     taskAPI.addDiagnostics([{
       type: "error",
-      message: Convert.toHtml(err.toString()),
+      message: helperAPI.outputToHTML(err.toString()),
       date: moment().unix(),
     }]);
   }
 }
 ```
->The **ansiToHtml** import is used so we can convert the **data** string to a displayable HTML element.
-The **moment** import is used so we can associate a time to the data.
+>The **moment** import is used to associate a time to a the logs.
 
 ---
 
 ## Package definition
 
 Last but not least, add a **isPackage** object. This will define the way your tool can identify packages and so operate on the proper projects.
->By default any tool should consider 'package.json' a viable project.
 
-The **isPackage** object can recieve several type of variables: function, string or regexp.
+>The **isPackage** object can receive several type of variables: function, string or regexp.
+
+* **function** : if you chose to express your isPackage with a function, note that you will receive two arguments: packagePath & dirname
+  * **packagePath** - full path + file name (*ex: /home/toto/projectdir/package.json*)
+  * **dirname** - it is an object containing the *name* of the current tested directory and an array *files* of all the files contained in it
 
 >Example:
 ```
@@ -378,5 +399,21 @@ isPackage: (packagePath, dirname) =>
  path.basename(packagePath).indexOf("jest.config") != -1 ||
  path.basename(packagePath).indexOf(".jest.") != -1 ||
  path.basename(packagePath) == 'package.json',
+```
+---
+
+* **string** : the string is the name of the file describing your package, plain and simple
+
+>Example:
+```
+isPackage: 'package.json'
+```
+---
+
+* **regexp** : the regexp will be tested against the full path followed by the file name (ex: */home/toto/projectdir/package.json*)
+
+>Example:
+```
+isPackage: /gulpfile|gruntfile)\.js/
 ```
 ---
