@@ -9,5 +9,6 @@ export type Diagnostic = {
   type: DiagnosticType,
   message: string,
   date?: number,
+  step: number,
   task?: string
 };

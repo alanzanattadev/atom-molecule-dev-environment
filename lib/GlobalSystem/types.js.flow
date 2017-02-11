@@ -10,6 +10,7 @@ import type {StashesReducer} from "../VersionningEpic/StashFeature/Reducers/Stas
 import type {PackagesReducer} from '../ProjectSystemEpic/PackageFeature/Reducers/Packages';
 import type {Remotes} from '../VersionningEpic/BranchFeature/Reducers/Remotes';
 import type {Branches} from '../VersionningEpic/BranchFeature/Reducers/Branches';
+import type {CacheBlobsReducer} from '../ExecutionControlEpic/CacheSystemFeature/Reducers/CacheBlobs';
 
 export type State = {
   devtools: DevToolsInfosReducer,
@@ -22,4 +23,5 @@ export type State = {
   packages: PackagesReducer,
   remotes: RemotesReducer,
   branches: BranchesReducer,
+  cacheBlobs: CacheBlobsReducer,
 };

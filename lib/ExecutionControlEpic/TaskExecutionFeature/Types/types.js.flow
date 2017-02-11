@@ -12,6 +12,7 @@ export type Task = {
   },
   strategy: Strategy,
   state: TaskState,
+  step: 0,
   debut: number, // Date's timestamp
   end?: number // Date's timestamp
 };
