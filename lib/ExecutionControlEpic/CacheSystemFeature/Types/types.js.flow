@@ -1,0 +1,9 @@
+'use babel'
+// @flow
+
+export type CacheBlob = {
+  taskId: string,
+  step: ?number,
+  data: any,
+  time: number,
+};
