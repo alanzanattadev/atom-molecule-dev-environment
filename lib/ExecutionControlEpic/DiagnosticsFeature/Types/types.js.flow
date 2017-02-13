@@ -5,6 +5,13 @@ import type {Task} from "../../TaskExecutionFeature/Types/types.js.flow";
 
 export type DiagnosticType = 'error' | 'warning' | 'success' | 'info';
 
+export type DiagnosticMessageType = string | {
+  text: string,
+  html: boolean
+} | {
+  data: object
+} | React$Component<any, any, any> | (props: any) => React$Element<any, any, any>;
+
 export type Diagnostic = {
   type: DiagnosticType,
   message: string,

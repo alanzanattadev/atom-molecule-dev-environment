@@ -30,6 +30,7 @@
     "react-image-fallback": "^3.3.0",
     "react-motion": "^0.4.5",
     "react-redux": "^4.4.5",
+    "recompose": "^0.22.0",
     "redux-thunk": "^2.1.0",
     "ssh2": "^0.5.4",
     "tree-kill": "^1.1.0"
