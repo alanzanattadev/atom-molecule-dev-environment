@@ -336,44 +336,59 @@ strategy: {
   * **onError** *(err: any, taskAPI: TaskAPI, helperAPI): void* - function called if the command executed in **strategy** fails
 
 As you can see there are two APIs you get from each function:
-  * **taskAPI** : this is your way of adding notifications to the bottom dock of Molecule, you'll have to go trough the *addDiagnostics* function
-    >* **addDiagnostics** - takes an array of *Diagnostics* as parameter, a Diagnostic is an object composed of:
-      * **type** - can be 'error', 'warning', 'success' or 'info' (each of them has a different display on the dock)
-      * **message** - the message you want to display as logs
+  * **taskAPI** : the main API of Molecule, from which you will be able to store data thanks to our cache system and display your logs through diagnostics
+    * **addDiagnostics** is your way of adding notifications to the bottom dock of Molecule, takes an array of *Diagnostics* as parameter, a Diagnostic is an object composed of:
+      >* **type** - can be 'error', 'warning', 'success' or 'info' (each of them has a different display on the dock)
+      * **message** - the data displayed in the diagnostics panel, different types of data can be passed:
+        * a *string* displayed as a simple text
+        * an *object* as in { text : string, html : boolean } with *text* being the actual message as a string and html a boolean which, if set to true, will display the string as HTML (supports HTML tags)
+        * an *object* as in { data : string } with data being a string which, if filled with JSON, will be displayed as 'beautified' JSON
+        * a *React Component*, it can be a function as well as a class extending 'React.Component'
       * **date** - the date associated with the message
 
-  * **helperAPI** : its only use (for now) is through the *outputToHTML* function, as it transforms a string into a displayable HTML element
+    * **nextStep** is a function that allows your tool to separate your diagnostics during _a single_ Target execution, they will then be separated in 'Steps'
+
+    * **cache** is an object containing an array of data. The **cache** object will provide you with two functions, from which you will be able to store and access data throughout the Target's execution (works with the Stepping System: the **nextStep** function will force you to a new and empty cache):
+      >* **push** takes only one argument : the data you wish to store, it can be of any type. Note that by calling this function several times you are pushing data into an array
+      * **get** will return the array stored in **cache**
+
+  * **helperAPI** : the secondary Molecule API, which will be providing useful elements for integration:
+    * **outputToHTML** transforms a string into a displayable HTML element
+    * **json** is an object which only contains (for now) a **parseAsync** function taking a string as argument, which will be asynchronously parsed through the 'JSON.parse' function thanks to a Promise, and will _then_ be return to you
 
 >Example:
 ```
 controller: {
   onStdoutData(data: string, taskAPI: TaskAPI, helperAPI): void {
-    taskAPI.addDiagnostics([{
-      type: "info",
-      message: helperAPI.outputToHTML(data.toString()),
-      date: moment().unix(),
-    }]);
+    taskAPI.cache.push(data.toString());
   },
   onStderrData(data: string, taskAPI: TaskAPI, helperAPI): void {
     taskAPI.addDiagnostics([{
-      type: "error",
-      message: helperAPI.outputToHTML(data.toString()),
+      type: "warning",
+      message: {
+        text : helperAPI.outputToHTML(data.toString()),
+        html : true,
+      },
       date: moment().unix(),
     }]);
   },
   onExit(code: number, taskAPI: TaskAPI, helperAPI): void {
-    if (code == -42) {
-      taskAPI.addDiagnostics([{
-        type: "error",
-        message: helperAPI.outputToHTML(code.toString()),
+    helperAPI.json.parseAsync(taskAPI.cache.get().map(blob => blob.data).join('')).then((json) => {
+      taskAPI.addDiagnostics(json.logs.map(log => ({
+        type: "info",
+        message: log,
         date: moment().unix(),
-      }]);
-    }
+      })));
+    }).catch(e => {
+      console.log(e);
+    });
   },
   onError(err: any, taskAPI: TaskAPI, helperAPI): void {
     taskAPI.addDiagnostics([{
       type: "error",
-      message: helperAPI.outputToHTML(err.toString()),
+      message: {
+        data : err,
+      },
       date: moment().unix(),
     }]);
   }
