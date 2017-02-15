@@ -15,7 +15,7 @@
 
 ## 21/02/2017
 
-- Partial Targets
+- Partial Plans
 - Refactoring de l'architecture vers atomic design
 - Bug fixs
 
