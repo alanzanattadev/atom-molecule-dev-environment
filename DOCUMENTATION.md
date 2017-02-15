@@ -11,7 +11,7 @@ The final result of the integration must look like:
       configSchema: {
         ...
       },
-      getStrategyForTarget(target: TargetConfig) {
+      getStrategyForPlan(plan: PlanConfig) {
         ...
          return {
            strategy: {
@@ -44,7 +44,7 @@ First of all, add your *js* file in the **lib/ExecutionControlEpic/Plugins/** di
 
 Then add the following imports to your file:
 
-    import type {TargetConfig} from "../TargetConfigurationFeature/Types/types.js.flow";
+    import type {PlanConfig} from "../PlanConfigurationFeature/Types/types.js.flow";
     import type {TaskAPI} from "../DevtoolLoadingFeature/Types/types.js";
     import path from 'path';
 
@@ -77,22 +77,22 @@ For exemple:
 
 ## ConfigSchema
 
-This section is very important, you are going to define the way a user can create a target for a better use of your tool.
+This section is very important, you are going to define the way a user can create a plan for a better use of your tool.
 
 ---
->Here is an example of the creation of a target:
+>Here is an example of the creation of a plan:
 
->![NPM tool target creation base](./Target-creation-base.png)
+>![NPM tool plan creation base](./Plan-creation-base.png)
 
->**MUST READ**: The *name* box is a default one, it will be the name of your target once created. The last 2 boxes before the *Create* button are also default ones:
->They allow the user to chose the package in which the target will be executed and how the process will be executed:
+>**MUST READ**: The *name* box is a default one, it will be the name of your plan once created. The last 2 boxes before the *Create* button are also default ones:
+>They allow the user to chose the package in which the plan will be executed and how the process will be executed:
 * **integrated** : process as child of atom process
 * **local** : process as child of process launched as child of atom
 * **remote** : process launched on a remote machine
 
->![NPM tool target creation](./Target-creation.png)
+>![NPM tool plan creation](./Plan-creation.png)
 
->This is the **npm** tool target configuration. As you can see, only the 2 circled boxes are required for npm to create a target:
+>This is the **npm** tool plan configuration. As you can see, only the 2 circled boxes are required for npm to create a plan:
 * action (= run/start/test)
 * script (= name of the script)
 
@@ -261,9 +261,9 @@ cases: {
 ---
 
 
-## Target Strategy
+## Plan Strategy
 
-This is the part where you get to use the imports you previously added to your file. Make sure you didn't forget those [imports](#requirements), and then add the **getStrategyForTarget(target: TargetConfig)** function as in:
+This is the part where you get to use the imports you previously added to your file. Make sure you didn't forget those [imports](#requirements), and then add the **getStrategyForPlan(plan: PlanConfig)** function as in:
 
 ```
 export default {
@@ -273,19 +273,19 @@ export default {
   configSchema: {
     [tool configSchema]
   },
-  getStrategyForTarget(target: TargetConfig) {
+  getStrategyForPlan(plan: PlanConfig) {
     /* TO-DO */
   }
 };
 ```
->As you can see you get a **target** variable from the **getStrategyForTarget** function. This variable will provide you the different parameters of the target configuration:
-* the path of the package (through *target.packageInfos.path*)
-* the data of your configSchema (through *target.config*)
+>As you can see you get a **plan** variable from the **getStrategyForPlan** function. This variable will provide you the different parameters of the plan configuration:
+* the path of the package (through *plan.packageInfos.path*)
+* the data of your configSchema (through *plan.config*)
 
 >For example, let's say your configSchema is composed of an object containing a boolean type which has as name 'check', this is how you access it:
 >```
 let cmdArgs;
-if (target.config.check) {
+if (plan.config.check) {
   cmdArgs = '--check-all-files';
 }
 ```
@@ -294,7 +294,7 @@ This function will contain the content of the notifications you are going to pro
 
 To get started, know that this function has to return an object composed of two objects: **strategy** and **controller** like:
 ```
-getStrategyForTarget(target: TargetConfig) {
+getStrategyForPlan(plan: PlanConfig) {
   /* You're free to do whatever operations you need to
   in order to be ready to pass informations through the return */
   ...
@@ -320,8 +320,8 @@ Here is a description of the content of those two:
 ```
 strategy: {
   type: 'shell',
-  command: `${binaryPath} ${target.config.task}`,
-  cwd: path.dirname(target.packageInfos.path),
+  command: `${binaryPath} ${plan.config.task}`,
+  cwd: path.dirname(plan.packageInfos.path),
 }
 ```
 > The **path** import is used so we can properly set the directory in which the command will be executed.

@@ -1,8 +1,8 @@
 'use babel'
 // @flow
 import type {DevToolsInfosReducer} from "../ExecutionControlEpic/DevToolsSummaryFeature/Reducers/DevToolsInfos";
-import type {TargetConfigSchemasReducer} from "../ExecutionControlEpic/TargetConfigurationFeature/Reducers/TargetConfigSchemas";
-import type {TargetConfigsReducer} from "../ExecutionControlEpic/TargetConfigurationFeature/Reducers/TargetConfigs";
+import type {PlanConfigSchemasReducer} from "../ExecutionControlEpic/PlanConfigurationFeature/Reducers/PlanConfigSchemas";
+import type {PlanConfigsReducer} from "../ExecutionControlEpic/PlanConfigurationFeature/Reducers/PlanConfigs";
 import type {TasksReducer} from "../ExecutionControlEpic/TaskExecutionFeature/Reducers/Tasks";
 import type {DiagnosticsReducer} from "../ExecutionControlEpic/DiagnosticsFeature/Reducers/Diagnostics";
 import type {GitIndexReducer} from "../VersionningEpic/CommitFeature/Reducers/GitIndex";
@@ -14,8 +14,8 @@ import type {CacheBlobsReducer} from '../ExecutionControlEpic/CacheSystemFeature
 
 export type State = {
   devtools: DevToolsInfosReducer,
-  targets: TargetConfigsReducer,
-  targetConfigSchemas: TargetConfigSchemasReducer,
+  plans: PlanConfigsReducer,
+  planConfigSchemas: PlanConfigSchemasReducer,
   tasks: TasksReducer,
   diagnostics: DiagnosticsReducer,
   gitIndex: GitIndexReducer,
