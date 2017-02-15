@@ -342,15 +342,20 @@ As you can see there are two APIs you get from each function:
       * **message** - the data displayed in the diagnostics panel, different types of data can be passed:
         * a *string* displayed as a simple text
         * an *object* as in { text : string, html : boolean } with *text* being the actual message as a string and html a boolean which, if set to true, will display the string as HTML (supports HTML tags)
-        * an *object* as in { data : string } with data being a string which, if filled with JSON, will be displayed as 'beautified' JSON
+        * an *object* as in { data : object } with data being an object which, if filled with JSON, will be displayed as 'beautified' JSON
         * a *React Component*, it can be a function as well as a class extending 'React.Component'
       * **date** - the date associated with the message
 
-    * **nextStep** is a function that allows your tool to separate your diagnostics during _a single_ Target execution, they will then be separated in 'Steps'
+    * **nextStep** is a function that allows your tool to separate your diagnostics during _a single_ Plan execution, they will then be separated in 'Steps' (1, 2, 3,..)
 
-    * **cache** is an object containing an array of data. The **cache** object will provide you with two functions, from which you will be able to store and access data throughout the Target's execution (works with the Stepping System: the **nextStep** function will force you to a new and empty cache):
-      >* **push** takes only one argument : the data you wish to store, it can be of any type. Note that by calling this function several times you are pushing data into an array
-      * **get** will return the array stored in **cache**
+    * **cache** is an object containing an array of data. The **cache** object will provide you with two functions, from which you will be able to store and access data throughout the Plan's execution:
+      >* **push** pushes data into an array, takes two arguments :
+        * **data** : *any* - the data you wish to store, it can be of any type
+        * **step** : *boolean* - telling Molecule whether or not to bind the data to the current step (set to false by default)
+      * **get** will return the array stored in **cache** independently of the step you're in. Can take an argument:
+        * an object as in { **step** : *number*, **excludeNullStep** : *boolean* }
+          * **step** is set to null by default, by setting its value to a number, the function will only return the cache associated to the step
+          * **excludeNullStep** is set to true by default, a *NullStep* is a step which hasn't been associated to a step when pushed. By setting its value to false, you will receive the NullSteps' cache AND the selected step
 
   * **helperAPI** : the secondary Molecule API, which will be providing useful elements for integration:
     * **outputToHTML** transforms a string into a displayable HTML element
