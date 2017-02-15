@@ -336,44 +336,64 @@ strategy: {
   * **onError** *(err: any, taskAPI: TaskAPI, helperAPI): void* - function called if the command executed in **strategy** fails
 
 As you can see there are two APIs you get from each function:
-  * **taskAPI** : this is your way of adding notifications to the bottom dock of Molecule, you'll have to go trough the *addDiagnostics* function
-    >* **addDiagnostics** - takes an array of *Diagnostics* as parameter, a Diagnostic is an object composed of:
-      * **type** - can be 'error', 'warning', 'success' or 'info' (each of them has a different display on the dock)
-      * **message** - the message you want to display as logs
+  * **taskAPI** : the main API of Molecule, from which you will be able to store data thanks to our cache system and display your logs through diagnostics
+    * **addDiagnostics** is your way of adding notifications to the bottom dock of Molecule, takes an array of *Diagnostics* as parameter, a Diagnostic is an object composed of:
+      >* **type** - can be 'error', 'warning', 'success' or 'info' (each of them has a different display on the dock)
+      * **message** - the data displayed in the diagnostics panel, different types of data can be passed:
+        * a *string* displayed as a simple text
+        * an *object* as in { text : string, html : boolean } with *text* being the actual message as a string and html a boolean which, if set to true, will display the string as HTML (supports HTML tags)
+        * an *object* as in { data : object } with data being an object which, if filled with JSON, will be displayed as 'beautified' JSON
+        * a *React Component*, it can be a function as well as a class extending 'React.Component'
       * **date** - the date associated with the message
 
-  * **helperAPI** : its only use (for now) is through the *outputToHTML* function, as it transforms a string into a displayable HTML element
+    * **nextStep** is a function that allows your tool to separate your diagnostics during _a single_ Plan execution, they will then be separated in 'Steps' (1, 2, 3,..)
+
+    * **cache** is an object containing an array of data. The **cache** object will provide you with two functions, from which you will be able to store and access data throughout the Plan's execution:
+      >* **push** pushes data into an array, takes two arguments :
+        * **data** : *any* - the data you wish to store, it can be of any type
+        * **step** : *boolean* - telling Molecule whether or not to bind the data to the current step (set to false by default)
+      * **get** will return the array stored in **cache** independently of the step you're in. Can take an argument:
+        * an object as in { **step** : *number*, **excludeNullStep** : *boolean* }
+          * **step** is set to null by default, by setting its value to a number, the function will only return the cache associated to the step
+          * **excludeNullStep** is set to true by default, a *NullStep* is a step which hasn't been associated to a step when pushed. By setting its value to false, you will receive the NullSteps' cache AND the selected step
+
+  * **helperAPI** : the secondary Molecule API, which will be providing useful elements for integration:
+    * **outputToHTML** transforms a string into a displayable HTML element
+    * **json** is an object which only contains (for now) a **parseAsync** function taking a string as argument, which will be asynchronously parsed through the 'JSON.parse' function thanks to a Promise, and will _then_ be return to you
 
 >Example:
 ```
 controller: {
   onStdoutData(data: string, taskAPI: TaskAPI, helperAPI): void {
-    taskAPI.addDiagnostics([{
-      type: "info",
-      message: helperAPI.outputToHTML(data.toString()),
-      date: moment().unix(),
-    }]);
+    taskAPI.cache.push(data.toString());
   },
   onStderrData(data: string, taskAPI: TaskAPI, helperAPI): void {
     taskAPI.addDiagnostics([{
-      type: "error",
-      message: helperAPI.outputToHTML(data.toString()),
+      type: "warning",
+      message: {
+        text : helperAPI.outputToHTML(data.toString()),
+        html : true,
+      },
       date: moment().unix(),
     }]);
   },
   onExit(code: number, taskAPI: TaskAPI, helperAPI): void {
-    if (code == -42) {
-      taskAPI.addDiagnostics([{
-        type: "error",
-        message: helperAPI.outputToHTML(code.toString()),
+    helperAPI.json.parseAsync(taskAPI.cache.get().map(blob => blob.data).join('')).then((json) => {
+      taskAPI.addDiagnostics(json.logs.map(log => ({
+        type: "info",
+        message: log,
         date: moment().unix(),
-      }]);
-    }
+      })));
+    }).catch(e => {
+      console.log(e);
+    });
   },
   onError(err: any, taskAPI: TaskAPI, helperAPI): void {
     taskAPI.addDiagnostics([{
       type: "error",
-      message: helperAPI.outputToHTML(err.toString()),
+      message: {
+        data : err,
+      },
       date: moment().unix(),
     }]);
   }
