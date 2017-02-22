@@ -1,12 +1,12 @@
 'use babel'
 // @flow
-import type {DevToolInfos} from "../../TargetConfigurationFeature/Types/types.js.flow";
+import type {DevToolInfos} from "../../PlanConfigurationFeature/Types/types.js.flow";
 
 export type TaskState = "created" | "running" | "stopped" | "crashed" | "succeed" | "failed" | null;
 
 export type Task = {
   id: string,
-  target: {
+  plan: {
     config: mixed,
     tool: DevToolInfos
   },

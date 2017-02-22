@@ -11,7 +11,7 @@ The final result of the integration must look like:
       configSchema: {
         ...
       },
-      getStrategyForTarget(target: TargetConfig) {
+      getStrategyForPlan(plan: PlanConfig) {
         ...
          return {
            strategy: {
@@ -44,7 +44,7 @@ First of all, add your *js* file in the **lib/ExecutionControlEpic/Plugins/** di
 
 Then add the following imports to your file:
 
-    import type {TargetConfig} from "../TargetConfigurationFeature/Types/types.js.flow";
+    import type {PlanConfig} from "../PlanConfigurationFeature/Types/types.js.flow";
     import type {TaskAPI} from "../DevtoolLoadingFeature/Types/types.js";
     import path from 'path';
 
@@ -77,22 +77,22 @@ For exemple:
 
 ## ConfigSchema
 
-This section is very important, you are going to define the way a user can create a target for a better use of your tool.
+This section is very important, you are going to define the way a user can create a plan for a better use of your tool.
 
 ---
->Here is an example of the creation of a target:
+>Here is an example of the creation of a plan:
 
->![NPM tool target creation base](./Target-creation-base.png)
+>![NPM tool plan creation base](./Plan-creation-base.png)
 
->**MUST READ**: The *name* box is a default one, it will be the name of your target once created. The last 2 boxes before the *Create* button are also default ones:
->They allow the user to chose the package in which the target will be executed and how the process will be executed:
+>**MUST READ**: The *name* box is a default one, it will be the name of your plan once created. The last 2 boxes before the *Create* button are also default ones:
+>They allow the user to chose the package in which the plan will be executed and how the process will be executed:
 * **integrated** : process as child of atom process
 * **local** : process as child of process launched as child of atom
 * **remote** : process launched on a remote machine
 
->![NPM tool target creation](./Target-creation.png)
+>![NPM tool plan creation](./Plan-creation.png)
 
->This is the **npm** tool target configuration. As you can see, only the 2 circled boxes are required for npm to create a target:
+>This is the **npm** tool plan configuration. As you can see, only the 2 circled boxes are required for npm to create a plan:
 * action (= run/start/test)
 * script (= name of the script)
 
@@ -261,9 +261,9 @@ cases: {
 ---
 
 
-## Target Strategy
+## Plan Strategy
 
-This is the part where you get to use the imports you previously added to your file. Make sure you didn't forget those [imports](#requirements), and then add the **getStrategyForTarget(target: TargetConfig)** function as in:
+This is the part where you get to use the imports you previously added to your file. Make sure you didn't forget those [imports](#requirements), and then add the **getStrategyForPlan(plan: PlanConfig)** function as in:
 
 ```
 export default {
@@ -273,19 +273,19 @@ export default {
   configSchema: {
     [tool configSchema]
   },
-  getStrategyForTarget(target: TargetConfig) {
+  getStrategyForPlan(plan: PlanConfig) {
     /* TO-DO */
   }
 };
 ```
->As you can see you get a **target** variable from the **getStrategyForTarget** function. This variable will provide you the different parameters of the target configuration:
-* the path of the package (through *target.packageInfos.path*)
-* the data of your configSchema (through *target.config*)
+>As you can see you get a **plan** variable from the **getStrategyForPlan** function. This variable will provide you the different parameters of the plan configuration:
+* the path of the package (through *plan.packageInfos.path*)
+* the data of your configSchema (through *plan.config*)
 
 >For example, let's say your configSchema is composed of an object containing a boolean type which has as name 'check', this is how you access it:
 >```
 let cmdArgs;
-if (target.config.check) {
+if (plan.config.check) {
   cmdArgs = '--check-all-files';
 }
 ```
@@ -294,7 +294,7 @@ This function will contain the content of the notifications you are going to pro
 
 To get started, know that this function has to return an object composed of two objects: **strategy** and **controller** like:
 ```
-getStrategyForTarget(target: TargetConfig) {
+getStrategyForPlan(plan: PlanConfig) {
   /* You're free to do whatever operations you need to
   in order to be ready to pass informations through the return */
   ...
@@ -320,8 +320,8 @@ Here is a description of the content of those two:
 ```
 strategy: {
   type: 'shell',
-  command: `${binaryPath} ${target.config.task}`,
-  cwd: path.dirname(target.packageInfos.path),
+  command: `${binaryPath} ${plan.config.task}`,
+  cwd: path.dirname(plan.packageInfos.path),
 }
 ```
 > The **path** import is used so we can properly set the directory in which the command will be executed.
@@ -336,44 +336,64 @@ strategy: {
   * **onError** *(err: any, taskAPI: TaskAPI, helperAPI): void* - function called if the command executed in **strategy** fails
 
 As you can see there are two APIs you get from each function:
-  * **taskAPI** : this is your way of adding notifications to the bottom dock of Molecule, you'll have to go trough the *addDiagnostics* function
-    >* **addDiagnostics** - takes an array of *Diagnostics* as parameter, a Diagnostic is an object composed of:
-      * **type** - can be 'error', 'warning', 'success' or 'info' (each of them has a different display on the dock)
-      * **message** - the message you want to display as logs
+  * **taskAPI** : the main API of Molecule, from which you will be able to store data thanks to our cache system and display your logs through diagnostics
+    * **addDiagnostics** is your way of adding notifications to the bottom dock of Molecule, takes an array of *Diagnostics* as parameter, a Diagnostic is an object composed of:
+      >* **type** - can be 'error', 'warning', 'success' or 'info' (each of them has a different display on the dock)
+      * **message** - the data displayed in the diagnostics panel, different types of data can be passed:
+        * a *string* displayed as a simple text
+        * an *object* as in { text : string, html : boolean } with *text* being the actual message as a string and html a boolean which, if set to true, will display the string as HTML (supports HTML tags)
+        * an *object* as in { data : object } with data being an object which, if filled with JSON, will be displayed as 'beautified' JSON
+        * a *React Component*, it can be a function as well as a class extending 'React.Component'
       * **date** - the date associated with the message
 
-  * **helperAPI** : its only use (for now) is through the *outputToHTML* function, as it transforms a string into a displayable HTML element
+    * **nextStep** is a function that allows your tool to separate your diagnostics during _a single_ Plan execution, they will then be separated in 'Steps' (1, 2, 3,..)
+
+    * **cache** is an object containing an array of data. The **cache** object will provide you with two functions, from which you will be able to store and access data throughout the Plan's execution:
+      >* **push** pushes data into an array, takes two arguments :
+        * **data** : *any* - the data you wish to store, it can be of any type
+        * **step** : *boolean* - telling Molecule whether or not to bind the data to the current step (set to false by default)
+      * **get** will return the array stored in **cache** independently of the step you're in. Can take an argument:
+        * an object as in { **step** : *number*, **excludeNullStep** : *boolean* }
+          * **step** is set to null by default, by setting its value to a number, the function will only return the cache associated to the step
+          * **excludeNullStep** is set to true by default, a *NullStep* is a step which hasn't been associated to a step when pushed. By setting its value to false, you will receive the NullSteps' cache AND the selected step
+
+  * **helperAPI** : the secondary Molecule API, which will be providing useful elements for integration:
+    * **outputToHTML** transforms a string into a displayable HTML element
+    * **json** is an object which only contains (for now) a **parseAsync** function taking a string as argument, which will be asynchronously parsed through the 'JSON.parse' function thanks to a Promise, and will _then_ be return to you
 
 >Example:
 ```
 controller: {
   onStdoutData(data: string, taskAPI: TaskAPI, helperAPI): void {
-    taskAPI.addDiagnostics([{
-      type: "info",
-      message: helperAPI.outputToHTML(data.toString()),
-      date: moment().unix(),
-    }]);
+    taskAPI.cache.push(data.toString());
   },
   onStderrData(data: string, taskAPI: TaskAPI, helperAPI): void {
     taskAPI.addDiagnostics([{
-      type: "error",
-      message: helperAPI.outputToHTML(data.toString()),
+      type: "warning",
+      message: {
+        text : helperAPI.outputToHTML(data.toString()),
+        html : true,
+      },
       date: moment().unix(),
     }]);
   },
   onExit(code: number, taskAPI: TaskAPI, helperAPI): void {
-    if (code == -42) {
-      taskAPI.addDiagnostics([{
-        type: "error",
-        message: helperAPI.outputToHTML(code.toString()),
+    helperAPI.json.parseAsync(taskAPI.cache.get().map(blob => blob.data).join('')).then((json) => {
+      taskAPI.addDiagnostics(json.logs.map(log => ({
+        type: "info",
+        message: log,
         date: moment().unix(),
-      }]);
-    }
+      })));
+    }).catch(e => {
+      console.log(e);
+    });
   },
   onError(err: any, taskAPI: TaskAPI, helperAPI): void {
     taskAPI.addDiagnostics([{
       type: "error",
-      message: helperAPI.outputToHTML(err.toString()),
+      message: {
+        data : err,
+      },
       date: moment().unix(),
     }]);
   }

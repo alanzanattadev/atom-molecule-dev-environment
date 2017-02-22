@@ -6,9 +6,9 @@ A short description of your package.
 
 ## Execution
 
-targets: (configuration of an execution, tool config and host in params)
+plans: (configuration of an execution, tool config and host in params)
 
-tasks: (execution with target as parameters)
+tasks: (execution with plan as parameters)
 
 handler:
   - local (waits for infos, communicates data over process)
