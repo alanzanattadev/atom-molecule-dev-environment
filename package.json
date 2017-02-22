@@ -39,6 +39,7 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "ssh2": "^0.5.4",
+    "testcafe": "^0.13.0",
     "tree-kill": "^1.1.0"
   },
   "devDependencies": {
