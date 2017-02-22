@@ -18,6 +18,7 @@
     "autoprefixer": "^6.4.1",
     "babel-plugin-react-for-atom": "github:alanzanattadev/babel-plugin-react-for-atom",
     "babel-register": "^6.18.0",
+    "chrome-remote-interface": "^0.17.1",
     "classnames": "^2.2.5",
     "glamor": "^2.20.12",
     "immutable": "^3.8.1",
