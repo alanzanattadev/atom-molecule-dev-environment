@@ -18,18 +18,7 @@ The final result of the integration must look like:
              ...
            },
            controller: {
-             onStdoutData(data: string, taskAPI: TaskAPI): void {
-               ...
-             },
-             onStderrData(data: string, taskAPI: TaskAPI): void {
-               ...
-             },
-             onExit(code: number, taskAPI: TaskAPI): void {
-               ...
-             },
-             onError(err: any, taskAPI: TaskAPI): void {
-               ...
-             }
+             ...
            }
          };
       },
@@ -130,7 +119,9 @@ A **configSchema** can be divided in several **configSchemaParts**, and every pa
 * **title** : depending on the type declared beforehand, a title will generally be displayed as a 'label' of the element (see the example above).
 * **description** : depending on the type declared beforehand, a description will be adding details after the title.
 
-First, here are the available types (and their attributes) for your tool's configSchema:
+First, note that you will be able to retrieve every choice the user has made in your configSchema through the 'plan.config' object (which we'll detail later).
+
+Here are the available types (and their attributes), followed by an example of how to access it through 'plan.config', for your tool's configSchema:
 
 * **string** : asks the user for input as a string (= input box).
   * *placeholder* - a hint inside the input box (optional)
@@ -141,6 +132,9 @@ type: 'string',
 default: '',
 title: 'script',
 placeholder: 'Script name'
+```
+```
+let s = plan.config.script;
 ```
 ---
 
@@ -154,6 +148,9 @@ default: '80',
 title: 'port',
 placeholder: 'Port number'
 ```
+```
+let n = plan.config.port;
+```
 ---
 
 * **boolean** : asks the user for a true/false input (= check box).
@@ -163,6 +160,12 @@ placeholder: 'Port number'
 type: 'boolean',
 default: 'true',
 title: 'Enable potato mode'
+```
+>You can get the value of this boolean by encapsulating it in an **object** (see below), here we pretend the object's name is checkBox
+```
+if(plan.config.checkBox) {
+  launchPotatoe();
+}
 ```
 ---
 
@@ -181,10 +184,15 @@ schemas: {
   port: {
     type: 'number',
     default: '80',
-    title: 'port',
-    placeholder: 'Port number'
+    title: 'Port number',
   }
 }
+```
+```
+let data : {
+  image : plan.config.image,
+  port : plan.config.port
+};
 ```
 ---
 
@@ -212,6 +220,16 @@ items: {
   }
 }
 ```
+>As for the **boolean** type, the array has to be encapsulated in an object, here we pretend the object's name is Docks
+```
+plan.config.Docks.map((dock) => {
+  let data : {
+    image : dock.image,
+    port : dock.port
+  };
+  /* DO STUFF */
+});
+```
 ---
 
 * **enum** : this type allows you to declare an array of elements from which the user can chose using a drop-down menu. (generally used with **conditional** as the *expression*)
@@ -227,6 +245,8 @@ enum: [
   {value: 'global', description: 'Global'}
 ]
 ```
+>The enum type is convenient for the **conditional** type, as the 'expression' attribute (see below)
+
 ---
 
 * **conditional** : this type allows you to create different configSchemaParts depending on the *expression* input. Think of it as a switch function.
@@ -258,6 +278,14 @@ cases: {
   }
 }
 ```
+>Again, encapsulating this in an object to better access it, here we pretend the object's name is binary
+```
+if(plan.config.binary.expressionValue == 'global') {
+  let iterations = plan.config.caseValue.cmd;
+} else {
+  let shellCmd = plan.config.caseValue.iterations;
+}
+```
 ---
 
 
@@ -280,15 +308,7 @@ export default {
 ```
 >As you can see you get a **plan** variable from the **getStrategyForPlan** function. This variable will provide you the different parameters of the plan configuration:
 * the path of the package (through *plan.packageInfos.path*)
-* the data of your configSchema (through *plan.config*)
-
->For example, let's say your configSchema is composed of an object containing a boolean type which has as name 'check', this is how you access it:
->```
-let cmdArgs;
-if (plan.config.check) {
-  cmdArgs = '--check-all-files';
-}
-```
+* the data of your configSchema (through *plan.config*), check [configSchema](#ConfigSchema) for examples
 
 This function will contain the content of the notifications you are going to provide to the user through the bottom dock of Molecule.
 
@@ -313,7 +333,7 @@ Here is a description of the content of those two:
 * **strategy** : the way you are going to execute your tool
   * **type** - the type of the process, it can be 'shell' or 'node'
     * **shell** - if the shell type is selected, you must set the **command** variable with the command you want to execute through shell
-    * **node** - if the node type is selected, you must set the **path** variable with the path to the script you want to execute
+    * **node** - if the node type is selected, you must set the **path** variable with the path to the script you want to execute, an optional **args** (array of string) variable which can contain the arguments of your script is available as well
   * **cwd** - the directory from which the command will be executed
 
 >Example:
@@ -329,33 +349,36 @@ strategy: {
 ---
 
 
-* **controller** : the controller provides you 4 functions in which you will be able to add diagnostics to the bottom dock of Molecule, you will have to use the **addDiagnostics()** function through the taskAPI
-  * **onStdoutData** *(data: string, taskAPI: TaskAPI, helperAPI): void* - function called if your tool communicates through STDOUT
-  * **onStderrData** *(data: string, taskAPI: TaskAPI, helperAPI): void* - function called if your tool communicates through STDERR
+* **controller** : the controller provides you 5 functions in which you will be able to add diagnostics to the bottom dock of Molecule, you will have to use the **addDiagnostics()** function through the taskAPI
   * **onExit** *(code: number, taskAPI: TaskAPI, helperAPI): void* - function called on the tool's exit
   * **onError** *(err: any, taskAPI: TaskAPI, helperAPI): void* - function called if the command executed in **strategy** fails
+  * type: **shell** - if you selected type shell in your strategy, you'll have to return those two functions which will be called during your program's execution
+    * **onStdoutData** *(data: string, taskAPI: TaskAPI, helperAPI): void* - function called if your tool communicates through STDOUT
+    * **onStderrData** *(data: string, taskAPI: TaskAPI, helperAPI): void* - function called if your tool communicates through STDERR
+  * type: **node** - if you selected type node in your strategy, you'll have to return this function which will be called during your script's execution
+    * **onData** *(data: any, taskAPI: TaskAPI, helperAPI): void* - function called when your script uses the 'process.send(data: any)' function, data can be of *any* type
 
 As you can see there are two APIs you get from each function:
   * **taskAPI** : the main API of Molecule, from which you will be able to store data thanks to our cache system and display your logs through diagnostics
     * **addDiagnostics** is your way of adding notifications to the bottom dock of Molecule, takes an array of *Diagnostics* as parameter, a Diagnostic is an object composed of:
       >* **type** - can be 'error', 'warning', 'success' or 'info' (each of them has a different display on the dock)
-      * **message** - the data displayed in the diagnostics panel, different types of data can be passed:
-        * a *string* displayed as a simple text
-        * an *object* as in { text : string, html : boolean } with *text* being the actual message as a string and html a boolean which, if set to true, will display the string as HTML (supports HTML tags)
-        * an *object* as in { data : object } with data being an object which, if filled with JSON, will be displayed as 'beautified' JSON
-        * a *React Component*, it can be a function as well as a class extending 'React.Component'
-      * **date** - the date associated with the message
+      >* **message** - the data displayed in the diagnostics panel, different types of data can be passed:
+      >  * a *string* displayed as a simple text
+      >  * an *object* as in { text : string, html : boolean } with *text* being the actual message as a string and html a boolean which, if set to true, will display the string as HTML (supports HTML tags)
+      >  * an *object* as in { data : object } with data being an object which, if filled with JSON, will be displayed as 'beautified' JSON
+      >  * a *React Component*, it can be a function as well as a class extending 'React.Component'
+      >* **date** - the date associated with the message
 
     * **nextStep** is a function that allows your tool to separate your diagnostics during _a single_ Plan execution, they will then be separated in 'Steps' (1, 2, 3,..)
 
     * **cache** is an object containing an array of data. The **cache** object will provide you with two functions, from which you will be able to store and access data throughout the Plan's execution:
       >* **push** pushes data into an array, takes two arguments :
-        * **data** : *any* - the data you wish to store, it can be of any type
-        * **step** : *boolean* - telling Molecule whether or not to bind the data to the current step (set to false by default)
-      * **get** will return the array stored in **cache** independently of the step you're in. Can take an argument:
-        * an object as in { **step** : *number*, **excludeNullStep** : *boolean* }
-          * **step** is set to null by default, by setting its value to a number, the function will only return the cache associated to the step
-          * **excludeNullStep** is set to true by default, a *NullStep* is a step which hasn't been associated to a step when pushed. By setting its value to false, you will receive the NullSteps' cache AND the selected step
+      >  * **data** : *any* - the data you wish to store, it can be of any type
+      >  * **step** : *boolean* - telling Molecule whether or not to bind the data to the current step (set to false by default)
+      >* **get** will return the array stored in **cache** independently of the step you're in. Can take an argument:
+      >   * an object as in { **step** : *number*, **excludeNullStep** : *boolean* }
+      >     * **step** is set to null by default, by setting its value to a number, the function will only return the cache associated to the step
+      >     * **excludeNullStep** is set to true by default, a *NullStep* is a step which hasn't been associated to a step when pushed. By setting its value to false, you will receive the NullSteps' cache AND the selected step
 
   * **helperAPI** : the secondary Molecule API, which will be providing useful elements for integration:
     * **outputToHTML** transforms a string into a displayable HTML element
