@@ -376,9 +376,9 @@ As you can see there are two APIs you get from each function:
       >  * **data** : *any* - the data you wish to store, it can be of any type
       >  * **step** : *boolean* - telling Molecule whether or not to bind the data to the current step (set to false by default)
       >* **get** will return the array stored in **cache** independently of the step you're in. Can take an argument:
-      >  * an object as in { **step** : *number*, **excludeNullStep** : *boolean* }
-      >    * **step** is set to null by default, by setting its value to a number, the function will only return the cache associated to the step
-      >    * **excludeNullStep** is set to true by default, a *NullStep* is a step which hasn't been associated to a step when pushed. By setting its value to false, you will receive the NullSteps' cache AND the selected step
+      > * an object as in { **step** : *number*, **excludeNullStep** : *boolean* }
+      >   * **step** is set to null by default, by setting its value to a number, the function will only return the cache associated to the step
+      >   * **excludeNullStep** is set to true by default, a *NullStep* is a step which hasn't been associated to a step when pushed. By setting its value to false, you will receive the NullSteps' cache AND the selected step
 
   * **helperAPI** : the secondary Molecule API, which will be providing useful elements for integration:
     * **outputToHTML** transforms a string into a displayable HTML element
