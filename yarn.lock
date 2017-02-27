@@ -301,11 +301,11 @@ ast-types@0.8.18:
   version "0.8.18"
   resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.8.18.tgz#c8b98574898e8914e9d8de74b947564a9fe929af"
 
-ast-types@0.9.4, ast-types@0.x.x:
+ast-types@0.9.4:
   version "0.9.4"
   resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.9.4.tgz#410d1f81890aeb8e0a38621558ba5869ae53c91b"
 
-ast-types@0.9.5:
+ast-types@0.9.5, ast-types@0.x.x:
   version "0.9.5"
   resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.9.5.tgz#1a660a09945dbceb1f9c9cbb715002617424e04a"
 
@@ -5583,10 +5583,6 @@ test-exclude@^3.3.0:
     object-assign "^4.1.0"
     read-pkg-up "^1.0.1"
     require-main-filename "^1.0.1"
-
-testcafe-reporter-json@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/testcafe-reporter-json/-/testcafe-reporter-json-2.1.0.tgz#80b9b5a6dff2ee1de1f91e2670706c1472e64006"
 
 throat@^3.0.0:
   version "3.0.0"
