@@ -37,8 +37,11 @@
     "react-redux": "^4.4.5",
     "recompose": "^0.22.0",
     "redux": "^3.6.0",
+    "redux-observable": "^0.13.0",
     "redux-thunk": "^2.1.0",
+    "rxjs": "^5.1.1",
     "ssh2": "^0.5.4",
+    "styled-components": "1.4.2",
     "tree-kill": "^1.1.0"
   },
   "devDependencies": {

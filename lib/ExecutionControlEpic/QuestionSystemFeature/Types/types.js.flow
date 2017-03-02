@@ -1,0 +1,51 @@
+'use babel';
+// @flow
+
+export type AnswersDependant<T, R> = (answers: object, R) => T;
+export type AnswersOnlyDependant<T> = AnswersDependant<T, void>;
+
+export type LoaderResponse<T> =
+  | T
+  | AnswersOnlyDependant<T>
+  | AnswersOnlyDependant<Promise<T>>
+  | AnswersOnlyDependant<rxjs$Observable<T>>;
+
+export type WhenResponse = AnswersOnlyDependant<boolean>;
+
+export type ValidatorResponse =
+  | boolean
+  | AnswersDependant<boolean, any>
+  | AnswersDependant<Promise<boolean, any>>
+  | AnswersDependant<rxjs$Observable<boolean, any>>;
+
+export type Choice = string | { value: any, description: string };
+
+export type Question = (
+  | {
+      type: 'input'
+    }
+  | {
+      type: 'confirm',
+      decline: Choice,
+      accept: Choice
+    }
+  | {
+      type: 'list',
+      choices: Array<Choice> | AnswersDependant<Array<Choice>, mixed>
+    }
+  | {
+      type: 'checkbox',
+      choices: Array<Choice> | AnswersDependant<Array<Choice>, mixed>
+    }
+  | {
+      type: 'password'
+    }) & {
+  name: string,
+  message: string | AnswersDependant<string, mixed>,
+  default: any | AnswersOnlyDependant<any | mixed>,
+  loader: LoaderResponse,
+  validator: ValidatorResponse,
+  when: WhenResponse
+};
+
+export type Questions = Array<Questions>;
