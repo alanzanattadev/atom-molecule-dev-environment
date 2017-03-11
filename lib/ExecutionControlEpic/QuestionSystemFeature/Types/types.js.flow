@@ -20,6 +20,8 @@ export type ValidatorResponse =
 
 export type Choice = string | { value: any, description: string };
 
+export type Step = 'when' | 'loader' | 'ask' | 'validation';
+
 export type Question = (
   | {
       type: 'input'

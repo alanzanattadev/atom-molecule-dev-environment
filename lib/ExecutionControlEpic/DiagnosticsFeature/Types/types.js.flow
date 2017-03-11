@@ -9,7 +9,7 @@ export type DiagnosticMessageType = string | {
   text: string,
   html: boolean
 } | {
-  data: object
+  data: Object
 } | React$Component<any, any, any> | (props: any) => React$Element<any, any, any>;
 
 export type Diagnostic = {

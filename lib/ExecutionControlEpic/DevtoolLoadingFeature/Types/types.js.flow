@@ -4,7 +4,7 @@
 import type {ConfigSchemaPart} from "../../PlanConfigurationFeature/Types/types.js.flow";
 import type {Strategy, Controller} from "../../TaskExecutionFeature/Types/types.js.flow";
 import type {PlanConfig} from "../../PlanConfigurationFeature/Types/types.js.flow";
-import type {Diagnostic} from "../../DiagnosticsFeature/Types/types.js";
+import type {Diagnostic} from "../../DiagnosticsFeature/Types/types.js.flow";
 import type {PackageTester} from '../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow';
 
 export type ProvidedDevTool = {

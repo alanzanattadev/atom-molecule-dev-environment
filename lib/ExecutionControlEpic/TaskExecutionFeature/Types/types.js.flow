@@ -1,8 +1,25 @@
-'use babel'
+"use babel";
 // @flow
-import type {DevToolInfos} from "../../PlanConfigurationFeature/Types/types.js.flow";
+import type {
+  DevToolInfos
+} from "../../PlanConfigurationFeature/Types/types.js.flow";
+import type {
+  NodeProcessStrategy,
+  NodeProcessController
+} from "../Model/Strategies/NodeProcessStrategy";
+import type {
+  ShellStrategy,
+  ShellController
+} from "../Model/Strategies/ShellStrategy";
 
-export type TaskState = "created" | "running" | "stopped" | "crashed" | "succeed" | "failed" | null;
+export type TaskState =
+  | "created"
+  | "running"
+  | "stopped"
+  | "crashed"
+  | "succeed"
+  | "failed"
+  | null;
 
 export type Task = {
   id: string,
@@ -12,7 +29,7 @@ export type Task = {
   },
   strategy: Strategy,
   state: TaskState,
-  step: 0,
+  step: number,
   debut: number, // Date's timestamp
   end?: number // Date's timestamp
 };
@@ -21,20 +38,32 @@ export type Process = child_process$ChildProcess;
 
 export type TaskExecution = {
   task: Task,
-  process: Process,
+  process: Process
 };
 
 export type TaskManager = {
   executions: Array<TaskExecution>
 };
 
-export type Strategy = {
-  type: string
-} & any;
+export type Strategy = ShellStrategy | NodeProcessStrategy;
+export type Controller = ShellController | NodeProcessController;
+export type StrategyConfig =
+  | {
+      strategy: ShellStrategy,
+      controller: ShellController
+    }
+  | {
+      strategy: NodeProcessStrategy,
+      controller: NodeProcessController
+    };
 
-export type Controller = any;
+export type StrategyRunner = (
+  strategy: Strategy,
+  controller: Controller
+) => Process;
+export type StagerRunner = (
+  strategy: Strategy,
+  controller: Controller
+) => ?Process;
 
-export type StrategyRunner = (strategy: Strategy, controller: Controller) => Process;
-export type StagerRunner = (strategy: Strategy, controller: Controller) => ?Process;
-
-export type {DevToolInfos};
+export type { DevToolInfos };
