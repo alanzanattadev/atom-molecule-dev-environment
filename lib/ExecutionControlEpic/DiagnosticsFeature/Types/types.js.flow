@@ -1,20 +1,25 @@
-'use babel'
+"use babel";
 // @flow
 
-import type {Task} from "../../TaskExecutionFeature/Types/types.js.flow";
+import type { Task } from "../../TaskExecutionFeature/Types/types.js.flow";
 
-export type DiagnosticType = 'error' | 'warning' | 'success' | 'info';
+export type DiagnosticType = "error" | "warning" | "success" | "info";
 
-export type DiagnosticMessageType = string | {
-  text: string,
-  html: boolean
-} | {
-  data: Object
-} | React$Component<any, any, any> | (props: any) => React$Element<any, any, any>;
+export type DiagnosticMessageType =
+  | string
+  | {
+      text: string,
+      html: boolean
+    }
+  | {
+      data: Object
+    }
+  | React$Component<any, any, any>
+  | ((props: any) => React$Element<any, any, any>);
 
 export type Diagnostic = {
   type: DiagnosticType,
-  message: string,
+  message: DiagnosticMessageType,
   date?: number,
   step: number,
   task?: string

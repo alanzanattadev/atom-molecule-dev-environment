@@ -1,0 +1,541 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tasks Reducer CRASH_TASK should mark the task as crashed 1`] = `
+Array [
+  Object {
+    "debut": 1475954335,
+    "id": "1",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "end": 1475954336,
+    "id": "2",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "crashed",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "id": "3",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+]
+`;
+
+exports[`Tasks Reducer FAIL_TASK should mark the task as failed 1`] = `
+Array [
+  Object {
+    "debut": 1475954335,
+    "id": "1",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "end": 1475954336,
+    "id": "2",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "failed",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "id": "3",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+]
+`;
+
+exports[`Tasks Reducer START_TASK should mark the task as started 1`] = `
+Array [
+  Object {
+    "debut": 1475954335,
+    "id": "1",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "end": undefined,
+    "id": "2",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "running",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "id": "3",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+]
+`;
+
+exports[`Tasks Reducer STOP_TASK should mark the task as stopped 1`] = `
+Array [
+  Object {
+    "debut": 1475954335,
+    "id": "1",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "/ok",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "end": 1475954336,
+    "id": "2",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "stopped",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "/ok",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "id": "3",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "/ok",
+      "type": "shell",
+    },
+  },
+]
+`;
+
+exports[`Tasks Reducer STOP_TASK_OF_TARGET should mark the task as stopped 1`] = `
+Array [
+  Object {
+    "debut": 1475954335,
+    "id": "1",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "end": 1475954336,
+    "id": "2",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "2",
+        "name": "tool",
+      },
+    },
+    "state": "stopped",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "id": "3",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+]
+`;
+
+exports[`Tasks Reducer SUCCEED_TASK should mark the task as succeed 1`] = `
+Array [
+  Object {
+    "debut": 1475954335,
+    "id": "1",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "end": 1475954336,
+    "id": "2",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "succeed",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+  Object {
+    "debut": 1475954335,
+    "id": "3",
+    "plan": Object {
+      "config": 2,
+      "packageInfos": Object {
+        "name": "root",
+        "path": "/",
+        "type": "file",
+      },
+      "stager": Object {
+        "host": null,
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "",
+        "id": "1",
+        "name": "tool",
+      },
+    },
+    "state": "created",
+    "step": 1,
+    "strategy": Object {
+      "command": "",
+      "cwd": "",
+      "type": "shell",
+    },
+  },
+]
+`;

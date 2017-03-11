@@ -18,7 +18,8 @@ export type ValidatorResponse =
   | AnswersDependant<Promise<boolean, any>>
   | AnswersDependant<rxjs$Observable<boolean, any>>;
 
-export type Choice = string | { value: any, description: string };
+export type ComplexChoice = { value: any, description: string };
+export type Choice = string | ComplexChoice;
 
 export type Step = 'when' | 'loader' | 'ask' | 'validation';
 

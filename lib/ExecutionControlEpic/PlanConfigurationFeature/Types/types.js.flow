@@ -114,4 +114,4 @@ export type Stager = {
 
 export type DevToolPlanConfigSchema = ConfigSchemaPart & {tool: DevToolInfos};
 
-export type PlanConfig = {tool: DevToolInfos, config: any, pinned?: boolean, name?: string, stager: Stager, packageInfos: PackageInfos};
+export type PlanConfig = {tool: DevToolInfos, config: any, pinned?: boolean, name: string, stager: Stager, packageInfos: PackageInfos};
