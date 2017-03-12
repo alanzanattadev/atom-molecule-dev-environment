@@ -4,7 +4,8 @@
 export type DevTool = {
   id: string,
   name: string,
-  iconUri: string
+  iconUri: string,
+  defaultDiagnosticsMode: string
 };
 
 export type DevToolWithDiagnostics = DevTool & {

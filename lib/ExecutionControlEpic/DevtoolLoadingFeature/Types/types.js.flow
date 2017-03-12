@@ -12,6 +12,7 @@ export type ProvidedDevTool = {
     id?: string,
     name: string,
     iconUri: string,
+    defaultDiagnosticsMode: string,
   },
   configSchema: ConfigSchemaPart,
   getStrategyForPlan(plan: PlanConfig): {strategy: Strategy, controller: Controller},
