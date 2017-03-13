@@ -1,0 +1,8 @@
+"use babel";
+// @flow
+
+declare var atom: any;
+declare module atom {
+  declare var File: any;
+  declare var Task: any;
+};
