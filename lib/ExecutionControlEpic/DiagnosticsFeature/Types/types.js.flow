@@ -3,6 +3,8 @@
 
 import type { Task } from "../../TaskExecutionFeature/Types/types.js.flow";
 
+export type DiagnosticMode = "logs" | "organized";
+
 export type DiagnosticType = "error" | "warning" | "success" | "info";
 
 export type DiagnosticMessageType =

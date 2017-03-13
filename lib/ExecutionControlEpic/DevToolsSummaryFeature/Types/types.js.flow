@@ -1,10 +1,13 @@
 'use babel'
 // @flow
 
+import type {DiagnosticMode} from '../../DiagnosticsFeature/Types/types.js.flow';
+
 export type DevTool = {
   id: string,
   name: string,
-  iconUri: string
+  iconUri: string,
+  defaultDiagnosticsMode?: DiagnosticMode
 };
 
 export type DevToolWithDiagnostics = DevTool & {

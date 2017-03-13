@@ -50,16 +50,18 @@ Now you can go on the following sections !
 
 ## Infos
 
-First, you'll have to create an **infos** object that has only 2 attributes:
+First, you'll have to create an **infos** object that has 3 attributes:
 
 * **name**: the name of the tool
 * **iconUri**: the uri pointing to the icon of the tool (which should be in *atom://molecule-dev-environment/.storybook/public/tool-name.png*)
+* **defaultDiagnosticsMode**: the default display mode for your tool's diagnostics, can be 'logs' or 'organized' (set to 'organized' by default)
 
 For exemple:
 
     infos: {
       name: 'docker',
-      iconUri: 'atom://molecule-dev-environment/.storybook/public/devtool-icon-docker.png'
+      iconUri: 'atom://molecule-dev-environment/.storybook/public/devtool-icon-docker.png',
+      defaultDiagnosticsMode: 'logs'
     }
 
 

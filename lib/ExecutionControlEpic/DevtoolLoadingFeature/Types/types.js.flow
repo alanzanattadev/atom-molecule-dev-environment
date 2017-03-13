@@ -11,7 +11,7 @@ import type {
 import type {
   PlanConfig
 } from "../../PlanConfigurationFeature/Types/types.js.flow";
-import type { Diagnostic } from "../../DiagnosticsFeature/Types/types.js.flow";
+import type { Diagnostic, DiagnosticMode } from "../../DiagnosticsFeature/Types/types.js.flow";
 import type {
   PackageTester
 } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
@@ -23,7 +23,8 @@ export type ProvidedDevTool = {
   infos: {
     id?: string,
     name: string,
-    iconUri: string
+    iconUri: string,
+    defaultDiagnosticsMode?: DiagnosticMode
   },
   configSchema: ConfigSchemaPart,
   getStrategyForPlan(plan: PlanConfig): {
