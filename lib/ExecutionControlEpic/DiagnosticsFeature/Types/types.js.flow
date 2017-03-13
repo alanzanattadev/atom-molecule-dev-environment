@@ -17,10 +17,13 @@ export type DiagnosticMessageType =
   | React$Component<any, any, any>
   | ((props: any) => React$Element<any, any, any>);
 
-export type Diagnostic = {
+export type PluginDiagnostic = {
   type: DiagnosticType,
   message: DiagnosticMessageType,
-  date?: number,
+  date?: number
+};
+
+export type Diagnostic = PluginDiagnostic & {
   step: number,
   task?: string
 };

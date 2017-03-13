@@ -2,7 +2,7 @@
 // @flow
 import type {DevTool} from '../../../ExecutionControlEpic/DevToolsSummaryFeature/Types/types.js.flow';
 
-export type PackageTester = RegExp | string | (file: string, directory: ?Directory) => (boolean | Package);
+export type PackageTester = RegExp | string | (file: string, directory: ?Directory) => (boolean | Package) | false;
 
 export type Plugin = {
   tool: DevTool,

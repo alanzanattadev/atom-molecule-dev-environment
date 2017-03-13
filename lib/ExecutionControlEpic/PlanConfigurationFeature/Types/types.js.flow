@@ -4,48 +4,48 @@
 import type {DevToolPlanConfig} from "../../../types";
 import type {PackageInfos} from '../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow';
 
-type ConfigSchemaPartBase = {
+export type ConfigSchemaPartBase = {
   title?: string,
   description?: string,
 };
 
-type ObjectConfigSchema = {
+export type ObjectConfigSchema = {
   type: 'object',
   default: Object,
   schemas: {[key: string]: ConfigSchemaPart}
 };
 
-type ArrayConfigSchema = {
+export type ArrayConfigSchema = {
   type: 'array',
   default: ConfigSchemaPart,
   items: ConfigSchemaPart,
 };
 
-type StringConfigSchema = {
+export type StringConfigSchema = {
   type: 'string',
   default: string,
   placeholder?: string,
 };
 
-type BooleanConfigSchema = {
+export type BooleanConfigSchema = {
   type: 'boolean',
   default: boolean,
 };
 
-type NumberConfigSchema = {
+export type NumberConfigSchema = {
   type: 'number',
   default: number,
   placeholder?: string,
 };
 
-type ConditionalConfigSchema<T> = {
+export type ConditionalConfigSchema<T> = {
   type: 'conditional',
   default: T,
   expression: T,
   cases: {[key: T]: ConfigSchemaPart}
 }
 
-type EnumConfigSchema = {
+export type EnumConfigSchema = {
   type: 'enum',
   default: DevToolPlanConfig,
   enum: Array<{value: any, description: string}>,
