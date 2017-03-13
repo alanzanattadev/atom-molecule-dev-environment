@@ -30,7 +30,7 @@ export type ProvidedDevTool = {
     strategy: Strategy,
     controller: Controller
   },
-  isPackage: PackageTester
+  isPackage?: PackageTester
 };
 
 export type TaskAPI = {

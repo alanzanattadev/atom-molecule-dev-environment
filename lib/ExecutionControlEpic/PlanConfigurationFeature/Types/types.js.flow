@@ -40,9 +40,9 @@ export type NumberConfigSchema = {
 
 export type ConditionalConfigSchema<T> = {
   type: 'conditional',
-  default: T,
-  expression: T,
-  cases: {[key: T]: ConfigSchemaPart}
+  default: string,
+  expression: EnumConfigSchema | StringConfigSchema,
+  cases: {[key: string]: ?ConfigSchemaPart}
 }
 
 export type EnumConfigSchema = {

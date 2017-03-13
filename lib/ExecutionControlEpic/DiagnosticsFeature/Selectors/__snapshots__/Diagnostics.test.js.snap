@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Diagnostics Selectors selectDiagnosticsOfTask should get diagnostics of task 1`] = `
+Array [
+  Object {
+    "message": "",
+    "task": "2",
+    "type": "success",
+  },
+  Object {
+    "message": "",
+    "task": "2",
+    "type": "error",
+  },
+  Object {
+    "message": "",
+    "task": "2",
+    "type": "warning",
+  },
+]
+`;
