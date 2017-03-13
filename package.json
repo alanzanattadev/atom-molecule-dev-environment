@@ -6,7 +6,8 @@
   "keywords": [],
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
-    "jest": "BABEL_ENV=jest jest --watch"
+    "jest": "BABEL_ENV=jest jest --watch",
+    "test": "BABEL_ENV=jest jest"
   },
   "repository": "https://github.com/atom/molecule-dev-environment",
   "license": "MIT",
