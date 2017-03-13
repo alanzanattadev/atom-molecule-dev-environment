@@ -1,4 +1,4 @@
 {
   "presets": ["es2015", "react"],
-  "plugins": ["glamor/babel"]
+  "plugins": ["glamor/babel","syntax-object-rest-spread"]
 }
