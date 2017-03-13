@@ -1,2 +1,7 @@
 [libs]
-./lib/interfaces.js
+<PROJECT_ROOT>/defs/
+[ignore]
+<PROJECT_ROOT>/node_modules/radium/
+<PROJECT_ROOT>/node_modules/styled-components/
+[options]
+module.name_mapper='atom' -> '<PROJECT_ROOT>/defs/interfaces.js'

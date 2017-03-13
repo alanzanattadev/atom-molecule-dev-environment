@@ -37,5 +37,9 @@ export type ProvidedDevTool = {
 export type TaskAPI = {
   addDiagnostics: (
     diagnostics: Array<PluginDiagnostic>
-  ) => void
+  ) => void,
+  cache: {
+    push: (data: any, step?: boolean, ) => void,
+    get: ({step?: ?number, excludeNullStep?: boolean}) => Array<any>,
+  }
 };
