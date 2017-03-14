@@ -6,7 +6,7 @@ export type PackageTester = RegExp | string | (file: string, directory: ?Directo
 
 export type Plugin = {
   tool: DevTool,
-  isPackage: PackageTester,
+  isPackage?: PackageTester,
 };
 
 export type Directory = {
