@@ -4,6 +4,9 @@ import {StyleRoot} from 'radium';
 
 const req = require.context('../lib/', true, /story\.js$/)
 
+require("../styles/diagnostic-color.less");
+require("../styles/molecule-dev-environment.less");
+
 function loadStories() {
   req.keys().forEach(req)
 }
