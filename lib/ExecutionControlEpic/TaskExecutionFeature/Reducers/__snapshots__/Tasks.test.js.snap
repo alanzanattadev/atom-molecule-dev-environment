@@ -360,7 +360,7 @@ Array [
 ]
 `;
 
-exports[`Tasks Reducer STOP_TASK_OF_TARGET should mark the task as stopped 1`] = `
+exports[`Tasks Reducer STOP_TASK_OF_PLAN should mark the task as stopped 1`] = `
 Array [
   Object {
     "debut": 1475954335,

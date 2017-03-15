@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlanConfigs ADD_TARGET_CONFIGURATION should add a plan configuration 1`] = `
+exports[`PlanConfigs ADD_PLAN_CONFIGURATION should add a plan configuration 1`] = `
 Array [
   Object {
     "config": "ls -l",
@@ -19,7 +19,7 @@ Array [
 ]
 `;
 
-exports[`PlanConfigs PIN_TARGET_CONFIGURATION should pin plan config 1`] = `
+exports[`PlanConfigs PIN_PLAN_CONFIGURATION should pin plan config 1`] = `
 Array [
   Object {
     "config": "ls -l",
@@ -60,7 +60,7 @@ Array [
 ]
 `;
 
-exports[`PlanConfigs UNPIN_TARGET_CONFIGURATION should unpin plan config 1`] = `
+exports[`PlanConfigs UNPIN_PLAN_CONFIGURATION should unpin plan config 1`] = `
 Array [
   Object {
     "config": "ls -l",
