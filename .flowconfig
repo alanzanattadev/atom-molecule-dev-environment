@@ -1,9 +1,8 @@
 [libs]
-flow-typed
+flow-typed/
 flow-libs/
 
 [ignore]
-<PROJECT_ROOT>/node_modules/radium/
 <PROJECT_ROOT>/node_modules/styled-components/
 
 [options]
