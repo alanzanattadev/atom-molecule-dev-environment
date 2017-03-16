@@ -1,6 +1,6 @@
 [libs]
 flow-typed
-<PROJECT_ROOT>/defs/
+flow-libs/
 
 [ignore]
 <PROJECT_ROOT>/node_modules/radium/
