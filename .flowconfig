@@ -1,7 +1,9 @@
 [libs]
-<PROJECT_ROOT>/defs/
+flow-typed/
+flow-libs/
+
 [ignore]
-<PROJECT_ROOT>/node_modules/radium/
 <PROJECT_ROOT>/node_modules/styled-components/
+
 [options]
 module.name_mapper='atom' -> '<PROJECT_ROOT>/defs/interfaces.js'
