@@ -60,6 +60,29 @@ Array [
 ]
 `;
 
+exports[`PlanConfigs REMOVE_PLAN_CONFIGURATION should remove plan config 1`] = `
+Array [
+  Object {
+    "config": "Invoke-Mimikatz",
+    "name": "mimikatz",
+    "packageInfos": Object {
+      "name": "",
+      "path": "/",
+      "type": "directory",
+    },
+    "pinned": false,
+    "stager": Object {
+      "type": "integrated",
+    },
+    "tool": Object {
+      "iconUri": "atom://myplugin/icon.png",
+      "id": "toolid",
+      "name": "powershell",
+    },
+  },
+]
+`;
+
 exports[`PlanConfigs UNPIN_PLAN_CONFIGURATION should unpin plan config 1`] = `
 Array [
   Object {
