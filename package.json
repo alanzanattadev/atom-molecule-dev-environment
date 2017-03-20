@@ -28,6 +28,7 @@
     "immutable": "^3.8.1",
     "inline-style-prefixer": "^2.0.1",
     "jest-cli": "^19.0.2",
+    "less": "^2.3.1",
     "moment": "^2.15.1",
     "nightwatch": "^0.9.12",
     "nightwatch-html-reporter": "^2.0.0",
@@ -56,16 +57,10 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
-    "css-loader": "^0.27.3",
     "enzyme": "^2.4.1",
     "flow-bin": "^0.41.0",
     "flow-typed": "^2.0.0",
     "jest": "^19.0.2",
-    "less": "^2.3.1",
-    "less-loader": "^3.0.0",
-    "prettier": "^0.17.1",
-    "remote-redux-devtools": "^0.5.0",
-    "style-loader": "^0.13.2",
-    "webpack": "latest"
+    "prettier": "^0.17.1"
   }
 }

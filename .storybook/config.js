@@ -2,10 +2,9 @@ import { configure, addDecorator } from '@kadira/storybook';
 import React from 'react';
 import {StyleRoot} from 'radium';
 
-const req = require.context('../lib/', true, /story\.js$/)
+const req = require.context('../lib/', true, /story\.js$/);
 
-require("../styles/diagnostic-color.less");
-require("../styles/molecule-dev-environment.less");
+require("./public/style.css");
 
 function loadStories() {
   req.keys().forEach(req)

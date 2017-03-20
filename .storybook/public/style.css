@@ -1,0 +1,105 @@
+.diagnostic-color-info {
+  background-color: #0098ff;
+}
+.diagnostic-color-success {
+  background-color: #17ca65;
+}
+.diagnostic-color-warning {
+  background-color: #ffaa2c;
+}
+.diagnostic-color-error {
+  background-color: #c00;
+}
+.diagnostic-color-info-dark {
+  background-color: #007acc;
+}
+.diagnostic-color-success-dark {
+  background-color: #00cc59;
+}
+.diagnostic-color-warning-dark {
+  background-color: #cc7a00;
+}
+.diagnostic-color-error-dark {
+  background-color: #cc0000;
+}
+.diagnostic-color-info {
+  background-color: #0098ff;
+}
+.diagnostic-color-success {
+  background-color: #17ca65;
+}
+.diagnostic-color-warning {
+  background-color: #ffaa2c;
+}
+.diagnostic-color-error {
+  background-color: #c00;
+}
+.diagnostic-color-info-dark {
+  background-color: #007acc;
+}
+.diagnostic-color-success-dark {
+  background-color: #00cc59;
+}
+.diagnostic-color-warning-dark {
+  background-color: #cc7a00;
+}
+.diagnostic-color-error-dark {
+  background-color: #cc0000;
+}
+.dev-tool-bar-background-color {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.text-color-highlight {
+  color: #fff;
+}
+.tool-name-background-color {
+  background-color: #4182C4;
+}
+.diagnostics-mode-selector {
+  background-color: #5c6064;
+}
+.plan-background-color {
+  background-color: #43484d;
+}
+.stash-color {
+  color: #fff;
+  background-color: #333;
+}
+.tooltip-color {
+  color: #aaa;
+  background-color: #0098ff;
+}
+.color-background-lgrey {
+  background-color: #aaa;
+}
+.color-background-black {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.color-background-dgrey {
+  background-color: #333;
+}
+.color-background-green {
+  background-color: #17ca65;
+}
+.color-text-dark {
+  color: #333;
+}
+.color-text-white {
+  color: #fff;
+}
+.custom-branch-color {
+  background-color: #0098ff;
+  color: #fff;
+}
+.modified-color {
+  color: #ff982d;
+}
+.added-color {
+  color: #2BDA77;
+}
+.removed-color {
+  color: #c00;
+}
+.default-color {
+  color: #aaa;
+}
