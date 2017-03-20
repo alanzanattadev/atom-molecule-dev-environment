@@ -2,10 +2,10 @@
   "presets": ["latest", "flow", "react"],
   "env": {
     "development": {
-      "plugins": ["react-for-atom", "glamor/babel","syntax-object-rest-spread"]
+      "plugins": ["react-for-atom","syntax-object-rest-spread"]
     },
     "production": {
-      "plugins": ["react-for-atom", "glamor/babel","syntax-object-rest-spread"]
+      "plugins": ["react-for-atom","syntax-object-rest-spread"]
     },
     "process": {
       "plugins": []
