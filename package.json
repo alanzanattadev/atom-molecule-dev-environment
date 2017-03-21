@@ -1,7 +1,7 @@
 {
   "jest": {
-  "moduleNameMapper": {
-    "remote": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeRemote.js"
+    "moduleNameMapper": {
+      "remote": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeRemote.js"
     }
   },
   "name": "molecule-dev-environment",
@@ -65,7 +65,7 @@
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "enzyme": "^2.7.1",
-    "flow-bin": "^0.41.0",
+    "flow-bin": "^0.42.0",
     "flow-typed": "^2.0.0",
     "jest": "^19.0.2",
     "prettier": "^0.17.1"
