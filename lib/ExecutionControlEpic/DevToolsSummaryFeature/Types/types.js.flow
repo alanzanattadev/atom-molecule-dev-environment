@@ -15,4 +15,8 @@ export type DevToolWithDiagnostics = DevTool & {
   successes: number,
   warnings: number,
   infos: number,
+  planColor?: string,
+  showColor?: boolean,
+  legend?: string,
+  index?: number,
 };
