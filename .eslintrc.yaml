@@ -1,0 +1,31 @@
+env:
+  browser: true
+  es6: true
+  jest: true
+  node: true
+extends:
+  - 'eslint:recommended'
+  - 'plugin:flowtype/recommended'
+  - 'plugin:react/recommended'
+  - 'prettier'
+  - 'prettier/flowtype'
+  - 'prettier/react'
+parser: 'babel-eslint'
+parserOptions:
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+    jsx: true
+  sourceType: module
+plugins:
+  - flowtype
+  - prettier
+  - react
+rules:
+  linebreak-style:
+    - error
+    - unix
+  no-console:
+    - warn
+  prettier/prettier:
+    - error
+    - trailingComma: true
