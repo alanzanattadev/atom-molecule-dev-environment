@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plan should display a context menu with Pin and Remove when pinnable is passed 1`] = `
+Array [
+  MyMenuItem {
+    "click": [Function],
+    "label": "Pin",
+  },
+  MyMenuItem {
+    "click": [Function],
+    "label": "Remove",
+  },
+]
+`;
+
+exports[`Plan should display a context menu with Unpin and Remove when pinnable is not passed 1`] = `
+Array [
+  MyMenuItem {
+    "click": [Function],
+    "label": "Un-pin",
+  },
+  MyMenuItem {
+    "click": [Function],
+    "label": "Remove",
+  },
+]
+`;
