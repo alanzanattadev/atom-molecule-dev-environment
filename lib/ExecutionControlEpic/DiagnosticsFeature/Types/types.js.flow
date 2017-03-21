@@ -19,10 +19,17 @@ export type DiagnosticMessageType =
   | React$Component<any, any, any>
   | ((props: any) => React$Element<any, any, any>);
 
+export type DiagnosticLocation = {
+  path: string,
+  line: number,
+  column: number,
+};
+
 export type PluginDiagnostic = {
   type: DiagnosticType,
   message: DiagnosticMessageType,
-  date?: number
+  date?: number,
+  location?: DiagnosticLocation,
 };
 
 export type Diagnostic = PluginDiagnostic & {
