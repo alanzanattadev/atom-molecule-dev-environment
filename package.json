@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "ansi-to-html": "^0.4.2",
-    "autoprefixer": "^6.4.1",
     "babel-cli": "^6.24.0",
     "babel-plugin-react-for-atom": "github:alanzanattadev/babel-plugin-react-for-atom",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
