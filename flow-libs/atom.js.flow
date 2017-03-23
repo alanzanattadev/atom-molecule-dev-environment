@@ -1,5 +1,3 @@
-'use babel';
-
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -86,16 +84,16 @@ declare class atom$CommandRegistry {
     commandNameOrCommands: string | {[commandName: string]: atom$CommandCallback},
     callback?: atom$CommandCallback
   ): IDisposable,
-  dispatch(target: HTMLElement, commandName: string): void,
+  dispatch(target: HTMLElement, commandName: string, detail?: Object): void,
   onDidDispatch(callback: (event: Event) => mixed): IDisposable,
   onWillDispatch(callback: (event: Event) => mixed): IDisposable,
 }
 
 declare class atom$CompositeDisposable {
-  constructor(...disposables: IDisposable[]): void,
+  constructor(...disposables: Array<IDisposable>): void,
   dispose(): void,
 
-  add(disposable: IDisposable): void,
+  add(...disposables: Array<IDisposable>): void,
   remove(disposable: IDisposable): void,
   clear(): void,
 }
@@ -211,8 +209,16 @@ declare class atom$Decoration {
   setProperties(properties: mixed): void,
 }
 
+declare class atom$DisplayMarkerLayer {
+  destroy(): void,
+  clear(): void,
+  isDestroyed(): boolean,
+  markBufferRange(range: atom$Range | atom$RangeLike, options: MarkerOptions): atom$Marker,
+  getMarkers(): Array<atom$Marker>,
+}
+
 declare class atom$Disposable {
-  constructor(disposalAction?: (...args: any[]) => any): void,
+  constructor(disposalAction?: (...args: Array<any>) => any): void,
   dispose(): void,
 }
 
@@ -265,6 +271,7 @@ declare class atom$Marker {
     range: atom$RangeLike,
     properties?: {reversed: boolean},
   ): void,
+  id: number,
 }
 
 declare class atom$ServiceHub {
@@ -323,7 +330,7 @@ declare class atom$PackageManager {
   // (Undocumented.)
   activate(): Promise<any>,
   deactivatePackages(): void,
-  deactivatePackage(name: string): void,
+  deactivatePackage(name: string, suppressSerialization?: boolean): void,
   loadPackage(name: string): void,
   loadPackages(): void,
   serializePackage(pkg: atom$Package): void,
@@ -438,6 +445,12 @@ declare class atom$PaneAxis {
 
 // Undocumented class
 declare class atom$PaneContainer {
+  constructor({
+                config: atom$Config,
+                applicationDelegate: atom$applicationDelegate,
+                notificationManager: atom$NotificationManager,
+                deserializerManager: atom$DeserializerManager,
+              }): atom$PaneContainer,
   destroy(): void,
   getActivePane(): atom$Pane,
   getActivePaneItem(): ?Object,
@@ -528,6 +541,7 @@ declare class atom$Range {
   containsRange(other: atom$Range, exclusive?: boolean): boolean,
   union(other: atom$Range): atom$Range,
   serialize(): Array<Array<number>>,
+  translate(startDelta: atom$PointLike, endDelta?: atom$PointLike): atom$Range,
 }
 
 type RawStatusBarTile = {
@@ -724,7 +738,7 @@ declare class atom$TextEditor extends atom$Model {
   // Mutating Text
   setText(text: string, options?: InsertTextOptions): void,
   setTextInBufferRange(
-    range: atom$Range,
+    range: atom$Range | Array<atom$Point>,
     text: string,
     options?: {
       normalizeLineEndings?: boolean,
@@ -737,6 +751,9 @@ declare class atom$TextEditor extends atom$Model {
   duplicateLines: () => void,
 
   // History
+  transact(fn: () => mixed, _: void): void,
+  transact(groupingInterval: number, fn: () => mixed): void,
+
   // TextEditor Coordinates
   screenPositionForBufferPosition(
     bufferPosition: atom$PointLike,
@@ -765,6 +782,7 @@ declare class atom$TextEditor extends atom$Model {
   getDecorations(options?: {class?: string, type?: string}): Array<atom$Decoration>,
 
   // Markers
+  getDefaultMarkerLayer(): atom$DisplayMarkerLayer,
   markBufferPosition(position: atom$PointLike, options?: MarkerOptions): atom$Marker,
   markBufferRange(range: atom$RangeLike, options?: MarkerOptions): atom$Marker,
   markScreenRange(range: atom$RangeLike, options?: MarkerOptions): atom$Marker,
@@ -993,7 +1011,7 @@ declare class atom$ViewRegistry {
   // Methods
   addViewProvider(
     modelConstructor: any,
-    createView?: (...args: any[]) => ?HTMLElement
+    createView?: (...args: Array<any>) => ?HTMLElement
   ): IDisposable,
   getView(textEditor: atom$TextEditor): atom$TextEditorElement,
   getView(notification: atom$Notification): HTMLElement,
@@ -1187,6 +1205,8 @@ declare class atom$GetEntriesError extends Error {
 }
 
 declare class atom$Directory {
+  constructor(dirname?: string): atom$Directory,
+
   symlink: boolean,
 
   // Construction
@@ -1222,6 +1242,8 @@ declare class atom$Directory {
 }
 
 declare class atom$File {
+  constructor(filePath?: string, symlink?: boolean): atom$File,
+
   symlink: boolean,
 
   // Construction
@@ -1371,7 +1393,7 @@ declare class atom$Project {
   setPaths(paths: Array<string>): void,
   removePath(projectPath: string): void,
   getDirectories(): Array<atom$Directory>,
-  relativizePath(): Array<string>, // [projectPath: ?string, relativePath: string]
+  relativizePath(relativizePath?: string): Array<string>, // [projectPath: ?string, relativePath: string]
   relativize(filePath: string): string,
 
   // Private API
@@ -1403,6 +1425,12 @@ type atom$TextEditEvent = {
 };
 
 declare class atom$TextBuffer {
+  constructor(text?: string): atom$TextBuffer,
+  constructor(params?: {
+                filePath?: string,
+                text?: string,
+              }): atom$TextBuffer,
+
   file: ?atom$File,
 
   // Mixin
@@ -1480,6 +1508,7 @@ declare class atom$TextBuffer {
   getChangesSinceCheckpoint(checkpoint: atom$TextBufferCheckpoint): Array<mixed>,
 
   // Search And Replace
+  scan(regex: RegExp, iterator: TextBufferScanIterator): void,
   scanInRange(regex: RegExp, range: atom$Range, iterator: TextBufferScanIterator): void,
   backwardsScanInRange(regex: RegExp, range: atom$Range, iterator: TextBufferScanIterator): void,
 
@@ -1669,6 +1698,8 @@ type RepositoryLineDiff = {
 //
 // [1]: https://github.com/atom/atom/blob/v1.7.3/src/git-repository.coffee
 declare class atom$Repository {
+  constructor(path: string, options?: {refreshOnWindowFocus?: boolean}): void,
+
   // Event Subscription
   onDidChangeStatus: (callback: RepositoryDidChangeStatusCallback) => IDisposable,
   onDidChangeStatuses: (callback: () => mixed) => IDisposable,

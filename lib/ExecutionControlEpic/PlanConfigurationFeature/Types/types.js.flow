@@ -2,7 +2,7 @@
 // @flow
 
 import type {DevToolPlanConfig} from "../../../types";
-import type {PackageInfos} from '../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow';
+import type {PackageInfos} from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
 
 export type ConfigSchemaPartBase = {
   title?: string,
@@ -110,6 +110,14 @@ export type Stager = {
 } | {
   type: 'remote',
   host: HostConfig
+};
+
+export type AddPlanConfigSchemaAction = {
+  type: "ADD_PLAN_CONFIGURATION_SCHEMA",
+  payload: {
+    tool: DevToolInfos,
+    schema: ConfigSchemaPart,
+  },
 };
 
 export type DevToolPlanConfigSchema = ConfigSchemaPart & {tool: DevToolInfos};
