@@ -4,6 +4,16 @@ A short description of your package.
 
 ![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
 
+## Install
+
+You can easily install Molecule from atom packages. Simply open atom, go to preferences (Edit | Preferences) and install `Molecule IDE` from the "Install" section.
+
+Then, restart atom and Molecule should be here !
+
+## Contribute
+
+In order to contribute to Molecule, you need to clone this repository and open its directory. To link the development version of Molecule with atom, run `apm link -d`. The `-d` option link it as a development package (to be used in atom' development mode). Remove it to link the package with atom directly.
+
 ## Execution
 
 plans: (configuration of an execution, tool config and host in params)
