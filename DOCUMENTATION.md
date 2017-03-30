@@ -33,16 +33,21 @@ First of all, add your *js* file in the **lib/ExecutionControlEpic/Plugins/** di
 
 Then add the following imports to your file:
 
-    import type {PlanConfig} from "../PlanConfigurationFeature/Types/types.js.flow";
-    import type {TaskAPI} from "../DevtoolLoadingFeature/Types/types.js";
-    import path from 'path';
+```javascript
+import type {PlanConfig} from "../PlanConfigurationFeature/Types/types.js.flow";
+import type {HelperApi} from "../TaskExecutionFeature/Model/HelperApi";
+import type {TaskAPI} from "../DevtoolLoadingFeature/Types/types.js";
+import path from 'path';
+```
 
 >Don't worry about them for now, we'll use them in a couple of steps.
 
 Of course don't forget to *export default* your object, like:
 
-    export default {
-    };
+```javascript
+export default {
+};
+```
 
 >Note that every object you will create in the next steps has to be inside the *export default*
 
@@ -56,14 +61,15 @@ First, you'll have to create an **infos** object that has 3 attributes:
 * **iconUri**: the uri pointing to the icon of the tool (which should be in *atom://molecule-dev-environment/.storybook/public/tool-name.png*)
 * **defaultDiagnosticsMode**: the default display mode for your tool's diagnostics, can be 'logs' or 'organized' (set to 'organized' by default)
 
-For exemple:
+Example:
 
-    infos: {
-      name: 'docker',
-      iconUri: 'atom://molecule-dev-environment/.storybook/public/devtool-icon-docker.png',
-      defaultDiagnosticsMode: 'logs'
-    }
-
+```javascript
+infos: {
+  name: 'docker',
+  iconUri: 'atom://molecule-dev-environment/.storybook/public/devtool-icon-docker.png',
+  defaultDiagnosticsMode: 'logs'
+}
+```
 
 
 ## ConfigSchema
@@ -88,7 +94,7 @@ This section is very important, you are going to define the way a user can creat
 >* script (= name of the script)
 
 >They are defined by the following configSchema:
->```
+>```javascript
 >configSchema: {
 >  type: 'conditional',
 >  expression: {
@@ -128,13 +134,13 @@ Here are the available types (and their attributes), followed by an example of h
   * *placeholder* - a hint inside the input box (optional)
 
 >Example:
->```
+>```javascript
 >type: 'string',
 >default: '',
 >title: 'script',
 >placeholder: 'Script name'
 >```
->```
+>```javascript
 >let s = plan.config.script;
 >```
 
@@ -142,27 +148,27 @@ Here are the available types (and their attributes), followed by an example of h
   * *placeholder* - a hint inside the input box (optional)
 
 >Example:
->```
+>```javascript
 >type: 'number',
 >default: '80',
 >title: 'port',
 >placeholder: 'Port number'
 >```
->```
+>```javascript
 >let n = plan.config.port;
 >```
 
 * **boolean** : asks the user for a true/false input (= check box).
 
 >Example:
->```
+>```javascript
 >type: 'boolean',
 >default: 'true',
 >title: 'Enable potato mode'
 >```
 >You can get the value of this boolean by encapsulating it in an **object** (see below), here we pretend the object's name is checkBox
->```
->if(plan.config.checkBox) {
+>```javascript
+>if (plan.config.checkBox) {
 >  launchPotatoe();
 >}
 >```
@@ -171,7 +177,7 @@ Here are the available types (and their attributes), followed by an example of h
   * *schemas* - a schema is a configSchemaPart associated with a key. An object can contain mutliple schemas.
 
 >Example:
->```
+>```javascript
 >type: 'object',
 >schemas: {
 >  image: {
@@ -186,7 +192,7 @@ Here are the available types (and their attributes), followed by an example of h
 >  }
 >}
 >```
->```
+>```javascript
 >let data : {
 >  image : plan.config.image,
 >  port : plan.config.port
@@ -197,7 +203,7 @@ Here are the available types (and their attributes), followed by an example of h
   * *items* - an item is a **configSchemaPart** which will appear when the '+' button is clicked
 
 >Example:
->```
+>```javascript
 >type: 'array',
 >default: [],
 >items: {
@@ -218,7 +224,7 @@ Here are the available types (and their attributes), followed by an example of h
 >}
 >```
 >As for the **boolean** type, the array has to be encapsulated in an object, here we pretend the object's name is Docks
->```
+>```javascript
 >plan.config.Docks.map((dock) => {
 >  let data : {
 >    image : dock.image,
@@ -234,7 +240,7 @@ Here are the available types (and their attributes), followed by an example of h
     * description : the caption displayed in the drop-down menu
 
 >Example:
->```
+>```javascript
 >type: 'enum',
 >enum: [
 >  {value: 'local', description: 'Local'},
@@ -248,7 +254,7 @@ Here are the available types (and their attributes), followed by an example of h
   * *cases* - for each value declared in the *expression* attribute, another configSchemaPart is expected
 
 >Example:
->```
+>```javascript
 >type: 'conditional',
 >expression: {
 >  type: 'enum',
@@ -273,7 +279,7 @@ Here are the available types (and their attributes), followed by an example of h
 >}
 >```
 >Again, encapsulating this in an object to better access it, here we pretend the object's name is binary
->```
+>```javascript
 >if(plan.config.binary.expressionValue == 'global') {
 >  let iterations = plan.config.caseValue.cmd;
 >} else {
@@ -286,13 +292,13 @@ Here are the available types (and their attributes), followed by an example of h
 
 This is the part where you get to use the imports you previously added to your file. Make sure you didn't forget those [imports](#requirements), and then add the **getStrategyForPlan(plan: PlanConfig)** function as in:
 
-```
+```javascript
 export default {
   infos: {
-    [tool infos]
+    /* tool infos */
   },
   configSchema: {
-    [tool configSchema]
+    /* tool configSchema */
   },
   getStrategyForPlan(plan: PlanConfig) {
     /* TO-DO */
@@ -306,7 +312,7 @@ export default {
 This function will contain the content of the notifications you are going to provide to the user through the bottom dock of Molecule.
 
 To get started, know that this function has to return an object composed of two objects: **strategy** and **controller** like:
-```
+```javascript
 getStrategyForPlan(plan: PlanConfig) {
   /* You're free to do whatever operations you need to
   in order to be ready to pass informations through the return */
@@ -330,7 +336,7 @@ Here is a description of the content of those two:
   * **cwd** - the directory from which the command will be executed
 
 >Example:
->```
+>```javascript
 >strategy: {
 >  type: 'shell',
 >  command: `${binaryPath} ${plan.config.task}`,
@@ -351,7 +357,7 @@ Here is a description of the content of those two:
     * **onData** *(data: any, taskAPI: TaskAPI, helperAPI): void* - function called when your script uses the 'process.send(data: any)' function, data can be of *any* type
 
 Basically, your controller will look like:
-```
+```javascript
 controller: {
     onData(data: any, taskAPI: TaskAPI, helperAPI: HelperAPI): void {
         ... // type is node
@@ -400,7 +406,7 @@ As you can see there are two APIs you get from each function:
     * **json** is an object which only contains (for now) a **parseAsync** function taking a string as argument, which will be asynchronously parsed through the 'JSON.parse' function thanks to a Promise, and will _then_ be return to you
 
 >Example:
->```
+>```javascript
 >controller: {
 >  onStdoutData(data: string, taskAPI: TaskAPI, helperAPI): void {
 >    taskAPI.cache.push(data.toString());
@@ -440,7 +446,7 @@ As you can see there are two APIs you get from each function:
 >The **moment** import is used to associate a time to a diagnostic.
 
 
-## Package definition
+## Package
 
 Last but not least, add a **isPackage** attribute. This will define the way your tool can identify packages and so operate on the proper projects.
 
@@ -449,9 +455,25 @@ The **isPackage** attribute can receive several type of value: function, string 
 * **function** : if you chose to express your isPackage with a function, note that you will receive two arguments: packagePath & dirname
   * **packagePath** - full path + file name (*ex: /home/toto/projectdir/package.json*)
   * **dirname** - it is an object containing the *name* of the current tested directory and an array *files* of all the files contained in it
+  * **return** - the value you return can either be a **boolean** or an **object** which will replace the current package state as in:
+    ```javascript
+    {
+      name: 'string',
+      path: 'string',
+      type: 'string', // 'file' | 'directory'
+      plugin: {
+        tool: { // same as the Infos section
+          id: 'string',
+          name: 'string',
+          iconUri: 'string',
+        },
+        isPackage: () => this.isPackage, // so Molecule can access this function
+      }
+    }
+    ```
 
 >Example:
->```
+>```javascript
 >isPackage: (packagePath, dirname) =>
 > path.basename(packagePath).indexOf("jest.config") != -1 ||
 > path.basename(packagePath).indexOf(".jest.") != -1 ||
@@ -461,13 +483,13 @@ The **isPackage** attribute can receive several type of value: function, string 
 * **string** : the string is the name of the file describing your package, plain and simple
 
 >Example:
->```
+>```javascript
 >isPackage: 'package.json'
 >```
 
 * **regexp** : the regexp will be tested against the full path followed by the file name (ex: */home/toto/projectdir/package.json*)
 
 >Example:
->```
+>```javascript
 >isPackage: /gulpfile|gruntfile)\.js/
 >```
