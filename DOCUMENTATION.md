@@ -461,14 +461,6 @@ The **isPackage** attribute can receive several type of value: function, string 
       name: 'string',
       path: 'string',
       type: 'string', // 'file' | 'directory'
-      plugin: {
-        tool: { // same as the Infos section
-          id: 'string',
-          name: 'string',
-          iconUri: 'string',
-        },
-        isPackage: () => this.isPackage, // so Molecule can access this function
-      }
     }
     ```
 
