@@ -1,5 +1,5 @@
-// flow-typed signature: 5d4c8be109d269b39dbc7f2d1aea77f4
-// flow-typed version: b826463025/rxjs_v5.0.x/flow_>=v0.34.x
+// flow-typed signature: bcc579222e2f2efa181af7a5ed2f18b9
+// flow-typed version: 5d68cb629f/rxjs_v5.0.x/flow_>=v0.34.x
 
 // FIXME(samgoldman) Remove top-level interface once Babel supports
 // `declare interface` syntax.
@@ -143,9 +143,9 @@ declare class rxjs$Observable<+T> {
     f: (value: T) => rxjs$Observable<U> | Promise<U> | Iterable<U>
   ): rxjs$Observable<U>;
 
-  debounceTime(duration: number): rxjs$Observable<T>;
+  debounceTime(dueTime: number, scheduler?: rxjs$SchedulerClass): rxjs$Observable<T>;
 
-  delay(dueTime: number): rxjs$Observable<T>;
+  delay(dueTime: number, scheduler?: rxjs$SchedulerClass): rxjs$Observable<T>;
 
   distinctUntilChanged(compare?: (x: T, y: T) => boolean): rxjs$Observable<T>;
 
@@ -189,11 +189,13 @@ declare class rxjs$Observable<+T> {
 
   // Alias for `mergeMap`
   flatMap<U>(
-    project: (value: T) => rxjs$Observable<U> | Promise<U> | Iterable<U>
+    project: (value: T) => rxjs$Observable<U> | Promise<U> | Iterable<U>,
+    index?: number,
   ): rxjs$Observable<U>;
 
   switchMap<U>(
-    project: (value: T) => rxjs$Observable<U> | Promise<U> | Iterable<U>
+    project: (value: T) => rxjs$Observable<U> | Promise<U> | Iterable<U>,
+    index?: number,
   ): rxjs$Observable<U>;
 
   switchMapTo<U>(
@@ -210,6 +212,7 @@ declare class rxjs$Observable<+T> {
 
   mergeMap<U>(
     project: (value: T, index?: number) => rxjs$Observable<U> | Promise<U> | Iterable<U>,
+    index?: number,
   ): rxjs$Observable<U>;
 
   multicast(
@@ -238,7 +241,7 @@ declare class rxjs$Observable<+T> {
 
   sampleTime(delay: number): rxjs$Observable<T>;
 
-  publishReplay(): rxjs$ConnectableObservable<T>;
+  publishReplay(bufferSize?: number, windowTime?: number, scheduler?: rxjs$SchedulerClass): rxjs$ConnectableObservable<T>;
 
   retry(retryCount: number): rxjs$Observable<T>;
 
@@ -698,7 +701,7 @@ declare class rxjs$BehaviorSubject<T> extends rxjs$Subject<T> {
 }
 
 declare class rxjs$ReplaySubject<T> extends rxjs$Subject<T> {
-
+  constructor(bufferSize?: number, windowTime?: number, scheduler?: rxjs$SchedulerClass): void;
 }
 
 declare class rxjs$Subscription {

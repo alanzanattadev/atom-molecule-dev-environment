@@ -1,5 +1,5 @@
-// flow-typed signature: 04c58f94bca162503cfab53fbd7bb06c
-// flow-typed version: cefd3ae547/moment_v2.x.x/flow_>=v0.34.x
+// flow-typed signature: e23207a33420488837251b6e1897e261
+// flow-typed version: 7822da7258/moment_v2.x.x/flow_>=v0.34.x
 
 type moment$MomentOptions = {
   y?: number|string,
@@ -181,8 +181,8 @@ declare class moment$Moment {
   endOf(unit: string): this;
   local(): this;
   utc(): this;
-  utcOffset(offset: number|string): void;
-  utcOffset(): number|string;
+  utcOffset(offset: number|string): this;
+  utcOffset(): number;
   format(format?: string): string;
   fromNow(removeSuffix?: bool): string;
   from(value: moment$Moment|string|number|Date|Array<number>, removePrefix?: bool): string;
