@@ -1,42 +1,45 @@
-# molecule-dev-environment package
+# Molecule IDE
 
-A short description of your package.
+At Molecule we think that you shouldn't have to adapt your workflow to your IDE but
+the IDE to your methods, whether you're using cutting edge tooling or advanced
+workflows, we provide you a flexible and easy to use tool that will become your
+artboard.
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+Open Source is at the core of our thinking and we want to listen and help our
+community to create the best and most modern development platform for your last
+innovations.
+
+**Visit our [website](http://www.molecule.sh) to know more about Molecule!**
+
+**Warning:** Molecule is still in an early alpha stage. The current state is far from
+what we want to achieve and it is still full of bug. We are working hard to correct
+them as soon as possible and to add the features we are planning and you request.
+So feel free to give us some [feedback](#feedback), we'll be very happy! ;)
 
 ## Install
 
-You can easily install Molecule from atom packages. Simply open atom, go to preferences (Edit | Preferences) and install `Molecule IDE` from the "Install" section.
+You can easily install Molecule from atom packages. Simply open atom,
+go to preferences (Edit | Preferences) and install `Molecule IDE` from the "Install"
+section.
 
-Then, restart atom and Molecule should be here !
+Molecule should be here! If not, try to restart atom, and enjoy!
 
 ## Contribute
 
-In order to contribute to Molecule, you need to clone this repository and open its directory. To link the development version of Molecule with atom, run `apm link -d`. The `-d` option link it as a development package (to be used in atom' development mode). Remove it to link the package with atom directly.
+### Feedback
 
-## Execution
+We are open to any kind of feeback you could give us. From bugfixes to recommandations
+and feature requests, we would love to hear what you think of Molecule.
 
-plans: (configuration of an execution, tool config and host in params)
+You can send feedback on our [website](https://www.molecule.sh) or open a
+[GitHub issue](https://github.com/alanzanattadev/molecule-landing/issues).
+We'll answer you as soon as possible!
 
-tasks: (execution with plan as parameters)
+### Help to develop
 
-handler:
-  - local (waits for infos, communicates data over process)
+In order to contribute to Molecule, you need to clone this repository and open
+its directory. To link the development version of Molecule with atom,
+run `apm link -d`. The `-d` option link it as a development package
+(to be used in atom' development mode). Remove it to link the package with atom
+directly.
 
-stagers: (responsible of executing strategy and fetching back data to Atom)
-  - remote ssh (launch a local handler which connects to a remote machine and execute the stager that executes the strategy)
-  - remote docker (launch a container on a remote host)
-  - local (launch a local process and execute strategy in it)
-  - integrated (execute strategy in atom)
-
-strategy: (Payload of execution, determined by plugin)
-  - shell (command in params)
-  - node script (path in params)
-  - http (request infos in params)
-
-controller: (Binding between strategies and stagers)
-
-filters:
-  - project (group of apps)
-  - package (app)
-  - working set (feature)
