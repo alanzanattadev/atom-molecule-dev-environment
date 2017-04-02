@@ -17,7 +17,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
     "test": "BABEL_ENV=jest jest"
   },
-  "repository": "https://github.com/atom/molecule-dev-environment",
+  "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
