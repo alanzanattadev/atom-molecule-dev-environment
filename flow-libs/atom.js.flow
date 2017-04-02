@@ -542,6 +542,7 @@ declare class atom$Range {
   union(other: atom$Range): atom$Range,
   serialize(): Array<Array<number>>,
   translate(startDelta: atom$PointLike, endDelta?: atom$PointLike): atom$Range,
+  getRowCount(): number,
 }
 
 type RawStatusBarTile = {
@@ -629,7 +630,12 @@ type atom$TooltipsAddOptions = {
   placement?: atom$TooltipsPlacementOption | () => atom$TooltipsPlacementOption,
 };
 
+type atom$Tooltip = {
+  hide(): void;
+};
+
 declare class atom$TooltipManager {
+  tooltips: Map<HTMLElement, atom$Tooltip>;
   add(
     target: HTMLElement,
     options: atom$TooltipsAddOptions,
@@ -1097,9 +1103,9 @@ declare class atom$Workspace {
     }
   ): Promise<atom$TextEditor>,
   isTextEditor(item: ?mixed): boolean,
-  /* Optional method because this was added post-1.0. */
+    /* Optional method because this was added post-1.0. */
   buildTextEditor: ((params: atom$TextEditorParams) => atom$TextEditor),
-  /* Optional method because this was added in 1.9.0 */
+    /* Optional method because this was added in 1.9.0 */
   handleGrammarUsed?: (grammar: atom$Grammar) => void,
   reopenItem(): Promise<?atom$TextEditor>,
   addOpener(callback: (uri: string) => any): IDisposable,
@@ -1778,6 +1784,12 @@ type atom$AutocompleteProvider = {
   disableForSelector?: string,
   inclusionPriority?: number,
   excludeLowerPriority?: boolean,
+};
+
+type atom$SuggestionInsertedRequest = {
+  editor: atom$TextEditor,
+  triggerPosition: atom$Point,
+  suggestion: atom$AutocompleteSuggestion,
 };
 
 // Undocumented API.
