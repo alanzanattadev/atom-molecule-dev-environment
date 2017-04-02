@@ -79,7 +79,7 @@ This section is very important, you are going to define the way a user can creat
 
 >Here is an example of the creation of a plan:
 
->![NPM tool plan creation base](./Plan-creation-base.png)
+>![NPM tool plan creation base](./ressources/Plan-creation-base.png)
 
 >**MUST READ**: The *name* box is a default one, it will be the name of your plan once created. The last 2 boxes before the *Create* button are also default ones:
 >They allow the user to chose the package in which the plan will be executed and how the process will be executed:
@@ -87,7 +87,7 @@ This section is very important, you are going to define the way a user can creat
 >* **local** : process as child of process launched as child of atom
 >* **remote** : process launched on a remote machine
 
->![NPM tool plan creation](./Plan-creation.png)
+>![NPM tool plan creation](./ressources/Plan-creation.png)
 
 >This is the **npm** tool plan configuration. As you can see, only the 2 circled boxes are required for npm to create a plan:
 >* action (= run/start/test)
