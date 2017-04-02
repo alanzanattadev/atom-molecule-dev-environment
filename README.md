@@ -18,22 +18,24 @@ So feel free to give us some [feedback](#feedback), we'll be very happy! ;)
 
 ## Install
 
-You can easily install Molecule from atom packages. Simply open atom,
-go to preferences (Edit | Preferences) and install `Molecule IDE` from the "Install"
-section.
+```bash
+  git clone https://github.com/alanzanattadev/atom-molecule-dev-environment.git
+  cd atom-molecule-dev-environment
+  apm link
+```
 
-Molecule should be here! If not, try to restart atom, and enjoy!
+Open atom and enjoy :)
 
 ## Contribute
 
 ### Feedback
 
-We are open to any kind of feeback you could give us. From bugfixes to recommandations
+We are open to any kind of feedback you could give us. From bug fixes to recommandations
 and feature requests, we would love to hear what you think of Molecule.
 
 You can send feedback on our [website](https://www.molecule.sh) or open a
 [GitHub issue](https://github.com/alanzanattadev/molecule-landing/issues).
-We'll answer you as soon as possible!
+We love discussing with our users !
 
 ### Help to develop
 
@@ -42,4 +44,3 @@ its directory. To link the development version of Molecule with atom,
 run `apm link -d`. The `-d` option link it as a development package
 (to be used in atom' development mode). Remove it to link the package with atom
 directly.
-
