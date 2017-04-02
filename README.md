@@ -21,6 +21,7 @@ So feel free to give us some [feedback](#feedback), we'll be very happy! ;)
 ```bash
   git clone https://github.com/alanzanattadev/atom-molecule-dev-environment.git
   cd atom-molecule-dev-environment
+  yarn (or npm install)
   apm link
 ```
 
