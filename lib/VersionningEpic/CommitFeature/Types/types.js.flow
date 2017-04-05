@@ -1,9 +1,9 @@
-'use babel'
+"use babel";
 // @flow
 
-export type FileStatus = 'modified' | 'added' | 'removed' | 'versionned';
+export type FileStatus = "modified" | "added" | "removed" | "versionned";
 
 export type File = {
   path: string,
   status: FileStatus,
-}
+};

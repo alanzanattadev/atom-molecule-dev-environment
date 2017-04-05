@@ -11,22 +11,20 @@ export type ProvidedDevTool = {
     id?: string,
     name: string,
     iconUri: string,
-    defaultDiagnosticsMode?: DiagnosticMode
+    defaultDiagnosticsMode?: DiagnosticMode,
   },
   configSchema: ConfigSchemaPart,
   getStrategyForPlan(plan: PlanConfig): {
     strategy: Strategy,
-    controller: Controller
+    controller: Controller,
   },
-  isPackage?: PackageTester
+  isPackage?: PackageTester,
 };
 
 export type TaskAPI = {
-  addDiagnostics: (
-    diagnostics: Array<PluginDiagnostic>
-  ) => void,
+  addDiagnostics: (diagnostics: Array<PluginDiagnostic>) => void,
   cache: {
-    push: (data: any, step?: boolean, ) => void,
-    get: ({step?: ?number, excludeNullStep?: boolean}) => Array<any>,
-  }
+    push: (data: any, step?: boolean) => void,
+    get: ({ step?: ?number, excludeNullStep?: boolean }) => Array<any>,
+  },
 };
