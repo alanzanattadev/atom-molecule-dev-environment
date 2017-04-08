@@ -26,6 +26,9 @@ rules:
     - unix
   no-console:
     - warn
+  no-unused-vars:
+    - error
+    - argsIgnorePattern: "helperAPI|taskAPI|dirname"
   prettier/prettier:
     - error
     - trailingComma: true
