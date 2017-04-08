@@ -1,10 +1,21 @@
 "use babel";
 // @flow
 
-import type {ConfigSchemaPart, PlanConfig} from "../../PlanConfigurationFeature/Types/types.js.flow";
-import type {Controller, Strategy} from "../../TaskExecutionFeature/Types/types.js.flow";
-import type {DiagnosticMode, PluginDiagnostic} from "../../DiagnosticsFeature/Types/types.js.flow";
-import type {PackageTester} from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type {
+  ConfigSchemaPart,
+  PlanConfig,
+} from "../../PlanConfigurationFeature/Types/types.js.flow";
+import type {
+  Controller,
+  Strategy,
+} from "../../TaskExecutionFeature/Types/types.js.flow";
+import type {
+  DiagnosticMode,
+  PluginDiagnostic,
+} from "../../DiagnosticsFeature/Types/types.js.flow";
+import type {
+  PackageTester,
+} from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
 
 export type ProvidedDevTool = {
   infos: {

@@ -1,8 +1,10 @@
 "use babel";
 // @flow
 
-import type {DevToolPlanConfig} from "../../../types";
-import type {PackageInfos} from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { DevToolPlanConfig } from "../../../types";
+import type {
+  PackageInfos,
+} from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
 
 export type ConfigSchemaPartBase = {
   title?: string,

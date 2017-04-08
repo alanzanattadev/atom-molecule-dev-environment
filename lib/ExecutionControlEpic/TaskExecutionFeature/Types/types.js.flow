@@ -1,9 +1,17 @@
 "use babel";
 // @flow
 
-import type {DevToolInfos} from "../../PlanConfigurationFeature/Types/types.js.flow";
-import type {NodeProcessController, NodeProcessStrategy} from "../Model/Strategies/NodeProcessStrategy";
-import type {ShellController, ShellStrategy} from "../Model/Strategies/ShellStrategy";
+import type {
+  DevToolInfos,
+} from "../../PlanConfigurationFeature/Types/types.js.flow";
+import type {
+  NodeProcessController,
+  NodeProcessStrategy,
+} from "../Model/Strategies/NodeProcessStrategy";
+import type {
+  ShellController,
+  ShellStrategy,
+} from "../Model/Strategies/ShellStrategy";
 
 export type TaskState =
   | "created"
