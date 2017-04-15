@@ -1,3 +1,5 @@
 ## 0.1.0 - First Release
-* Every feature added
-* Every bug fixed
+* Plan Configuration Feature added
+* Plan Execution Feature added
+* Diagnostic Traveling Feature added
+* Package detection Feature added
