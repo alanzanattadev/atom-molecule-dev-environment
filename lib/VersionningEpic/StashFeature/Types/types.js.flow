@@ -1,4 +1,4 @@
-'use babel'
+"use babel";
 // @flow
 
 export type Stash = {
@@ -7,4 +7,4 @@ export type Stash = {
   branchName: string,
   commitId: string,
   commitMessage: string,
-}
+};

@@ -1,22 +1,26 @@
-'use babel'
+"use babel";
 // @flow
 
-import type {DiagnosticMode} from '../../DiagnosticsFeature/Types/types.js.flow';
+import type {
+  DiagnosticMode,
+} from "../../DiagnosticsFeature/Types/types.js.flow";
 
 export type DevTool = {
   id: string,
   name: string,
   iconUri: string,
-  defaultDiagnosticsMode?: DiagnosticMode
+  defaultDiagnosticsMode?: DiagnosticMode,
 };
 
-export type DevToolWithDiagnostics = DevTool & {
-  errors: number,
-  successes: number,
-  warnings: number,
-  infos: number,
-  planColor?: string,
-  showColor?: boolean,
-  legend?: string,
-  index?: number,
-};
+export type DevToolWithDiagnostics =
+  & DevTool
+  & {
+    errors: number,
+    successes: number,
+    warnings: number,
+    infos: number,
+    planColor?: string,
+    showColor?: boolean,
+    legend?: string,
+    index?: number,
+  };

@@ -1,4 +1,4 @@
-'use babel';
+"use babel";
 // @flow
 
 export type AnswersDependant<T, R> = (answers: object, R) => T;
@@ -21,34 +21,36 @@ export type ValidatorResponse =
 export type ComplexChoice = { value: any, description: string };
 export type Choice = string | ComplexChoice;
 
-export type Step = 'when' | 'loader' | 'ask' | 'validation';
+export type Step = "when" | "loader" | "ask" | "validation";
 
-export type Question = (
-  | {
-      type: 'input'
-    }
-  | {
-      type: 'confirm',
-      decline: Choice,
-      accept: Choice
-    }
-  | {
-      type: 'list',
-      choices: Array<Choice> | AnswersDependant<Array<Choice>, mixed>
-    }
-  | {
-      type: 'checkbox',
-      choices: Array<Choice> | AnswersDependant<Array<Choice>, mixed>
-    }
-  | {
-      type: 'password'
-    }) & {
-  name: string,
-  message: string | AnswersDependant<string, mixed>,
-  default: any | AnswersOnlyDependant<any | mixed>,
-  loader: LoaderResponse,
-  validator: ValidatorResponse,
-  when: WhenResponse
-};
+export type Question =
+  & (
+    | {
+        type: "input",
+      }
+    | {
+        type: "confirm",
+        decline: Choice,
+        accept: Choice,
+      }
+    | {
+        type: "list",
+        choices: Array<Choice> | AnswersDependant<Array<Choice>, mixed>,
+      }
+    | {
+        type: "checkbox",
+        choices: Array<Choice> | AnswersDependant<Array<Choice>, mixed>,
+      }
+    | {
+        type: "password",
+      })
+  & {
+    name: string,
+    message: string | AnswersDependant<string, mixed>,
+    default: any | AnswersOnlyDependant<any | mixed>,
+    loader: LoaderResponse,
+    validator: ValidatorResponse,
+    when: WhenResponse,
+  };
 
 export type Questions = Array<Questions>;

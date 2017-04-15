@@ -1,8 +1,10 @@
-'use babel'
+"use babel";
 // @flow
 
-import type {DevToolPlanConfig} from "../../../types";
-import type {PackageInfos} from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { DevToolPlanConfig } from "../../../types";
+import type {
+  PackageInfos,
+} from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
 
 export type ConfigSchemaPartBase = {
   title?: string,
@@ -10,91 +12,99 @@ export type ConfigSchemaPartBase = {
 };
 
 export type ObjectConfigSchema = {
-  type: 'object',
+  type: "object",
   default: Object,
-  schemas: {[key: string]: ConfigSchemaPart}
+  schemas: { [key: string]: ConfigSchemaPart },
 };
 
 export type ArrayConfigSchema = {
-  type: 'array',
+  type: "array",
   default: ConfigSchemaPart,
   items: ConfigSchemaPart,
 };
 
 export type StringConfigSchema = {
-  type: 'string',
+  type: "string",
   default: string,
   placeholder?: string,
 };
 
 export type BooleanConfigSchema = {
-  type: 'boolean',
+  type: "boolean",
   default: boolean,
 };
 
 export type NumberConfigSchema = {
-  type: 'number',
+  type: "number",
   default: number,
   placeholder?: string,
 };
 
 export type ConditionalConfigSchema<T> = {
-  type: 'conditional',
+  type: "conditional",
   default: string,
   expression: EnumConfigSchema | StringConfigSchema,
-  cases: {[key: string]: ?ConfigSchemaPart}
-}
-
-export type EnumConfigSchema = {
-  type: 'enum',
-  default: DevToolPlanConfig,
-  enum: Array<{value: any, description: string}>,
+  cases: { [key: string]: ?ConfigSchemaPart },
 };
 
-export type ConfigSchemaPart = ConfigSchemaPartBase &
-                                (ArrayConfigSchema | StringConfigSchema | BooleanConfigSchema | NumberConfigSchema | EnumConfigSchema | ObjectConfigSchema | ConditionalConfigSchema<any>);
+export type EnumConfigSchema = {
+  type: "enum",
+  default: DevToolPlanConfig,
+  enum: Array<{ value: any, description: string }>,
+};
+
+export type ConfigSchemaPart =
+  & ConfigSchemaPartBase
+  & (
+    | ArrayConfigSchema
+    | StringConfigSchema
+    | BooleanConfigSchema
+    | NumberConfigSchema
+    | EnumConfigSchema
+    | ObjectConfigSchema
+    | ConditionalConfigSchema<any>);
 
 export type DevToolInfos = {
   id: string,
   name: string,
   iconUri: string,
-}
+};
 
 export type SSHConfigSchema = {
-  type: 'object',
+  type: "object",
   schemas: {
     username: {
-      type: 'string',
-      default: '',
-      title: 'username'
+      type: "string",
+      default: "",
+      title: "username",
     },
     privateKeyPath: {
-      type: 'string',
-      default: '',
-      title: 'key path'
-    }
-  }
+      type: "string",
+      default: "",
+      title: "key path",
+    },
+  },
 };
 
 export type SSHConfig = {
   username: string,
   privateKeyPath: string,
-}
+};
 
 export type HostConfigSchema = {
-  type: 'object',
+  type: "object",
   schemas: {
     host: {
-      type: 'string',
-      default: '',
-      title: 'host'
+      type: "string",
+      default: "",
+      title: "host",
     },
     port: {
-      type: 'number',
+      type: "number",
       default: 22,
-      title: 'port'
-    }
-  }
+      title: "port",
+    },
+  },
 };
 
 export type HostConfig = {
@@ -103,14 +113,17 @@ export type HostConfig = {
   transport: SSHConfig,
 };
 
-export type Stager = {
-  type: 'integrated'
-} | {
-  type: 'local'
-} | {
-  type: 'remote',
-  host: HostConfig
-};
+export type Stager =
+  | {
+      type: "integrated",
+    }
+  | {
+      type: "local",
+    }
+  | {
+      type: "remote",
+      host: HostConfig,
+    };
 
 export type AddPlanConfigSchemaAction = {
   type: "ADD_PLAN_CONFIGURATION_SCHEMA",
@@ -120,6 +133,13 @@ export type AddPlanConfigSchemaAction = {
   },
 };
 
-export type DevToolPlanConfigSchema = ConfigSchemaPart & {tool: DevToolInfos};
+export type DevToolPlanConfigSchema = ConfigSchemaPart & { tool: DevToolInfos };
 
-export type PlanConfig = {tool: DevToolInfos, config: any, pinned?: boolean, name: string, stager: Stager, packageInfos: PackageInfos};
+export type PlanConfig = {
+  tool: DevToolInfos,
+  config: any,
+  pinned?: boolean,
+  name: string,
+  stager: Stager,
+  packageInfos: PackageInfos,
+};

@@ -1,16 +1,39 @@
-'use babel'
+"use babel";
 // @flow
-import type {DevToolsInfosReducer} from "../ExecutionControlEpic/DevToolsSummaryFeature/Reducers/DevToolsInfos";
-import type {PlanConfigSchemasReducer} from "../ExecutionControlEpic/PlanConfigurationFeature/Reducers/PlanConfigSchemas";
-import type {PlanConfigsReducer} from "../ExecutionControlEpic/PlanConfigurationFeature/Reducers/PlanConfigs";
-import type {TasksReducer} from "../ExecutionControlEpic/TaskExecutionFeature/Reducers/Tasks";
-import type {DiagnosticsReducer} from "../ExecutionControlEpic/DiagnosticsFeature/Reducers/Diagnostics";
-import type {GitIndexReducer} from "../VersionningEpic/CommitFeature/Reducers/GitIndex";
-import type {StashesReducer} from "../VersionningEpic/StashFeature/Reducers/Stashes";
-import type {PackagesReducer} from '../ProjectSystemEpic/PackageFeature/Reducers/Packages';
-import type {RemotesReducer} from '../VersionningEpic/BranchFeature/Reducers/Remotes';
-import type {BranchesReducer} from '../VersionningEpic/BranchFeature/Reducers/Branches';
-import type {CacheBlobsReducer} from '../ExecutionControlEpic/CacheSystemFeature/Reducers/CacheBlobs';
+
+import type {
+  DevToolsInfosReducer,
+} from "../ExecutionControlEpic/DevToolsSummaryFeature/Reducers/DevToolsInfos";
+import type {
+  PlanConfigSchemasReducer,
+} from "../ExecutionControlEpic/PlanConfigurationFeature/Reducers/PlanConfigSchemas";
+import type {
+  PlanConfigsReducer,
+} from "../ExecutionControlEpic/PlanConfigurationFeature/Reducers/PlanConfigs";
+import type {
+  TasksReducer,
+} from "../ExecutionControlEpic/TaskExecutionFeature/Reducers/Tasks";
+import type {
+  DiagnosticsReducer,
+} from "../ExecutionControlEpic/DiagnosticsFeature/Reducers/Diagnostics";
+import type {
+  GitIndexReducer,
+} from "../VersionningEpic/CommitFeature/Reducers/GitIndex";
+import type {
+  StashesReducer,
+} from "../VersionningEpic/StashFeature/Reducers/Stashes";
+import type {
+  PackagesReducer,
+} from "../ProjectSystemEpic/PackageFeature/Reducers/Packages";
+import type {
+  RemotesReducer,
+} from "../VersionningEpic/BranchFeature/Reducers/Remotes";
+import type {
+  BranchesReducer,
+} from "../VersionningEpic/BranchFeature/Reducers/Branches";
+import type {
+  CacheBlobsReducer,
+} from "../ExecutionControlEpic/CacheSystemFeature/Reducers/CacheBlobs";
 
 export type State = {
   devtools: DevToolsInfosReducer,
