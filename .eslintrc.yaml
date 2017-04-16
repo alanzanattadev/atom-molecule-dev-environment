@@ -21,9 +21,6 @@ plugins:
   - prettier
   - react
 rules:
-  linebreak-style:
-    - error
-    - unix
   no-console:
     - warn
   no-unused-vars:
