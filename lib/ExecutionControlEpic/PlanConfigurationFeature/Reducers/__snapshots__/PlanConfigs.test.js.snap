@@ -5,7 +5,11 @@ Array [
   Object {
     "config": "ls -l",
     "name": "ls",
-    "packageInfos": undefined,
+    "packageInfos": Object {
+      "name": "",
+      "path": "/",
+      "type": "directory",
+    },
     "pinned": false,
     "stager": Object {
       "type": "integrated",
