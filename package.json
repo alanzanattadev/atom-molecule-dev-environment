@@ -65,7 +65,7 @@
   "devDependencies": {
     "@kadira/storybook": "^2.18.1",
     "babel-eslint": "^7.2.0",
-    "babel-jest": "^15.0.0",
+    "babel-jest": "^19.0.0",
     "babel-polyfill": "^6.13.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-latest": "^6.24.0",
