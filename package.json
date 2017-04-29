@@ -11,11 +11,12 @@
   "keywords": [],
   "scripts": {
     "eslint-check": "eslint --print-config .eslintrc.yarn | eslint-config-prettier-check",
-    "eslint": "eslint lib/",
+    "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
-    "jest": "BABEL_ENV=jest jest --watch",
+    "jest": "BABEL_ENV=jest jest",
+    "jest:watch": "npm run jest -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
-    "test": "BABEL_ENV=jest jest && eslint lib/"
+    "test": "npm run jest && npm run eslint"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
@@ -78,6 +79,6 @@
     "flow-bin": "^0.42.0",
     "flow-typed": "^2.0.0",
     "jest": "^19.0.2",
-    "prettier": "^0.17.1"
+    "prettier": "^1.2.2"
   }
 }
