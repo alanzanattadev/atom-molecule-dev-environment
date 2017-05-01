@@ -38,4 +38,5 @@ export type TaskAPI = {
     push: (data: any, step?: boolean) => void,
     get: ({ step?: ?number, excludeNullStep?: boolean }) => Array<any>,
   },
+  nextStep: () => void,
 };

@@ -40,6 +40,7 @@ export type Process = child_process$ChildProcess;
 export type TaskExecution = {
   task: Task,
   process: Process,
+  terminal?: any,
 };
 
 export type TaskManager = {

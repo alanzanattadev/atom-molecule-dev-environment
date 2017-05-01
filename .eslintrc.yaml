@@ -28,4 +28,6 @@ rules:
     - argsIgnorePattern: "helperAPI|taskAPI|dirname"
   prettier/prettier:
     - error
-    - trailingComma: true
+    - trailingComma: all
+  react/no-find-dom-node:
+    - warn
