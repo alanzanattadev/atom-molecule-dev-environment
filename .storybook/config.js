@@ -5,6 +5,7 @@ import {StyleRoot} from 'radium';
 const req = require.context('../lib/', true, /story\.js$/);
 
 require("./public/style.css");
+require("../node_modules/xterm/dist/xterm.css");
 
 function loadStories() {
   req.keys().forEach(req)
