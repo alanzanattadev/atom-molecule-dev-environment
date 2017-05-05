@@ -16,16 +16,30 @@ what we want to achieve and it is still full of bug. We are working hard to corr
 them as soon as possible and to add the features we are planning and you request.
 So feel free to give us some [feedback](#feedback), we'll be very happy! ;)
 
+**NOTE FOR WINDOWS USERS:** Molecule v0.2.0 is broken on Windows, please use v0.1.1 instead.
+
 ## Install
 
 ```bash
   git clone https://github.com/alanzanattadev/atom-molecule-dev-environment.git
   cd atom-molecule-dev-environment
+  git checkout v0.2.0
   yarn (or npm install)
   apm link
 ```
 
 Open atom and enjoy :)
+
+## Update
+
+```bash
+  cd atom-molecule-dev-environment
+  git checkout v(new version)
+  rm -rf node_modules
+  yarn (or npm install)
+```
+
+And reload atom !
 
 ## Contribute
 
