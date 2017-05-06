@@ -16,7 +16,8 @@
     "jest": "BABEL_ENV=jest jest",
     "jest:watch": "npm run jest -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
-    "test": "npm run jest && npm run eslint"
+    "test": "npm run jest && npm run eslint",
+    "update": "git checkout v0.2.0 && rm -rf node_modules && yarn"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
