@@ -24,7 +24,8 @@ So feel free to give us some [feedback](#feedback), we'll be very happy! ;)
   git clone https://github.com/alanzanattadev/atom-molecule-dev-environment.git
   cd atom-molecule-dev-environment
   git checkout v0.1.1
-  yarn (or npm install)
+  sudo npm install -g yarn # (if you don't have yarn yet)
+  yarn
   apm link
 ```
 
