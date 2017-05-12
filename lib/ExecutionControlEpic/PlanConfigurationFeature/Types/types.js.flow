@@ -125,14 +125,6 @@ export type Stager =
       host: HostConfig,
     };
 
-export type AddPlanConfigSchemaAction = {
-  type: "ADD_PLAN_CONFIGURATION_SCHEMA",
-  payload: {
-    tool: DevToolInfos,
-    schema: ConfigSchemaPart,
-  },
-};
-
 export type DevToolPlanConfigSchema = ConfigSchemaPart & { tool: DevToolInfos };
 
 export type PlanConfig = {
