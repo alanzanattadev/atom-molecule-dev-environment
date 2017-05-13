@@ -36,7 +36,7 @@ export type TaskAPI = {
   addDiagnostics: (diagnostics: Array<PluginDiagnostic>) => void,
   cache: {
     push: (data: any, step: ?boolean) => void,
-    get: (step: ?number, excludeNullStep: ?boolean) => Array<any>,
+    get: (config: ?{step: ?number, excludeNullStep: ?boolean}) => Array<any>,
   },
   nextStep: () => void,
 };
