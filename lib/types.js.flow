@@ -71,7 +71,7 @@ type NumberConfigSchema = {
   placeholder: string,
 };
 
-type ConditionalConfigSchema<T> = {
+type ConditionalConfigSchema = {
   type: "conditional",
   default: string,
   expression: ConfigSchemaPart,
@@ -84,9 +84,8 @@ type EnumConfigSchema = {
   enum: Array<{ value: mixed, description: string }>,
 };
 
-export type ConfigSchemaPart =
-  & ConfigSchemaPartBase
-  & (
+export type ConfigSchemaPart = ConfigSchemaPartBase &
+  (
     | ArrayConfigSchema
     | StringConfigSchema
     | BooleanConfigSchema
@@ -96,63 +95,6 @@ export type ConfigSchemaPart =
     | ConditionalConfigSchema<mixed>);
 
 type DevToolPlanConfigSchema = ConfigSchemaPart;
-
-type DevToolController = {
-  attach(task: DevToolTask): void,
-  detach(task: DevToolTask): void,
-  isAttached(task: DevToolTask): boolean,
-  getDevTool(id: DevToolID): DevTool,
-};
-
-type FilePath = {
-  path: string,
-  line: number,
-  column: number,
-};
-
-type DevToolID = string;
-
-type DevDiagnosticsController = {
-  diagnostics: DevDiagnostics,
-  previous: Array<DevDiagnostics>,
-};
-
-type DevDiagnostics = Array<Diagnostic>;
-
-type DiagnosticBase = {
-  type: string,
-  devtool: DevToolID,
-};
-
-type ErrorDiagnostic = {
-  type: "error",
-  message: string,
-  file?: FilePath,
-};
-
-type WarningDiagnostic = {
-  type: "warning",
-  message: string,
-  file?: FilePath,
-};
-
-type SuccessDiagnostic = {
-  type: "success",
-};
-
-type InfoDiagnostic = {
-  type: "info",
-  message: string,
-  file?: FilePath,
-};
-
-type Diagnostic =
-  & DiagnosticBase
-  & (ErrorDiagnostic | WarningDiagnostic | SuccessDiagnostic | InfoDiagnostic);
-
-type DevEnvironment = {
-  diagnostics: DevDiagnostics,
-};
 
 type SSHAuth = {
   authType: "password" | "key",
@@ -192,9 +134,8 @@ type TransportRemoteBase = {
   exec(host: DevToolPlanHost, action: any): any,
 };
 
-type Transport =
-  & TransportBase
-  & (
+type Transport = TransportBase &
+  (
     | (TransportLocalBase & LocalShellTransport)
     | (TransportRemoteBase & SSHTransport));
 
