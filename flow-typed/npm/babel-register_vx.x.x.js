@@ -1,4 +1,4 @@
-// flow-typed signature: d157781723d09e3de130478e2c3e3d1b
+// flow-typed signature: 698395d6c3eb5c25d61b57fbcf284d09
 // flow-typed version: <<STUB>>/babel-register_v^6.18.0/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

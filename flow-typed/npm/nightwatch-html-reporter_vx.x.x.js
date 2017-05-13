@@ -1,4 +1,4 @@
-// flow-typed signature: 3bb87d329c6ea06c50bc16063ad7a068
+// flow-typed signature: 7196c8048f98e57ff14aa78b845b16c1
 // flow-typed version: <<STUB>>/nightwatch-html-reporter_v^2.0.0/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
@@ -22,10 +22,6 @@ declare module 'nightwatch-html-reporter' {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module 'nightwatch-html-reporter/Gruntfile' {
-  declare module.exports: any;
-}
-
 declare module 'nightwatch-html-reporter/lib/cli' {
   declare module.exports: any;
 }
@@ -91,9 +87,6 @@ declare module 'nightwatch-html-reporter/test/renderer_test' {
 }
 
 // Filename aliases
-declare module 'nightwatch-html-reporter/Gruntfile.js' {
-  declare module.exports: $Exports<'nightwatch-html-reporter/Gruntfile'>;
-}
 declare module 'nightwatch-html-reporter/lib/cli.js' {
   declare module.exports: $Exports<'nightwatch-html-reporter/lib/cli'>;
 }

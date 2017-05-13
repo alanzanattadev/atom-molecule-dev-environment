@@ -1,4 +1,4 @@
-// flow-typed signature: a6100ef8b60f2fbb3caa418610894679
+// flow-typed signature: bc76b4d9ccd788cc5d8fb273aadbb93f
 // flow-typed version: <<STUB>>/ansi-to-html_v^0.4.2/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

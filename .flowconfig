@@ -1,6 +1,6 @@
 [libs]
-flow-typed/
-flow-libs/
+./flow-typed/
+./flow-libs/
 
 [ignore]
 <PROJECT_ROOT>/node_modules/styled-components/
