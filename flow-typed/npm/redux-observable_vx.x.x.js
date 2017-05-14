@@ -1,4 +1,4 @@
-// flow-typed signature: 66b22c23c6c88a653d6a6f6c07dad632
+// flow-typed signature: 2852a170af620de5410bd29c54f1009c
 // flow-typed version: <<STUB>>/redux-observable_v^0.13.0/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

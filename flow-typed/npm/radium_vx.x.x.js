@@ -1,4 +1,4 @@
-// flow-typed signature: 3f5264f5572595d36e3d978f8ef27646
+// flow-typed signature: eb7bbf4734279c8e071cf5693c9f4857
 // flow-typed version: <<STUB>>/radium_v^0.18.2/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

@@ -4,6 +4,3 @@ flow-libs/
 
 [ignore]
 <PROJECT_ROOT>/node_modules/styled-components/
-
-[options]
-module.name_mapper='atom' -> '<PROJECT_ROOT>/defs/interfaces.js'

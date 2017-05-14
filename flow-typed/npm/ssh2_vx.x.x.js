@@ -1,4 +1,4 @@
-// flow-typed signature: bdb5d96122c9f278b46a3239922f3e88
+// flow-typed signature: 4649b3c8dc262d3ef236a54ff25e5df6
 // flow-typed version: <<STUB>>/ssh2_v^0.5.4/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

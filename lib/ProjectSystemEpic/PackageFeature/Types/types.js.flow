@@ -25,11 +25,9 @@ export type PackageInfos = {
   type: "file" | "directory",
 };
 
-export type Package =
-  & PackageInfos
-  & {
-    plugin: Plugin,
-  };
+export type Package = PackageInfos & {
+  plugin: Plugin,
+};
 
 export type PackagesRefreshedAction = {
   type: "PACKAGES_REFRESHED",

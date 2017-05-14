@@ -1,4 +1,4 @@
-// flow-typed signature: 19473b4a6cf3a46222dda17a476df690
+// flow-typed signature: 07b8565ca5be7e5a6a67101869e0999c
 // flow-typed version: <<STUB>>/nightwatch_v^0.9.12/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

@@ -1,4 +1,4 @@
-// flow-typed signature: ff069ddc3a378d502739170743366b03
+// flow-typed signature: 5eff41dbc5e8008d241c51ac56d8c483
 // flow-typed version: <<STUB>>/react-image-fallback_v^3.3.0/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
