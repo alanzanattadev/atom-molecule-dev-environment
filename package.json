@@ -10,6 +10,7 @@
   "description": "A short description of your package",
   "keywords": [],
   "scripts": {
+    "postinstall": "(atom -v && yarn fix-node-pty) || true",
     "eslint-check": "eslint --print-config .eslintrc.yarn | eslint-config-prettier-check",
     "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
@@ -17,7 +18,8 @@
     "jest:watch": "npm run jest -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
     "test": "npm run jest && npm run eslint",
-    "update": "git checkout v0.2.0 && rm -rf node_modules && yarn"
+    "update": "git checkout v0.2.0 && rm -rf node_modules && yarn",
+    "fix-node-pty": "bash -c \"npm rebuild --runtime=electron --target=$(atom -v | sed -n 2p | cut -d ' ' -f 2) --disturl=https://atom.io/download/atom-shell --build-from-source\""
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",

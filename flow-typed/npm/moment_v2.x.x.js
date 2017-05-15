@@ -1,5 +1,5 @@
-// flow-typed signature: e23207a33420488837251b6e1897e261
-// flow-typed version: 7822da7258/moment_v2.x.x/flow_>=v0.34.x
+// flow-typed signature: d44388f51527a2bb754e547cfd25ae85
+// flow-typed version: 0f1bb24013/moment_v2.x.x/flow_>=v0.34.x
 
 type moment$MomentOptions = {
   y?: number|string,
@@ -44,7 +44,7 @@ type moment$MomentCreationData = {
   strict: bool,
 };
 
-type moment$CalendarFormat = string | (moment$Moment) => string;
+type moment$CalendarFormat = string | (moment: moment$Moment) => string;
 
 type moment$CalendarFormats = {
   sameDay?: moment$CalendarFormat,

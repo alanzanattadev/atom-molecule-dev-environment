@@ -1,4 +1,4 @@
-// flow-typed signature: dcbed9ceaaf627241df93d16db1d5eda
+// flow-typed signature: 4cb57f0d213bdf653b5e3c60b2a5734d
 // flow-typed version: <<STUB>>/eslint-plugin-prettier_v^2.0.1/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

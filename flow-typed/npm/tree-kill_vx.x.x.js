@@ -1,4 +1,4 @@
-// flow-typed signature: eb693d86a7a96e0f37c44cb528725b70
+// flow-typed signature: 362a5c24e6004ce4c31c5f5989871d2e
 // flow-typed version: <<STUB>>/tree-kill_v^1.1.0/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

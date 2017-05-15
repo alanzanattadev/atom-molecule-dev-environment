@@ -83,7 +83,7 @@ declare class atom$CommandRegistry {
     target: string | HTMLElement,
     commandNameOrCommands: string | {[commandName: string]: atom$CommandCallback},
     callback?: atom$CommandCallback
-  ): IDisposable,
+): IDisposable,
   dispatch(target: HTMLElement, commandName: string, detail?: Object): void,
   onDidDispatch(callback: (event: Event) => mixed): IDisposable,
   onWillDispatch(callback: (event: Event) => mixed): IDisposable,
@@ -118,41 +118,41 @@ declare class atom$Config {
   observe(
     keyPath: string,
     optionsOrCallback?: Object | (value: any) => void,
-    callback?: (value: any) => void
-  ): IDisposable,
+  callback?: (value: any) => void
+): IDisposable,
 
   onDidChange(
     keyPathOrCallback: string | (event: Object) => void,
     optionsOrCallback?: Object | (event: Object) => void,
-    callback?: (event: Object) => void
-  ): IDisposable,
+  callback?: (event: Object) => void
+): IDisposable,
 
   // Managing Settings
   get(
     keyPath?: string,
-    options?: {
-      excludeSources?: Array<string>,
-      sources?: Array<string>,
-      scope?: Object,
-    }
-  ): mixed,
+  options?: {
+    excludeSources?: Array<string>,
+    sources?: Array<string>,
+    scope?: Object,
+  }
+): mixed,
 
   set(
     keyPath: string,
     value: ?mixed,
     options?: {
-      scopeSelector?: string,
-      source?: string,
-    },
-  ): boolean,
+  scopeSelector?: string,
+  source?: string,
+},
+): boolean,
 
   unset(
     keyPath: string,
-    options?: {
-      scopeSelector?: string,
-      source?: string,
-    }
-  ): void,
+  options?: {
+    scopeSelector?: string,
+    source?: string,
+  }
+): void,
 
   getUserConfigPath(): string,
 
@@ -163,21 +163,21 @@ declare class atom$Config {
   setRawValue(keyPath: string, value: mixed): void,
   setSchema(
     keyPath: string,
-    schema: atom$ConfigSchema,
-  ): void,
+  schema: atom$ConfigSchema,
+): void,
 }
 
 declare class atom$Cursor {
   // Event Subscription
   onDidChangePosition(
     callback: (event: {
-                 oldBufferPosition: atom$Point,
-                 oldScreenPosition: atom$Point,
-                 newBufferPosition: atom$Point,
-                 newScreenPosition: atom$Point,
-                 textChanged: boolean,
-                 Cursor: atom$Cursor,
-               }) => mixed,
+      oldBufferPosition: atom$Point,
+      oldScreenPosition: atom$Point,
+      newBufferPosition: atom$Point,
+      newScreenPosition: atom$Point,
+      textChanged: boolean,
+      Cursor: atom$Cursor,
+    }) => mixed,
   ): IDisposable,
 
   // Managing Cursor Position
@@ -240,7 +240,7 @@ declare class atom$Gutter {
   decorateMarker(
     marker: atom$Marker,
     options?: {'class'?: string, item?: Object | HTMLElement},
-  ): atom$Decoration,
+): atom$Decoration,
   show(): void,
   hide(): void,
   onDidDestroy(callback: () => void): IDisposable,
@@ -251,26 +251,26 @@ declare class atom$Marker {
   getBufferRange(): atom$Range,
   getStartBufferPosition(): atom$Point,
   onDidChange(callback: (event: {
-                           oldHeadScreenPosition: atom$Point,
-                           newHeadScreenPosition: atom$Point,
-                           oldTailScreenPosition: atom$Point,
-                           newTailScreenPosition: atom$Point,
+    oldHeadScreenPosition: atom$Point,
+    newHeadScreenPosition: atom$Point,
+    oldTailScreenPosition: atom$Point,
+    newTailScreenPosition: atom$Point,
 
-                           oldHeadBufferPosition: atom$Point,
-                           newHeadBufferPosition: atom$Point,
-                           oldTailBufferPosition: atom$Point,
-                           newTailBufferPosition: atom$Point,
+    oldHeadBufferPosition: atom$Point,
+    newHeadBufferPosition: atom$Point,
+    oldTailBufferPosition: atom$Point,
+    newTailBufferPosition: atom$Point,
 
-                           isValid: boolean,
-                           textChanged: boolean,
-                         }) => void): IDisposable,
+    isValid: boolean,
+    textChanged: boolean,
+  }) => void): IDisposable,
   isValid(): boolean,
   isDestroyed(): boolean,
   onDidDestroy(callback: () => mixed): IDisposable,
   setBufferRange(
     range: atom$RangeLike,
     properties?: {reversed: boolean},
-  ): void,
+): void,
   id: number,
 }
 
@@ -350,6 +350,17 @@ declare class atom$StyleManager {
 
   // Paths
   getUserStyleSheetPath(): string,
+
+  // (Undocumented.)
+  addStyleSheet(
+    source: string,
+    params: {
+      sourcePath?: string,
+      context?: boolean,
+      priority?: number,
+      skipDeprecatedSelectorsTransformation?: boolean
+    }
+  ): IDisposable,
 }
 
 type atom$PaneSplitParams = {
@@ -410,9 +421,9 @@ declare class atom$Pane {
   splitDown(params?: atom$PaneSplitParams): atom$Pane,
   split(
     orientation: atom$PaneSplitOrientation,
-    side: atom$PaneSplitSide,
-    params?: atom$PaneSplitParams,
-  ): atom$Pane,
+  side: atom$PaneSplitSide,
+  params?: atom$PaneSplitParams,
+): atom$Pane,
 
   // Undocumented Methods
   constructor(params: atom$PaneParams): atom$Pane,
@@ -422,6 +433,7 @@ declare class atom$Pane {
   removeItem(item: Object, moved: ?boolean): void,
   setActiveItem(item: Object): Object,
   setFlexScale(flexScale: number): number,
+  getContainer(): atom$PaneContainer,
 }
 
 declare type atom$PaneItem = {
@@ -497,13 +509,13 @@ declare class atom$Point {
   negate(): atom$Point,
 
   // Comparison
-  min(point1: atom$Point, point2: atom$Point): atom$Point,
-  compare(other: atom$Point): -1 | 0 | 1,
+  min(point1: atom$PointLike, point2: atom$PointLike): atom$Point,
+  compare(other: atom$PointLike): -1 | 0 | 1,
   isEqual(otherRange: atom$PointLike): boolean,
-  isLessThan(other: atom$Point): boolean,
-  isLessThanOrEqual(other: atom$Point): boolean,
-  isGreaterThan(other: atom$Point): boolean,
-  isGreaterThanOrEqual(other: atom$Point): boolean,
+  isLessThan(other: atom$PointLike): boolean,
+  isLessThanOrEqual(other: atom$PointLike): boolean,
+  isGreaterThan(other: atom$PointLike): boolean,
+  isGreaterThanOrEqual(other: atom$PointLike): boolean,
 
   // Operations
   translate(other: atom$PointLike): atom$Point,
@@ -530,7 +542,7 @@ declare class atom$Range {
   static fromObject(
     object: atom$RangeLike,
     copy?: boolean,
-  ): atom$Range,
+): atom$Range,
   constructor(pointA: atom$PointLike, pointB: atom$PointLike): void,
   compare(other: atom$Range): number,
   start: atom$Point,
@@ -659,7 +671,8 @@ type DecorateMarkerParams = {
   onlyNonEmpty?: boolean,
 } | {
   type: 'gutter',
-  class: string,
+  item?: HTMLElement,
+  class?: string,
   onlyHead?: boolean,
   onlyEmpty?: boolean,
   onlyNonEmpty?: boolean,
@@ -747,45 +760,47 @@ declare class atom$TextEditor extends atom$Model {
     range: atom$Range | Array<atom$Point>,
     text: string,
     options?: {
-      normalizeLineEndings?: boolean,
-      undo?: string,
-    },
-  ): atom$Range,
+  normalizeLineEndings?: boolean,
+  undo?: string,
+},
+): atom$Range,
   insertText(text: string): Array<atom$Range> | false,
   delete: () => void,
   backspace: () => void,
   duplicateLines: () => void,
 
   // History
+  createCheckpoint(): atom$TextBufferCheckpoint,
+  revertToCheckpoint(checkpoint: atom$TextBufferCheckpoint): boolean,
   transact(fn: () => mixed, _: void): void,
   transact(groupingInterval: number, fn: () => mixed): void,
 
   // TextEditor Coordinates
   screenPositionForBufferPosition(
     bufferPosition: atom$PointLike,
-    options?: {
-      wrapBeyondNewlines?: boolean,
-      wrapAtSoftNewlines?: boolean,
-      screenLine?: boolean,
-    },
-  ): atom$Point,
+  options?: {
+    wrapBeyondNewlines?: boolean,
+    wrapAtSoftNewlines?: boolean,
+    screenLine?: boolean,
+  },
+): atom$Point,
   bufferPositionForScreenPosition(
-    bufferPosition: atom$PointLike,
-    options?: {
-      wrapBeyondNewlines?: boolean,
-      wrapAtSoftNewlines?: boolean,
-      screenLine?: boolean,
-    },
-  ): atom$Point,
+    screenPosition: atom$PointLike,
+  options?: {
+    wrapBeyondNewlines?: boolean,
+    wrapAtSoftNewlines?: boolean,
+    screenLine?: boolean,
+  },
+): atom$Point,
   getVisibleRowRange(): ?[number, number],
 
   // Decorations
   decorateMarker(marker: atom$Marker, decorationParams: DecorateMarkerParams): atom$Decoration,
   decorationsForScreenRowRange(
     startScreenRow: number,
-    endScreenRow: number,
-  ): {[markerId: string]: Array<Object>},
-  getDecorations(options?: {class?: string, type?: string}): Array<atom$Decoration>,
+  endScreenRow: number,
+): {[markerId: string]: Array<Object>},
+getDecorations(options?: {class?: string, type?: string}): Array<atom$Decoration>,
 
   // Markers
   getDefaultMarkerLayer(): atom$DisplayMarkerLayer,
@@ -798,12 +813,12 @@ declare class atom$TextEditor extends atom$Model {
   getCursors(): Array<atom$Cursor>,
   setCursorBufferPosition(
     position: atom$PointLike,
-    options?: {
-      autoscroll?: boolean,
-      wrapBeyondNewlines?: boolean,
-      wrapAtSoftNewlines?: boolean,
-      screenLine?: boolean,
-    }): void,
+  options?: {
+    autoscroll?: boolean,
+    wrapBeyondNewlines?: boolean,
+    wrapAtSoftNewlines?: boolean,
+    screenLine?: boolean,
+  }): void,
   getCursorBufferPosition(): atom$Point,
   getCursorScreenPosition(): atom$Point,
   getCursorScreenPositions(): Array<atom$Point>,
@@ -821,18 +836,18 @@ declare class atom$TextEditor extends atom$Model {
   selectToBufferPosition(point: atom$Point): void,
   setSelectedBufferRange(
     bufferRange: atom$Range,
-    options?: {
-      reversed?: boolean,
-      preserveFolds?: boolean,
-    },
-  ): void,
+  options?: {
+    reversed?: boolean,
+    preserveFolds?: boolean,
+  },
+): void,
   setSelectedBufferRanges(
     bufferRanges: Array<atom$Range>,
-    options?: {
-      reversed?: boolean,
-      preserveFolds?: boolean,
-    },
-  ): void,
+  options?: {
+    reversed?: boolean,
+    preserveFolds?: boolean,
+  },
+): void,
 
   // Folds
   unfoldAll(): void,
@@ -840,26 +855,26 @@ declare class atom$TextEditor extends atom$Model {
   // Searching and Replacing
   scanInBufferRange(
     regex: RegExp,
-    range: atom$Range,
-    iterator: (foundMatch: {
-                 match: mixed,
-                 matchText: string,
-                 range: atom$Range,
-                 stop: () => mixed,
-                 replace: (replaceWith: string) => mixed,
-               }) => mixed
-  ): void,
+  range: atom$Range,
+  iterator: (foundMatch: {
+  match: mixed,
+  matchText: string,
+  range: atom$Range,
+  stop: () => mixed,
+  replace: (replaceWith: string) => mixed,
+}) => mixed
+): void,
 
   scan(
     regex: RegExp,
-    iterator: (foundMatch: {
-                 match: mixed,
-                 matchText: string,
-                 range: atom$Range,
-                 stop: () => mixed,
-                 replace: (replaceWith: string) => mixed,
-               }) => mixed
-  ): void,
+  iterator: (foundMatch: {
+  match: mixed,
+  matchText: string,
+  range: atom$Range,
+  stop: () => mixed,
+  replace: (replaceWith: string) => mixed,
+}) => mixed
+): void,
 
   // Tab Behavior
   // Soft Wrap Behavior
@@ -880,14 +895,14 @@ declare class atom$TextEditor extends atom$Model {
   // Managing Syntax Scopes
   scopeDescriptorForBufferPosition(
     bufferPosition: atom$PointLike,
-  ): atom$ScopeDescriptor,
+): atom$ScopeDescriptor,
 
   // Gutter
   addGutter(options: {
-              name: string,
-              priority?: number,
-              visible?: boolean,
-            }): atom$Gutter,
+  name: string,
+    priority?: number,
+    visible?: boolean,
+}): atom$Gutter,
   observeGutters(callback: (gutter: atom$Gutter) => void): IDisposable,
   getGutters(): Array<atom$Gutter>,
   gutterWithName(name: string): ?atom$Gutter,
@@ -895,12 +910,12 @@ declare class atom$TextEditor extends atom$Model {
   // Scrolling the TextEditor
   scrollToBufferPosition(
     position: atom$Point | [?number, ?number],
-    options?: {center?: boolean}
-  ): void,
+  options?: {center?: boolean}
+): void,
   scrollToScreenPosition(
     position: atom$Point | [?number, ?number],
-    options?: {center?: boolean}
-  ): void,
+  options?: {center?: boolean}
+): void,
   scrollToBottom(): void,
   scrollToTop(): void,
 
@@ -942,13 +957,13 @@ declare class atom$TextEditorComponent {
   pixelPositionForScreenPosition(
     screenPosition: atom$Point,
     clip?: boolean,
-  ): {top: number, left: number},
-  screenPositionForMouseEvent(event: MouseEvent): atom$Point,
+): {top: number, left: number},
+screenPositionForMouseEvent(event: MouseEvent): atom$Point,
   pixelPositionForMouseEvent(
     event: MouseEvent,
-    linesClientRect?: {top: number, left: number, bottom: number, right: number},
-  ): {top: number, left: number, bottom: number, right: number},
-  invalidateBlockDecorationDimensions(decoration: atom$Decoration): void,
+  linesClientRect?: {top: number, left: number, bottom: number, right: number},
+): {top: number, left: number, bottom: number, right: number},
+invalidateBlockDecorationDimensions(decoration: atom$Decoration): void,
 }
 
 /**
@@ -1018,7 +1033,7 @@ declare class atom$ViewRegistry {
   addViewProvider(
     modelConstructor: any,
     createView?: (...args: Array<any>) => ?HTMLElement
-  ): IDisposable,
+): IDisposable,
   getView(textEditor: atom$TextEditor): atom$TextEditorElement,
   getView(notification: atom$Notification): HTMLElement,
   getView(gutter: atom$Gutter): HTMLElement,
@@ -1032,6 +1047,7 @@ type atom$WorkspaceAddPanelOptions = {
   item: Object,
   visible?: boolean,
   priority?: number,
+  className?: string,
 };
 
 type atom$TextEditorParams = {
@@ -1083,29 +1099,29 @@ declare class atom$Workspace {
   // Opening
   open(
     uri?: string,
-    options?: {
-      activePane?: boolean,
-      initialLine?: number,
-      initialColumn?: number,
-      pending?: boolean,
-      split?: string,
-      searchAllPanes?: boolean,
-    }
-  ): Promise<atom$TextEditor>,
+  options?: {
+    activePane?: boolean,
+    initialLine?: number,
+    initialColumn?: number,
+    pending?: boolean,
+    split?: string,
+    searchAllPanes?: boolean,
+  }
+): Promise<atom$TextEditor>,
   openURIInPane(
     uri?: string,
-    pane: atom$Pane,
-    options?: {
-      initialLine?: number,
-      initialColumn?: number,
-      activePane?: boolean,
-      searchAllPanes?: boolean,
-    }
-  ): Promise<atom$TextEditor>,
+  pane: atom$Pane,
+  options?: {
+    initialLine?: number,
+    initialColumn?: number,
+    activePane?: boolean,
+    searchAllPanes?: boolean,
+  }
+): Promise<atom$TextEditor>,
   isTextEditor(item: ?mixed): boolean,
-    /* Optional method because this was added post-1.0. */
+  /* Optional method because this was added post-1.0. */
   buildTextEditor: ((params: atom$TextEditorParams) => atom$TextEditor),
-    /* Optional method because this was added in 1.9.0 */
+  /* Optional method because this was added in 1.9.0 */
   handleGrammarUsed?: (grammar: atom$Grammar) => void,
   reopenItem(): Promise<?atom$TextEditor>,
   addOpener(callback: (uri: string) => any): IDisposable,
@@ -1136,13 +1152,34 @@ declare class atom$Workspace {
   getModalPanels(): Array<atom$Panel>,
   addModalPanel(options: atom$WorkspaceAddPanelOptions): atom$Panel,
 
+  // Docks. These became available in Atom 1.17.0, so uses should currently be guarded by a null
+  // check. Once we no longer want to support versions less than Atom 1.17 these typedefs can be
+  // changed to non-optional.
+  getLeftDock?: () => atom$Dock,
+  getRightDock?: () => atom$Dock,
+  getBottomDock?: () => atom$Dock,
+  getCenter?: () => atom$WorkspaceCenter,
+
   // Searching and Replacing
 
   destroyActivePaneItemOrEmptyPane(): void,
   destroyActivePaneItem(): void,
+}
 
-  // Undocumented properties
-  paneContainer: atom$PaneContainer,
+declare class atom$Dock {
+  // This is a woefully incomplete list, items can be added as needed from
+  // https://github.com/atom/atom/blob/master/src/dock.js
+  isVisible(): boolean,
+  show(): void,
+  hide(): void,
+  toggle(): void;
+}
+
+declare class atom$WorkspaceCenter {
+  getActivePane(): atom$Pane;
+  observeActivePaneItem(callback: atom$PaneItem => mixed): IDisposable;
+  // This should be removed soon anyway, it's currently deprecated.
+  paneContainer: Object;
 }
 
 /**
@@ -1321,27 +1358,27 @@ declare class atom$KeymapManager {
 
   // Event Subscription
   onDidMatchBinding(callback: (event: {
-                                 keystrokes: string,
-                                 binding: atom$KeyBinding,
-                                 keyboardEventTarget: HTMLElement,
-                               }) => mixed): IDisposable,
+    keystrokes: string,
+    binding: atom$KeyBinding,
+    keyboardEventTarget: HTMLElement,
+  }) => mixed): IDisposable,
 
   onDidPartiallyMatchBinding(callback: (event: {
-                                          keystrokes: string,
-                                          partiallyMatchedBindings: atom$KeyBinding,
-                                          keyboardEventTarget: HTMLElement,
-                                        }) => mixed): IDisposable,
+    keystrokes: string,
+    partiallyMatchedBindings: atom$KeyBinding,
+    keyboardEventTarget: HTMLElement,
+  }) => mixed): IDisposable,
 
   onDidFailToMatchBinding(callback: (event: {
-                                       keystrokes: string,
-                                       partiallyMatchedBindings: atom$KeyBinding,
-                                       keyboardEventTarget: HTMLElement,
-                                     }) => mixed): IDisposable,
+    keystrokes: string,
+    partiallyMatchedBindings: atom$KeyBinding,
+    keyboardEventTarget: HTMLElement,
+  }) => mixed): IDisposable,
 
   onDidFailToReadFile(callback: (error: {
-                                   message: string,
-                                   stack: string,
-                                 }) => mixed): IDisposable,
+    message: string,
+    stack: string,
+  }) => mixed): IDisposable,
 
   // Adding and Removing Bindings
   add(source: string, bindings: Object): void,
@@ -1349,10 +1386,10 @@ declare class atom$KeymapManager {
   // Accessing Bindings
   getKeyBindings(): Array<atom$KeyBinding>,
   findKeyBindings(params: {
-                    keystrokes?: string,
-                    command: string,
-                    target?: HTMLElement,
-                  }): Array<atom$KeyBinding>,
+    keystrokes?: string,
+    command?: string,
+    target?: HTMLElement,
+  }): Array<atom$KeyBinding>,
 
   // Managing Keymap Files
   loadKeymap(path: string, options?: {watch: boolean}): void,
@@ -1364,15 +1401,15 @@ declare class atom$KeymapManager {
   getPartialMatchTimeout(): number,
 
   static buildKeydownEvent(
-    key: string,
-    options: {
-      target: HTMLElement,
-      alt?: boolean,
-      cmd?: boolean,
-      ctrl?: boolean,
-      shift?: boolean,
-    },
-  ): Event,
+  key: string,
+  options: {
+  target: HTMLElement,
+    alt?: boolean,
+    cmd?: boolean,
+    ctrl?: boolean,
+    shift?: boolean,
+},
+): Event,
 }
 
 declare class atom$MenuManager {
@@ -1401,6 +1438,7 @@ declare class atom$Project {
   getDirectories(): Array<atom$Directory>,
   relativizePath(relativizePath?: string): Array<string>, // [projectPath: ?string, relativePath: string]
   relativize(filePath: string): string,
+  contains(path: string): boolean,
 
   // Private API
   findBufferForPath(path: string): ?atom$TextBuffer,
@@ -1410,12 +1448,12 @@ declare class atom$Project {
 }
 
 type TextBufferScanIterator = (arg: {
-                                 match: Array<string>,
-                                 matchText: string,
-                                 range: atom$Range,
-                                 stop(): void,
-                                 replace(replacement: string): void,
-                               }) => void;
+  match: Array<string>,
+  matchText: string,
+  range: atom$Range,
+  stop(): void,
+  replace(replacement: string): void,
+}) => void;
 
 // This happens to be a number but it would be better if the type could be entirely opaque. All you
 // need to know is that if something needs a checkpoint you should only pass it values received from
@@ -1433,9 +1471,9 @@ type atom$TextEditEvent = {
 declare class atom$TextBuffer {
   constructor(text?: string): atom$TextBuffer,
   constructor(params?: {
-                filePath?: string,
-                text?: string,
-              }): atom$TextBuffer,
+  filePath?: string,
+  text?: string,
+}): atom$TextBuffer,
 
   file: ?atom$File,
 
@@ -1488,16 +1526,16 @@ declare class atom$TextBuffer {
   setTextViaDiff(text: string): void,
   insert(
     position: atom$Point,
-    text: string,
-    options?: {
-      normalizeLineEndings?: boolean,
-      undo?: string,
-    },
-  ): atom$Range,
+  text: string,
+  options?: {
+    normalizeLineEndings?: boolean,
+    undo?: string,
+  },
+): atom$Range,
   append(text: string, options: ?{
-           normalizeLineEndings?: boolean,
-           undo?: string,
-         }): atom$Range,
+  normalizeLineEndings?: boolean,
+  undo?: string,
+}): atom$Range,
   delete(range: atom$Range): atom$Range,
   deleteRows(startRow: number, endRow: number): atom$Range,
 
@@ -1669,17 +1707,17 @@ type AtomGlobal = {
 
   // Messaging the User
   confirm(options: {
-            buttons?: Array<string> | {[buttonName: string]: () => mixed},
-            detailedMessage?: string,
-            message: string,
-          }): ?number,
+    buttons?: Array<string> | {[buttonName: string]: () => mixed},
+    detailedMessage?: string,
+    message: string,
+  }): ?number,
 
   open(params: {
-         pathsToOpen?: Array<string>,
-         newWindow?: boolean,
-         devMode?: boolean,
-         safeMode?: boolean,
-       }): void,
+    pathsToOpen?: Array<string>,
+    newWindow?: boolean,
+    devMode?: boolean,
+    safeMode?: boolean,
+  }): void,
   reload(): void,
 
   // Undocumented Methods
@@ -1781,6 +1819,9 @@ type atom$AutocompleteProvider = {
   getSuggestions: (
     request: atom$AutocompleteRequest,
   ) => Promise<?Array<atom$AutocompleteSuggestion>>,
+  onDidInsertSuggestion?: (
+    insertedSuggestion: atom$SuggestionInsertedRequest,
+  ) => void,
   disableForSelector?: string,
   inclusionPriority?: number,
   excludeLowerPriority?: boolean,
@@ -1804,12 +1845,12 @@ declare class atom$Selection {
   insertText(
     text: string,
     options?: {
-      select?: boolean,
-      autoIndent?: boolean,
-      autoIndentNewLine?: boolean,
-      autoDecreaseIdent?: boolean,
-      normalizeLineEndings?: boolean,
-      undo?: boolean,
-    },
-  ): string,
+  select?: boolean,
+  autoIndent?: boolean,
+  autoIndentNewLine?: boolean,
+  autoDecreaseIdent?: boolean,
+  normalizeLineEndings?: boolean,
+  undo?: boolean,
+},
+): string,
 }

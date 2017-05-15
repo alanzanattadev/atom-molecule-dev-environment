@@ -1,4 +1,4 @@
-// flow-typed signature: 68a02edc18437f783a17ade16ab9e2cb
+// flow-typed signature: 2d3c5fbdbd946806a226beb77c2709c8
 // flow-typed version: <<STUB>>/recompose_v^0.22.0/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

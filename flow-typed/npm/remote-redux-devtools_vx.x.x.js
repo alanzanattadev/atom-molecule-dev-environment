@@ -1,4 +1,4 @@
-// flow-typed signature: dfcb8e7b4b14a951a3ce101ca7af0ad4
+// flow-typed signature: 34421fabf7f474def5f3e382cd6286d0
 // flow-typed version: <<STUB>>/remote-redux-devtools_v^0.5.7/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
@@ -38,10 +38,6 @@ declare module 'remote-redux-devtools/lib/index' {
   declare module.exports: any;
 }
 
-declare module 'remote-redux-devtools/lib/utils/reactNative' {
-  declare module.exports: any;
-}
-
 // Filename aliases
 declare module 'remote-redux-devtools/lib/configureStore.js' {
   declare module.exports: $Exports<'remote-redux-devtools/lib/configureStore'>;
@@ -54,7 +50,4 @@ declare module 'remote-redux-devtools/lib/devTools.js' {
 }
 declare module 'remote-redux-devtools/lib/index.js' {
   declare module.exports: $Exports<'remote-redux-devtools/lib/index'>;
-}
-declare module 'remote-redux-devtools/lib/utils/reactNative.js' {
-  declare module.exports: $Exports<'remote-redux-devtools/lib/utils/reactNative'>;
 }

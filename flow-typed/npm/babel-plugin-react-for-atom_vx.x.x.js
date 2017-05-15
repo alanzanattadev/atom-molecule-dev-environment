@@ -1,4 +1,4 @@
-// flow-typed signature: 477f65da4323d19052625cd1da6e6cf2
+// flow-typed signature: 79b71ce8fe8304a0e134d2016a381556
 // flow-typed version: <<STUB>>/babel-plugin-react-for-atom_vgithub:alanzanattadev/babel-plugin-react-for-atom/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
