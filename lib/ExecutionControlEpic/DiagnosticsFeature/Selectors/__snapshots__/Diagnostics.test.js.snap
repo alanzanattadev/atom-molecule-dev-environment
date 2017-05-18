@@ -4,16 +4,19 @@ exports[`Diagnostics Selectors selectDiagnosticsOfTask should get diagnostics of
 Array [
   Object {
     "message": "",
+    "step": 0,
     "task": "2",
     "type": "success",
   },
   Object {
     "message": "",
+    "step": 2,
     "task": "2",
     "type": "error",
   },
   Object {
     "message": "",
+    "step": 3,
     "task": "2",
     "type": "warning",
   },
