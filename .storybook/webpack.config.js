@@ -7,7 +7,7 @@ module.exports = function(config, env) {
   return Object.assign({}, config, {
     resolve: Object.assign({}, config.resolve, {
       alias: {
-        remote: path.join(__dirname, 'fake/remote.js')
+        remote: path.join(__dirname, 'fake/electron.js')
       }
     })
   });
