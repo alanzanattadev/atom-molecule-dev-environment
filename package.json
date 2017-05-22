@@ -1,7 +1,7 @@
 {
   "jest": {
     "moduleNameMapper": {
-      "remote": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeRemote.js"
+      "electron": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
     }
   },
   "name": "molecule-dev-environment",
