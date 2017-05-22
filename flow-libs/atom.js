@@ -407,6 +407,7 @@ declare class atom$Pane {
   onDidRemoveItem(cb: (event: {item: Object, index: number}) => void): IDisposable,
   onWillRemoveItem(cb: (event: {item: Object, index: number}) => void): IDisposable,
   onDidDestroy(cb: () => void): IDisposable,
+  onDidChangeFlexScale(cb: () => void): IDisposable,
   observeActiveItem(cb: (item: ?Object) => void): IDisposable,
 
   // Lifecycle
@@ -1119,9 +1120,9 @@ declare class atom$Workspace {
   }
 ): Promise<atom$TextEditor>,
   isTextEditor(item: ?mixed): boolean,
-  /* Optional method because this was added post-1.0. */
+    /* Optional method because this was added post-1.0. */
   buildTextEditor: ((params: atom$TextEditorParams) => atom$TextEditor),
-  /* Optional method because this was added in 1.9.0 */
+    /* Optional method because this was added in 1.9.0 */
   handleGrammarUsed?: (grammar: atom$Grammar) => void,
   reopenItem(): Promise<?atom$TextEditor>,
   addOpener(callback: (uri: string) => any): IDisposable,
@@ -1166,18 +1167,23 @@ declare class atom$Workspace {
   destroyActivePaneItem(): void,
 }
 
-declare class atom$Dock {
-  // This is a woefully incomplete list, items can be added as needed from
-  // https://github.com/atom/atom/blob/master/src/dock.js
+declare class atom$AbastractPaneContainer {
   isVisible(): boolean,
   show(): void,
   hide(): void,
-  toggle(): void;
+  getActivePane(): atom$Pane,
+  getPanes(): Array<atom$Pane>,
 }
 
-declare class atom$WorkspaceCenter {
-  getActivePane(): atom$Pane;
+declare class atom$Dock extends atom$AbastractPaneContainer {
+  // This is a woefully incomplete list, items can be added as needed from
+  // https://github.com/atom/atom/blob/master/src/dock.js
+  toggle(): void,
+}
+
+declare class atom$WorkspaceCenter extends atom$AbastractPaneContainer {
   observeActivePaneItem(callback: atom$PaneItem => mixed): IDisposable;
+  onDidChangeActivePaneItem(callback: (item: mixed) => mixed): IDisposable;
   // This should be removed soon anyway, it's currently deprecated.
   paneContainer: Object;
 }
