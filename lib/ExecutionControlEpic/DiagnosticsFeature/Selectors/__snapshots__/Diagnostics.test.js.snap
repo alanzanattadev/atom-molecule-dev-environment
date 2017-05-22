@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Diagnostics Selectors selectDiagnosticsOfTask should get diagnostics of task 1`] = `
-Array [
+Immutable.List [
   Object {
     "message": "",
     "step": 0,
@@ -10,13 +10,13 @@ Array [
   },
   Object {
     "message": "",
-    "step": 2,
+    "step": 0,
     "task": "2",
     "type": "error",
   },
   Object {
     "message": "",
-    "step": 3,
+    "step": 0,
     "task": "2",
     "type": "warning",
   },
