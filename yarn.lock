@@ -4410,9 +4410,9 @@ node-pre-gyp@^0.6.29:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-node-pty@^0.6.3:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/node-pty/-/node-pty-0.6.4.tgz#8d90c8bfa18514a3d600e528c87bdd932f10bc57"
+node-pty@0.6.6:
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/node-pty/-/node-pty-0.6.6.tgz#7f507148f917aa809a714c2864d98f0e6d3afcd6"
   dependencies:
     nan "2.5.0"
 

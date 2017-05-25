@@ -10,7 +10,6 @@
   "description": "A short description of your package",
   "keywords": [],
   "scripts": {
-    "postinstall": "(atom -v && yarn fix-node-pty) || true",
     "eslint-check": "eslint --print-config .eslintrc.yarn | eslint-config-prettier-check",
     "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
@@ -43,7 +42,7 @@
     "moment": "^2.15.1",
     "nightwatch": "^0.9.12",
     "nightwatch-html-reporter": "^2.0.0",
-    "node-pty": "^0.6.3",
+    "node-pty": "0.6.6",
     "radium": "^0.18.2",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
