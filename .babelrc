@@ -1,5 +1,5 @@
 {
-  "presets": ["latest", "flow", "react"],
+  "presets": ["latest", "react", "flow"],
   "env": {
     "development": {
       "plugins": ["react-for-atom","syntax-object-rest-spread","transform-do-expressions"]
