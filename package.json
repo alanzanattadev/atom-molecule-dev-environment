@@ -10,6 +10,7 @@
   "description": "A short description of your package",
   "keywords": [],
   "scripts": {
+    "postinstall": "(uname && atom -v && yarn fix-node-pty) || true",
     "eslint-check": "eslint --print-config .eslintrc.yarn | eslint-config-prettier-check",
     "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
