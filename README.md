@@ -19,6 +19,7 @@ So feel free to give us some [feedback](#feedback), we'll be very happy! ;)
 ## Install
 
 ```bash
+  npm [--add-python-to-path] install --global windows-build-tools # FOR WINDOWS USERS, in a powershell with admin right
   git clone https://github.com/alanzanattadev/atom-molecule-dev-environment.git
   cd atom-molecule-dev-environment
   git checkout v0.3.0
