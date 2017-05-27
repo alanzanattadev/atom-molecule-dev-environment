@@ -30,6 +30,7 @@ export type ProvidedDevTool = {
     controller: Controller,
   },
   isPackage?: PackageTester,
+  validator(value: any, props: any): boolean,
 };
 
 export type TaskAPI = {
