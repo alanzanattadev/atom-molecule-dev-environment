@@ -19,7 +19,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
     "test": "npm run jest && npm run eslint",
     "update": "git checkout v0.2.0 && rm -rf node_modules && yarn",
-    "fix-node-pty": "bash -c \"npm rebuild --runtime=electron --target=$(atom -v | sed -n 2p | cut -d ' ' -f 2) --disturl=https://atom.io/download/atom-shell --build-from-source\""
+    "fix-node-pty": "node ./fix-node-pty.js"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
@@ -43,7 +43,7 @@
     "moment": "^2.15.1",
     "nightwatch": "^0.9.12",
     "nightwatch-html-reporter": "^2.0.0",
-    "node-pty": "^0.6.3",
+    "node-pty": "0.6.6",
     "radium": "^0.18.2",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
