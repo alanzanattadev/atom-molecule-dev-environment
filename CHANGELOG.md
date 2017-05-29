@@ -1,3 +1,10 @@
+## 0.3.0 - Diagnostics Redesign
+* Complete redesign of the diagnostics panel
+* You can now open many diagnostics panels
+* Removes versionning panel because of Atom 1.18 Github panel
+* Fixes completely Windows install
+* Fixes Jest on Windows
+
 ## 0.2.0 - Action System Terminal
 * Adds a Terminal View in Diagnostics Panel for user inputs
 * Adds a keymap (esc) to close panels
