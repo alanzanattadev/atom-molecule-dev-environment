@@ -16,14 +16,13 @@ what we want to achieve and it is still full of bug. We are working hard to corr
 them as soon as possible and to add the features we are planning and you request.
 So feel free to give us some [feedback](#feedback), we'll be very happy! ;)
 
-**NOTE FOR WINDOWS USERS:** Molecule v0.2.0 is broken on Windows, please use v0.1.1 instead.
-
 ## Install
 
 ```bash
+  npm [--add-python-to-path] install --global windows-build-tools # FOR WINDOWS USERS, in a powershell with admin right
   git clone https://github.com/alanzanattadev/atom-molecule-dev-environment.git
   cd atom-molecule-dev-environment
-  git checkout v0.1.1
+  git checkout v0.3.0
   sudo npm install -g yarn # (if you don't have yarn yet)
   yarn
   apm link

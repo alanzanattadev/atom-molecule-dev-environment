@@ -6,7 +6,7 @@
   },
   "name": "molecule-dev-environment",
   "main": "./lib/molecule-dev-environment",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A short description of your package",
   "keywords": [],
   "scripts": {
@@ -18,7 +18,7 @@
     "jest:watch": "npm run jest -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
     "test": "npm run jest && npm run eslint",
-    "update": "git checkout v0.2.0 && rm -rf node_modules && yarn",
+    "update": "git checkout v0.3.0 && rm -rf node_modules && yarn",
     "fix-node-pty": "node ./fix-node-pty.js"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
