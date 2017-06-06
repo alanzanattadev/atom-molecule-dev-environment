@@ -167,8 +167,8 @@ type electron$BrowserWindowOptions = {
   darkTheme?: boolean,
   transparent?: boolean,
   type?: 'desktop' | 'dock' | 'toolbar' | 'splash' | 'notification' |
-    /* macOS */ 'desktop' | 'textured' |
-    /* Windows */ 'toolbar',
+         /* macOS */ 'desktop' | 'textured' |
+         /* Windows */ 'toolbar',
   titleBarStyle?: 'default' | 'hidden' | 'hidden-inset',
   thickFrame?: boolean,
   webPreferences?: electron$BrowserWindowWebPreferences,
@@ -246,6 +246,7 @@ declare class electron$BrowserWindow {
   once: electron$BrowserWindowListener,
   removeAllListeners(event?: electron$BrowserWindowEvents): electron$BrowserWindow,
   removeListener(event?: electron$BrowserWindowEvents, callback: Function): electron$BrowserWindow,
+  send(channel: string, ...args: Array<any>): void,
 
   static getAllWindows(): Array<electron$BrowserWindow>,
   static getFocusedWindow(): ?electron$BrowserWindow,
@@ -334,12 +335,12 @@ declare class electron$BrowserWindow {
   setHasShadow(hasShadow: boolean): void, // macOS
   hasShadow(): boolean, // macOS
   setThumbarButtons(buttons: Array<{
-                      icon: electron$NativeImage,
-                      click: Function,
-                      tooltip?: string,
-                      flags?: Array<'enabled' | 'disabled' | 'dismissonclick' | 'nobackground' |
-                        'hidden' | 'noninteractive'>,
-                    }>): void, // Windows
+    icon: electron$NativeImage,
+    click: Function,
+    tooltip?: string,
+    flags?: Array<'enabled' | 'disabled' | 'dismissonclick' | 'nobackground' |
+                  'hidden' | 'noninteractive'>,
+  }>): void, // Windows
   setThumbnailClip(region: electron$rect): void, // Windows
   showDefinitionForSelection(): void, // macOS
   setIcon(icon: electron$NativeImage): void, // Windows Linux
@@ -355,6 +356,9 @@ declare class electron$BrowserWindow {
   setParentWindow(parent: electron$BrowserWindow): void, // Linux macOS
   getParentWindow(): ?electron$BrowserWindow,
   getChildWindows(): Array<electron$BrowserWindow>,
+
+  // Atom sets this during window setup (see: src/main-process/atom-window.coffee).
+  loadSettings?: Object,
 }
 
 /**
@@ -472,10 +476,10 @@ type electron$MenuItemOptions = {
     event: Object
   ) => void,
   role?: 'undo' | 'redo' | 'cut' | 'copy' | 'paste' | 'pasteandmatchstyle' |
-    'selectall' | 'delete' | 'minimize' | 'close' | 'quit' | 'togglefullscreen' |
-    // macOS-only
-    'about' | 'hide' | 'hideothers' | 'unhide' | 'front' | 'zoom' | 'window' |
-    'help' | 'services',
+        'selectall' | 'delete' | 'minimize' | 'close' | 'quit' | 'togglefullscreen' |
+         // macOS-only
+        'about' | 'hide' | 'hideothers' | 'unhide' | 'front' | 'zoom' | 'window' |
+        'help' | 'services',
   type?: 'normal' | 'separator' | 'submenu' | 'checkbox' | 'radio',
   label?: string,
   sublabel?: string,
@@ -538,8 +542,8 @@ declare class electron$Tray {}
 
 type electron$InputEventModifiers =
   Array<'shift' | 'control' | 'alt' | 'meta' |
-    'isKeypad' | 'isAutoRepeat' | 'leftButtonDown' | 'middleButtonDown' |
-    'rightButtonDown' | 'capsLock' | 'numLock' | 'left' | 'right'>;
+        'isKeypad' | 'isAutoRepeat' | 'leftButtonDown' | 'middleButtonDown' |
+        'rightButtonDown' | 'capsLock' | 'numLock' | 'left' | 'right'>;
 
 declare class electron$WebContents extends events$EventEmitter {
   loadURL(
@@ -611,13 +615,13 @@ declare class electron$WebContents extends events$EventEmitter {
   unregisterServiceWorker(callback: (result: boolean) => void): void,
   print(options?: {silent?: boolean, printBackground?: boolean}): void,
   printToPDF(options: {
-               marginsType: number,
-               pageSize: string,
-               pageSize: string,
-               printBackground: boolean,
-               printSelectionOnly: boolean,
-               landscape: boolean,
-             }, callback: (err: ?mixed, data: ?Buffer) => void): void,
+    marginsType: number,
+    pageSize: string,
+    pageSize: string,
+    printBackground: boolean,
+    printSelectionOnly: boolean,
+    landscape: boolean,
+  }, callback: (err: ?mixed, data: ?Buffer) => void): void,
   addWorkSpace(path: string): void,
   removeWorkSpace(path: string): void,
   openDevTools(options?: {mode: 'right' | 'bottom' | 'undocked' | 'detach'}): void,
@@ -629,15 +633,15 @@ declare class electron$WebContents extends events$EventEmitter {
   inspectServiceWorker(): void,
   send(channel: string, ...args: Array<any>): void,
   enableDeviceEmulation(parameters: {
-                          screenPosition?: 'desktop' | 'mobile',
-                          screenSize: {width: number, height: number},
-                          viewPosition?: {x: number, y: number},
-                          deviceScaleFactor?: number,
-                          viewSize?: {width: number, height: number},
-                          fitToView?: boolean,
-                          offset?: {x: number, y: number},
-                          scale?: number,
-                        }): void,
+    screenPosition?: 'desktop' | 'mobile',
+    screenSize: {width: number, height: number},
+    viewPosition?: {x: number, y: number},
+    deviceScaleFactor?: number,
+    viewSize?: {width: number, height: number},
+    fitToView?: boolean,
+    offset?: {x: number, y: number},
+    scale?: number,
+  }): void,
   disableDeviceEmulation(): void,
   sendInputEvent(
     event:
@@ -646,36 +650,36 @@ declare class electron$WebContents extends events$EventEmitter {
         modifiers?: electron$InputEventModifiers,
         keyCode: string,
       } | {
-      type: 'mouseDown' | 'mouseUp' | 'mouseEnter' | 'mouseLeave' | 'contextMenu',
-      modifiers?: electron$InputEventModifiers,
-      x: number,
-      y: number,
-      button: 'left' | 'middle' | 'right',
-      globalX: number,
-      globalY: number,
-      movementX: number,
-      movementY: number,
-      clickCount: number,
-    } | {
-      type: 'mouseWheel',
-      modifiers?: electron$InputEventModifiers,
-      x: number,
-      y: number,
-      button: 'left' | 'middle' | 'right',
-      globalX: number,
-      globalY: number,
-      movementX: number,
-      movementY: number,
-      clickCount: number,
-      deltaX: number,
-      deltaY: number,
-      wheelTicksX: number,
-      wheelTicksY: number,
-      accelerationRatioX: number,
-      accelerationRatioY: number,
-      hasPreciseScrollingDeltas: boolean,
-      canScroll: boolean,
-    },
+        type: 'mouseDown' | 'mouseUp' | 'mouseEnter' | 'mouseLeave' | 'contextMenu',
+        modifiers?: electron$InputEventModifiers,
+        x: number,
+        y: number,
+        button: 'left' | 'middle' | 'right',
+        globalX: number,
+        globalY: number,
+        movementX: number,
+        movementY: number,
+        clickCount: number,
+      } | {
+        type: 'mouseWheel',
+        modifiers?: electron$InputEventModifiers,
+        x: number,
+        y: number,
+        button: 'left' | 'middle' | 'right',
+        globalX: number,
+        globalY: number,
+        movementX: number,
+        movementY: number,
+        clickCount: number,
+        deltaX: number,
+        deltaY: number,
+        wheelTicksX: number,
+        wheelTicksY: number,
+        accelerationRatioX: number,
+        accelerationRatioY: number,
+        hasPreciseScrollingDeltas: boolean,
+        canScroll: boolean,
+      },
   ): void,
   beginFrameSubscription(
     callback: (frameBuffer: Buffer, dirtyRect: electron$rect) => void,
@@ -846,7 +850,7 @@ type electron$Display = {
 };
 
 type electron$DisplayEvents =
-  'display-added'
+    'display-added'
   | 'display-removed'
   | 'display-metrics-changed';
 

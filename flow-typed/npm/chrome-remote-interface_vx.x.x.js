@@ -1,4 +1,4 @@
-// flow-typed signature: b9304b051fd134b9474d6e9d3d632a79
+// flow-typed signature: afc99cb5ec554afbdda7347ed64d178f
 // flow-typed version: <<STUB>>/chrome-remote-interface_v^0.17.1/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

@@ -18,11 +18,37 @@
   background-color: @background-color-selected;
 }
 
+.flex {
+  display: flex;
+}
+
+.border {
+  border: 2px solid @inset-panel-border-color;
+}
+
 .diagnostics-mode-selector {
   background-color: @button-background-color;
 
   &.selected {
     background-color: @button-background-color-selected;
+  }
+}
+
+.mode-button {
+  &:hover {
+    background-color: @button-background-color-hover;
+    cursor: pointer;
+  }
+  &.selected {
+    background-color: @button-background-color-selected;
+    color: @text-color-selected;
+  }
+}
+
+.diagnostic-content {
+  background-color: @tree-view-border-color;
+  &.terminal {
+    background-color: #000;
   }
 }
 
