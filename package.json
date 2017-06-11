@@ -1,9 +1,4 @@
 {
-  "jest": {
-    "moduleNameMapper": {
-      "electron": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
-    }
-  },
   "name": "molecule-dev-environment",
   "main": "./lib/molecule-dev-environment",
   "version": "0.3.0",
@@ -11,7 +6,6 @@
   "keywords": [],
   "scripts": {
     "postinstall": "(atom -v && yarn fix-node-pty) || true",
-    "eslint-check": "eslint --print-config .eslintrc.yarn | eslint-config-prettier-check",
     "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
     "jest": "BABEL_ENV=jest jest",
@@ -83,5 +77,10 @@
     "flow-typed": "^2.0.0",
     "jest": "^20.0.3",
     "prettier": "^1.2.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "electron": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
+    }
   }
 }
