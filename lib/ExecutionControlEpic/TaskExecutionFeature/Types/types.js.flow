@@ -43,30 +43,13 @@ export type TaskExecution = {
   terminal?: any,
 };
 
-export type TaskManager = {
-  executions: Array<TaskExecution>,
-};
-
-export type Strategy = ShellStrategy | NodeProcessStrategy;
+export type StrategyType = { type: string };
+export type Strategy = StrategyType & (ShellStrategy | NodeProcessStrategy);
 export type Controller = ShellController | NodeProcessController;
-export type StrategyConfig =
-  | {
-      strategy: ShellStrategy,
-      controller: ShellController,
-    }
-  | {
-      strategy: NodeProcessStrategy,
-      controller: NodeProcessController,
-    };
 
 export type StrategyRunner = (
   strategy: Strategy,
   controller: Controller,
 ) => Process;
-
-export type StagerRunner = (
-  strategy: Strategy,
-  controller: Controller,
-) => ?Process;
 
 export type { DevToolInfos };
