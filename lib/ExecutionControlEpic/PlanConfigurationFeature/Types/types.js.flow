@@ -1,7 +1,6 @@
 "use babel";
 // @flow
 
-import type { DevToolPlanConfig } from "../../../types";
 import type {
   PackageInfos,
 } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
@@ -40,7 +39,7 @@ export type NumberConfigSchema = {
   placeholder?: string,
 };
 
-export type ConditionalConfigSchema<T> = {
+export type ConditionalConfigSchema = {
   type: "conditional",
   default: string,
   expression: EnumConfigSchema | StringConfigSchema,
@@ -53,22 +52,23 @@ export type EnumConfigSchema = {
   enum: Array<{ value: any, description: string }>,
 };
 
-export type ConfigSchemaPart =
-  & ConfigSchemaPartBase
-  & (
+export type ConfigSchemaPart = ConfigSchemaPartBase &
+  (
     | ArrayConfigSchema
     | StringConfigSchema
     | BooleanConfigSchema
     | NumberConfigSchema
     | EnumConfigSchema
     | ObjectConfigSchema
-    | ConditionalConfigSchema<any>);
+    | ConditionalConfigSchema);
 
 export type DevToolInfos = {
   id: string,
   name: string,
   iconUri: string,
 };
+
+export type DevToolPlanConfig = mixed;
 
 export type SSHConfigSchema = {
   type: "object",
