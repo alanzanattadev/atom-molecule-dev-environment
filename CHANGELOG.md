@@ -1,3 +1,9 @@
+## 0.4.0 - Plan Configuration Panel Redesign
+* Makes the plan configuration panel usable for new users
+* it now uses dock API for plan configuration panel
+* Perfs improvements (packages search)
+* Bug fixs (install and some flex issues)
+
 ## 0.3.0 - Diagnostics Redesign
 * Complete redesign of the diagnostics panel
 * You can now open many diagnostics panels
