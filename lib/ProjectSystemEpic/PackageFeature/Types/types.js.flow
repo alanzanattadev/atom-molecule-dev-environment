@@ -34,5 +34,14 @@ export type PackagesRefreshedAction = {
   payload: {
     rootPath: string,
     packages: Array<Package>,
+    plugins: Array<Plugin>,
+  },
+};
+
+export type RefreshPackagesAction = {
+  type: "REFRESH_PACKAGES",
+  payload: {
+    rootPath: string,
+    plugins: Array<Plugin>,
   },
 };

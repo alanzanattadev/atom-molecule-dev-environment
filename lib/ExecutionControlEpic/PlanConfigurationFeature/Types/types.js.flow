@@ -52,8 +52,23 @@ export type EnumConfigSchema = {
   enum: Array<{ value: any, description: string }>,
 };
 
+export type FileConfigSchema = {
+  type: "file",
+  default: string,
+  tester:
+    | RegExp
+    | string
+    | ((file: string, directory: ?Directory) => boolean | false),
+};
+
+export type Directory = {
+  name: string,
+  files: Array<string | Directory>,
+};
+
 export type ConfigSchemaPart = ConfigSchemaPartBase &
   (
+    | FileConfigSchema
     | ArrayConfigSchema
     | StringConfigSchema
     | BooleanConfigSchema
