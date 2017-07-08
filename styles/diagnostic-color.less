@@ -17,6 +17,22 @@
   background-color: @background-color-error;
 }
 
+.diagnostic-color-info-text {
+  color: @text-color-info;
+}
+
+.diagnostic-color-success-text {
+  color: @text-color-success;
+}
+
+.diagnostic-color-warning-text {
+  color: @text-color-warning;
+}
+
+.diagnostic-color-error-text {
+  color: @text-color-error;
+}
+
 
 // Color background diagnostic dark
 .diagnostic-color-info-dark {
@@ -33,4 +49,139 @@
 
 .diagnostic-color-error-dark {
   background-color: hsl(hue(@background-color-error), 100%, 40%);
+}
+
+// TASKS
+
+.task-crashed {
+  border: 1px hsl(hue(@background-color-error), 100%, 25%) solid;
+  &.selected {
+    background-color: @background-color-error;
+  }
+  &:hover {
+    background-color: @background-color-error;
+  }
+  &.selected:hover {
+    background-color: @text-color-error;
+  }
+  &:active {
+    border: 1px @text-color-error solid;
+  }
+  &.selected:active {
+    border: 1px @background-color-error solid;
+  }
+}
+
+.task-created {
+  border: 1px hsl(hue(@background-color-selected), 100%, 25%) solid;
+  &.selected {
+    background-color: @background-color-selected;
+  }
+  &:hover {
+    background-color: @background-color-selected;
+  }
+  &.selected:hover {
+    background-color: @text-color-selected;
+  }
+  &:active {
+    border: 1px @text-color-selected solid;
+  }
+  &.selected:active {
+    border: 1px @background-color-selected solid;
+  }
+}
+
+.task-failed {
+  border: 1px hsl(hue(@background-color-error), 100%, 25%) solid;
+  &.selected {
+    background-color: @background-color-error;
+  }
+  &:hover {
+    background-color: @background-color-error;
+  }
+  &.selected:hover {
+    background-color: @text-color-error;
+  }
+  &:active {
+    border: 1px @text-color-error solid;
+  }
+  &.selected:active {
+    border: 1px @background-color-error solid;
+  }
+}
+
+.task-running {
+  border: 1px hsl(hue(@background-color-success), 100%, 25%) solid;
+  &.selected {
+    background-color: @background-color-success;
+  }
+  &:hover {
+    background-color: @background-color-success;
+  }
+  &.selected:hover {
+    background-color: @text-color-success;
+  }
+  &:active {
+    border: 1px @text-color-success solid;
+  }
+  &.selected:active {
+    border: 1px @background-color-success solid;
+  }
+}
+
+.task-stopped {
+  border: 1px hsl(hue(@background-color-warning), 100%, 25%) solid;
+  &.selected {
+    background-color: @background-color-warning;
+  }
+  &:hover {
+    background-color: @background-color-warning;
+  }
+  &.selected:hover {
+    background-color: @text-color-warning;
+  }
+  &:active {
+    border: 1px @text-color-warning solid;
+  }
+  &.selected:active {
+    border: 1px @background-color-warning solid;
+  }
+}
+
+.task-succeed {
+  border: 1px hsl(hue(@background-color-success), 100%, 25%) solid;
+  &.selected {
+    background-color: @background-color-success;
+  }
+  &:hover {
+    background-color: @background-color-success;
+  }
+  &.selected:hover {
+    background-color: @text-color-success;
+  }
+  &:active {
+    border: 1px @text-color-success solid;
+  }
+  &.selected:active {
+    border: 1px @background-color-success solid;
+  }
+}
+
+.task-default {
+  border: 1px hsl(hue(@background-color-highlight), 100%, 25%) solid;
+  &.selected {
+    background-color: @background-color-highlight;
+  }
+  &:hover {
+    background-color: @background-color-highlight;
+  }
+  &.selected:hover {
+    background-color: @text-color-highlight;
+  }
+  &:active {
+    border: 1px @text-color-highlight solid;
+  }
+  &.selected:active {
+    border: 1px @background-color-highlight solid;
+  }
 }
