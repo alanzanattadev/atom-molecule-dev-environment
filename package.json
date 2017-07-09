@@ -3,7 +3,11 @@
   "main": "./lib/molecule-dev-environment",
   "version": "0.4.0",
   "description": "Molecule IDE for Atom.io",
-  "keywords": ["ide", "molecule", "atom"],
+  "keywords": [
+    "ide",
+    "molecule",
+    "atom"
+  ],
   "scripts": {
     "postinstall": "(atom -v && yarn fix-node-pty) || true",
     "eslint": "BABEL_ENV=process eslint lib/",
@@ -23,7 +27,6 @@
   "dependencies": {
     "ansi-to-html": "^0.4.2",
     "babel-cli": "^6.24.0",
-    "babel-plugin-react-for-atom": "github:alanzanattadev/babel-plugin-react-for-atom",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-plugin-transform-do-expressions": "^6.22.0",
     "babel-register": "^6.18.0",
@@ -44,7 +47,6 @@
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.4.2",
-    "react-for-atom": "^15.3.1-0",
     "react-image-fallback": "^3.3.0",
     "react-motion": "^0.4.5",
     "react-redux": "^4.4.5",
