@@ -14,7 +14,6 @@ export type DiagnosticMessageType =
   | {
       data: Object,
     }
-  | React$Component<any, any, any>
   | ((props: any) => React$Element<any, any, any>);
 
 export type DiagnosticLocation = {
@@ -26,13 +25,12 @@ export type DiagnosticLocation = {
 export type PluginDiagnostic = {
   type: DiagnosticType,
   message: DiagnosticMessageType,
+  view?: React$Component<any, any, any>,
   date?: number,
   location?: DiagnosticLocation,
 };
 
-export type Diagnostic =
-  & PluginDiagnostic
-  & {
-    step: number,
-    task?: string,
-  };
+export type Diagnostic = PluginDiagnostic & {
+  step: number,
+  task?: string,
+};
