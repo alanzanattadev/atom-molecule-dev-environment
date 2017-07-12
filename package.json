@@ -1,30 +1,24 @@
 {
-  "jest": {
-    "moduleNameMapper": {
-      "electron": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
-    }
-  },
   "name": "molecule-dev-environment",
   "main": "./lib/molecule-dev-environment",
-  "version": "0.3.0",
-  "description": "A short description of your package",
-  "keywords": [],
+  "version": "0.4.0",
+  "description": "Molecule IDE for Atom.io",
+  "keywords": ["ide", "molecule", "atom"],
   "scripts": {
     "postinstall": "(atom -v && yarn fix-node-pty) || true",
-    "eslint-check": "eslint --print-config .eslintrc.yarn | eslint-config-prettier-check",
     "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
     "jest": "BABEL_ENV=jest jest",
     "jest:watch": "npm run jest -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
     "test": "npm run jest && npm run eslint",
-    "update": "git checkout v0.3.0 && rm -rf node_modules && yarn",
+    "update": "git checkout v0.4.0 && rm -rf node_modules && yarn",
     "fix-node-pty": "node ./fix-node-pty.js"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": ">=1.17.0 <2.0.0"
   },
   "dependencies": {
     "ansi-to-html": "^0.4.2",
@@ -82,6 +76,12 @@
     "flow-bin": "^0.46.0",
     "flow-typed": "^2.0.0",
     "jest": "^20.0.3",
-    "prettier": "^1.2.2"
+    "prettier": "^1.2.2",
+    "redux-mock-store": "^1.2.3"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "electron": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
+    }
   }
 }
