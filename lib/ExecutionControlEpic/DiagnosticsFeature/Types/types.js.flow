@@ -18,8 +18,8 @@ export type DiagnosticMessageType =
 
 export type DiagnosticLocation = {
   path: string,
-  line: number,
-  column: number,
+  line?: number,
+  column?: number,
 };
 
 export type PluginDiagnostic = {
