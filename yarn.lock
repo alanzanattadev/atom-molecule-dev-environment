@@ -616,13 +616,6 @@ babel-plugin-react-docgen@^1.4.2:
     lodash "4.x.x"
     react-docgen "^2.12.1"
 
-"babel-plugin-react-for-atom@github:alanzanattadev/babel-plugin-react-for-atom":
-  version "1.0.0"
-  resolved "https://codeload.github.com/alanzanattadev/babel-plugin-react-for-atom/tar.gz/44c5682c0e70d678fec7e34038fb352681336092"
-  dependencies:
-    babel-preset-es2015 "^6.16.0"
-    babel-preset-react "^6.16.0"
-
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
@@ -5392,22 +5385,6 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "~15.5.7"
-
-react-for-atom@^15.3.1-0:
-  version "15.3.1-0"
-  resolved "https://registry.yarnpkg.com/react-for-atom/-/react-for-atom-15.3.1-0.tgz#ca9a09ba697d8cae4cbe66ea76380cdf49d00d05"
-  dependencies:
-    react "15.3.1"
-    react-addons-create-fragment "15.3.1"
-    react-addons-css-transition-group "15.3.1"
-    react-addons-linked-state-mixin "15.3.1"
-    react-addons-perf "15.3.1"
-    react-addons-pure-render-mixin "15.3.1"
-    react-addons-shallow-compare "15.3.1"
-    react-addons-test-utils "15.3.1"
-    react-addons-transition-group "15.3.1"
-    react-addons-update "15.3.1"
-    react-dom "15.3.1"
 
 react-fuzzy@^0.3.3:
   version "0.3.3"
