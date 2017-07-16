@@ -1121,7 +1121,7 @@ babel-preset-react@6.16.0:
     babel-plugin-transform-react-jsx-self "^6.11.0"
     babel-plugin-transform-react-jsx-source "^6.3.13"
 
-babel-preset-react@^6.16.0, babel-preset-react@^6.23.0:
+babel-preset-react@^6.23.0:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-preset-react/-/babel-preset-react-6.24.1.tgz#ba69dfaea45fc3ec639b6a4ecea6e17702c91380"
   dependencies:
@@ -2094,6 +2094,10 @@ doctypes@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/doctypes/-/doctypes-1.1.0.tgz#ea80b106a87538774e8a3a4a5afe293de489e0a9"
 
+"dom-helpers@^2.4.0 || ^3.0.0":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.2.1.tgz#3203e07fed217bd1f424b019735582fc37b2825a"
+
 dom-serializer@0, dom-serializer@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.1.0.tgz#073c697546ce0780ce23be4a28e293e40bc30c82"
@@ -2146,11 +2150,7 @@ ejs@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-0.8.3.tgz#db8aac47ff80a7df82b4c82c126fe8970870626f"
 
-electron-to-chromium@^1.2.7:
-  version "1.3.10"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.10.tgz#63d62b785471f0d8dda85199d64579de8a449f08"
-
-electron-to-chromium@^1.3.14:
+electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.14:
   version "1.3.15"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.15.tgz#08397934891cbcfaebbd18b82a95b5a481138369"
 
@@ -4128,7 +4128,7 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.0, loose-envify@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
@@ -5343,48 +5343,12 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-addons-create-fragment@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-addons-create-fragment/-/react-addons-create-fragment-15.3.1.tgz#a9f09f66cf9ea83b22a5d8d28a6558ccdea8383b"
-
-react-addons-css-transition-group@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-addons-css-transition-group/-/react-addons-css-transition-group-15.3.1.tgz#b82ee5445eb96274ac0a25ad65e5d67aa08a9ad8"
-
-react-addons-linked-state-mixin@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-addons-linked-state-mixin/-/react-addons-linked-state-mixin-15.3.1.tgz#8658b80bfd28fe3efa687bc7dd8c2bc629092c16"
-
-react-addons-perf@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-addons-perf/-/react-addons-perf-15.3.1.tgz#a1fd567e5bde26c0e869b99fc4954be9860c5bbd"
-
-react-addons-pure-render-mixin@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-addons-pure-render-mixin/-/react-addons-pure-render-mixin-15.3.1.tgz#75e8790ff7b9434ae481a377ec07503420d5aba6"
-
-react-addons-shallow-compare@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.3.1.tgz#06697c97b44b27e28bcc9205e555ff55200b7092"
-
-react-addons-test-utils@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.3.1.tgz#b3b64e15d7d85f6d190020dca641218684b1124d"
-
 react-addons-test-utils@^15.4.2:
   version "15.5.1"
   resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.5.1.tgz#e0d258cda2a122ad0dff69f838260d0c3958f5f7"
   dependencies:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
-
-react-addons-transition-group@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-addons-transition-group/-/react-addons-transition-group-15.3.1.tgz#80807e4685604cb120f3cb4a8c4ebd1c914a5861"
-
-react-addons-update@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-addons-update/-/react-addons-update-15.3.1.tgz#a4efa7dbe62cd07217704f69aff26bf100dc769a"
 
 react-dnd-html5-backend@^2.1.2:
   version "2.4.1"
@@ -5414,10 +5378,6 @@ react-docgen@^2.12.1:
     doctrine "^2.0.0"
     node-dir "^0.1.10"
     recast "^0.11.5"
-
-react-dom@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.3.1.tgz#6d42cd2b64c8c5e0b693f3ffaec301e6e627e24e"
 
 react-dom@^15.4.2:
   version "15.5.4"
@@ -5512,13 +5472,15 @@ react-stubber@^1.0.0:
   dependencies:
     babel-runtime "^6.5.0"
 
-react@15.3.1:
-  version "15.3.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.3.1.tgz#f78501ed8c2ec6e6e31c3223652e97f1369d2bd6"
+react-virtualized@^9.7.6:
+  version "9.9.0"
+  resolved "https://registry.yarnpkg.com/react-virtualized/-/react-virtualized-9.9.0.tgz#799a6f23819eeb82860d59b82fad33d1d420325e"
   dependencies:
-    fbjs "^0.8.4"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
+    babel-runtime "^6.11.6"
+    classnames "^2.2.3"
+    dom-helpers "^2.4.0 || ^3.0.0"
+    loose-envify "^1.3.0"
+    prop-types "^15.5.4"
 
 react@^15.4.2:
   version "15.5.4"
