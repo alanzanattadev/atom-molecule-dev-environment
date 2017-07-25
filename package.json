@@ -44,7 +44,6 @@
     "radium": "^0.18.2",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
-    "react-devtools": "^2.5.0",
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.4.2",
