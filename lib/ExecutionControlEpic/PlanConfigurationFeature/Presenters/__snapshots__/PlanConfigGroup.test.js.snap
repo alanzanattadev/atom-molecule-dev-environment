@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlanConfigGroup should display a PlanConfigPart for every key of schemas 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <styled.div>
+    <styled.div
+        onClick={[Function]}
+    >
+        <styled.span>
+            config
+            
+        </styled.span>
+        <ReactImageFallback
+            fallbackImage="arrow-right.svg"
+            initialImage={null}
+            src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
+            style={
+                Object {
+                    "display": "flex",
+                    "height": "16px",
+                    "transform": "rotate(90deg)",
+                    "transition": "0.2s transform",
+                    "width": "16px",
+                  }
+            }
+        />
+    </styled.div>
+    <styled.div>
+        <PlanConfigPart
+            name="image"
+            type="string"
+        />
+        <PlanConfigPart
+            name="scale"
+            type="number"
+        />
+    </styled.div>
+</styled.div>,
+  "nodes": Array [
+    <styled.div>
+      <styled.div
+            onClick={[Function]}
+      >
+            <styled.span>
+                  config
+                  
+            </styled.span>
+            <ReactImageFallback
+                  fallbackImage="arrow-right.svg"
+                  initialImage={null}
+                  src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
+                  style={
+                        Object {
+                              "display": "flex",
+                              "height": "16px",
+                              "transform": "rotate(90deg)",
+                              "transition": "0.2s transform",
+                              "width": "16px",
+                            }
+                  }
+            />
+      </styled.div>
+      <styled.div>
+            <PlanConfigPart
+                  name="image"
+                  type="string"
+            />
+            <PlanConfigPart
+                  name="scale"
+                  type="number"
+            />
+      </styled.div>
+</styled.div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <PlanConfigGroup
+        schemas={
+                Object {
+                        "image": Object {
+                          "type": "string",
+                        },
+                        "scale": Object {
+                          "type": "number",
+                        },
+                      }
+        }
+        value={
+                Object {
+                        "image": "ubuntu",
+                        "scale": 3,
+                      }
+        }
+/>,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "schemas": Object {
+            "image": Object {
+              "type": "string",
+            },
+            "scale": Object {
+              "type": "number",
+            },
+          },
+          "value": Object {
+            "image": "ubuntu",
+            "scale": 3,
+          },
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <styled.div>
+          <styled.div
+                    onClick={[Function]}
+          >
+                    <styled.span>
+                              config
+                              
+                    </styled.span>
+                    <ReactImageFallback
+                              fallbackImage="arrow-right.svg"
+                              initialImage={null}
+                              src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
+                              style={
+                                        Object {
+                                                  "display": "flex",
+                                                  "height": "16px",
+                                                  "transform": "rotate(90deg)",
+                                                  "transition": "0.2s transform",
+                                                  "width": "16px",
+                                                }
+                              }
+                    />
+          </styled.div>
+          <styled.div>
+                    <PlanConfigPart
+                              name="image"
+                              type="string"
+                    />
+                    <PlanConfigPart
+                              name="scale"
+                              type="number"
+                    />
+          </styled.div>
+</styled.div>,
+        "_debugID": 2,
+        "_renderedOutput": <styled.div>
+          <styled.div
+                    onClick={[Function]}
+          >
+                    <styled.span>
+                              config
+                              
+                    </styled.span>
+                    <ReactImageFallback
+                              fallbackImage="arrow-right.svg"
+                              initialImage={null}
+                              src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
+                              style={
+                                        Object {
+                                                  "display": "flex",
+                                                  "height": "16px",
+                                                  "transform": "rotate(90deg)",
+                                                  "transition": "0.2s transform",
+                                                  "width": "16px",
+                                                }
+                              }
+                    />
+          </styled.div>
+          <styled.div>
+                    <PlanConfigPart
+                              name="image"
+                              type="string"
+                    />
+                    <PlanConfigPart
+                              name="scale"
+                              type="number"
+                    />
+          </styled.div>
+</styled.div>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <PlanConfigGroup
+    schemas={
+        Object {
+            "image": Object {
+              "type": "string",
+            },
+            "scale": Object {
+              "type": "number",
+            },
+          }
+    }
+    value={
+        Object {
+            "image": "ubuntu",
+            "scale": 3,
+          }
+    }
+/>,
+}
+`;

@@ -1,12 +1,10 @@
 "use babel";
 // @flow
 
-import type {
-  PackageInfos,
-} from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { PackageInfos } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
 
 export type ConfigSchemaPartBase = {
-  title?: string,
+  label?: string,
   description?: string,
 };
 
@@ -91,12 +89,12 @@ export type SSHConfigSchema = {
     username: {
       type: "string",
       default: "",
-      title: "username",
+      label: "username",
     },
     privateKeyPath: {
       type: "string",
       default: "",
-      title: "key path",
+      label: "key path",
     },
   },
 };
@@ -112,12 +110,12 @@ export type HostConfigSchema = {
     host: {
       type: "string",
       default: "",
-      title: "host",
+      label: "host",
     },
     port: {
       type: "number",
       default: 22,
-      title: "port",
+      label: "port",
     },
   },
 };

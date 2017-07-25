@@ -4,3 +4,4 @@ flow-libs/
 
 [ignore]
 <PROJECT_ROOT>/node_modules/styled-components/
+<PROJECT_ROOT>/node_modules/react-forms-state/

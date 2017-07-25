@@ -2,16 +2,16 @@
   "presets": ["env", "react", "flow"],
   "env": {
     "development": {
-      "plugins": ["react-for-atom","syntax-object-rest-spread","transform-do-expressions"]
+      "plugins": ["transform-object-rest-spread", "transform-do-expressions"]
     },
     "production": {
-      "plugins": ["react-for-atom","syntax-object-rest-spread","transform-do-expressions"]
+      "plugins": ["transform-object-rest-spread", "transform-do-expressions"]
     },
     "jest": {
-      "plugins": ["syntax-object-rest-spread","transform-do-expressions"]
+      "plugins": ["transform-object-rest-spread", "transform-do-expressions"]
     },
     "process": {
-      "plugins": ["syntax-object-rest-spread","transform-do-expressions"]
+      "plugins": ["transform-object-rest-spread", "transform-do-expressions"]
     }
   }
 }
