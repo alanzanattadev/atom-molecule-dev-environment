@@ -1,5 +1,5 @@
-// flow-typed signature: 69840cdb1b6ba8fec51c8a1080ce2397
-// flow-typed version: 08ca61021e/react-dnd-html5-backend_v2.1.x/flow_>=v0.23.x
+// flow-typed signature: 7c9e72cf66413ff1757b6c43ed9e26e2
+// flow-typed version: b43dff3e0e/react-dnd-html5-backend_v2.1.x/flow_>=v0.15.x
 
 
 declare type $npm$reactDnd$NativeTypes$FILE = '__NATIVE_FILE__';
