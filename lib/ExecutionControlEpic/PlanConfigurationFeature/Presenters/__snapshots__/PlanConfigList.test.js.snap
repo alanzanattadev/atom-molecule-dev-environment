@@ -70,6 +70,7 @@ ShallowWrapper {
                       ]
         }
 />,
+      "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
       "_instance": StatelessComponent {
@@ -134,6 +135,7 @@ ShallowWrapper {
                     [Function]
           </StateInjector>
 </styled.div>,
+        "_debugID": 2,
         "_renderedOutput": <styled.div>
           <styled.span
                     error={false}
@@ -150,6 +152,7 @@ ShallowWrapper {
       "_rootNodeID": 0,
       "_topLevelWrapper": null,
       "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
     },
     "getRenderOutput": [Function],
     "render": [Function],
