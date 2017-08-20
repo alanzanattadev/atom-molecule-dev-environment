@@ -43,6 +43,7 @@ export type TaskExecution = {
   task: Task,
   process: Process,
   terminal?: any,
+  broker: events$EventEmitter,
 };
 
 export type TaskManager = {

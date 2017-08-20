@@ -1,12 +1,8 @@
 "use babel";
 // @flow
 
-import type {
-  DiagnosticMode,
-} from "../../DiagnosticsFeature/Types/types.js.flow";
-import type {
-  PlanConfig,
-} from "../../PlanConfigurationFeature/Types/types.js.flow";
+import type { DiagnosticMode } from "../../DiagnosticsFeature/Types/types.js.flow";
+import type { PlanConfig } from "../../PlanConfigurationFeature/Types/types.js.flow";
 
 export type DevTool = {
   id: string,
@@ -25,4 +21,5 @@ export type DevToolWithDiagnostics = DevTool & {
   legend?: string,
   index?: number,
   plan?: PlanConfig,
+  notifier: ?events$EventEmitter,
 };
