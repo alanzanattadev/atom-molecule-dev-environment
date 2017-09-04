@@ -13,9 +13,8 @@ import type {
   DiagnosticMode,
   PluginDiagnostic,
 } from "../../DiagnosticsFeature/Types/types.js.flow";
-import type {
-  PackageTester,
-} from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { CacheApi } from "../../CacheSystemFeature/Types/types";
 
 export type ProvidedDevTool = {
   infos: {
@@ -25,7 +24,9 @@ export type ProvidedDevTool = {
     defaultDiagnosticsMode?: DiagnosticMode,
   },
   configSchema: ConfigSchemaPart,
-  getStrategyForPlan(plan: PlanConfig): {
+  getStrategyForPlan(
+    plan: PlanConfig,
+  ): {
     strategy: Strategy,
     controller: Controller,
   },
@@ -34,9 +35,6 @@ export type ProvidedDevTool = {
 
 export type TaskAPI = {
   addDiagnostics: (diagnostics: Array<PluginDiagnostic>) => void,
-  cache: {
-    push: (data: any, step: ?boolean) => void,
-    get: (config: ?{step: ?number, excludeNullStep: ?boolean}) => Array<any>,
-  },
+  cache: CacheApi,
   nextStep: () => void,
 };
