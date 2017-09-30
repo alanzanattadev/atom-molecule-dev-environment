@@ -7,3 +7,9 @@ export type CacheBlob = {
   data: any,
   time: number,
 };
+
+export type CacheApi = {
+  get: (config: ?{ step?: ?number, excludeNullStep?: boolean }) => any,
+  push: (data: any, step: ?boolean) => void,
+  clear: () => void,
+};
