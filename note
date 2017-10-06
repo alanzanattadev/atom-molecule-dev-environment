@@ -1,0 +1,45 @@
+eventAPI:
+  - controller { eventApi: (eventApi) => ({}), onModified(), ... }
+  - config of plugins { infos: {...}, eventApi: { api: {...}, onModified() } }
+
+//---------------------------------------------------------------------
+
+API:
+
+  !! When atom is closed must end watchers
+
+  subscribe when strategy & stager & controller available in Task Epic
+  and use it.
+
+  static:
+    onAtomOpen
+    onAtomClose
+    onFileModified
+    onFileCreated
+    onFileDeleted
+
+  task:
+    onFileModified
+    onFileCreated
+    onFileDeleted
+
+
+//----------------------------------------------------------------------
+
+For atom static events use devtoolsControllerInstance to start api
+  -> inject directly from index.js
+
+For file events:
+  - static: not useful ?
+  - task (controller): use RunStrategy from EpicTasks
+
+//----------------------------------------------------------------------
+
+    WHERE THE FUCK DO I SUBSCRIBE TO MY OBS FOR CONTROLLER purposes,
+    &
+    3 obs if every function exists ? maybe not really useful
+    maybe create 1 obs and transform result so it indicates what mode it corresponds to
+
+//----------------------------------------------------------------------
+
+test all of them
