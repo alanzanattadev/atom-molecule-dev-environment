@@ -3,89 +3,89 @@
 exports[`Tasks Reducer BUSY_TASK should mark the task as busy 1`] = `
 Immutable.List [
   Immutable.Map {
-    id: "1",
-    state: "created",
-    debut: 1475954335,
-    strategy: Immutable.Map {
-      type: "shell",
-      command: "",
-      cwd: "",
+    "id": "1",
+    "state": "created",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
     },
-    plan: Immutable.Map {
-      config: 2,
-      packageInfos: Immutable.Map {
-        name: "root",
-        type: "file",
-        path: "/",
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
       },
-      stager: Immutable.Map {
-        type: "integrated",
-        host: null,
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
       },
-      tool: Immutable.Map {
-        id: "1",
-        name: "tool",
-        iconUri: "",
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
       },
     },
-    step: 1,
+    "step": 1,
   },
   Immutable.Map {
-    id: "2",
-    state: "running",
-    debut: 1475954335,
-    strategy: Immutable.Map {
-      type: "shell",
-      command: "",
-      cwd: "",
+    "id": "2",
+    "state": "running",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
     },
-    plan: Immutable.Map {
-      config: 2,
-      packageInfos: Immutable.Map {
-        name: "root",
-        type: "file",
-        path: "/",
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
       },
-      stager: Immutable.Map {
-        type: "integrated",
-        host: null,
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
       },
-      tool: Immutable.Map {
-        id: "1",
-        name: "tool",
-        iconUri: "",
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
       },
     },
-    step: 1,
-    busy: true,
+    "step": 1,
+    "busy": true,
   },
   Immutable.Map {
-    id: "3",
-    state: "created",
-    debut: 1475954335,
-    strategy: Immutable.Map {
-      type: "shell",
-      command: "",
-      cwd: "",
+    "id": "3",
+    "state": "created",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
     },
-    plan: Immutable.Map {
-      config: 2,
-      packageInfos: Immutable.Map {
-        name: "root",
-        type: "file",
-        path: "/",
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
       },
-      stager: Immutable.Map {
-        type: "integrated",
-        host: null,
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
       },
-      tool: Immutable.Map {
-        id: "1",
-        name: "tool",
-        iconUri: "",
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
       },
     },
-    step: 1,
+    "step": 1,
   },
 ]
 `;
@@ -633,89 +633,89 @@ Array [
 exports[`Tasks Reducer WAITING_TASK should mark the task as waiting 1`] = `
 Immutable.List [
   Immutable.Map {
-    id: "1",
-    state: "created",
-    debut: 1475954335,
-    strategy: Immutable.Map {
-      type: "shell",
-      command: "",
-      cwd: "",
+    "id": "1",
+    "state": "created",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
     },
-    plan: Immutable.Map {
-      config: 2,
-      packageInfos: Immutable.Map {
-        name: "root",
-        type: "file",
-        path: "/",
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
       },
-      stager: Immutable.Map {
-        type: "integrated",
-        host: null,
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
       },
-      tool: Immutable.Map {
-        id: "1",
-        name: "tool",
-        iconUri: "",
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
       },
     },
-    step: 1,
+    "step": 1,
   },
   Immutable.Map {
-    id: "2",
-    state: "running",
-    debut: 1475954335,
-    strategy: Immutable.Map {
-      type: "shell",
-      command: "",
-      cwd: "",
+    "id": "2",
+    "state": "running",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
     },
-    plan: Immutable.Map {
-      config: 2,
-      packageInfos: Immutable.Map {
-        name: "root",
-        type: "file",
-        path: "/",
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
       },
-      stager: Immutable.Map {
-        type: "integrated",
-        host: null,
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
       },
-      tool: Immutable.Map {
-        id: "1",
-        name: "tool",
-        iconUri: "",
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
       },
     },
-    step: 1,
-    busy: false,
+    "step": 1,
+    "busy": false,
   },
   Immutable.Map {
-    id: "3",
-    state: "created",
-    debut: 1475954335,
-    strategy: Immutable.Map {
-      type: "shell",
-      command: "",
-      cwd: "",
+    "id": "3",
+    "state": "created",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
     },
-    plan: Immutable.Map {
-      config: 2,
-      packageInfos: Immutable.Map {
-        name: "root",
-        type: "file",
-        path: "/",
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
       },
-      stager: Immutable.Map {
-        type: "integrated",
-        host: null,
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
       },
-      tool: Immutable.Map {
-        id: "1",
-        name: "tool",
-        iconUri: "",
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
       },
     },
-    step: 1,
+    "step": 1,
   },
 ]
 `;
