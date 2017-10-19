@@ -1,5 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Tasks Reducer BUSY_TASK should mark the task as busy 1`] = `
+Immutable.List [
+  Immutable.Map {
+    "id": "1",
+    "state": "created",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
+    },
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
+      },
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
+      },
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
+      },
+    },
+    "step": 1,
+  },
+  Immutable.Map {
+    "id": "2",
+    "state": "running",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
+    },
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
+      },
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
+      },
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
+      },
+    },
+    "step": 1,
+    "busy": true,
+  },
+  Immutable.Map {
+    "id": "3",
+    "state": "created",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
+    },
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
+      },
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
+      },
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
+      },
+    },
+    "step": 1,
+  },
+]
+`;
+
 exports[`Tasks Reducer CRASH_TASK should mark the task as crashed 1`] = `
 Array [
   Object {
@@ -536,6 +626,96 @@ Array [
       "cwd": "",
       "type": "shell",
     },
+  },
+]
+`;
+
+exports[`Tasks Reducer WAITING_TASK should mark the task as waiting 1`] = `
+Immutable.List [
+  Immutable.Map {
+    "id": "1",
+    "state": "created",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
+    },
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
+      },
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
+      },
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
+      },
+    },
+    "step": 1,
+  },
+  Immutable.Map {
+    "id": "2",
+    "state": "running",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
+    },
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
+      },
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
+      },
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
+      },
+    },
+    "step": 1,
+    "busy": false,
+  },
+  Immutable.Map {
+    "id": "3",
+    "state": "created",
+    "debut": 1475954335,
+    "strategy": Immutable.Map {
+      "type": "shell",
+      "command": "",
+      "cwd": "",
+    },
+    "plan": Immutable.Map {
+      "config": 2,
+      "packageInfos": Immutable.Map {
+        "name": "root",
+        "type": "file",
+        "path": "/",
+      },
+      "stager": Immutable.Map {
+        "type": "integrated",
+        "host": null,
+      },
+      "tool": Immutable.Map {
+        "id": "1",
+        "name": "tool",
+        "iconUri": "",
+      },
+    },
+    "step": 1,
   },
 ]
 `;
