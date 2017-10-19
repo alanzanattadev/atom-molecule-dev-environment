@@ -32,6 +32,7 @@ export type Task = {
   },
   strategy: Strategy,
   state: TaskState,
+  busy?: boolean,
   step: number,
   debut: number, // Date's timestamp
   end?: number, // Date's timestamp

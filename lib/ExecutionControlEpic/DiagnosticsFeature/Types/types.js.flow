@@ -25,7 +25,7 @@ export type DiagnosticLocation = {
 export type PluginDiagnostic = {
   type: DiagnosticType,
   message: DiagnosticMessageType,
-  view?: React$Component<any, any, any>,
+  view?: React$Component<any, any>,
   date?: number,
   location?: DiagnosticLocation,
 };

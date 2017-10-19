@@ -10,73 +10,73 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.div>
     <styled.div
-        onClick={[Function]}
+      onClick={[Function]}
     >
-        <styled.span>
-            config
-            
-        </styled.span>
-        <ReactImageFallback
-            fallbackImage="arrow-right.svg"
-            initialImage={null}
-            src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
-            style={
-                Object {
-                    "display": "flex",
-                    "height": "16px",
-                    "transform": "rotate(90deg)",
-                    "transition": "0.2s transform",
-                    "width": "16px",
-                  }
-            }
-        />
+      <styled.span>
+        config
+        
+      </styled.span>
+      <ReactImageFallback
+        fallbackImage="arrow-right.svg"
+        initialImage={null}
+        src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
+        style={
+          Object {
+            "display": "flex",
+            "height": "16px",
+            "transform": "rotate(90deg)",
+            "transition": "0.2s transform",
+            "width": "16px",
+          }
+        }
+      />
     </styled.div>
     <styled.div>
-        <PlanConfigPart
-            name="image"
-            type="string"
-        />
-        <PlanConfigPart
-            name="scale"
-            type="number"
-        />
+      <PlanConfigPart
+        name="image"
+        type="string"
+      />
+      <PlanConfigPart
+        name="scale"
+        type="number"
+      />
     </styled.div>
-</styled.div>,
+  </styled.div>,
   "nodes": Array [
     <styled.div>
       <styled.div
-            onClick={[Function]}
+        onClick={[Function]}
       >
-            <styled.span>
-                  config
-                  
-            </styled.span>
-            <ReactImageFallback
-                  fallbackImage="arrow-right.svg"
-                  initialImage={null}
-                  src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
-                  style={
-                        Object {
-                              "display": "flex",
-                              "height": "16px",
-                              "transform": "rotate(90deg)",
-                              "transition": "0.2s transform",
-                              "width": "16px",
-                            }
-                  }
-            />
+        <styled.span>
+          config
+          
+        </styled.span>
+        <ReactImageFallback
+          fallbackImage="arrow-right.svg"
+          initialImage={null}
+          src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
+          style={
+            Object {
+              "display": "flex",
+              "height": "16px",
+              "transform": "rotate(90deg)",
+              "transition": "0.2s transform",
+              "width": "16px",
+            }
+          }
+        />
       </styled.div>
       <styled.div>
-            <PlanConfigPart
-                  name="image"
-                  type="string"
-            />
-            <PlanConfigPart
-                  name="scale"
-                  type="number"
-            />
+        <PlanConfigPart
+          name="image"
+          type="string"
+        />
+        <PlanConfigPart
+          name="scale"
+          type="number"
+        />
       </styled.div>
-</styled.div>,
+    </styled.div>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -86,22 +86,22 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <PlanConfigGroup
         schemas={
-                Object {
-                        "image": Object {
-                          "type": "string",
-                        },
-                        "scale": Object {
-                          "type": "number",
-                        },
-                      }
+          Object {
+            "image": Object {
+              "type": "string",
+            },
+            "scale": Object {
+              "type": "number",
+            },
+          }
         }
         value={
-                Object {
-                        "image": "ubuntu",
-                        "scale": 3,
-                      }
+          Object {
+            "image": "ubuntu",
+            "scale": 3,
+          }
         }
-/>,
+      />,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -144,73 +144,73 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div>
           <styled.div
-                    onClick={[Function]}
+            onClick={[Function]}
           >
-                    <styled.span>
-                              config
-                              
-                    </styled.span>
-                    <ReactImageFallback
-                              fallbackImage="arrow-right.svg"
-                              initialImage={null}
-                              src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
-                              style={
-                                        Object {
-                                                  "display": "flex",
-                                                  "height": "16px",
-                                                  "transform": "rotate(90deg)",
-                                                  "transition": "0.2s transform",
-                                                  "width": "16px",
-                                                }
-                              }
-                    />
+            <styled.span>
+              config
+              
+            </styled.span>
+            <ReactImageFallback
+              fallbackImage="arrow-right.svg"
+              initialImage={null}
+              src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
+              style={
+                Object {
+                  "display": "flex",
+                  "height": "16px",
+                  "transform": "rotate(90deg)",
+                  "transition": "0.2s transform",
+                  "width": "16px",
+                }
+              }
+            />
           </styled.div>
           <styled.div>
-                    <PlanConfigPart
-                              name="image"
-                              type="string"
-                    />
-                    <PlanConfigPart
-                              name="scale"
-                              type="number"
-                    />
+            <PlanConfigPart
+              name="image"
+              type="string"
+            />
+            <PlanConfigPart
+              name="scale"
+              type="number"
+            />
           </styled.div>
-</styled.div>,
+        </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div>
           <styled.div
-                    onClick={[Function]}
+            onClick={[Function]}
           >
-                    <styled.span>
-                              config
-                              
-                    </styled.span>
-                    <ReactImageFallback
-                              fallbackImage="arrow-right.svg"
-                              initialImage={null}
-                              src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
-                              style={
-                                        Object {
-                                                  "display": "flex",
-                                                  "height": "16px",
-                                                  "transform": "rotate(90deg)",
-                                                  "transition": "0.2s transform",
-                                                  "width": "16px",
-                                                }
-                              }
-                    />
+            <styled.span>
+              config
+              
+            </styled.span>
+            <ReactImageFallback
+              fallbackImage="arrow-right.svg"
+              initialImage={null}
+              src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
+              style={
+                Object {
+                  "display": "flex",
+                  "height": "16px",
+                  "transform": "rotate(90deg)",
+                  "transition": "0.2s transform",
+                  "width": "16px",
+                }
+              }
+            />
           </styled.div>
           <styled.div>
-                    <PlanConfigPart
-                              name="image"
-                              type="string"
-                    />
-                    <PlanConfigPart
-                              name="scale"
-                              type="number"
-                    />
+            <PlanConfigPart
+              name="image"
+              type="string"
+            />
+            <PlanConfigPart
+              name="scale"
+              type="number"
+            />
           </styled.div>
-</styled.div>,
+        </styled.div>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -224,21 +224,21 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <PlanConfigGroup
     schemas={
-        Object {
-            "image": Object {
-              "type": "string",
-            },
-            "scale": Object {
-              "type": "number",
-            },
-          }
+      Object {
+        "image": Object {
+          "type": "string",
+        },
+        "scale": Object {
+          "type": "number",
+        },
+      }
     }
     value={
-        Object {
-            "image": "ubuntu",
-            "scale": 3,
-          }
+      Object {
+        "image": "ubuntu",
+        "scale": 3,
+      }
     }
-/>,
+  />,
 }
 `;

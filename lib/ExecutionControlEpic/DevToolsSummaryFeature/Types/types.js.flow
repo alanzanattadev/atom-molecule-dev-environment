@@ -8,6 +8,7 @@ export type DevTool = {
   id: string,
   name: string,
   iconUri: string,
+  dominantColor?: string,
   defaultDiagnosticsMode?: DiagnosticMode,
 };
 
