@@ -24,6 +24,16 @@
   "engines": {
     "atom": ">=1.17.0 <2.0.0"
   },
+  "package-deps": [
+    "linter"
+  ],
+  "consumedServices" : {
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "consumeIndie"
+      }
+    }
+  },
   "dependencies": {
     "ansi-to-html": "^0.6.3",
     "babel-cli": "^6.26.0",
