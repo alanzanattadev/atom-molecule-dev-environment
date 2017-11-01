@@ -22,7 +22,7 @@ export type Directory = {
 export type PackageInfos = {
   name: string,
   path: string,
-  sepType: string,
+  uriPlatform: string,
   type: "file" | "directory",
 };
 
