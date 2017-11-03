@@ -61,6 +61,7 @@
     "ssh2": "^0.5.4",
     "styled-components": "^2.2.0",
     "tree-kill": "^1.2.0",
+    "vscode-jsonrpc": "^3.4.1",
     "xterm": "^2.9.2"
   },
   "devDependencies": {
@@ -98,7 +99,7 @@
     "parser": "babel-eslint",
     "parserOptions": {
       "ecmaVersion": 8,
-      "ecmaFeatures" : {
+      "ecmaFeatures": {
         "jsx": true,
         "experimentalObjectRestSpread": true
       },
@@ -119,12 +120,18 @@
     ],
     "rules": {
       "no-console": "warn",
-      "no-unused-vars": ["warn", {
-        "argsIgnorePattern": "helperAPI|taskAPI|dirname"
-      }],
-      "prettier/prettier": ["error", {
-        "trailingComma": "all"
-      }],
+      "no-unused-vars": [
+        "warn",
+        {
+          "argsIgnorePattern": "helperAPI|taskAPI|dirname"
+        }
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "trailingComma": "all"
+        }
+      ],
       "react/no-find-dom-node": "warn"
     }
   }
