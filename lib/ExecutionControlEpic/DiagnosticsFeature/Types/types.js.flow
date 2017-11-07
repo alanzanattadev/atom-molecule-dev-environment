@@ -43,7 +43,7 @@ export type Diagnostic = PluginDiagnostic & {
   task?: string,
 };
 
-export type PublishDiagnostics = {
+export type PublishDiagnosticsParams = {
   uri: string,
   diagnostics: Array<PluginDiagnostic>,
 };
