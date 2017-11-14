@@ -39,5 +39,9 @@ export type TaskAPI = {
     push: (data: any, step: ?boolean) => void,
     get: (config: ?{ step: ?number, excludeNullStep: ?boolean }) => Array<any>,
   },
+  busy: {
+   switchToWaitingMode: () => void,
+   switchToBusyMode: () => void,
+  },
   nextStep: () => void,
 };
