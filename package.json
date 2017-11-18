@@ -59,6 +59,7 @@
     "remote-redux-devtools": "^0.5.7",
     "rxjs": "^5.4.3",
     "ssh2": "^0.5.4",
+    "strip-ansi": "^4.0.0",
     "styled-components": "^2.2.0",
     "tree-kill": "^1.2.0",
     "xterm": "^2.9.2"
@@ -98,7 +99,7 @@
     "parser": "babel-eslint",
     "parserOptions": {
       "ecmaVersion": 8,
-      "ecmaFeatures" : {
+      "ecmaFeatures": {
         "jsx": true,
         "experimentalObjectRestSpread": true
       },
@@ -119,12 +120,18 @@
     ],
     "rules": {
       "no-console": "warn",
-      "no-unused-vars": ["warn", {
-        "argsIgnorePattern": "helperAPI|taskAPI|dirname"
-      }],
-      "prettier/prettier": ["error", {
-        "trailingComma": "all"
-      }],
+      "no-unused-vars": [
+        "warn",
+        {
+          "argsIgnorePattern": "helperAPI|taskAPI|dirname"
+        }
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "trailingComma": "all"
+        }
+      ],
       "react/no-find-dom-node": "warn"
     }
   }
