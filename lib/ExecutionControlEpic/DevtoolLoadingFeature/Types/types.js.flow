@@ -30,7 +30,7 @@ export type ProvidedDevTool = {
     strategy: Strategy,
     controller: Controller,
   },
-  DiagnosticView(): any,
+  DiagnosticView: any,
   isPackage?: PackageTester,
 };
 
