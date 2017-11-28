@@ -11,7 +11,7 @@ import type {
 } from "../../TaskExecutionFeature/Types/types.js.flow";
 import type {
   DiagnosticMode,
-  PluginDiagnostic,
+  PublishDiagnosticsParams,
 } from "../../DiagnosticsFeature/Types/types.js.flow";
 import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
 
@@ -30,11 +30,12 @@ export type ProvidedDevTool = {
     strategy: Strategy,
     controller: Controller,
   },
+  DiagnosticView: any,
   isPackage?: PackageTester,
 };
 
 export type TaskAPI = {
-  addDiagnostics: (diagnostics: Array<PluginDiagnostic>) => void,
+  addDiagnostics: (diagnostics: PublishDiagnosticsParams) => void,
   cache: {
     push: (data: any, step: ?boolean) => void,
     get: (config: ?{ step: ?number, excludeNullStep: ?boolean }) => Array<any>,

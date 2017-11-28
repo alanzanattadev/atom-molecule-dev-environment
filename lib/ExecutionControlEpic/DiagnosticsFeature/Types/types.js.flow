@@ -3,34 +3,47 @@
 
 export type DiagnosticMode = "logs" | "organized";
 
-export type DiagnosticType = "error" | "warning" | "success" | "info";
+export type DiagnosticError = 1;
 
-export type DiagnosticMessageType =
-  | string
-  | {
-      text: string,
-      html: boolean,
-    }
-  | {
-      data: Object,
-    }
-  | ((props: any) => React$Element<any, any, any>);
+export type DiagnosticWarning = 2;
 
-export type DiagnosticLocation = {
-  path: string,
-  line?: number,
-  column?: number,
+export type DiagnosticInformation = 3;
+
+export type DiagnosticHint = 4;
+
+export type DiagnosticSuccess = 5;
+
+export type DiagnosticSeverity =
+  | DiagnosticError
+  | DiagnosticWarning
+  | DiagnosticInformation
+  | DiagnosticHint
+  | DiagnosticSuccess;
+
+export type Position = {
+  line: number,
+  character: number,
+};
+
+export type DiagnosticRange = {
+  start: Position,
+  end: Position,
 };
 
 export type PluginDiagnostic = {
-  type: DiagnosticType,
-  message: DiagnosticMessageType,
-  view?: React$Component<any, any>,
+  severity: DiagnosticSeverity,
+  message: string,
+  code?: number | string,
   date?: number,
-  location?: DiagnosticLocation,
+  range?: DiagnosticRange,
 };
 
 export type Diagnostic = PluginDiagnostic & {
   step: number,
   task?: string,
+};
+
+export type PublishDiagnosticsParams = {
+  uri: string,
+  diagnostics: Array<PluginDiagnostic>,
 };
