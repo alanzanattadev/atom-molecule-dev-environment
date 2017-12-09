@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2032"
+   height="2500"
+   viewBox="0 0 256 315"
+   preserveAspectRatio="xMinYMin meet"
+   version="1.1"
+   id="svg3761"
+   sodipodi:docname="ansible.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+  <metadata
+     id="metadata3767">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3765" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1886"
+     inkscape:window-height="1031"
+     id="namedview3763"
+     showgrid="false"
+     inkscape:zoom="0.3332"
+     inkscape:cx="652.85474"
+     inkscape:cy="769.80792"
+     inkscape:window-x="15"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3761" />
+  <path
+     d="M255.879 127.868c0 70.455-57.11 127.565-127.567 127.565-70.45 0-127.566-57.11-127.566-127.565C.746 57.418 57.862.302 128.312.302c70.456 0 127.567 57.116 127.567 127.566"
+     fill="#1A1918"
+     id="path3757" />
+  <path
+     d="M130.46 78.229l33.011 81.476-49.863-39.278L130.46 78.23zm58.644 100.245L138.326 56.272c-1.45-3.524-4.348-5.39-7.866-5.39-3.525 0-6.634 1.866-8.084 5.39l-55.732 134.04h19.065l22.062-55.265 65.84 53.19c2.647 2.141 4.558 3.11 7.041 3.11 4.974 0 9.322-3.73 9.322-9.111 0-.876-.31-2.267-.87-3.762z"
+     fill="#FFF"
+     id="path3759" />
+</svg>

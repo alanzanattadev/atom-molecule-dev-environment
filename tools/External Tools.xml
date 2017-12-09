@@ -1,0 +1,9 @@
+<toolSet name="External Tools">
+  <tool name="ESlint auto fix" description="ESlint auto fix file" showInMainMenu="true" showInEditor="true" showInProject="true" showInSearchPopup="true" disabled="false" useConsole="true" showConsoleOnStdOut="true" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="eslint" />
+      <option name="PARAMETERS" value="--fix $FilePathRelativeToProjectRoot$" />
+      <option name="WORKING_DIRECTORY" value="$ProjectFileDir$" />
+    </exec>
+  </tool>
+</toolSet>
