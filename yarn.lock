@@ -1587,12 +1587,6 @@ caniuse-lite@^1.0.30000684:
   version "1.0.30000701"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000701.tgz#9d673cf6b74dcb3d5c21d213176b011ac6a45baa"
 
-canvas@~1.2.0:
-  version "1.2.11"
-  resolved "https://registry.yarnpkg.com/canvas/-/canvas-1.2.11.tgz#d12455864df5169c2a2be602fa8e0e4013a97140"
-  dependencies:
-    nan "^2.0.9"
-
 case-sensitive-paths-webpack-plugin@^1.1.2:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-1.1.4.tgz#8aaedd5699a86cac2b34cf40d9b4145758978472"
@@ -1800,12 +1794,6 @@ color-string@^0.3.0:
   resolved "https://registry.yarnpkg.com/color-string/-/color-string-0.3.0.tgz#27d46fb67025c5c2fa25993bfbf579e47841b991"
   dependencies:
     color-name "^1.0.0"
-
-color-thief@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/color-thief/-/color-thief-2.2.2.tgz#775e99a50f195b198f844b94b3f6c38deb1ca424"
-  dependencies:
-    canvas "~1.2.0"
 
 color@^0.11.0:
   version "0.11.4"
@@ -3766,9 +3754,11 @@ jest-environment-node@^21.2.1:
   dependencies:
     jest-mock "^21.2.0"
     jest-util "^21.2.1"
+
 jest-get-type@^21.2.0:
   version "21.2.0"
   resolved "https://registry.yarnpkg.com/jest-get-type/-/jest-get-type-21.2.0.tgz#f6376ab9db4b60d81e39f30749c6c466f40d4a23"
+
 jest-haste-map@^21.2.0:
   version "21.2.0"
   resolved "https://registry.yarnpkg.com/jest-haste-map/-/jest-haste-map-21.2.0.tgz#1363f0a8bb4338f24f001806571eff7a4b2ff3d8"
@@ -4551,10 +4541,6 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-nan@^2.0.9, nan@^2.6.2:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
-
 nan@^2.3.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
@@ -4679,12 +4665,6 @@ node-pre-gyp@^0.6.36:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-node-pty@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/node-pty/-/node-pty-0.7.0.tgz#993038692d3a2921811a152658fc7dc211323ac2"
-  dependencies:
-    nan "^2.6.2"
-
 nopt@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
@@ -4740,6 +4720,10 @@ nth-check@~1.0.1:
   resolved "https://registry.yarnpkg.com/nth-check/-/nth-check-1.0.1.tgz#9929acdf628fc2c41098deab82ac580cf149aae4"
   dependencies:
     boolbase "~1.0.0"
+
+nuclide-prebuilt-libs@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nuclide-prebuilt-libs/-/nuclide-prebuilt-libs-0.2.0.tgz#8e169c5efcadb93c808a10de608c053c2d889677"
 
 num2fraction@^1.2.2:
   version "1.2.2"
