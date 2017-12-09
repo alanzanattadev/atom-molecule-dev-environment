@@ -1,9 +1,16 @@
 "use babel";
 // @flow
 
+import { List } from "immutable";
+
 export type CacheBlob = {
   taskId: string,
   step: ?number,
   data: any,
   time: number,
+};
+
+export type CacheAPI = {
+  push: (data: any, step: ?boolean) => void,
+  get: (config?: { step: ?number, excludeNullStep: boolean }) => List<any>,
 };
