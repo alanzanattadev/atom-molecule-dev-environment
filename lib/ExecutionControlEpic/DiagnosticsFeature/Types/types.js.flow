@@ -36,6 +36,7 @@ export type PluginDiagnostic = {
   code?: number | string,
   date?: number,
   range?: DiagnosticRange,
+  path?: string,
 };
 
 export type Diagnostic = PluginDiagnostic & {
