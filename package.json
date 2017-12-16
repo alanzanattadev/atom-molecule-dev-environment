@@ -9,15 +9,13 @@
     "atom"
   ],
   "scripts": {
-    "postinstall": "(atom -v && yarn fix-node-pty) || true",
     "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
     "jest": "BABEL_ENV=jest jest",
     "jest:watch": "npm run jest -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
     "test": "npm run jest && npm run eslint",
-    "update": "git checkout v0.4.0 && rm -rf node_modules && yarn",
-    "fix-node-pty": "node ./fix-node-pty.js"
+    "update": "git checkout v0.4.0 && rm -rf node_modules && yarn"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
@@ -41,8 +39,8 @@
     "less": "^2.7.3",
     "moment": "^2.19.2",
     "nightwatch": "^0.9.12",
-    "nightwatch-html-reporter": "^2.0.4",
-    "node-pty": "^0.7.3",
+    "nightwatch-html-reporter": "^2.0.0",
+    "nuclide-prebuilt-libs": "^0.2.0",
     "radium": "^0.19.1",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",

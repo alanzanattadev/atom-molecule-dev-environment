@@ -47,3 +47,8 @@ export type PublishDiagnosticsParams = {
   uri: string,
   diagnostics: Array<PluginDiagnostic>,
 };
+
+export type BusyStateAPI = {
+  switchToWaitingMode: () => void,
+  switchToBusyMode: () => void,
+};

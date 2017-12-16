@@ -37,6 +37,7 @@ export type Task = {
   step: number,
   debut: number, // Date's timestamp
   end?: number, // Date's timestamp
+  terminal: boolean,
 };
 
 export type Process = child_process$ChildProcess;
