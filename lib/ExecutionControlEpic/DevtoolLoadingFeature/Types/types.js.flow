@@ -14,6 +14,8 @@ import type {
   PublishDiagnosticsParams,
 } from "../../DiagnosticsFeature/Types/types.js.flow";
 import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { CacheAPI } from "../../CacheSystemFeature/Types/types";
+import type { BusyStateAPI } from "../../DiagnosticsFeature/Types/types";
 
 export type ProvidedDevTool = {
   infos: {
@@ -35,10 +37,8 @@ export type ProvidedDevTool = {
 };
 
 export type TaskAPI = {
-  addDiagnostics: (diagnostics: PublishDiagnosticsParams) => void,
-  cache: {
-    push: (data: any, step: ?boolean) => void,
-    get: (config: ?{ step: ?number, excludeNullStep: ?boolean }) => Array<any>,
-  },
+  addDiagnostics: (diagnostics: Array<PluginDiagnostic>) => void,
+  busy: BusyStateAPI,
+  cache: CacheAPI,
   nextStep: () => void,
 };

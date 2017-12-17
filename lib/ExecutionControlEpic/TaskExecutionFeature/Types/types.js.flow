@@ -2,6 +2,7 @@
 // @flow
 
 import type { DevToolInfos } from "../../PlanConfigurationFeature/Types/types.js.flow";
+import type { WatchFilesController } from "../../../EventSystemEpic/FileFeature/Types/types.flow";
 import type {
   NodeProcessController,
   NodeProcessStrategy,
@@ -36,6 +37,7 @@ export type Task = {
   step: number,
   debut: number, // Date's timestamp
   end?: number, // Date's timestamp
+  terminal: boolean,
 };
 
 export type Process = child_process$ChildProcess;
@@ -52,10 +54,13 @@ export type TaskManager = {
 };
 
 export type Strategy = ShellStrategy | NodeProcessStrategy | TerminalStrategy;
-export type Controller =
+export type BasicController =
   | ShellController
   | NodeProcessController
   | TerminalController;
+export type Controller = BasicController & {
+  watchFiles?: WatchFilesController,
+};
 export type StrategyConfig =
   | {
       strategy: ShellStrategy,
