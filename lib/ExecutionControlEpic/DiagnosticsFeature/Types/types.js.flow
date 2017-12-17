@@ -1,6 +1,8 @@
 "use babel";
 // @flow
 
+import * as React from "react";
+
 export type DiagnosticMode = "logs" | "organized";
 
 export type DiagnosticType = "error" | "warning" | "success" | "info";
@@ -14,7 +16,7 @@ export type DiagnosticMessageType =
   | {
       data: Object,
     }
-  | ((props: any) => React$Element<any, any, any>);
+  | ((props: any) => React.Element<any>);
 
 export type DiagnosticLocation = {
   path: string,
@@ -25,7 +27,7 @@ export type DiagnosticLocation = {
 export type PluginDiagnostic = {
   type: DiagnosticType,
   message: DiagnosticMessageType,
-  view?: React$Component<any, any>,
+  view?: React.ComponentType<any>,
   date?: number,
   location?: DiagnosticLocation,
 };
