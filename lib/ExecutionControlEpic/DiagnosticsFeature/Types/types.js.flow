@@ -34,3 +34,8 @@ export type Diagnostic = PluginDiagnostic & {
   step: number,
   task?: string,
 };
+
+export type BusyStateAPI = {
+  switchToWaitingMode: () => void,
+  switchToBusyMode: () => void,
+};
