@@ -340,13 +340,9 @@ assertion-error@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.0.0.tgz#c7f85438fdd466bc7ca16ab90c81513797a5d23b"
 
-ast-types@0.9.6:
+ast-types@0.9.6, ast-types@0.x.x:
   version "0.9.6"
   resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.9.6.tgz#102c9e9e9005d3e7e3829bf0c4fa24ee862ee9b9"
-
-ast-types@0.x.x:
-  version "0.9.12"
-  resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.9.12.tgz#b136300d67026625ae15326982ca9918e5db73c9"
 
 astral-regex@^1.0.0:
   version "1.0.0"
