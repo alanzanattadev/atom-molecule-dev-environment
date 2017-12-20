@@ -3,24 +3,30 @@
   "main": "./lib/molecule-dev-environment",
   "version": "0.4.0",
   "description": "Molecule IDE for Atom.io",
-  "keywords": [
-    "ide",
-    "molecule",
-    "atom"
-  ],
+  "keywords": ["ide", "molecule", "atom"],
   "scripts": {
     "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
     "jest": "BABEL_ENV=jest jest",
     "jest:watch": "npm run jest -- --watch",
-    "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
+    "storybook":
+      "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
     "test": "npm run jest && npm run eslint",
     "update": "git checkout v0.4.0 && rm -rf node_modules && yarn"
   },
-  "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
+  "repository":
+    "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
   "engines": {
     "atom": ">=1.17.0 <2.0.0"
+  },
+  "package-deps": ["linter"],
+  "consumedServices": {
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "consumeIndie"
+      }
+    }
   },
   "dependencies": {
     "ansi-to-html": "^0.6.3",
@@ -87,7 +93,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "electron": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
+      "electron":
+        "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
     }
   },
   "eslintConfig": {
@@ -106,11 +113,7 @@
       },
       "sourceType": "module"
     },
-    "plugins": [
-      "flowtype",
-      "prettier",
-      "react"
-    ],
+    "plugins": ["flowtype", "prettier", "react"],
     "extends": [
       "eslint:recommended",
       "plugin:flowtype/recommended",
