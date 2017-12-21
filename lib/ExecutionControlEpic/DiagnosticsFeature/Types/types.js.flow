@@ -1,6 +1,8 @@
 "use babel";
 // @flow
 
+import type { Diagnostic } from "../../LanguageServerProtocolFeature/Types/standard";
+
 export type DiagnosticMode = "logs" | "organized";
 
 export type DiagnosticError = 1;
@@ -20,36 +22,8 @@ export type DiagnosticSeverity =
   | DiagnosticHint
   | DiagnosticSuccess;
 
-export type Position = {
-  line: number,
-  character: number,
-};
-
-export type DiagnosticRange = {
-  start: Position,
-  end: Position,
-};
-
-export type PluginDiagnostic = {
-  severity: DiagnosticSeverity,
-  message: string,
-  code?: number | string,
-  date?: number,
-  range?: DiagnosticRange,
-  path?: string,
-};
-
-export type Diagnostic = PluginDiagnostic & {
-  step: number,
+export type MoleculeDiagnostic = Diagnostic & {
   task?: string,
-};
-
-export type PublishDiagnosticsParams = {
-  uri: string,
-  diagnostics: Array<PluginDiagnostic>,
-};
-
-export type BusyStateAPI = {
-  switchToWaitingMode: () => void,
-  switchToBusyMode: () => void,
+  path?: string,
+  date?: number,
 };
