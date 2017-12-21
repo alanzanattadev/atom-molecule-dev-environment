@@ -22,6 +22,16 @@
   "engines": {
     "atom": ">=1.17.0 <2.0.0"
   },
+  "package-deps": [
+    "linter"
+  ],
+  "consumedServices": {
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "consumeIndie"
+      }
+    }
+  },
   "dependencies": {
     "ansi-to-html": "^0.6.3",
     "babel-cli": "^6.26.0",
@@ -32,11 +42,13 @@
     "chrome-remote-interface": "^0.25.0",
     "classnames": "^2.2.5",
     "color-hash": "^1.0.3",
+    "fb-watchman": "^2.0.0",
+    "flow-language-server": "^0.2.3",
     "immutable": "^3.8.1",
     "inline-style-prefixer": "^3.0.8",
     "jest-cli": "^21.2.1",
-    "less": "^2.3.1",
-    "moment": "^2.15.1",
+    "less": "^2.7.3",
+    "moment": "^2.19.2",
     "nightwatch": "^0.9.12",
     "nightwatch-html-reporter": "^2.0.0",
     "nuclide-prebuilt-libs": "^0.2.0",
@@ -57,28 +69,31 @@
     "remote-redux-devtools": "^0.5.7",
     "rxjs": "^5.4.3",
     "ssh2": "^0.5.4",
+    "stream-buffers": "^3.0.1",
     "styled-components": "^2.2.0",
     "tree-kill": "^1.2.0",
+    "vscode-jsonrpc": "^3.5.0",
+    "vscode-uri": "^1.0.1",
     "xterm": "^2.9.2"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.18.1",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.0.2",
     "babel-jest": "^21.2.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.23.0",
     "enzyme": "^2.7.1",
-    "eslint": "^4.8.0",
-    "eslint-config-prettier": "^2.6.0",
+    "eslint": "^4.11.0",
+    "eslint-config-prettier": "^2.7.0",
     "eslint-plugin-flowtype": "^2.39.1",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
-    "flow-bin": "^0.56.0",
-    "flow-typed": "^2.2.0",
+    "flow-bin": "^0.59.0",
+    "flow-typed": "^2.2.3",
     "jest": "^21.2.1",
-    "prettier": "^1.7.4",
+    "prettier": "^1.8.2",
     "redux-mock-store": "^1.3.0"
   },
   "jest": {

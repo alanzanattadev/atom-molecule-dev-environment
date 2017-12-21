@@ -1,0 +1,54 @@
+"use babel";
+// @flow
+
+import type { Package } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js";
+
+export type WatchMode = "created" | "deleted" | "modified";
+
+export type WatchFilesAPI = {
+  toolPackages: Array<Package>,
+};
+
+export type WatchmanClient = {
+  capabilityCheck: (
+    capability: Object,
+    (error: Object, resp: Object) => void,
+  ) => void,
+  end: () => void,
+  command: (command: Array<any>, (error: Object, resp: Object) => void) => void,
+  on: (command: string, (resp: Object) => void) => void,
+};
+
+export type WatchMan = {
+  Client: () => WatchmanClient,
+};
+
+export type WatchExpression = { expression: Array<any> };
+
+export type FileEvent = {
+  action: WatchMode,
+  path: string,
+  oldPath?: string,
+};
+
+export type WatchFilesSettings = {
+  paths: Array<string>,
+  fileFilter: RegExp,
+};
+
+export type WatchFilesController = {
+  settings: WatchFilesSettings,
+  onFilesChanged(
+    events: Array<FileEvent>,
+    fileEventsHelpers: FileEventsHelpers,
+  ): void,
+};
+
+export type FileEventsHelpers = {
+  hasFilesDeleted(events: Array<FileEvent>): boolean,
+  hasFilesCreated(events: Array<FileEvent>): boolean,
+  hasFilesModified(events: Array<FileEvent>): boolean,
+  getFilesDeleted(events: Array<FileEvent>): Array<FileEvent>,
+  getFilesCreated(events: Array<FileEvent>): Array<FileEvent>,
+  getFilesModified(events: Array<FileEvent>): Array<FileEvent>,
+};
