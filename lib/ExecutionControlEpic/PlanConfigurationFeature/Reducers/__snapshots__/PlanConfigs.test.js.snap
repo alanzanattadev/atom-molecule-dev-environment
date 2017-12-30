@@ -5,7 +5,7 @@ Array [
   Object {
     "config": "ls -l",
     "name": "ls",
-    "packageInfos": Object {
+    "packageInfo": Object {
       "name": "",
       "path": "/",
       "type": "directory",
@@ -29,7 +29,7 @@ Array [
   Object {
     "config": "ls -l",
     "name": "ls",
-    "packageInfos": Object {
+    "packageInfo": Object {
       "name": "",
       "path": "/",
       "type": "directory",
@@ -48,7 +48,7 @@ Array [
   Object {
     "config": "Invoke-Mimikatz",
     "name": "mimikatz",
-    "packageInfos": Object {
+    "packageInfo": Object {
       "name": "",
       "path": "/",
       "type": "directory",
@@ -72,7 +72,7 @@ Array [
   Object {
     "config": "Invoke-Mimikatz",
     "name": "mimikatz",
-    "packageInfos": Object {
+    "packageInfo": Object {
       "name": "",
       "path": "/",
       "type": "directory",
@@ -96,7 +96,7 @@ Array [
   Object {
     "config": "ls -l",
     "name": "ls",
-    "packageInfos": Object {
+    "packageInfo": Object {
       "name": "",
       "path": "/",
       "type": "directory",
@@ -115,7 +115,7 @@ Array [
   Object {
     "config": "Invoke-Mimikatz",
     "name": "mimikatz",
-    "packageInfos": Object {
+    "packageInfo": Object {
       "name": "",
       "path": "/",
       "type": "directory",
