@@ -79,6 +79,7 @@ export type DevToolInfos = {
   id: string,
   name: string,
   iconUri: string,
+  uri: string,
 };
 
 export type DevToolPlanConfig = mixed;
