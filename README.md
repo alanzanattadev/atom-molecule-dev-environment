@@ -1,7 +1,7 @@
 Molecule IDE
 ============
 
-Molecule is a package that transforms [Atom](https://atom.io/) into a full-blown [Integrated Development Environment](https://en.wikipedia.org/wiki/Integrated_development_environment) (or IDE). Learn more at molecule.sh or read [our documentation](doc/getting-started.md).
+Molecule is a package that transforms [Atom](https://atom.io/) into a full-blown [Integrated Development Environment](https://en.wikipedia.org/wiki/Integrated_development_environment) (or IDE). Learn more [on our website](http://www.molecule.sh/) or read [our documentation](doc/getting-started.md).
 
 __INSERT "MOLECULE-SHOWCASE" SCREENSHOT HERE__
 
