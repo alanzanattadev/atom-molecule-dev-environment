@@ -1,30 +1,28 @@
 {
   "name": "molecule-dev-environment",
-  "main": "./lib/molecule-dev-environment",
+  "main": "./build/babel/molecule-dev-environment.js",
   "version": "0.4.0",
   "description": "Molecule IDE for Atom.io",
-  "keywords": [
-    "ide",
-    "molecule",
-    "atom"
-  ],
+  "keywords": ["ide", "molecule", "atom"],
   "scripts": {
     "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
     "jest": "BABEL_ENV=jest jest",
     "jest:watch": "npm run jest -- --watch",
-    "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
+    "storybook":
+      "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
     "test": "npm run jest && npm run eslint",
-    "update": "git checkout v0.4.0 && rm -rf node_modules && yarn"
+    "update": "git checkout v0.4.0 && rm -rf node_modules && yarn",
+    "babel:build": "babel lib --out-dir ./build/babel/",
+    "babel:watch": "babel lib --out-dir ./build/babel/ --watch"
   },
-  "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
+  "repository":
+    "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
   "engines": {
     "atom": ">=1.17.0 <2.0.0"
   },
-  "package-deps": [
-    "linter"
-  ],
+  "package-deps": ["linter"],
   "consumedServices": {
     "linter-indie": {
       "versions": {
@@ -34,7 +32,6 @@
   },
   "dependencies": {
     "ansi-to-html": "^0.6.3",
-    "babel-cli": "^6.26.0",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-plugin-transform-do-expressions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -78,8 +75,12 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.18.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.2",
     "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
@@ -94,11 +95,13 @@
     "flow-typed": "^2.2.3",
     "jest": "^21.2.1",
     "prettier": "^1.8.2",
-    "redux-mock-store": "^1.3.0"
+    "redux-mock-store": "^1.3.0",
+    "webpack": "^3.10.0"
   },
   "jest": {
     "moduleNameMapper": {
-      "electron": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
+      "electron":
+        "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
     }
   },
   "eslintConfig": {
@@ -117,11 +120,7 @@
       },
       "sourceType": "module"
     },
-    "plugins": [
-      "flowtype",
-      "prettier",
-      "react"
-    ],
+    "plugins": ["flowtype", "prettier", "react"],
     "extends": [
       "eslint:recommended",
       "plugin:flowtype/recommended",
