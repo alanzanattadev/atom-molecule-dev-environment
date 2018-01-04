@@ -94,8 +94,8 @@ Immutable.List [
     "convertIn": undefined,
     "convertOut": [Function],
     "default": null,
-    "in": "packageInfos",
-    "out": "packageInfos",
+    "in": "packageInfo",
+    "out": "packageInfo",
     "validate": undefined,
   },
 ]
@@ -195,8 +195,8 @@ Immutable.List [
     "convertIn": undefined,
     "convertOut": [Function],
     "default": null,
-    "in": "packageInfos",
-    "out": "packageInfos",
+    "in": "packageInfo",
+    "out": "packageInfo",
     "validate": undefined,
   },
 ]

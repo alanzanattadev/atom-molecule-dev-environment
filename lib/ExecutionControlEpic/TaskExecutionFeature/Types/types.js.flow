@@ -1,7 +1,7 @@
 "use babel";
 // @flow
 
-import type { DevToolInfos } from "../../PlanConfigurationFeature/Types/types.js.flow";
+import type { DevToolInfo } from "../../PlanConfigurationFeature/Types/types.js.flow";
 import type { WatchFilesController } from "../../../EventSystemEpic/FileFeature/Types/types.flow";
 import type {
   NodeProcessController,
@@ -29,7 +29,7 @@ export type Task = {
   id: string,
   plan: {
     config: mixed,
-    tool: DevToolInfos,
+    tool: DevToolInfo,
   },
   strategy: Strategy,
   state: TaskState,
@@ -81,4 +81,4 @@ export type StagerRunner = (
   controller: Controller,
 ) => ?Process;
 
-export type { DevToolInfos };
+export type { DevToolInfo };

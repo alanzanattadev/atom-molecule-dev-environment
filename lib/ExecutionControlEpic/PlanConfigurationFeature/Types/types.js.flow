@@ -1,7 +1,7 @@
 "use babel";
 // @flow
 
-import type { PackageInfos } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { PackageInfo } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
 
 export type ConfigSchemaPartBase = {
   label?: string,
@@ -75,7 +75,7 @@ export type ConfigSchemaPart = ConfigSchemaPartBase &
     | ObjectConfigSchema
     | ConditionalConfigSchema);
 
-export type DevToolInfos = {
+export type DevToolInfo = {
   id: string,
   name: string,
   iconUri: string,
@@ -139,13 +139,13 @@ export type Stager =
       host: HostConfig,
     };
 
-export type DevToolPlanConfigSchema = ConfigSchemaPart & { tool: DevToolInfos };
+export type DevToolPlanConfigSchema = ConfigSchemaPart & { tool: DevToolInfo };
 
 export type PlanConfig = {
-  tool: DevToolInfos,
+  tool: DevToolInfo,
   config: any,
   pinned?: boolean,
   name: string,
   stager: Stager,
-  packageInfos: PackageInfos,
+  packageInfo: PackageInfo,
 };

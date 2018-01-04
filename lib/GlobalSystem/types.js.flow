@@ -2,8 +2,8 @@
 // @flow
 
 import type {
-  DevToolsInfosReducer,
-} from "../ExecutionControlEpic/DevToolsSummaryFeature/Reducers/DevToolsInfos";
+  DevToolsInfoReducer,
+} from "../ExecutionControlEpic/DevToolsSummaryFeature/Reducers/DevToolsInfo";
 import type {
   PlanConfigSchemasReducer,
 } from "../ExecutionControlEpic/PlanConfigurationFeature/Reducers/PlanConfigSchemas";
@@ -24,7 +24,7 @@ import type {
 } from "../ExecutionControlEpic/CacheSystemFeature/Reducers/CacheBlobs";
 
 export type State = {
-  devtools: DevToolsInfosReducer,
+  devtools: DevToolsInfoReducer,
   plans: PlanConfigsReducer,
   planConfigSchemas: PlanConfigSchemasReducer,
   tasks: TasksReducer,

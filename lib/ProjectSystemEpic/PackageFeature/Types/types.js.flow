@@ -19,14 +19,14 @@ export type Directory = {
   files: Array<string | Directory>,
 };
 
-export type PackageInfos = {
+export type PackageInfo = {
   name: string,
   path: string,
   uriPlatform: string,
   type: "file" | "directory",
 };
 
-export type Package = PackageInfos & {
+export type Package = PackageInfo & {
   plugin: Plugin,
 };
 
