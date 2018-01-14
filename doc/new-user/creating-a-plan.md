@@ -1,24 +1,26 @@
-Your first plan
+Creating a plan
 ===============
 
 When starting Atom, your screen should look somewhat like this:
 
-__INSERT "MOLECULE-START" SCREENSHOT HERE__
+![Starting screen. Notice the bar of round icons at the bottom](resources/molecule-start.png)
 
 *Note: for the sake of this tutorial, we are browsing [the Molecule repository](https://github.com/alanzanattadev/atom-molecule-dev-environment/)*
 
-At the bottom of the screen, we can see the **Plugin Bar** (the one with the
-round icons), and the **Plan Bar**. Molecule is shipped with
+The main addition is the **Plugin Bar** at the bottom of the screen. Each round
+icon represents a plugin; Molecule is shipped with
 [a bunch of default plugins](./default-plugins.md), and you can add third-party
 plugins through `apm`.
 
-__TODO - Add third-party Molecule plugin as an example__
+[Comment]: # (TODO - Add third-party Molecule plugin as an example)
 
-Since you just installed Molecule, the plan bar should display "No plan has been
-created yet".
+To execute these plugins, you need to create a **Molecule plan**. A plan is a
+reusable action that uses a given plugin with pre-registered parameters. For
+instance, you can create a plan for the NPM plugin that will always call
+`npm run start`.
 
-Create a plan
--------------
+Create a new plan
+-----------------
 
 When you click on the name under one of the plugin icons, a panel titled
 **Plan configuration** should open on your right.
@@ -26,20 +28,17 @@ When you click on the name under one of the plugin icons, a panel titled
 This panel displays a list of settings specific to each plugin. You can tweak
 the settings' values, then click "Create" to add a plan.
 
-For this tutorial, we will create a jest plan:
+For this tutorial, we will create an eslint plan:
 
-- Hover on the Jest icon, then click on the "Jest" text that appears under,
-- Set name to "jest_0",
-- Set Configuration to "npm/babel-jest_vx.x.x.js",
-- Check "only modified files",
+- Hover on the Eslint icon, then click on the "Eslint" text that appears under,
+- Set name to "eslint_0",
+- Leave the other settings as-is
 - Click the "Create" button.
 
-__INSERT "CREATE-JEST-PLAN" GIF HERE__
+![Creating an eslint plan](resources/create-plan.gif)
 
-A new plan named "jest_0" should have appeared at the bottom of your window. You
+A new plan named "eslint_0" should have appeared at the bottom of your window. You
 can click on this plan, which will run `jest` and start giving you diagnostics.
-
-__INSERT "RUN-JEST-PLAN" GIF HERE__
 
 ### Package system
 
@@ -55,12 +54,12 @@ Which files count as a package varies from plugin to plugin. Most Node.js
 plugins consider `package.json` to be a package file if the corresponging tool
 is installed in `node_modules`.
 
-__INSERT "PACKAGE-SETTING-CLOSEUP" SCREENSHOT HERE__
+![Package setting closeup](resources/package-closeup.png)
 
 When creating a new plan, one of the configuration settings for all plugins is
 "package". If the project includes several package files for the current plugin
 (for instance, if the project has several folders with `package.json` files
-when creating a Jest plan), then the "package" setting allows you to choose
+when creating an Eslint plan), then the "package" setting allows you to choose
 which package the plan will use.
 
 ### Stager
@@ -69,7 +68,7 @@ The stager setting allows you to pick a **Stager** for your plan. The stager
 allows you to decide how the plan will be executed: locally, or on a distant
 machine.
 
-__INSERT "STAGER-SETTING-CLOSEUP" SCREENSHOT HERE__
+![Package setting closeup](resources/stager-closeup.png)
 
 Most of the time, leaving the default value is fine; you only need to execute
 your plan locally.

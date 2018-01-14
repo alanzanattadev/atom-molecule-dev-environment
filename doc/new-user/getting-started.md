@@ -56,4 +56,4 @@ Installation
 
     Molecule should then be installed the next time you start Atom.
 
-__INSERT "MOLECULE-START" SCREENSHOT HERE__
+![Your screen shoud look roughly like this](resources/molecule-start.png)
