@@ -3,7 +3,7 @@ Molecule IDE
 
 Molecule is a package that transforms [Atom](https://atom.io/) into a full-blown [Integrated Development Environment](https://en.wikipedia.org/wiki/Integrated_development_environment) (or IDE). Learn more [on our website](http://www.molecule.sh/) or read [our documentation](doc/getting-started.md).
 
-__INSERT "MOLECULE-SHOWCASE" SCREENSHOT HERE__
+![Hello there, xkcd readers!](doc/molecule-showcase.png)
 
 Features
 --------
@@ -47,7 +47,7 @@ Installation
 
     Molecule should then be installed the next time you start Atom.
 
-__INSERT "MOLECULE-START" SCREENSHOT HERE__
+![Your screen shoud look roughly like this](doc/new-user/resources/molecule-start.png)
 
 ### Update
 
@@ -64,7 +64,7 @@ And reload atom !
 
 ### Feedback
 
-__TODO - ADD LINK TO API__
+[Comment]: # (TODO - ADD LINK TO API)
 
 We are open to any kind of feedback you could give us. From bug fixes to
 recommandations and feature requests, we would love to hear what you think of
@@ -76,11 +76,11 @@ We love discussing with our users !
 
 ### Make a plugin
 
-__TODO - ADD LINK TO PLUGIN API__
+[Comment]: # (TODO - ADD LINK TO PLUGIN API)
 
 ### Help develop Molecule
 
-__TODO - ADD LINK TO DEVELOPER DOC__
+[Comment]: # (TODO - ADD LINK TO DEVELOPER DOC)
 
 In order to contribute to Molecule, you need to clone this repository and open
 its directory. To link the development version of Molecule with atom, run
