@@ -8,21 +8,21 @@ A plugin is JavaScript object which follow this structure:
 ```
 export default {
   info: {
-    ...
+    // ...
   },
   configSchema: {
-    ...
+    // ...
   },
   getStrategyForPlan(plan: PlanConfig, helperApi: HelperAPI) {
-    ...
-     return {
-       strategy: {
-         ...
-       },
-       controller: {
-         ...
-       }
-     };
+    ///...
+    return {
+     strategy: {
+       // ...
+     },
+     controller: {
+       // ...
+     }
+    };
   },
   isPackage: ...
 };
@@ -51,11 +51,13 @@ reside in this directory or any sub-directory. Plugins usually have a
 
 ### Info Section
 
-First, you'll have to create an **info** object that has 3 attributes:
+The info section contains the name and icon of your plugin that will be
+displayed to the user. This section is an object containing the following
+attributes:
 
   * **name**: the name of the plugin
   * **iconUri**: the uri pointing to the icon of the plugin (which should be in
-  *atom://molecule-dev-environment/.storybook/public/plugin-name.png*)
+  *atom://molecule-dev-environment/.storybook/public/<plugin-name>.png*)
 
 Example:
 
@@ -74,7 +76,7 @@ point of view, it's named *plan configuration*.
 
 Molecule automatically generate the UI corresponding to the declared configuration
 schema, and will also manage to pass the configuration to the strategy
-(described) bellow.
+(described) below.
 
 Molecule adds some fields to each schema that are mandatory for the execution
 of the tool. These fields are :
@@ -93,19 +95,12 @@ configSchema: {
   type: "object",
   schemas: {
     binary: {
-      type: "conditional",
-      expression: {
-        type: "enum",
-        label: "binary",
-        enum: [
-          { value: "local", description: "local" },
-          { value: "global", description: "global" },
-        ],
-      },
-      cases: {
-        local: null,
-        global: null,
-      },
+      type: "enum",
+      label: "binary",
+      enum: [
+        { value: "local", description: "local" },
+        { value: "global", description: "global" },
+      ],
     },
     sources: {
       type: "object",
@@ -139,7 +134,7 @@ a part of the configuration, a field. Each field have at least one field: the
 The field can also have supplementary attributes which allow to give more details
 about the purpose of the field.
 
-There fields are:
+These fields are:
 
   * **default**: the default value of the corresponding type.
   * **label**: most fields (except the `conditional` type) allow you to specify a
@@ -158,7 +153,7 @@ You can find a complete list of available fields in the
 
 This part contains the main logic of your plugin which will link the tool and
 Molecule by specifying how the tool should be run, and how to interact with it and
-it's life cycle.
+its life cycle.
 
 #### Type Imports
 
@@ -177,18 +172,20 @@ import type { TaskAPI } from "../../DevtoolLoadingFeature/Types/types.js.flow";
 #### The getStrategyForPlan() method
 
 The getStrategyForPlan() method represent the main entry point of your plugin.
-It will return an object describing how Molecule will interact with the tool.
+It must return an object describing how Molecule will interact with the tool.
 
 The parameters passed to `getStrategyForPlan` are:
+
   * **plan**: an object containing the configuration of the plan. This object
   allows you to get the path of the package through `plan.packageInfos.path`,
   and the configuration selected by the user through `plan.config`
   (see [configSchema](#configschema-section))
   * **helperApi**: an API providing methods to facilitate your development, such as
   JSon and terminal output-to-html parser, filesystem abstraction, and severity
-  levels used in diagnostics (see bellow). 
+  levels used in diagnostics (see below). 
 
-The returned object will have two values:
+The returned object will have the following fields:
+
   * **strategy** is an object describing how the tool should be executed
   * **controller** is an object containing functions executed when Molecule receive
   data from the executed tool.
@@ -198,7 +195,7 @@ getStrategyForPlan(
   plan: PlanConfig,
   helperApi: HelperAPI,
 ): { strategy: Strategy, controller: Controller } {
-  // TODO
+  // ...
 }
 ```
 
@@ -260,22 +257,19 @@ controller. The controller is an object containing the three following functions
 These function will be called every time an event of their attached type happens.
 They are the only way for you to execute code and interact with the tool output.
 
-A common pattern is either to consume the data as it comes, or to cache it until
-the end of the tool execution and then consume all the data at once. Through
-the TaskAPI, Molecule
-
 Basically, your controller will look like:
+
 ```
 controller: {
-    onData(data: any, taskAPI: TaskAPI, helperAPI: HelperAPI): void {
-        ... // type is node
-    },
-    onError(err: any, taskAPI: TaskAPI, helperAPI: HelperAPI): void {
-        ...
-    },
-    onExit(code: number, taskAPI: TaskAPI, helperAPI: HelperAPI) : void {
-        ...
-    }
+  onData(data: any, taskAPI: TaskAPI, helperAPI: HelperAPI): void {
+    // ...
+  },
+  onError(err: any, taskAPI: TaskAPI, helperAPI: HelperAPI): void {
+    // ...
+  },
+  onExit(code: number, taskAPI: TaskAPI, helperAPI: HelperAPI) : void {
+    // ...
+  }
 }
 ```
 
