@@ -10,13 +10,14 @@ export type DevTool = {
   iconUri: string,
   dominantColor?: string,
   defaultDiagnosticsMode?: DiagnosticMode,
+  uri: string,
 };
 
 export type DevToolWithDiagnostics = DevTool & {
   errors: number,
   successes: number,
   warnings: number,
-  infos: number,
+  info: number,
   planColor?: string,
   showColor?: boolean,
   legend?: string,

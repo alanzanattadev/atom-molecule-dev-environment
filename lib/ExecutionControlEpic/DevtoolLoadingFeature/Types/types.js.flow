@@ -9,16 +9,12 @@ import type {
   Controller,
   Strategy,
 } from "../../TaskExecutionFeature/Types/types.js.flow";
-import type {
-  DiagnosticMode,
-  PluginDiagnostic,
-} from "../../DiagnosticsFeature/Types/types.js.flow";
+import type { DiagnosticMode } from "../../DiagnosticsFeature/Types/types.js.flow";
 import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
-import type { CacheAPI } from "../../CacheSystemFeature/Types/types";
-import type { BusyStateAPI } from "../../DiagnosticsFeature/Types/types";
+import type { HelperApi } from "../../TaskExecutionFeature/Model/HelperApi";
 
 export type ProvidedDevTool = {
-  infos: {
+  info: {
     id?: string,
     name: string,
     iconUri: string,
@@ -28,16 +24,11 @@ export type ProvidedDevTool = {
   configSchema: ConfigSchemaPart,
   getStrategyForPlan(
     plan: PlanConfig,
+    helperAPI: HelperApi
   ): {
     strategy: Strategy,
     controller: Controller,
   },
+  DiagnosticView: any,
   isPackage?: PackageTester,
-};
-
-export type TaskAPI = {
-  addDiagnostics: (diagnostics: Array<PluginDiagnostic>) => void,
-  busy: BusyStateAPI,
-  cache: CacheAPI,
-  nextStep: () => void,
 };

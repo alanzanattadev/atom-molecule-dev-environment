@@ -1,24 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Diagnostics Selectors selectDiagnosticsOfTask should get diagnostics of task 1`] = `
-Immutable.List [
-  Object {
-    "message": "",
-    "step": 0,
-    "task": "2",
-    "type": "success",
+Immutable.Map {
+  "this is another uri": Immutable.Map {
+    1: Immutable.List [
+      Object {
+        "message": "",
+        "severity": 1,
+        "step": 0,
+        "task": "2",
+      },
+      Object {
+        "message": "test 1",
+        "severity": 1,
+        "step": 0,
+        "task": "2",
+      },
+      Object {
+        "message": "test 2",
+        "severity": 1,
+        "step": 0,
+        "task": "2",
+      },
+    ],
   },
-  Object {
-    "message": "",
-    "step": 0,
-    "task": "2",
-    "type": "error",
-  },
-  Object {
-    "message": "",
-    "step": 0,
-    "task": "2",
-    "type": "warning",
-  },
-]
+}
 `;
