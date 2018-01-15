@@ -22,15 +22,8 @@
   "engines": {
     "atom": ">=1.17.0 <2.0.0"
   },
-<<<<<<< HEAD
-  "package-deps": [
-    "linter"
-  ],
-  "consumedServices" : {
-=======
   "package-deps": ["linter"],
   "consumedServices": {
->>>>>>> bfc03395aa4e9e423f2ff629d51f7d2270c2502c
     "linter-indie": {
       "versions": {
         "2.0.0": "consumeIndie"
