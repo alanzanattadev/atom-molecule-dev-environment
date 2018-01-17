@@ -3003,9 +3003,9 @@ flow-bin@^0.59.0:
   version "0.59.0"
   resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.59.0.tgz#8c151ee7f09f1deed9bf0b9d1f2e8ab9d470f1bb"
 
-flow-language-server@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/flow-language-server/-/flow-language-server-0.2.3.tgz#18fd5c86fc2642bf4ebf122be094eb93d1a974fe"
+flow-language-server@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/flow-language-server/-/flow-language-server-0.2.5.tgz#63d636adf583f5a2b5be7fffc943a303500f584d"
   dependencies:
     adm-zip "0.4.7"
     async-to-generator "1.1.0"
