@@ -11,13 +11,13 @@
   "scripts": {
     "eslint": "BABEL_ENV=process eslint lib/",
     "flow": "flow check --show-all-errors",
-    "jest": "BABEL_ENV=jest jest",
-    "jest:watch": "npm run jest -- --watch",
+    "jest:watch": "jest --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
-    "test": "npm run jest && npm run eslint",
+    "test": "jest && npm run eslint",
     "update": "git checkout v0.4.0 && rm -rf node_modules && yarn",
     "babel:build": "babel lib --out-dir ./build/babel/",
-    "babel:watch": "babel lib --out-dir ./build/babel/ --watch"
+    "babel:watch": "babel lib --out-dir ./build/babel/ --watch",
+    "postinstall": "npm run babel:build"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
@@ -104,7 +104,8 @@
   "jest": {
     "moduleNameMapper": {
       "electron": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
-    }
+    },
+    "testPathIgnorePatterns": ["<rootDir>/build/", "<rootDir>/node_modules/"]
   },
   "eslintConfig": {
     "env": {
