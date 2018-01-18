@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Diagnostics Reducer SET_DIAGNOSTICS_FOR_PATHS_FOR_TASKS should init the Map with the diagnostic 1`] = `
+Immutable.Map {
+  "2": Immutable.Map {
+    "/test1": Immutable.Map {},
+    "/test2": Immutable.Map {
+      1: Immutable.List [
+        Object {
+          "message": "aaaaah",
+          "severity": 1,
+        },
+      ],
+      2: Immutable.List [
+        Object {
+          "message": "uuuuuh",
+          "severity": 2,
+        },
+      ],
+    },
+  },
+  "3": Immutable.Map {
+    "/test3": Immutable.Map {
+      1: Immutable.List [
+        Object {
+          "message": "test",
+          "severity": 1,
+        },
+        Object {
+          "message": "test2",
+          "severity": 1,
+        },
+      ],
+      3: Immutable.List [
+        Object {
+          "message": "oups",
+          "severity": 3,
+        },
+      ],
+    },
+  },
+  "4": Immutable.Map {
+    "/test1": Immutable.Map {
+      2: Immutable.List [
+        Object {
+          "message": ":o",
+          "severity": 2,
+        },
+      ],
+    },
+    "/test2": Immutable.Map {
+      2: Immutable.List [
+        Object {
+          "message": ":)",
+          "severity": 2,
+        },
+      ],
+    },
+  },
+}
+`;
