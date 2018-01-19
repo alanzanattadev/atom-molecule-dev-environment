@@ -105,7 +105,10 @@
     "moduleNameMapper": {
       "electron": "<rootDir>/lib/ExecutionControlEpic/PlanConfigurationFeature/Fake/fakeElectron.js"
     },
-    "testPathIgnorePatterns": ["<rootDir>/build/", "<rootDir>/node_modules/"]
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/"
+    ]
   },
   "eslintConfig": {
     "env": {

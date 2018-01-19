@@ -1694,13 +1694,6 @@ chokidar@^1.0.0, chokidar@^1.6.1, chokidar@^1.7.0:
   optionalDependencies:
     fsevents "^1.0.0"
 
-chrome-remote-interface@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/chrome-remote-interface/-/chrome-remote-interface-0.25.0.tgz#4a08369f7d4713385f98b7a25d5e98912c2035a8"
-  dependencies:
-    commander "2.1.x"
-    ws "2.0.x"
-
 ci-info@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-1.0.0.tgz#dc5285f2b4e251821683681c381c3388f46ec534"
@@ -1830,10 +1823,6 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.5.tgz#938370a57b4a51dea2c77c15d5c5fdf895164009"
   dependencies:
     delayed-stream "~1.0.0"
-
-commander@2.1.x:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.1.0.tgz#d121bbae860d9992a3d517ba96f56588e47c6781"
 
 commander@2.8.x:
   version "2.8.1"
@@ -4625,7 +4614,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.9.0:
+lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.9.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -6105,12 +6094,11 @@ react-dom@^15.4.2:
     prop-types "^15.5.10"
 
 react-forms-state@alanzanattadev/react-forms-state:
-  version "2.6.1"
-  resolved "https://codeload.github.com/alanzanattadev/react-forms-state/tar.gz/0a4fa49dfd683628fae238391fa819b12989baee"
+  version "3.0.0-beta1-2"
+  resolved "https://codeload.github.com/alanzanattadev/react-forms-state/tar.gz/9c80eec8609e2949e3921a8ebd32236d87e2d4ae"
   dependencies:
     immutable "^3.8.1"
-    lodash "^4.16.6"
-    rxjs "^5.2.0"
+    rxjs "^5.4.3"
 
 react-fuzzy@^0.3.3:
   version "0.3.3"
@@ -6576,7 +6564,7 @@ rxjs@5.3.1:
   dependencies:
     symbol-observable "^1.0.1"
 
-rxjs@^5.2.0, rxjs@^5.4.3:
+rxjs@^5.4.3:
   version "5.4.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.3.tgz#0758cddee6033d68e0fd53676f0f3596ce3d483f"
   dependencies:
@@ -7710,12 +7698,6 @@ write@^0.2.1:
   resolved "https://registry.yarnpkg.com/write/-/write-0.2.1.tgz#5fc03828e264cea3fe91455476f7a3c566cb0757"
   dependencies:
     mkdirp "^0.5.1"
-
-ws@2.0.x:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-2.0.3.tgz#532fd499c3f7d7d720e543f1f807106cfc57d9cb"
-  dependencies:
-    ultron "~1.1.0"
 
 ws@3.0.0:
   version "3.0.0"
