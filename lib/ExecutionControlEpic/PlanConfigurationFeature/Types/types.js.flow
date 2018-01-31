@@ -148,4 +148,5 @@ export type PlanConfig = {
   name: string,
   stager: Stager,
   packageInfo: PackageInfo,
+  id: string,
 };
