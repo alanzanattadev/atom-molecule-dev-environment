@@ -4625,7 +4625,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.9.0:
+lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.9.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -6109,12 +6109,11 @@ react-dom@^15.4.2:
     prop-types "^15.5.10"
 
 react-forms-state@alanzanattadev/react-forms-state:
-  version "2.6.1"
-  resolved "https://codeload.github.com/alanzanattadev/react-forms-state/tar.gz/0a4fa49dfd683628fae238391fa819b12989baee"
+  version "3.0.0-beta1-2"
+  resolved "https://codeload.github.com/alanzanattadev/react-forms-state/tar.gz/9c80eec8609e2949e3921a8ebd32236d87e2d4ae"
   dependencies:
     immutable "^3.8.1"
-    lodash "^4.16.6"
-    rxjs "^5.2.0"
+    rxjs "^5.4.3"
 
 react-fuzzy@^0.3.3:
   version "0.3.3"
@@ -6580,7 +6579,7 @@ rxjs@5.3.1:
   dependencies:
     symbol-observable "^1.0.1"
 
-rxjs@^5.2.0, rxjs@^5.4.3:
+rxjs@^5.4.3:
   version "5.4.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.3.tgz#0758cddee6033d68e0fd53676f0f3596ce3d483f"
   dependencies:
