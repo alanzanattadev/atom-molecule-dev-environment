@@ -4,10 +4,12 @@ exports[`Plan should display a context menu with Pin and Remove when pinnable is
 Array [
   MyMenuItem {
     "click": [Function],
+    "enabled": undefined,
     "label": "Pin",
   },
   MyMenuItem {
     "click": [Function],
+    "enabled": true,
     "label": "Remove",
   },
 ]
@@ -17,10 +19,12 @@ exports[`Plan should display a context menu with Unpin and Remove when pinnable 
 Array [
   MyMenuItem {
     "click": [Function],
+    "enabled": undefined,
     "label": "Un-pin",
   },
   MyMenuItem {
     "click": [Function],
+    "enabled": true,
     "label": "Remove",
   },
 ]
