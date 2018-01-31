@@ -103,11 +103,7 @@
     "webpack": "^3.10.0"
   },
   "babel": {
-    "presets": [["env", {
-      "targets": {
-        "electron": "1.6.15"
-      }
-    }], "react", "flow"],
+    "presets": ["env", "react", "flow"],
     "plugins": [
       "add-module-exports",
       "transform-object-rest-spread",
