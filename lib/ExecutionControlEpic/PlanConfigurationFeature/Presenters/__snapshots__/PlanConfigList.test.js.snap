@@ -12,24 +12,24 @@ ShallowWrapper {
     <styled.span
       error={false}
     />
-    <StateInjector
+    <FormWatcher
       __debug={false}
       watchPath={[Function]}
     >
       [Function]
-    </StateInjector>
+    </FormWatcher>
   </styled.div>,
   "nodes": Array [
     <styled.div>
       <styled.span
         error={false}
       />
-      <StateInjector
+      <FormWatcher
         __debug={false}
         watchPath={[Function]}
       >
         [Function]
-      </StateInjector>
+      </FormWatcher>
     </styled.div>,
   ],
   "options": Object {},
@@ -128,24 +128,24 @@ ShallowWrapper {
           <styled.span
             error={false}
           />
-          <StateInjector
+          <FormWatcher
             __debug={false}
             watchPath={[Function]}
           >
             [Function]
-          </StateInjector>
+          </FormWatcher>
         </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div>
           <styled.span
             error={false}
           />
-          <StateInjector
+          <FormWatcher
             __debug={false}
             watchPath={[Function]}
           >
             [Function]
-          </StateInjector>
+          </FormWatcher>
         </styled.div>,
       },
       "_renderedNodeType": 1,

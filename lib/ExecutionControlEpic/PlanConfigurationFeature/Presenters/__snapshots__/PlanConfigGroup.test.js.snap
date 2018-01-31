@@ -33,11 +33,11 @@ ShallowWrapper {
     </styled.div>
     <styled.div>
       <PlanConfigPart
-        name="image"
+        elementName="image"
         type="string"
       />
       <PlanConfigPart
-        name="scale"
+        elementName="scale"
         type="number"
       />
     </styled.div>
@@ -68,11 +68,11 @@ ShallowWrapper {
       </styled.div>
       <styled.div>
         <PlanConfigPart
-          name="image"
+          elementName="image"
           type="string"
         />
         <PlanConfigPart
-          name="scale"
+          elementName="scale"
           type="number"
         />
       </styled.div>
@@ -167,11 +167,11 @@ ShallowWrapper {
           </styled.div>
           <styled.div>
             <PlanConfigPart
-              name="image"
+              elementName="image"
               type="string"
             />
             <PlanConfigPart
-              name="scale"
+              elementName="scale"
               type="number"
             />
           </styled.div>
@@ -202,11 +202,11 @@ ShallowWrapper {
           </styled.div>
           <styled.div>
             <PlanConfigPart
-              name="image"
+              elementName="image"
               type="string"
             />
             <PlanConfigPart
-              name="scale"
+              elementName="scale"
               type="number"
             />
           </styled.div>
