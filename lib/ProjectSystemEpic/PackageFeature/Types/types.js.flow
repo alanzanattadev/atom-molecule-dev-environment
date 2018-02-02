@@ -9,9 +9,13 @@ export type PackageTester =
   | string
   | ((file: string, directory: ?Directory) => (boolean | Package) | false);
 
+export type PackageGenerator =
+  (packageName: string) => Array<PlanObject | Promise<PlanObject>>;
+
 export type Plugin = {
   tool: DevTool,
   isPackage?: PackageTester,
+  generatePlansForPackage?: PackageGenerator
 };
 
 export type Directory = {
