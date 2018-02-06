@@ -12,19 +12,14 @@ import type {
 import type { DiagnosticMode } from "../../DiagnosticsFeature/Types/types.js.flow";
 import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
 import type { HelperApi } from "../../TaskExecutionFeature/Model/HelperApi";
+import type { DevTool } from "../../DevToolsSummaryFeature/Types/types";
 
 export type ProvidedDevTool = {
-  info: {
-    id?: string,
-    name: string,
-    iconUri: string,
-    dominantColor?: string,
-    defaultDiagnosticsMode?: DiagnosticMode,
-  },
+  info: DevTool,
   configSchema: ConfigSchemaPart,
   getStrategyForPlan(
     plan: PlanConfig,
-    helperAPI: HelperApi
+    helperAPI: HelperApi,
   ): {
     strategy: Strategy,
     controller: Controller,

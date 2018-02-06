@@ -10,7 +10,7 @@ export type DevTool = {
   iconUri: string,
   dominantColor?: string,
   defaultDiagnosticsMode?: DiagnosticMode,
-  uri: string,
+  uri: string, // TODO: delete if obsolete
 };
 
 export type DevToolWithDiagnostics = DevTool & {
