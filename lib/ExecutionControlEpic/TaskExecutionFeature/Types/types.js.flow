@@ -2,19 +2,10 @@
 // @flow
 
 import type { DevToolInfo } from "../../PlanConfigurationFeature/Types/types.js.flow";
-import type { WatchFilesController } from "../../../EventSystemEpic/FileFeature/Types/types.flow";
-import type {
-  NodeProcessController,
-  NodeProcessStrategy,
-} from "../Model/Strategies/NodeProcessStrategy";
-import type {
-  ShellController,
-  ShellStrategy,
-} from "../Model/Strategies/ShellStrategy";
-import type {
-  TerminalController,
-  TerminalStrategy,
-} from "../Model/Strategies/TerminalStrategy";
+import type { WatchFilesController } from "../../../EventSystemEpic/FileFeature/Types/types";
+import type { NodeProcessController, NodeProcessStrategy, } from "../Model/Strategies/NodeProcessStrategy";
+import type { ShellController, ShellStrategy, } from "../Model/Strategies/ShellStrategy";
+import type { TerminalController, TerminalStrategy, } from "../Model/Strategies/TerminalStrategy";
 
 export type TaskState =
   | "created"

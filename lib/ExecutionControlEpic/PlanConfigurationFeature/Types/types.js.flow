@@ -1,7 +1,7 @@
 "use babel";
 // @flow
 
-import type { PackageInfo } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { PackageInfo } from "../../../ProjectSystemEpic/PackageFeature/Types/types";
 
 export type ConfigSchemaPartBase = {
   label?: string,

@@ -1,16 +1,9 @@
 "use babel";
 // @flow
 
-import type {
-  ConfigSchemaPart,
-  PlanConfig,
-} from "../../PlanConfigurationFeature/Types/types.js.flow";
-import type {
-  Controller,
-  Strategy,
-} from "../../TaskExecutionFeature/Types/types.js.flow";
-import type { DiagnosticMode } from "../../DiagnosticsFeature/Types/types.js.flow";
-import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { ConfigSchemaPart, PlanConfig, } from "../../PlanConfigurationFeature/Types/types";
+import type { Controller, Strategy, } from "../../TaskExecutionFeature/Types/types";
+import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types";
 import type { HelperApi } from "../../TaskExecutionFeature/Model/HelperApi";
 import type { DevTool } from "../../DevToolsSummaryFeature/Types/types";
 
