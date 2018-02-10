@@ -25,7 +25,6 @@ export type Directory = {
 export type PackageInfo = {
   name: string,
   path: string,
-  uriPlatform: string,
   type: "file" | "directory",
 };
 

@@ -11,7 +11,6 @@ Immutable.Map {
         "name": "",
         "path": "/",
         "type": "directory",
-        "uriPlatform": "posix",
       },
       "pinned": false,
       "stager": Object {
@@ -39,7 +38,6 @@ Immutable.Map {
         "name": "",
         "path": "/",
         "type": "directory",
-        "uriPlatform": "posix",
       },
       "pinned": true,
       "stager": Object {
@@ -60,7 +58,6 @@ Immutable.Map {
         "name": "",
         "path": "/",
         "type": "directory",
-        "uriPlatform": "posix",
       },
       "pinned": false,
       "stager": Object {
@@ -88,7 +85,6 @@ Immutable.Map {
         "name": "",
         "path": "/",
         "type": "directory",
-        "uriPlatform": "posix",
       },
       "pinned": false,
       "stager": Object {
@@ -116,7 +112,6 @@ Immutable.Map {
         "name": "",
         "path": "/",
         "type": "directory",
-        "uriPlatform": "posix",
       },
       "pinned": false,
       "stager": Object {
@@ -137,7 +132,6 @@ Immutable.Map {
         "name": "",
         "path": "/",
         "type": "directory",
-        "uriPlatform": "posix",
       },
       "pinned": false,
       "stager": Object {
