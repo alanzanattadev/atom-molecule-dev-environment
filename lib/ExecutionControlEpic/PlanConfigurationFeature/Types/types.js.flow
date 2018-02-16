@@ -139,9 +139,22 @@ export type Stager =
 
 export type DevToolPlanConfigSchema = ConfigSchemaPart & { tool: DevToolInfo };
 
+export type PlanObject =
+  | string
+  | number
+  | boolean
+  | Object
+  | Array<PlanObject>
+  | { caseValue: string, expressionValue: PlanObject }
+
+export type GeneratedPlanObject = {
+  name: string,
+  value: PlanObject
+}
+
 export type PlanConfig = {
   tool: DevToolInfo,
-  config: any,
+  config: PlanObject,
   pinned?: boolean,
   name: string,
   stager: Stager,
