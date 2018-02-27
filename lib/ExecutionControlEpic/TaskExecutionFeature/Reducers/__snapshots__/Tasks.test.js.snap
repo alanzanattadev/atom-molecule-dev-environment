@@ -1,721 +1,841 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tasks Reducer BUSY_TASK should mark the task as busy 1`] = `
-Immutable.List [
-  Immutable.Map {
-    "id": "1",
-    "state": "created",
-    "debut": 1475954335,
-    "strategy": Immutable.Map {
-      "type": "shell",
-      "command": "",
-      "cwd": "",
-    },
-    "plan": Immutable.Map {
-      "config": 2,
-      "packageInfo": Immutable.Map {
-        "name": "root",
-        "type": "file",
-        "path": "/",
-      },
-      "stager": Immutable.Map {
-        "type": "integrated",
-        "host": null,
-      },
-      "tool": Immutable.Map {
+Immutable.Record {
+  "byTaskID": Immutable.Map {
+    "1": Object {
+      "debut": 1475954335,
+      "id": "1",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
-        "iconUri": "",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "step": 1,
-  },
-  Immutable.Map {
-    "id": "2",
-    "state": "running",
-    "debut": 1475954335,
-    "strategy": Immutable.Map {
-      "type": "shell",
-      "command": "",
-      "cwd": "",
-    },
-    "plan": Immutable.Map {
-      "config": 2,
-      "packageInfo": Immutable.Map {
-        "name": "root",
-        "type": "file",
-        "path": "/",
-      },
-      "stager": Immutable.Map {
-        "type": "integrated",
-        "host": null,
-      },
-      "tool": Immutable.Map {
+    "2": Object {
+      "busy": true,
+      "debut": 1475954335,
+      "id": "2",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
-        "iconUri": "",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "running",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "step": 1,
-    "busy": true,
-  },
-  Immutable.Map {
-    "id": "3",
-    "state": "created",
-    "debut": 1475954335,
-    "strategy": Immutable.Map {
-      "type": "shell",
-      "command": "",
-      "cwd": "",
-    },
-    "plan": Immutable.Map {
-      "config": 2,
-      "packageInfo": Immutable.Map {
-        "name": "root",
-        "type": "file",
-        "path": "/",
-      },
-      "stager": Immutable.Map {
-        "type": "integrated",
-        "host": null,
-      },
-      "tool": Immutable.Map {
+    "3": Object {
+      "debut": 1475954335,
+      "id": "3",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
-        "iconUri": "",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "step": 1,
   },
-]
+  "byPlanID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
+  },
+  "byToolID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
+  },
+}
 `;
 
 exports[`Tasks Reducer CRASH_TASK should mark the task as crashed 1`] = `
-Array [
-  Object {
-    "debut": 1475954335,
-    "id": "1",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
+Immutable.Record {
+  "byTaskID": Immutable.Map {
+    "1": Object {
+      "debut": 1475954335,
+      "id": "1",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
+    "2": Object {
+      "debut": 1475954335,
+      "end": 1475954336,
+      "id": "2",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "crashed",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
+      },
+    },
+    "3": Object {
+      "debut": 1475954335,
+      "id": "3",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
+      },
     },
   },
-  Object {
-    "debut": 1475954335,
-    "end": 1475954336,
-    "id": "2",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "crashed",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
+  "byPlanID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-  Object {
-    "debut": 1475954335,
-    "id": "3",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
+  "byToolID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-]
+}
 `;
 
 exports[`Tasks Reducer FAIL_TASK should mark the task as failed 1`] = `
-Array [
-  Object {
-    "debut": 1475954335,
-    "id": "1",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
+Immutable.Record {
+  "byTaskID": Immutable.Map {
+    "1": Object {
+      "debut": 1475954335,
+      "id": "1",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
+    "2": Object {
+      "debut": 1475954335,
+      "end": 1475954336,
+      "id": "2",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "failed",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
+      },
+    },
+    "3": Object {
+      "debut": 1475954335,
+      "id": "3",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
+      },
     },
   },
-  Object {
-    "debut": 1475954335,
-    "end": 1475954336,
-    "id": "2",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "failed",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
+  "byPlanID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-  Object {
-    "debut": 1475954335,
-    "id": "3",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
+  "byToolID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-]
+}
 `;
 
 exports[`Tasks Reducer START_TASK should mark the task as started 1`] = `
-Array [
-  Object {
-    "debut": 1475954335,
-    "id": "1",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
+Immutable.Record {
+  "byTaskID": Immutable.Map {
+    "1": Object {
+      "debut": 1475954335,
+      "id": "1",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
+    "2": Object {
+      "debut": 1475954335,
+      "end": undefined,
+      "id": "2",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "running",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
+      },
+    },
+    "3": Object {
+      "debut": 1475954335,
+      "id": "3",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
+      },
     },
   },
-  Object {
-    "debut": 1475954335,
-    "end": undefined,
-    "id": "2",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "running",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
+  "byPlanID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-  Object {
-    "debut": 1475954335,
-    "id": "3",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
+  "byToolID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-]
+}
 `;
 
 exports[`Tasks Reducer STOP_TASK should mark the task as stopped 1`] = `
-Array [
-  Object {
-    "debut": 1475954335,
-    "id": "1",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
+Immutable.Record {
+  "byTaskID": Immutable.Map {
+    "1": Object {
+      "debut": 1475954335,
+      "id": "1",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "/ok",
+        "type": "shell",
       },
     },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "/ok",
-      "type": "shell",
+    "2": Object {
+      "debut": 1475954335,
+      "end": 1475954336,
+      "id": "2",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "stopped",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "/ok",
+        "type": "shell",
+      },
+    },
+    "3": Object {
+      "debut": 1475954335,
+      "id": "3",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "/ok",
+        "type": "shell",
+      },
     },
   },
-  Object {
-    "debut": 1475954335,
-    "end": 1475954336,
-    "id": "2",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "stopped",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "/ok",
-      "type": "shell",
-    },
+  "byPlanID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-  Object {
-    "debut": 1475954335,
-    "id": "3",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "/ok",
-      "type": "shell",
-    },
+  "byToolID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-]
+}
 `;
 
 exports[`Tasks Reducer STOP_TASK_OF_PLAN should mark the task as stopped 1`] = `
-Array [
-  Object {
-    "debut": 1475954335,
-    "id": "1",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
+Immutable.Record {
+  "byTaskID": Immutable.Map {
+    "1": Object {
+      "debut": 1475954335,
+      "id": "1",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
-  },
-  Object {
-    "debut": 1475954335,
-    "end": 1475954336,
-    "id": "2",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
+    "2": Object {
+      "debut": 1475954335,
+      "end": 1475954336,
+      "id": "2",
+      "plan": Object {
+        "config": 2,
         "id": "2",
-        "name": "tool",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "2",
+          "name": "tool",
+        },
+      },
+      "state": "stopped",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "state": "stopped",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
-  },
-  Object {
-    "debut": 1475954335,
-    "id": "3",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
+    "3": Object {
+      "debut": 1475954335,
+      "id": "3",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
   },
-]
+  "byPlanID": Immutable.Map {
+    "1": "1",
+    "2": "2",
+    "3": "1",
+  },
+  "byToolID": Immutable.Map {
+    "1": "1",
+    "2": "2",
+    "3": "1",
+  },
+}
 `;
 
 exports[`Tasks Reducer SUCCEED_TASK should mark the task as succeed 1`] = `
-Array [
-  Object {
-    "debut": 1475954335,
-    "id": "1",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
+Immutable.Record {
+  "byTaskID": Immutable.Map {
+    "1": Object {
+      "debut": 1475954335,
+      "id": "1",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
+    "2": Object {
+      "debut": 1475954335,
+      "end": 1475954336,
+      "id": "2",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "succeed",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
+      },
+    },
+    "3": Object {
+      "debut": 1475954335,
+      "id": "3",
+      "plan": Object {
+        "config": 2,
+        "id": "1",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
+      },
     },
   },
-  Object {
-    "debut": 1475954335,
-    "end": 1475954336,
-    "id": "2",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "succeed",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
+  "byPlanID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-  Object {
-    "debut": 1475954335,
-    "id": "3",
-    "plan": Object {
-      "config": 2,
-      "packageInfo": Object {
-        "name": "root",
-        "path": "/",
-        "type": "file",
-      },
-      "stager": Object {
-        "host": null,
-        "type": "integrated",
-      },
-      "tool": Object {
-        "iconUri": "",
-        "id": "1",
-        "name": "tool",
-      },
-    },
-    "state": "created",
-    "step": 1,
-    "strategy": Object {
-      "command": "",
-      "cwd": "",
-      "type": "shell",
-    },
+  "byToolID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
   },
-]
+}
 `;
 
 exports[`Tasks Reducer WAITING_TASK should mark the task as waiting 1`] = `
-Immutable.List [
-  Immutable.Map {
-    "id": "1",
-    "state": "created",
-    "debut": 1475954335,
-    "strategy": Immutable.Map {
-      "type": "shell",
-      "command": "",
-      "cwd": "",
-    },
-    "plan": Immutable.Map {
-      "config": 2,
-      "packageInfo": Immutable.Map {
-        "name": "root",
-        "type": "file",
-        "path": "/",
-      },
-      "stager": Immutable.Map {
-        "type": "integrated",
-        "host": null,
-      },
-      "tool": Immutable.Map {
+Immutable.Record {
+  "byTaskID": Immutable.Map {
+    "1": Object {
+      "debut": 1475954335,
+      "id": "1",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
-        "iconUri": "",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "step": 1,
-  },
-  Immutable.Map {
-    "id": "2",
-    "state": "running",
-    "debut": 1475954335,
-    "strategy": Immutable.Map {
-      "type": "shell",
-      "command": "",
-      "cwd": "",
-    },
-    "plan": Immutable.Map {
-      "config": 2,
-      "packageInfo": Immutable.Map {
-        "name": "root",
-        "type": "file",
-        "path": "/",
-      },
-      "stager": Immutable.Map {
-        "type": "integrated",
-        "host": null,
-      },
-      "tool": Immutable.Map {
+    "2": Object {
+      "busy": false,
+      "debut": 1475954335,
+      "id": "2",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
-        "iconUri": "",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "running",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "step": 1,
-    "busy": false,
-  },
-  Immutable.Map {
-    "id": "3",
-    "state": "created",
-    "debut": 1475954335,
-    "strategy": Immutable.Map {
-      "type": "shell",
-      "command": "",
-      "cwd": "",
-    },
-    "plan": Immutable.Map {
-      "config": 2,
-      "packageInfo": Immutable.Map {
-        "name": "root",
-        "type": "file",
-        "path": "/",
-      },
-      "stager": Immutable.Map {
-        "type": "integrated",
-        "host": null,
-      },
-      "tool": Immutable.Map {
+    "3": Object {
+      "debut": 1475954335,
+      "id": "3",
+      "plan": Object {
+        "config": 2,
         "id": "1",
-        "name": "tool",
-        "iconUri": "",
+        "packageInfo": Object {
+          "name": "root",
+          "path": "/",
+          "type": "file",
+        },
+        "stager": Object {
+          "host": null,
+          "type": "integrated",
+        },
+        "tool": Object {
+          "iconUri": "",
+          "id": "1",
+          "name": "tool",
+        },
+      },
+      "state": "created",
+      "step": 1,
+      "strategy": Object {
+        "command": "",
+        "cwd": "",
+        "type": "shell",
       },
     },
-    "step": 1,
   },
-]
+  "byPlanID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
+  },
+  "byToolID": Immutable.Map {
+    "1": "1",
+    "2": "1",
+    "3": "1",
+  },
+}
 `;

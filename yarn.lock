@@ -1584,6 +1584,10 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
 
+cell@jkroso/cell:
+  version "1.0.2"
+  resolved "https://codeload.github.com/jkroso/cell/tar.gz/6db4991ebff09e344d7c1211c4abdcc62aff479e"
+
 center-align@^0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/center-align/-/center-align-0.1.3.tgz#aa0d32629b6ee972200411cbd4461c907bc2b7ad"
@@ -3039,6 +3043,13 @@ flow-typed@^2.2.3:
     unzip "^0.1.11"
     which "^1.2.14"
     yargs "^4.2.0"
+
+flowtype@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/flowtype/-/flowtype-2.0.0.tgz#8636bcb267659ff2ed575cd8bfb36372b90311a2"
+  dependencies:
+    merge yields/merge
+    viewport "2"
 
 for-in@^1.0.1:
   version "1.0.2"
@@ -4600,7 +4611,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.9.0:
+lodash@4.x.x, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.9.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -4722,6 +4733,10 @@ merge-descriptors@1.0.1:
 merge@^1.1.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
+
+merge@yields/merge:
+  version "1.0.1"
+  resolved "https://codeload.github.com/yields/merge/tar.gz/2f357cb501cd06f1a86394b7817e5df73c53f644"
 
 methods@~1.1.2:
   version "1.1.2"
@@ -6073,12 +6088,11 @@ react-dom@^15.4.2:
     prop-types "^15.5.10"
 
 react-forms-state@alanzanattadev/react-forms-state:
-  version "2.6.1"
-  resolved "https://codeload.github.com/alanzanattadev/react-forms-state/tar.gz/0a4fa49dfd683628fae238391fa819b12989baee"
+  version "3.0.0-beta1-2"
+  resolved "https://codeload.github.com/alanzanattadev/react-forms-state/tar.gz/9c80eec8609e2949e3921a8ebd32236d87e2d4ae"
   dependencies:
     immutable "^3.8.1"
-    lodash "^4.16.6"
-    rxjs "^5.2.0"
+    rxjs "^5.4.3"
 
 react-fuzzy@^0.3.3:
   version "0.3.3"
@@ -6544,7 +6558,7 @@ rxjs@5.3.1:
   dependencies:
     symbol-observable "^1.0.1"
 
-rxjs@^5.2.0, rxjs@^5.4.3:
+rxjs@^5.4.3:
   version "5.4.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.3.tgz#0758cddee6033d68e0fd53676f0f3596ce3d483f"
   dependencies:
@@ -7402,6 +7416,12 @@ verror@1.3.6:
   resolved "https://registry.yarnpkg.com/verror/-/verror-1.3.6.tgz#cff5df12946d297d2baaefaa2689e25be01c005c"
   dependencies:
     extsprintf "1.0.2"
+
+viewport@2:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/viewport/-/viewport-2.0.1.tgz#8f5e39fcf5b58f839366314cd6914af9400912a4"
+  dependencies:
+    cell jkroso/cell
 
 vm-browserify@0.0.4:
   version "0.0.4"

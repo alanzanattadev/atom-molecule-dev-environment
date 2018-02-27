@@ -1,135 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PlanConfigs ADD_PLAN_CONFIGURATION should add a plan configuration 1`] = `
-Array [
-  Object {
-    "config": "ls -l",
-    "name": "ls",
-    "packageInfo": Object {
-      "name": "",
-      "path": "/",
-      "type": "directory",
-    },
-    "pinned": false,
-    "stager": Object {
-      "type": "integrated",
-    },
-    "tool": Object {
-      "iconUri": "atom://myplugin/icon.png",
-      "id": "toolid",
-      "name": "shell",
-      "uri": "file:///file",
+Immutable.Map {
+  "toolid": Immutable.Map {
+    "0": Object {
+      "config": "ls -l",
+      "id": "0",
+      "name": "ls",
+      "packageInfo": Object {
+        "name": "",
+        "path": "/",
+        "type": "directory",
+        "uriPlatform": "posix",
+      },
+      "pinned": false,
+      "stager": Object {
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "atom://myplugin/icon.png",
+        "id": "toolid",
+        "name": "shell",
+        "uri": "file:///file",
+      },
     },
   },
-]
+}
 `;
 
 exports[`PlanConfigs PIN_PLAN_CONFIGURATION should pin plan config 1`] = `
-Array [
-  Object {
-    "config": "ls -l",
-    "name": "ls",
-    "packageInfo": Object {
-      "name": "",
-      "path": "/",
-      "type": "directory",
+Immutable.Map {
+  "toolid": Immutable.Map {
+    "0": Object {
+      "config": "ls -l",
+      "id": "0",
+      "name": "ls",
+      "packageInfo": Object {
+        "name": "",
+        "path": "/",
+        "type": "directory",
+        "uriPlatform": "posix",
+      },
+      "pinned": true,
+      "stager": Object {
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "atom://myplugin/icon.png",
+        "id": "toolid",
+        "name": "shell",
+        "uri": "file:///file",
+      },
     },
-    "pinned": true,
-    "stager": Object {
-      "type": "integrated",
-    },
-    "tool": Object {
-      "iconUri": "atom://myplugin/icon.png",
-      "id": "toolid",
-      "name": "shell",
-      "uri": "file:///file",
+    "1": Object {
+      "config": "Invoke-Mimikatz",
+      "id": "1",
+      "name": "mimikatz",
+      "packageInfo": Object {
+        "name": "",
+        "path": "/",
+        "type": "directory",
+        "uriPlatform": "posix",
+      },
+      "pinned": false,
+      "stager": Object {
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "atom://myplugin/icon.png",
+        "id": "toolid",
+        "name": "powershell",
+        "uri": "file:///file",
+      },
     },
   },
-  Object {
-    "config": "Invoke-Mimikatz",
-    "name": "mimikatz",
-    "packageInfo": Object {
-      "name": "",
-      "path": "/",
-      "type": "directory",
-    },
-    "pinned": false,
-    "stager": Object {
-      "type": "integrated",
-    },
-    "tool": Object {
-      "iconUri": "atom://myplugin/icon.png",
-      "id": "toolid",
-      "name": "powershell",
-      "uri": "file:///file",
-    },
-  },
-]
+}
 `;
 
 exports[`PlanConfigs REMOVE_PLAN_CONFIGURATION should remove plan config 1`] = `
-Array [
-  Object {
-    "config": "Invoke-Mimikatz",
-    "name": "mimikatz",
-    "packageInfo": Object {
-      "name": "",
-      "path": "/",
-      "type": "directory",
-    },
-    "pinned": false,
-    "stager": Object {
-      "type": "integrated",
-    },
-    "tool": Object {
-      "iconUri": "atom://myplugin/icon.png",
-      "id": "toolid",
-      "name": "powershell",
-      "uri": "file:///file",
+Immutable.Map {
+  "toolid": Immutable.Map {
+    "1": Object {
+      "config": "Invoke-Mimikatz",
+      "id": "1",
+      "name": "mimikatz",
+      "packageInfo": Object {
+        "name": "",
+        "path": "/",
+        "type": "directory",
+        "uriPlatform": "posix",
+      },
+      "pinned": false,
+      "stager": Object {
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "atom://myplugin/icon.png",
+        "id": "toolid",
+        "name": "powershell",
+        "uri": "file:///file",
+      },
     },
   },
-]
+}
 `;
 
 exports[`PlanConfigs UNPIN_PLAN_CONFIGURATION should unpin plan config 1`] = `
-Array [
-  Object {
-    "config": "ls -l",
-    "name": "ls",
-    "packageInfo": Object {
-      "name": "",
-      "path": "/",
-      "type": "directory",
+Immutable.Map {
+  "toolid": Immutable.Map {
+    "0": Object {
+      "config": "ls -l",
+      "id": "0",
+      "name": "ls",
+      "packageInfo": Object {
+        "name": "",
+        "path": "/",
+        "type": "directory",
+        "uriPlatform": "posix",
+      },
+      "pinned": false,
+      "stager": Object {
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "atom://myplugin/icon.png",
+        "id": "toolid",
+        "name": "shell",
+        "uri": "file:///file",
+      },
     },
-    "pinned": false,
-    "stager": Object {
-      "type": "integrated",
-    },
-    "tool": Object {
-      "iconUri": "atom://myplugin/icon.png",
-      "id": "toolid",
-      "name": "shell",
-      "uri": "file:///file",
+    "1": Object {
+      "config": "Invoke-Mimikatz",
+      "id": "1",
+      "name": "mimikatz",
+      "packageInfo": Object {
+        "name": "",
+        "path": "/",
+        "type": "directory",
+        "uriPlatform": "posix",
+      },
+      "pinned": false,
+      "stager": Object {
+        "type": "integrated",
+      },
+      "tool": Object {
+        "iconUri": "atom://myplugin/icon.png",
+        "id": "toolid",
+        "name": "powershell",
+        "uri": "file:///file",
+      },
     },
   },
-  Object {
-    "config": "Invoke-Mimikatz",
-    "name": "mimikatz",
-    "packageInfo": Object {
-      "name": "",
-      "path": "/",
-      "type": "directory",
-    },
-    "pinned": false,
-    "stager": Object {
-      "type": "integrated",
-    },
-    "tool": Object {
-      "iconUri": "atom://myplugin/icon.png",
-      "id": "toolid",
-      "name": "powershell",
-      "uri": "file:///file",
-    },
-  },
-]
+}
 `;
