@@ -15,8 +15,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
     "test": "jest && npm run eslint",
     "update": "git checkout v0.4.0 && rm -rf node_modules && yarn",
-    "babel:build": "babel lib --out-dir ./build/babel/",
-    "babel:watch": "babel lib --out-dir ./build/babel/ --watch",
+    "babel:build": "babel lib --out-dir ./build/babel/ --source-maps",
+    "babel:watch": "babel lib --out-dir ./build/babel/ --source-maps --watch",
     "postinstall": "npm run babel:build"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
