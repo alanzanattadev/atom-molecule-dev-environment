@@ -17,16 +17,11 @@ ShallowWrapper {
       pulsing={false}
       size="10px"
     >
-      <span
+      <styled.span
         className="text-color-highlight"
-        style={
-          Object {
-            "fontSize": "5px",
-          }
-        }
       >
         5
-      </span>
+      </styled.span>
     </styled.div>
   </styled.div>,
   "nodes": Array [
@@ -39,16 +34,11 @@ ShallowWrapper {
         pulsing={false}
         size="10px"
       >
-        <span
+        <styled.span
           className="text-color-highlight"
-          style={
-            Object {
-              "fontSize": "5px",
-            }
-          }
         >
           5
-        </span>
+        </styled.span>
       </styled.div>
     </styled.div>,
   ],
@@ -105,16 +95,11 @@ ShallowWrapper {
             pulsing={false}
             size="10px"
           >
-            <span
+            <styled.span
               className="text-color-highlight"
-              style={
-                Object {
-                  "fontSize": "5px",
-                }
-              }
             >
               5
-            </span>
+            </styled.span>
           </styled.div>
         </styled.div>,
         "_debugID": 2,
@@ -127,16 +112,11 @@ ShallowWrapper {
             pulsing={false}
             size="10px"
           >
-            <span
+            <styled.span
               className="text-color-highlight"
-              style={
-                Object {
-                  "fontSize": "5px",
-                }
-              }
             >
               5
-            </span>
+            </styled.span>
           </styled.div>
         </styled.div>,
       },

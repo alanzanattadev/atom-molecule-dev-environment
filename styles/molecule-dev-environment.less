@@ -6,6 +6,10 @@
 @import "ui-variables";
 @import "diagnostic-color";
 
+.tool-panel-background-color {
+  background-color: @tool-panel-background-color;
+}
+
 .overlay-background-color {
   background-color: @overlay-background-color;
 }
@@ -20,6 +24,14 @@
 
 .tool-name-background-color {
   background-color: @background-color-selected;
+}
+
+.devtool {
+  background-color: @background-color-selected;
+}
+
+.package-title {
+  background-color: @background-color-highlight;
 }
 
 .flex {
@@ -47,6 +59,10 @@
     background-color: @button-background-color-selected;
     color: @text-color-selected;
   }
+}
+
+.mode-selected {
+  background-color: @background-color-selected;
 }
 
 .diagnostic-content {
@@ -115,4 +131,4 @@
   color: @text-color;
 }
 
-@import (inline) '../node_modules/xterm/dist/xterm.css';
+@import (inline) "../node_modules/xterm/dist/xterm.css";
