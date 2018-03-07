@@ -1,56 +1,62 @@
 "use babel";
 // @flow
 
-import type { PackageInfo } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
+import type { PackageInfo } from "../../../ProjectSystemEpic/PackageFeature/Types/types";
+
+export type Directory = {
+  name: string,
+  files: Array<string | Directory>,
+};
 
 export type ConfigSchemaPartBase = {
   label?: string,
   description?: string,
 };
 
-export type ObjectConfigSchema = {
+export type ObjectConfigSchema = ConfigSchemaPartBase & {
   type: "object",
-  default: Object,
+  default?: any,
   schemas: { [key: string]: ConfigSchemaPart },
 };
 
-export type ArrayConfigSchema = {
+export type ArrayConfigSchema = ConfigSchemaPartBase & {
   type: "array",
-  default: ConfigSchemaPart,
+  default?: Array<any>,
   items: ConfigSchemaPart,
 };
 
-export type StringConfigSchema = {
+export type StringConfigSchema = ConfigSchemaPartBase & {
   type: "string",
   default: string,
   placeholder?: string,
 };
 
-export type BooleanConfigSchema = {
+export type BooleanConfigSchema = ConfigSchemaPartBase & {
   type: "boolean",
   default: boolean,
 };
 
-export type NumberConfigSchema = {
+export type NumberConfigSchema = ConfigSchemaPartBase & {
   type: "number",
   default: number,
   placeholder?: string,
 };
 
-export type ConditionalConfigSchema = {
+export type ConditionalConfigSchema = ConfigSchemaPartBase & {
   type: "conditional",
-  default: string,
   expression: EnumConfigSchema | StringConfigSchema,
   cases: { [key: string]: ?ConfigSchemaPart },
 };
 
-export type EnumConfigSchema = {
+export type DevToolPlanConfig = mixed;
+
+export type EnumConfigSchema = ConfigSchemaPartBase & {
   type: "enum",
   default: DevToolPlanConfig,
   enum: Array<{ value: any, description: string }>,
 };
 
-export type FileConfigSchema = {
+export type FileConfigSchema = ConfigSchemaPartBase & {
   type: "file",
   default: string,
   tester:
@@ -59,21 +65,15 @@ export type FileConfigSchema = {
     | ((file: string, directory: ?Directory) => boolean | false),
 };
 
-export type Directory = {
-  name: string,
-  files: Array<string | Directory>,
-};
-
-export type ConfigSchemaPart = ConfigSchemaPartBase &
-  (
-    | FileConfigSchema
-    | ArrayConfigSchema
-    | StringConfigSchema
-    | BooleanConfigSchema
-    | NumberConfigSchema
-    | EnumConfigSchema
-    | ObjectConfigSchema
-    | ConditionalConfigSchema);
+export type ConfigSchemaPart =
+  | FileConfigSchema
+  | ArrayConfigSchema
+  | StringConfigSchema
+  | BooleanConfigSchema
+  | NumberConfigSchema
+  | EnumConfigSchema
+  | ObjectConfigSchema
+  | ConditionalConfigSchema;
 
 export type DevToolInfo = {
   id: string,
@@ -81,8 +81,6 @@ export type DevToolInfo = {
   iconUri: string,
   uri: string,
 };
-
-export type DevToolPlanConfig = mixed;
 
 export type SSHConfigSchema = {
   type: "object",

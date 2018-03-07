@@ -1,16 +1,12 @@
 "use babel";
 // @flow
 
-import type { DiagnosticMode } from "../../DiagnosticsFeature/Types/types.js.flow";
-import type { PlanConfig } from "../../PlanConfigurationFeature/Types/types.js.flow";
+import type { PlanConfig } from "../../PlanConfigurationFeature/Types/types";
+import type { PluginInfo } from "../../DevtoolLoadingFeature/Types/types";
 
-export type DevTool = {
+export type DevTool = PluginInfo & {
   id: string,
-  name: string,
-  iconUri: string,
-  dominantColor?: string,
-  defaultDiagnosticsMode?: DiagnosticMode,
-  uri: string,
+  uri: string, // TODO: delete if obsolete
 };
 
 export type DevToolWithDiagnostics = DevTool & {

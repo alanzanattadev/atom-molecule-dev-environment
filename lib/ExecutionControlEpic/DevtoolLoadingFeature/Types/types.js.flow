@@ -4,31 +4,41 @@
 import type {
   ConfigSchemaPart,
   PlanConfig,
-} from "../../PlanConfigurationFeature/Types/types.js.flow";
+} from "../../PlanConfigurationFeature/Types/types";
 import type {
   Controller,
   Strategy,
-} from "../../TaskExecutionFeature/Types/types.js.flow";
-import type { DiagnosticMode } from "../../DiagnosticsFeature/Types/types.js.flow";
-import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types.js.flow";
-import type { HelperApi } from "../../TaskExecutionFeature/Model/HelperApi";
+} from "../../TaskExecutionFeature/Types/types";
+import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types";
+import type { HelperAPI } from "../../TaskExecutionFeature/Model/HelperAPI";
+import type { DevTool } from "../../DevToolsSummaryFeature/Types/types";
+import type { DiagnosticMode } from "../../DiagnosticsFeature/Types/types";
 
-export type ProvidedDevTool = {
-  info: {
-    id?: string,
-    name: string,
-    iconUri: string,
-    dominantColor?: string,
-    defaultDiagnosticsMode?: DiagnosticMode,
-  },
+export type GetStrategyForPlanResult = {
+  strategy: Strategy,
+  controller: Controller,
+};
+
+export type GetStrategyForPlan = (
+  plan: PlanConfig,
+  helperAPI: HelperAPI,
+) => GetStrategyForPlanResult;
+
+export type PluginInfo = {
+  name: string,
+  iconUri: string,
+  dominantColor?: string,
+  defaultDiagnosticsMode?: DiagnosticMode,
+};
+
+export type Plugin = {
+  info: PluginInfo,
   configSchema: ConfigSchemaPart,
-  getStrategyForPlan(
-    plan: PlanConfig,
-    helperAPI: HelperApi
-  ): {
-    strategy: Strategy,
-    controller: Controller,
-  },
-  DiagnosticView: any,
+  getStrategyForPlan: GetStrategyForPlan,
+  DiagnosticView?: any,
   isPackage?: PackageTester,
+};
+
+export type ProvidedDevTool = Plugin & {
+  info: DevTool,
 };

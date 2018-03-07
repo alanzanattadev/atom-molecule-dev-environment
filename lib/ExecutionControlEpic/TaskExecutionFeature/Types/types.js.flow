@@ -2,19 +2,14 @@
 // @flow
 
 import type { DevToolInfo } from "../../PlanConfigurationFeature/Types/types.js.flow";
-import type { WatchFilesController } from "../../../EventSystemEpic/FileFeature/Types/types.flow";
+import type { WatchFilesController } from "../../../EventSystemEpic/FileFeature/Types/types";
+import type { TaskAPI } from "../../LanguageServerProtocolFeature/Types/pluginApi";
 import type {
-  NodeProcessController,
-  NodeProcessStrategy,
-} from "../Model/Strategies/NodeProcessStrategy";
-import type {
-  ShellController,
-  ShellStrategy,
-} from "../Model/Strategies/ShellStrategy";
-import type {
-  TerminalController,
-  TerminalStrategy,
-} from "../Model/Strategies/TerminalStrategy";
+  DiagnosticError,
+  DiagnosticHint,
+  DiagnosticInformation, DiagnosticSuccess,
+  DiagnosticWarning
+} from "../../DiagnosticsFeature/Types/types";
 
 export type TaskState =
   | "created"
@@ -42,43 +37,26 @@ export type Task = {
 
 export type Process = child_process$ChildProcess;
 
-export type TaskExecution = {
-  task: Task,
-  process: Process,
-  terminal?: any,
-  broker: events$EventEmitter,
+export type HelperAPI = {
+  outputToHTML: (output: string) => string,
+  json: {
+    parseAsync: (json: string) => Promise<Object>,
+  },
+  fs: {
+    getTmpPath: (fileName: string) => string,
+  },
+  severity: {
+    error: DiagnosticError,
+    warning: DiagnosticWarning,
+    info: DiagnosticInformation,
+    hint: DiagnosticHint,
+    success: DiagnosticSuccess,
+  },
 };
 
-export type TaskManager = {
-  executions: Array<TaskExecution>,
-};
-
-export type Strategy = ShellStrategy | NodeProcessStrategy | TerminalStrategy;
-export type BasicController =
-  | ShellController
-  | NodeProcessController
-  | TerminalController;
-export type Controller = BasicController & {
+export type Controller = {
+  onData?: (err: string, taskAPI: TaskAPI, HelperApi: HelperAPI) => void,
+  onExit?: (code: number, taskAPI: TaskAPI, HelperApi: HelperAPI) => void,
+  onError?: (err: string, taskAPI: TaskAPI, HelperApi: HelperAPI) => void,
   watchFiles?: WatchFilesController,
 };
-export type StrategyConfig =
-  | {
-      strategy: ShellStrategy,
-      controller: ShellController,
-    }
-  | {
-      strategy: NodeProcessStrategy,
-      controller: NodeProcessController,
-    };
-
-export type StrategyRunner = (
-  strategy: Strategy,
-  controller: Controller,
-) => Process;
-
-export type StagerRunner = (
-  strategy: Strategy,
-  controller: Controller,
-) => ?Process;
-
-export type { DevToolInfo };

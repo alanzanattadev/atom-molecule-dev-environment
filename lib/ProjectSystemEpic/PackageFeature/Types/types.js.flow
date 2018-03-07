@@ -1,13 +1,16 @@
 "use babel";
 // @flow
-import type {
-  DevTool,
-} from "../../../ExecutionControlEpic/DevToolsSummaryFeature/Types/types.js.flow";
+
+import type { DevTool } from "../../../ExecutionControlEpic/DevToolsSummaryFeature/Types/types";
+
+export type PackageTesterResult =
+  | (boolean | PackageInfo | Promise<boolean>)
+  | false;
 
 export type PackageTester =
   | RegExp
   | string
-  | ((file: string, directory: ?Directory) => (boolean | Package) | false);
+  | ((packageName: string, directory: ?Directory) => PackageTesterResult);
 
 export type Plugin = {
   tool: DevTool,
@@ -22,7 +25,6 @@ export type Directory = {
 export type PackageInfo = {
   name: string,
   path: string,
-  uriPlatform: string,
   type: "file" | "directory",
 };
 
