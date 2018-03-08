@@ -53,6 +53,7 @@
     "nightwatch": "^0.9.12",
     "nightwatch-html-reporter": "^2.0.0",
     "nuclide-prebuilt-libs": "^0.2.0",
+    "nullthrows": "^1.0.1",
     "radium": "^0.19.1",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
@@ -103,7 +104,11 @@
     "webpack": "^3.10.0"
   },
   "babel": {
-    "presets": ["env", "react", "flow"],
+    "presets": [
+      "env",
+      "react",
+      "flow"
+    ],
     "plugins": [
       "add-module-exports",
       "transform-object-rest-spread",

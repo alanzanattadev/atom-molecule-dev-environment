@@ -5131,6 +5131,10 @@ nullthrows@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/nullthrows/-/nullthrows-1.0.0.tgz#34715e53b9debe0750a77233fd494a5835a2d999"
 
+nullthrows@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/nullthrows/-/nullthrows-1.0.1.tgz#db2129889ca3188c323fb71b1be3f4a317e3f106"
+
 num2fraction@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
