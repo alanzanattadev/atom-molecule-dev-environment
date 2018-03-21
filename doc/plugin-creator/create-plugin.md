@@ -28,6 +28,9 @@ export default {
       controller: { /* ... */ }
     };
   },
+  generatePlansForPackage(packageName: string): Array<GeneratedPlanObject> {
+    // ...
+  }
   DiagnosticView: /* ... */,
   isPackage: /* ... */
 };
@@ -159,8 +162,8 @@ The parameters passed to `getStrategyForPlan` are:
 
   * **plan**: an object with the following fields:
     * **name**: the plan's unique name.
-    * **config**: an object generated based on what the user entered into
-    the plan configuration panel. See
+    * **config**: a **PlanObject** generated based on what the user entered
+    into the plan configuration panel. See
     [configSchema reference](./config-schema-reference.md#plan-config).
     * **packageInfos.path**: path of the plan's [package](../new-user/creating-a-plan.md#package-system).
   * **helperApi**: an API providing methods to facilitate your development,
@@ -219,14 +222,14 @@ The `strategy` object must have the following fields:
     * **node**: the script will be executed inside a NodeJS instance. This is the
     best mode for tools that are written in JavaScript and made to be executed
     by NodeJS.
-  * **command** *(shell and terminal strategies only)*: specify the command to
+  * **command** _(shell and terminal strategies only)_: specify the command to
   execute.
-  * **path** *(node strategies only)*: the path of the JS file to execute.
-  * **args** *(node strategies only, optional)*: the arguments to pass to the
+  * **path** _(node strategies only)_: the path of the JS file to execute.
+  * **args** _(node strategies only, optional)_: the arguments to pass to the
   script.
   * **cwd**: the working directory in which the command/script will be executed.
-  * **env** *(optional)*: the environment variables to pass to the process.
-  * **lsp** *(optional)*: boolean. See F[below](#lsp-integration) for details.
+  * **env** _(optional)_: the environment variables to pass to the process.
+  * **lsp** _(optional)_: boolean. See [below](#lsp-integration) for details.
 
 Example:
 
@@ -351,6 +354,26 @@ getStrategyForPlan(
   };
 },
 ```
+
+### `generatePlansForPackage`
+
+The `generatePlansForPackage` method is called at the start of Molecule, and
+whenever a package file is updated. It generates the default plans that a user
+of your plugin is likely to need. For instance, the NPM package generates one
+plan per script in the `script` field of `package.json`.
+
+The parameter passed to `generatePlansForPackage` is:
+
+* **packageName**: the path of the concerned package.
+
+The returned object must be an array of **GeneratedPlanObject**; each object in
+the array must have the following fields:
+
+* **name**: the plan's name; should be unique.
+* **value**: a [PlanObject](./config-schema-reference.md#plan-config); its
+values should possible to generate from the `configSchema`.
+* **autoLaunch** _(optional)_: a boolean set to true if the plan should be
+executed as soon as it's added. Most useful for passive syntax checkers.
 
 ### `DiagnosticView`
 
