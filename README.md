@@ -82,8 +82,6 @@ We love discussing with our users!
 
 Consult the [Plugin API](doc/plugin-creator/create-plugin.md) for details.
 
-[Comment]: # (TODO - ADD LINK TO PLUGIN API)
-
 ### Help develop Molecule
 
 [Comment]: # (TODO - ADD LINK TO DEVELOPER DOC)
