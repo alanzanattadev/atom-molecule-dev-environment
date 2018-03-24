@@ -149,7 +149,7 @@ object is generated based on what the user has entered; this object is then
 passed to the plugin's `getStrategyForPlan` method (see below).
 
 For details on the `configSchema` API, see
-[configSchema reference](./config-schema-reference.md).
+[configSchema reference](./configSchema-reference.md).
 
 ### `getStrategyForPlan`
 
@@ -164,7 +164,7 @@ The parameters passed to `getStrategyForPlan` are:
     * **name**: the plan's unique name.
     * **config**: a **PlanObject** generated based on what the user entered
     into the plan configuration panel. See
-    [configSchema reference](./config-schema-reference.md#plan-config).
+    [configSchema reference](./configSchema-reference.md#plan-config).
     * **packageInfos.path**: path of the plan's [package](../new-user/creating-a-plan.md#package-system).
   * **helperApi**: an API providing methods to facilitate your development,
   such as JSON and terminal output-to-html parser, filesystem abstraction, and
@@ -372,7 +372,7 @@ The returned object must be an array of **GeneratedPlanObject**; each object in
 the array must have the following fields:
 
 * **name**: the plan's name; should be unique.
-* **value**: a [PlanObject](./config-schema-reference.md#plan-config); its
+* **value**: a [PlanObject](./configSchema-reference.md#plan-config); its
 values should possible to generate from the `configSchema`.
 * **autoLaunch** _(optional)_: a boolean set to true if the plan should be
 executed as soon as it's added. Most useful for passive syntax checkers.
