@@ -44,10 +44,8 @@ the Control Panel.
 
 ![Plugin subpanel](resources/plugin-subpanel.png)
 
-Click the "Play" button next to one of the npm plan "eslint".
-
-Click the "Play" button next to the JEST_XXX plan for the Jest plugin. Two
-additional buttons should appear under the JEST_XXX plan:
+Click the "Play" button next to the npm plan "eslint". Two additional buttons
+should appear under that plan:
 
 ![Eslint plan buttons](resources/eslint-plan-buttons.png)
 
@@ -55,10 +53,10 @@ additional buttons should appear under the JEST_XXX plan:
 
 - The Terminal button opens the [Terminal Subpanel](#terminal-subpanel).
 
-As you may have noticed, the Jest plan runs in watch mode: this means it never
-stops until you click the play button again. If you edit one of your source
-files, the changes will be sent to the running instance of Jest. If these
-changes cause new errors, Jest will send error messages automatically
+As you may have noticed, the Jest plan "Watch mode" runs in, well, watch mode:
+this means it never stops until you click the play button again. If you edit one
+of your source files, the changes will be sent to the running instance of Jest.
+If these changes cause new errors, Jest will send error messages automatically
 (see below).
 
 Most of the "watch mode" plans are automatically executed on startup.
@@ -77,7 +75,7 @@ These messages are called **Diagnostics**, and can be accessed in the
 
 ![The Diagnostics Subpanel](resources/diagnostics-closeup.png)
 
-Once you've executed the JEST_XXX plan, the Diagnostics Subpanel will start to
+Once you've executed a plan, the Diagnostics Subpanel will start to
 fill. There are several types of diagnostics, with different colors:
 
 - Errors
