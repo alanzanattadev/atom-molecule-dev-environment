@@ -42,10 +42,14 @@ the Control Panel.
 
 - A "Play" button that runs/stops the execution of the plan.
 
+![Plugin subpanel](resources/plugin-subpanel.png)
+
+Click the "Play" button next to one of the npm plan "eslint".
+
 Click the "Play" button next to the JEST_XXX plan for the Jest plugin. Two
 additional buttons should appear under the JEST_XXX plan:
 
-[Comment]: # (TODO - Add plan-buttons screenshot)
+![Eslint plan buttons](resources/eslint-plan-buttons.png)
 
 - The Diagnostics button opens the [Diagnostics Subpanel](#diagnostics-subpanel).
 
@@ -56,6 +60,8 @@ stops until you click the play button again. If you edit one of your source
 files, the changes will be sent to the running instance of Jest. If these
 changes cause new errors, Jest will send error messages automatically
 (see below).
+
+Most of the "watch mode" plans are automatically executed on startup.
 
 Diagnostics Subpanel
 --------------------

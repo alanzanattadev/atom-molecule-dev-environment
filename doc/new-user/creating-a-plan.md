@@ -15,9 +15,11 @@ For this tutorial, we will create an eslint plan:
 - Leave the other settings as-is
 - Click the "Create" button.
 
+![Create eslint plan](resources/create-eslint-0.png)
+
 A new plan named "eslint_0" should have appeared in the Plugin Subpanel.
 
-[Comment]: # (TODO - Add eslint_0-plan screenshot)
+![After eslint plan is added](resources/eslint-0-added.png)
 
 You can click on the "Play" button, which will run `eslint` and start giving you diagnostics.
 
