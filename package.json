@@ -73,7 +73,7 @@
     "stream-buffers": "^3.0.1",
     "styled-components": "^2.2.0",
     "tree-kill": "^1.2.0",
-    "vscode-jsonrpc": "^3.5.0",
+    "vscode-jsonrpc": "^3.6.1",
     "vscode-uri": "^1.0.1",
     "xterm": "^2.9.2"
   },
