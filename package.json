@@ -53,6 +53,7 @@
     "nightwatch": "^0.9.12",
     "nightwatch-html-reporter": "^2.0.0",
     "nuclide-prebuilt-libs": "^0.3.8",
+    "nullthrows": "^1.0.1",
     "radium": "^0.19.1",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
@@ -69,7 +70,6 @@
     "redux-thunk": "^2.1.0",
     "remote-redux-devtools": "^0.5.7",
     "rxjs": "^5.4.3",
-    "ssh2": "^0.5.4",
     "stream-buffers": "^3.0.1",
     "styled-components": "^2.2.0",
     "tree-kill": "^1.2.0",
@@ -103,7 +103,11 @@
     "webpack": "^3.10.0"
   },
   "babel": {
-    "presets": ["env", "react", "flow"],
+    "presets": [
+      "env",
+      "react",
+      "flow"
+    ],
     "plugins": [
       "add-module-exports",
       "transform-object-rest-spread",

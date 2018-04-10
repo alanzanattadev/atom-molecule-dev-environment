@@ -229,7 +229,7 @@ declare class atom$Decoration {
   destroy(): void,
   onDidChangeProperties(
     callback: (event: {oldProperties: Object, newProperties: Object}) => mixed
-  ): IDisposable,
+    ): IDisposable,
   onDidDestroy(callback: () => mixed): IDisposable,
   getMarker(): atom$Marker,
   getProperties(): Object,
@@ -240,6 +240,7 @@ declare class atom$DisplayMarkerLayer {
   destroy(): void,
   clear(): void,
   isDestroyed(): boolean,
+  markBufferPosition(position: atom$PointLike, options?: MarkerOptions): atom$Marker,
   markBufferRange(range: atom$Range | atom$RangeLike, options: MarkerOptions): atom$Marker,
   getMarkers(): Array<atom$Marker>,
 }
@@ -273,24 +274,26 @@ declare class atom$Gutter {
   onDidDestroy(callback: () => void): IDisposable,
 }
 
+declare type atom$MarkerChangeEvent = {
+  oldHeadScreenPosition: atom$Point,
+  newHeadScreenPosition: atom$Point,
+  oldTailScreenPosition: atom$Point,
+  newTailScreenPosition: atom$Point,
+
+  oldHeadBufferPosition: atom$Point,
+  newHeadBufferPosition: atom$Point,
+  oldTailBufferPosition: atom$Point,
+  newTailBufferPosition: atom$Point,
+
+  isValid: boolean,
+  textChanged: boolean,
+}
+
 declare class atom$Marker {
   destroy(): void,
   getBufferRange(): atom$Range,
   getStartBufferPosition(): atom$Point,
-  onDidChange(callback: (event: {
-    oldHeadScreenPosition: atom$Point,
-    newHeadScreenPosition: atom$Point,
-    oldTailScreenPosition: atom$Point,
-    newTailScreenPosition: atom$Point,
-
-    oldHeadBufferPosition: atom$Point,
-    newHeadBufferPosition: atom$Point,
-    oldTailBufferPosition: atom$Point,
-    newTailBufferPosition: atom$Point,
-
-    isValid: boolean,
-    textChanged: boolean,
-  }) => void): IDisposable,
+  onDidChange(callback: (event: atom$MarkerChangeEvent) => mixed): IDisposable,
   isValid(): boolean,
   isDestroyed(): boolean,
   onDidDestroy(callback: () => mixed): IDisposable,
@@ -485,7 +488,9 @@ declare interface atom$PaneItem {
   +getURI?: () => ?string,
   +onDidChangeIcon?: (cb: (icon: string) => void) => IDisposable,
   +onDidChangeTitle?: (cb: (title: string) => void) => IDisposable,
+  +onDidTerminatePendingState?: (() => mixed) => IDisposable;
   +serialize?: () => Object,
+  +terminatePendingState?: () => void,
 }
 
 // Undocumented class
@@ -500,11 +505,11 @@ declare class atom$PaneAxis {
 // are typed here as AbstractPaneContainers and, in the current implementation, wrap these.)
 declare class atom$PaneContainer {
   constructor({
-                config: atom$Config,
-                applicationDelegate: atom$applicationDelegate,
-                notificationManager: atom$NotificationManager,
-                deserializerManager: atom$DeserializerManager,
-              }): atom$PaneContainer,
+    config: atom$Config,
+    applicationDelegate: atom$applicationDelegate,
+    notificationManager: atom$NotificationManager,
+    deserializerManager: atom$DeserializerManager,
+  }): atom$PaneContainer,
   destroy(): void,
   getActivePane(): atom$Pane,
   getActivePaneItem(): ?Object,
@@ -541,8 +546,8 @@ declare class atom$Panel {
 type atom$PointObject = {row: number, column: number};
 
 type atom$PointLike = atom$Point
-  | [number, number]
-  | atom$PointObject;
+| [number, number]
+| atom$PointObject;
 
 declare class atom$Point {
   static fromObject(object: atom$PointLike, copy: ? boolean): atom$Point,
@@ -578,9 +583,9 @@ type atom$RangeLike = atom$Range
   | atom$RangeObject // TODO: Flow doesn't really handle the real signature below...
   | [atom$PointLike, atom$PointLike]
   | {
-  start: atom$PointLike,
-  end: atom$PointLike,
-};
+    start: atom$PointLike,
+    end: atom$PointLike,
+  };
 
 declare class atom$Range {
   static fromObject(
@@ -747,12 +752,12 @@ type ChangeCursorPositionEvent = {
   cursor: atom$Cursor,
 };
 
-type MarkerOptions = {|
+type MarkerOptions = {
   reversed?: boolean,
   tailed?: boolean,
   invalidate?: 'never' | 'surround' | 'overlap' | 'inside' | 'touch',
   exclusive?: boolean,
-|};
+};
 
 type ChangeSelectionRangeEvent = {|
   oldBufferRange: atom$Range,
@@ -769,7 +774,7 @@ declare class atom$TextEditor extends atom$Model {
   // Event Subscription
   onDidChange(callback: () => void): IDisposable,
   onDidChangePath(callback: (newPath: string) => mixed): IDisposable,
-  onDidStopChanging(callback: () => void): IDisposable,
+  onDidStopChanging(callback: () => mixed): IDisposable,
   onDidChangeCursorPosition(callback: (event: ChangeCursorPositionEvent) => mixed):
     IDisposable,
   onDidDestroy(callback: () => mixed): IDisposable,
@@ -777,7 +782,7 @@ declare class atom$TextEditor extends atom$Model {
   getBuffer(): atom$TextBuffer,
   observeGrammar(callback: (grammar: atom$Grammar) => mixed): IDisposable,
   onWillInsertText(callback: (event: {cancel: () => void, text: string}) => void):
-    IDisposable,
+      IDisposable,
   // Note that the range property of the event is undocumented.
   onDidInsertText(callback: (event: {text: string, range: atom$Range}) => mixed): IDisposable,
   onDidChangeSoftWrapped(callback: (softWrapped: boolean) => mixed): IDisposable,
@@ -814,6 +819,7 @@ declare class atom$TextEditor extends atom$Model {
   getText(): string,
   getTextInBufferRange(range: atom$RangeLike): string,
   getLineCount(): number,
+  getLastScreenRow(): number,
 
   // Mutating Text
   setText(text: string, options?: InsertTextOptions): void,
@@ -834,8 +840,10 @@ declare class atom$TextEditor extends atom$Model {
   // History
   createCheckpoint(): atom$TextBufferCheckpoint,
   revertToCheckpoint(checkpoint: atom$TextBufferCheckpoint): boolean,
+  terminatePendingState(): void,
   transact(fn: () => mixed, _: void): void,
   transact(groupingInterval: number, fn: () => mixed): void,
+  onDidTerminatePendingState(() => mixed): IDisposable;
 
   // TextEditor Coordinates
   screenPositionForBufferPosition(
@@ -868,11 +876,13 @@ declare class atom$TextEditor extends atom$Model {
   getDecorations(options?: {class?: string, type?: string}): Array<atom$Decoration>,
 
   // Markers
+  addMarkerLayer(): atom$DisplayMarkerLayer,
   getDefaultMarkerLayer(): atom$DisplayMarkerLayer,
   markBufferPosition(position: atom$PointLike, options?: MarkerOptions): atom$Marker,
   markBufferRange(range: atom$RangeLike, options?: MarkerOptions): atom$Marker,
   markScreenRange(range: atom$RangeLike, options?: MarkerOptions): atom$Marker,
   markScreenPosition(position: atom$PointLike, options?: MarkerOptions): atom$Marker,
+  findMarkers(options: MarkerOptions): Array<atom$Marker>,
   getMarkerCount(): number,
 
   // Cursors
@@ -966,6 +976,7 @@ declare class atom$TextEditor extends atom$Model {
 
   // Clipboard Operations
   pasteText: (options?: Object) => void,
+  copySelectedText: () => void,
 
   // Managing Syntax Scopes
   scopeDescriptorForBufferPosition(
@@ -1020,7 +1031,7 @@ declare class atom$TextEditor extends atom$Model {
   onDidConflict(callback: () => void): IDisposable,
   serialize(): Object,
   foldBufferRowRange(startRow: number, endRow: number): void,
-  getNonWordCharacters(scope?: atom$ScopeDescriptor): string,
+  getNonWordCharacters(position?: atom$PointLike): string,
 }
 
 /**
@@ -1628,7 +1639,11 @@ declare class atom$Project {
   onDidChangePaths(callback: (projectPaths: Array<string>) => mixed): IDisposable,
   onDidAddBuffer(callback: (buffer: atom$TextBuffer) => mixed): IDisposable,
   observeBuffers(callback: (buffer: atom$TextBuffer) => mixed): IDisposable,
-
+  replace?: (newSettings: {|
+    originPath?: string,
+    paths?: Array<string>,
+    config?: {[string]: mixed}
+  |}) => void,
   // Accessing the git repository
   getRepositories(): Array<?atom$Repository>,
   repositoryForDirectory(directory: atom$Directory): Promise<?atom$Repository>,
@@ -1845,6 +1860,7 @@ declare class atom$NotificationManager {
   addWarning(message: string, options?: atom$NotificationOptions): atom$Notification,
   addError(message: string, options?: atom$NotificationOptions): atom$Notification,
   addFatalError(message: string, options?: atom$NotificationOptions): atom$Notification,
+  addNotification(notification: atom$Notification): atom$Notification,
 
   // Getting Notifications
   getNotifications(): Array<atom$Notification>,
@@ -2041,6 +2057,9 @@ type atom$AutocompleteProvider = {
   +getSuggestions: (
     request: atom$AutocompleteRequest,
   ) => Promise<?Array<atom$AutocompleteSuggestion>> | ?Array<atom$AutocompleteSuggestion>,
+  +getSuggestionDetailsOnSelect?: (
+    suggestion: atom$AutocompleteSuggestion
+  ) => Promise<?atom$AutocompleteSuggestion>,
   +disableForSelector?: string,
   +inclusionPriority?: number,
   +excludeLowerPriority?: boolean,
