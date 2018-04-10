@@ -82,61 +82,6 @@ export type DevToolInfo = {
   uri: string,
 };
 
-export type SSHConfigSchema = {
-  type: "object",
-  schemas: {
-    username: {
-      type: "string",
-      default: "",
-      label: "username",
-    },
-    privateKeyPath: {
-      type: "string",
-      default: "",
-      label: "key path",
-    },
-  },
-};
-
-export type SSHConfig = {
-  username: string,
-  privateKeyPath: string,
-};
-
-export type HostConfigSchema = {
-  type: "object",
-  schemas: {
-    host: {
-      type: "string",
-      default: "",
-      label: "host",
-    },
-    port: {
-      type: "number",
-      default: 22,
-      label: "port",
-    },
-  },
-};
-
-export type HostConfig = {
-  host: string,
-  port: number,
-  transport: SSHConfig,
-};
-
-export type Stager =
-  | {
-      type: "integrated",
-    }
-  | {
-      type: "local",
-    }
-  | {
-      type: "remote",
-      host: HostConfig,
-    };
-
 export type DevToolPlanConfigSchema = ConfigSchemaPart & { tool: DevToolInfo };
 
 export type PlanConfig = {
@@ -144,7 +89,6 @@ export type PlanConfig = {
   config: any,
   pinned?: boolean,
   name: string,
-  stager: Stager,
   packageInfo: PackageInfo,
   id: string,
 };
