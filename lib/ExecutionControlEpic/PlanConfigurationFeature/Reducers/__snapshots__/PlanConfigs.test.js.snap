@@ -13,9 +13,6 @@ Immutable.Map {
         "type": "directory",
       },
       "pinned": false,
-      "stager": Object {
-        "type": "integrated",
-      },
       "tool": Object {
         "iconUri": "atom://myplugin/icon.png",
         "id": "toolid",
@@ -40,9 +37,6 @@ Immutable.Map {
         "type": "directory",
       },
       "pinned": true,
-      "stager": Object {
-        "type": "integrated",
-      },
       "tool": Object {
         "iconUri": "atom://myplugin/icon.png",
         "id": "toolid",
@@ -60,9 +54,6 @@ Immutable.Map {
         "type": "directory",
       },
       "pinned": false,
-      "stager": Object {
-        "type": "integrated",
-      },
       "tool": Object {
         "iconUri": "atom://myplugin/icon.png",
         "id": "toolid",
@@ -87,9 +78,6 @@ Immutable.Map {
         "type": "directory",
       },
       "pinned": false,
-      "stager": Object {
-        "type": "integrated",
-      },
       "tool": Object {
         "iconUri": "atom://myplugin/icon.png",
         "id": "toolid",
@@ -114,9 +102,6 @@ Immutable.Map {
         "type": "directory",
       },
       "pinned": false,
-      "stager": Object {
-        "type": "integrated",
-      },
       "tool": Object {
         "iconUri": "atom://myplugin/icon.png",
         "id": "toolid",
@@ -134,9 +119,6 @@ Immutable.Map {
         "type": "directory",
       },
       "pinned": false,
-      "stager": Object {
-        "type": "integrated",
-      },
       "tool": Object {
         "iconUri": "atom://myplugin/icon.png",
         "id": "toolid",
