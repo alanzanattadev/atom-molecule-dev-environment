@@ -106,6 +106,5 @@ export type PlanConfig = {
   autoLaunch?: boolean,
   config: PlanObject,
   pinned?: boolean,
-  stager: Stager,
   packageInfo: PackageInfo,
 };
