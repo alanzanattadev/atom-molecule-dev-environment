@@ -7,6 +7,7 @@ flow-libs/
 <PROJECT_ROOT>/node_modules/react-forms-state/
 .*\.test\..*
 .*\.story\..*
+<PROJECT_ROOT>/lib/ExecutionControlEpic/QuestionSystemFeature/
 
 [options]
 module.ignore_non_literal_requires=true
