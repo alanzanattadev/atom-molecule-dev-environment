@@ -1,7 +1,9 @@
 Molecule IDE
 ============
 
-Molecule is a package that transforms [Atom](https://atom.io/) into a full-blown [Integrated Development Environment](https://en.wikipedia.org/wiki/Integrated_development_environment) (or IDE). Learn more [on our website](http://www.molecule.sh/) or read [our documentation](doc/getting-started.md).
+Molecule is a package that transforms [Atom](https://atom.io/) into a full-blown [Integrated Development Environment](https://en.wikipedia.org/wiki/Integrated_development_environment) (or IDE).
+
+Learn more [on our website](http://www.molecule.sh/) or read [our documentation](doc/new-user/table-of-contents.md) to get started!
 
 ![Hello there, xkcd readers!](doc/molecule-showcase.png)
 
@@ -32,7 +34,9 @@ Installation
 
 1.  **[Install Atom](http://flight-manual.atom.io/getting-started/sections/installing-atom/) version 1.17.0 or higher**
 
-2.  **Install Molecule**
+2.  **Install [Watchman](https://facebook.github.io/watchman/)**
+
+3.  **Install Molecule**
 
     Molecule isn't available on `apm` (the official tool for downloading Atom
     packages) yet. To install Molecule, use the following commands:
@@ -58,7 +62,7 @@ Installation
   npm install
 ```
 
-And reload atom !
+And reload atom!
 
 ## Contribute
 
@@ -72,11 +76,11 @@ Molecule.
 
 You can send feedback on our [website](https://www.molecule.sh) or open a
 [GitHub issue](https://github.com/alanzanattadev/molecule-landing/issues).
-We love discussing with our users !
+We love discussing with our users!
 
 ### Make a plugin
 
-[Comment]: # (TODO - ADD LINK TO PLUGIN API)
+Consult the [Plugin API](doc/plugin-creator/create-plugin.md) for details.
 
 ### Help develop Molecule
 

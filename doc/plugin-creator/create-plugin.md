@@ -28,6 +28,9 @@ export default {
       controller: { /* ... */ }
     };
   },
+  generatePlansForPackage(packageName: string): Array<GeneratedPlanObject> {
+    // ...
+  }
   DiagnosticView: /* ... */,
   isPackage: /* ... */
 };
@@ -146,7 +149,7 @@ object is generated based on what the user has entered; this object is then
 passed to the plugin's `getStrategyForPlan` method (see below).
 
 For details on the `configSchema` API, see
-[configSchema reference](./config-schema-reference.md).
+[configSchema reference](./configSchema-reference.md).
 
 ### `getStrategyForPlan`
 
@@ -159,9 +162,9 @@ The parameters passed to `getStrategyForPlan` are:
 
   * **plan**: an object with the following fields:
     * **name**: the plan's unique name.
-    * **config**: an object generated based on what the user entered into
-    the plan configuration panel. See
-    [configSchema reference](./config-schema-reference.md#plan-config).
+    * **config**: a **PlanObject** generated based on what the user entered
+    into the plan configuration panel. See
+    [configSchema reference](./configSchema-reference.md#plan-config).
     * **packageInfos.path**: path of the plan's [package](../new-user/creating-a-plan.md#package-system).
   * **helperApi**: an API providing methods to facilitate your development,
   such as JSON and terminal output-to-html parser, filesystem abstraction, and
@@ -218,15 +221,16 @@ The `strategy` object must have the following fields:
     for tools that need inputs from the user.
     * **node**: the script will be executed inside a NodeJS instance. This is the
     best mode for tools that are written in JavaScript and made to be executed
-    by NodeJS.
-  * **command** *(shell and terminal strategies only)*: specify the command to
+    by NodeJS. Note that the code will still be executed in a different
+    process, and as such behave like the other two types.
+  * **command** _(shell and terminal strategies only)_: specify the command to
   execute.
-  * **path** *(node strategies only)*: the path of the JS file to execute.
-  * **args** *(node strategies only, optional)*: the arguments to pass to the
+  * **path** _(node strategies only)_: the path of the JS file to execute.
+  * **args** _(node strategies only, optional)_: the arguments to pass to the
   script.
   * **cwd**: the working directory in which the command/script will be executed.
-  * **env** *(optional)*: the environment variables to pass to the process.
-  * **lsp** *(optional)*: boolean. See F[below](#lsp-integration) for details.
+  * **env** _(optional)_: the environment variables to pass to the process.
+  * **lsp** _(optional)_: boolean. See [below](#lsp-integration) for details.
 
 Example:
 
@@ -253,16 +257,16 @@ Once the tool has been started using the *strategy*, Molecule will load the
 plugin's `controller`. The controller is an object with the following methods:
 
   * **onData** *(data: string, taskAPI: TaskAPI, helperAPI: HelperAPI): void*:
-  this method is called every time some data is emitted by the tool.
+  this method is called every time some data is emitted by the tool, on stdout
+  or stderr.
   * **onExit** *(code: number, taskAPI: TaskAPI, helperAPI: helperAPI): void*:
-  this method is called on the tool's exit.
+  this method is called when the tool exits, successfully or not
   * **onError** *(errcode: Number, taskAPI: TaskAPI, helperAPI: helperAPI): void*:
-  this method is called if the command executed in the strategy fails.
+  this method is called when the tool exits unsuccessfully (e.g. main
+  returns 1).
 
 These methods are the only way for your plugin to execute code and interact
 with the tool's output.
-
-[Comment]: # (TODO - Add details)
 
 See [TaskAPI reference](./TaskAPI-reference.md) and
 [HelperAPI reference](./HelperAPI-reference.md) for details.
@@ -277,7 +281,8 @@ with the tool without you having to write a controller.
 
 Using the Language Server Protocol, Molecule can:
 
-  * Receive diagnostics from the tool, and display them in the Diagnostic panel
+  * Receive diagnostics from the tool, and display them in the Diagnostic
+  Subpanel
   * Integrate them to the linter (e.g. highlight syntax errors in red).
   * When the user clicks on a diagnostic, open the relevant file at the relevant
   location (e.g. where the syntax error is).
@@ -352,39 +357,62 @@ getStrategyForPlan(
 },
 ```
 
+### `generatePlansForPackage`
+
+The `generatePlansForPackage` method is called at the start of Molecule, and
+whenever a package file is updated. It generates the default plans that a user
+of your plugin is likely to need. For instance, the NPM package generates one
+plan per script in the `script` field of `package.json`.
+
+The parameter passed to `generatePlansForPackage` is:
+
+* **packageName**: the path of the concerned package.
+
+The returned object must be an array of **GeneratedPlanObject**; each object in
+the array must have the following fields:
+
+* **name**: the plan's name; should be unique.
+* **value**: a [PlanObject](./configSchema-reference.md#plan-config); its
+values should possible to generate from the `configSchema`.
+* **autoLaunch** _(optional)_: a boolean set to true if the plan should be
+executed as soon as it's added. Most useful for passive syntax checkers.
+
 ### `DiagnosticView`
 
 The plugin's `DiagnosticView` field is a
 [React Component](https://reactjs.org/docs/components-and-props.html) which
 defines how diagnostics are rendered in the
-[Diagnostic Panel](../new-user/using-a-plan.md#diagnostics-panel).
+[Diagnostic Subpanel](../new-user/using-a-plan.md#diagnostics-subpanel).
 
 A `DiagnosticView` component must accept the following props:
 
-  * `path`: string
-  * `message`: string
-  * `severity`: number
-  * `source`: string
-
-[Comment]: # (TODO - Add more details)
+  * `path`: the path of the file that triggered the diagnostic (e.g. for a
+  syntax error diagnostic, the path of the file where the error was found).
+  * `message`
+  * `severity`: a number describing the message's
+  [severity](./HelperAPI-reference.md#severity).
+  * `source`: a copy of the line of code that triggered the diagnostic.
 
 ### `isPackage`
 
-The `isPackage` field will define the way your tool can identify packages it can
-work on. The detected packages will be listed in the *Package* field of the plan
-configuration.
+The `isPackage` field is used to identify files that qualify as
+[packages](../new-user/using-a-plan.md#plugin-subpanel) for the plugin.
+
+When a project is opened with Molecule, it will browse through each file and
+use each plugin's `isPackage` on them, to list all the project's packages.
+
+The plugins for which at least one package is found will be displayed in the
+Plugin Subpanel, grouped by directory.
 
 The **isPackage** field can have several types of values: function,
 string or regexp.
 
-[Comment]: # (TODO - Rewrite this section)
-
 #### Function
 
-The most flexible way to specify the `isPackage` field is using a function
-that act as a predicate that return `true` if the current directory is a package.
+The most flexible way to specify the `isPackage` field is as a method
+that takes a file path and returns `true` if the file is a package.
 
-This function will take two parameters:
+This method can take two parameters:
 
   * **packagePath**: the absolute path of the tested file
   (ex: `/home/user/project/package.json`)
@@ -393,12 +421,14 @@ This function will take two parameters:
   current directory, which can be either the element name (a **string**) if it is
   a file, or another **directory** object if it is a directory.
 
-The value you return can either be a **boolean** or an **object** with the
-following values:
+The **isPackage** method must either return a **boolean** or an **object**
+with the following fields:
 
   * **name**: the name of the package.
   * **path**: the path of the package.
   * **type**: the type of the package. Can be `file` or `directory`.
+
+The method can also return a Promise of either of these.
 
 Example:
 
@@ -425,8 +455,8 @@ isPackage: (packageName: string, directory: PackageDirectory) => {
 
 #### String
 
-You can also use a string containing the name of a file indicating that your
-package is enabled:
+The **isPackage** field can be a string that represents a filename that a file
+must have to qualify as a package.
 
 ``` js
 isPackage: ".flowconfig",
@@ -434,9 +464,9 @@ isPackage: ".flowconfig",
 
 #### Regexp
 
-Finally, `isPackage` can be a regexp applied on all files of the project.
-The regexp will be tested on the absolute path of the file
-(ex: `/home/user/project/package.json`)
+The **isPackage** field can be a regexp that all files of the project are
+compared against. A file is considered a package if its absolute path
+(ex: `/home/user/project/package.json`) matches the regexp.
 
 ``` js
 isPackage: /gulpfile|gruntfile)\.js/
