@@ -1,5 +1,5 @@
-// flow-typed signature: 905cf3353a9aaa3647dc2232b1cd864a
-// flow-typed version: 8742c67386/enzyme_v2.3.x/flow_>=v0.53.x
+// flow-typed signature: ac18e8756b9f77851123c33e78aaa670
+// flow-typed version: 792f604e07/enzyme_v2.3.x/flow_>=v0.53.x
 
 import * as React from "react";
 
@@ -58,7 +58,7 @@ declare module "enzyme" {
     setContext(context: Object): this,
     instance(): React.Component<*, *>,
     update(): this,
-    debug(): string,
+    debug(options?: Object): string,
     type(): string | Function | null,
     name(): string,
     forEach(fn: (node: this, index: number) => mixed): this,

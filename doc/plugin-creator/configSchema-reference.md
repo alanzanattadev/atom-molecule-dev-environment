@@ -36,11 +36,11 @@ will be represented as a checkbox.
 ## `plan.config`
 
 Once the user has filled out the generator forms and clicked the "Create"
-button, a value is generated from their choices, and passed to the
-plugin's `getStrategyForPlan` method as `plan.config`.
+button, a value of type `PlanObject` is generated from their choices, and
+passed to the plugin's `getStrategyForPlan` method as `plan.config`.
 
-The type and content of this value depends on the **ConfigSchemaPart**'s `type`
-field.
+The exact type and content of this value depends on the **ConfigSchemaPart**'s
+`type` field.
 
 ## List of ConfigSchemaPart types
 
@@ -52,7 +52,7 @@ Asks the user to enter a string (text input).
 
 **ConfigSchemaPart** objects of type `string` may have an additional field:
 
-* **placeholder**: a hint inside the input box. _(optional)_
+* **placeholder** _(optional)_: a hint inside the input box.
 
 Example:
 
@@ -65,7 +65,7 @@ Example:
 }
 ```
 
-**Generated value:** the entered string.
+**Generated PlanObject:** the entered string.
 
 Example:
 
@@ -79,7 +79,7 @@ Asks the user to enter a number (number input).
 
 Additional field:
 
-* **placeholder**: a hint inside the input box. _(optional)_
+* **placeholder** _(optional)_: a hint inside the input box.
 
 Example:
 
@@ -92,7 +92,7 @@ Example:
 }
 ```
 
-**Generated value:** the entered number.
+**Generated PlanObject:** the entered number.
 
 Example:
 
@@ -114,7 +114,7 @@ Example:
 }
 ```
 
-**Generated value:** the chosen value (true/false).
+**Generated PlanObject:** the chosen value (true/false).
 
 Example:
 
@@ -152,7 +152,7 @@ Example:
 }
 ```
 
-**Generated value:** a JavaScript Object; its keys are the `schemas` field's
+**Generated PlanObject:** a JavaScript Object; its keys are the `schemas` field's
 keys, its values are generated recursively from the respective schemas.
 
 Example:
@@ -198,8 +198,8 @@ Example:
 }
 ```
 
-**Generated value:** a JavaScript Array; its values are generated recursively
-from the `items` schema.
+**Generated PlanObject:** a JavaScript Array of **PlanObject**s; its values
+are generated recursively from the `items` schema.
 
 ``` js
 for (let dock of plan.config ) {
@@ -234,7 +234,7 @@ Example:
 }
 ```
 
-**Generated value:** the `value` field of the chosen option.
+**Generated PlanObject:** the `value` field of the chosen option.
 
 Example:
 
@@ -294,10 +294,10 @@ Example:
 }
 ```
 
-**Generated value:** an object with the following fields:
+**Generated PlanObject:** an object with the following fields:
 
-* **expressionValue**: a value generated from the `expression` schema.
-* **caseValue**: a value generated from the matching case.
+* **expressionValue**: a string generated from the `expression` schema.
+* **caseValue**: a **PlanObject** generated from the matching case.
 
 Example:
 
