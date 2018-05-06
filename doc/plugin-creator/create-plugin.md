@@ -469,5 +469,5 @@ compared against. A file is considered a package if its absolute path
 (ex: `/home/user/project/package.json`) matches the regexp.
 
 ``` js
-isPackage: /gulpfile|gruntfile)\.js/
+isPackage: /(gulpfile|gruntfile)\.js/
 ```
