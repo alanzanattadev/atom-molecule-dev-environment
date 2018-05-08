@@ -7,14 +7,22 @@ export type PackageTesterResult =
   | (boolean | PackageInfo | Promise<boolean>)
   | false;
 
+import type {
+  GeneratedPlanObject,
+} from "../../../ExecutionControlEpic/PlanConfigurationFeature/Types/types.js.flow";
+
 export type PackageTester =
   | RegExp
   | string
   | ((packageName: string, directory: ?Directory) => PackageTesterResult);
 
+export type PackageGenerator =
+  (packageName: string) => Array<GeneratedPlanObject>;
+
 export type Plugin = {
   tool: DevTool,
   isPackage?: PackageTester,
+  generatePlansForPackage?: PackageGenerator
 };
 
 export type Directory = {

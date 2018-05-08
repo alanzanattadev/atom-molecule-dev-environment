@@ -162,7 +162,7 @@
       "no-unused-vars": [
         "warn",
         {
-          "argsIgnorePattern": "helperAPI|taskAPI|dirname"
+          "argsIgnorePattern": "helperAPI|taskAPI|dirname|packageName"
         }
       ],
       "prettier/prettier": [
