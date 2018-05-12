@@ -10,6 +10,7 @@ import type {
   DiagnosticInformation, DiagnosticSuccess,
   DiagnosticWarning
 } from "../../DiagnosticsFeature/Types/types";
+import type { ProcessEnv } from "nuclide-prebuilt-libs/pty/lib/index.js.flow";
 
 export type TaskState =
   | "created"
@@ -53,6 +54,35 @@ export type HelperAPI = {
     success: DiagnosticSuccess,
   },
 };
+
+export type Shell = string;
+
+export type StrategyBase = {
+  cwd: string,
+  env: ProcessEnv,
+}
+
+export type NodeProcessStrategyType = {
+  type: "node",
+  path: string,
+  args: Array<string>,
+  lsp?: boolean,
+};
+
+export type ShellStrategyType = StrategyBase & {
+  type: "shell",
+  command: string,
+  shell: Shell,
+  lsp?: boolean,
+};
+
+export type TerminalStrategyType = StrategyBase & {
+  type: "terminal",
+  command: string,
+  shell: Shell,
+};
+
+export type Strategy = ShellStrategyType | NodeProcessStrategyType | TerminalStrategyType;
 
 export type Controller = {
   onData?: (err: string, taskAPI: TaskAPI, HelperApi: HelperAPI) => void,

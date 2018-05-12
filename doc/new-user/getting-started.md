@@ -41,7 +41,9 @@ Installation
 
 1.  **[Install Atom](http://flight-manual.atom.io/getting-started/sections/installing-atom/) version 1.17.0 or higher**
 
-2.  **Install Molecule**
+2.  **Install [Watchman](https://facebook.github.io/watchman/)**
+
+3.  **Install Molecule**
 
     Molecule isn't available on `apm` (the official tool for downloading Atom
     packages) yet. To install Molecule, use the following commands:
@@ -57,3 +59,14 @@ Installation
     Molecule should then be installed the next time you start Atom.
 
 ![Your screen shoud look roughly like this](resources/molecule-start.png)
+
+### Update
+
+```bash
+  cd atom-molecule-dev-environment
+  git checkout vX.Y.Z # Where X.Y.Z is the current version number
+  rm -rf node_modules
+  npm install
+```
+
+And reload atom!

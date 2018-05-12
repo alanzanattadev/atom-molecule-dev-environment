@@ -10,7 +10,7 @@ import type {
   Strategy,
 } from "../../TaskExecutionFeature/Types/types";
 import type { PackageTester } from "../../../ProjectSystemEpic/PackageFeature/Types/types";
-import type { HelperAPI } from "../../TaskExecutionFeature/Model/HelperAPI";
+import type { HelperAPI } from "../../TaskExecutionFeature/Types/types";
 import type { DevTool } from "../../DevToolsSummaryFeature/Types/types";
 import type { DiagnosticMode } from "../../DiagnosticsFeature/Types/types";
 
