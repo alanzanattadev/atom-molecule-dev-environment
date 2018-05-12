@@ -374,7 +374,7 @@ the array must have the following fields:
 * **name**: the plan's name; should be unique.
 * **value**: a [PlanObject](./configSchema-reference.md#plan-config); its
 values should possible to generate from the `configSchema`.
-* **autoLaunch** _(optional)_: a boolean set to true if the plan should be
+* **autoRun** _(optional)_: a boolean set to true if the plan should be
 executed as soon as it's added. Most useful for passive syntax checkers.
 
 ### `DiagnosticView`
