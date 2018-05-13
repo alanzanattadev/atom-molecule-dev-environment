@@ -9,7 +9,7 @@
     "atom"
   ],
   "scripts": {
-    "eslint": "eslint ./",
+    "eslint": "eslint ./lib",
     "flow": "flow check --show-all-errors",
     "jest:watch": "jest --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./.storybook/public/",
@@ -17,7 +17,7 @@
     "babel:build": "babel lib --out-dir ./build/babel/ --source-maps",
     "babel:watch": "babel lib --out-dir ./build/babel/ --source-maps --watch",
     "postinstall": "npm run babel:build",
-    "test:e2e": "mocha"
+    "test:e2e": "mocha testsUI/"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
@@ -128,7 +128,8 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/",
+      "<rootDir>/testsUI/"
     ]
   },
   "eslintConfig": {
