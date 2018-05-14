@@ -7,8 +7,11 @@ describe("Application launch", function() {
 
   beforeEach(function() {
     this.app = new Application({
-      // Your electron path can be any binary
-      path: "C:\\Users\\lorenzo\\AppData\\Local\\atom\\atom.exe",
+      // Put your atom binary path here
+      // For windows : C:\Users\<UserName>\AppData\Local\atom\atom.exe
+      // For Linux : /usr/share/atom/atom  You may try with /usr/bin/atom
+      // For Mac : /usr/local/bin/atom not sure for this one
+      path: "",
 
       // Assuming you have the following directory structure
 
@@ -52,15 +55,6 @@ describe("Application launch", function() {
       "Unified Diagnostics",
       20000,
     );
-  });
-
-  it("Should display Unified Diagnostics panel", function() {
-    return this.app.client.waitUntilTextExists(
-      "h3",
-      "Unified Diagnostics",
-      20000,
-    );
-    // no idea how to check the render of the panel, I would need an ID or something to hit on.
   });
 
   it("should create a Plan for NPM", function() {
