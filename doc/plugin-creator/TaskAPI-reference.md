@@ -8,8 +8,8 @@ The diagnostic field has three methods allowing to set the environment for the d
 
 ### Methods
 
-* **setForPath(PublishDiagnostics: PublishDiagnosticsParams)** return a void, assigns diagnostics to a given path.
-* **setForWorkspace(PublishDiagnostics: PublishDiagnosticsParams)** return a void, sets the path of a project.
+* **setForPath(publishDiagnostics: PublishDiagnosticsParams)** return a void, assigns diagnostics to a given path.
+* **setForWorkspace(publishDiagnostics: PublishDiagnosticsParams)** return a void, sets the path of a project.
 * **clearAll()** return a void, clear the diagnostic configuration.
 
 ## BusyState
