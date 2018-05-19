@@ -1,17 +1,27 @@
 const Application = require("spectron").Application;
 const assert = require("assert");
 const path = require("path");
+const os = require("os");
+const process = require("process");
 
 describe("Application launch", function() {
   this.timeout(100000);
 
   beforeEach(function() {
+    let binaryPath = "";
+    if (os.platform() === "win32") {
+      const userName = process.env.USERNAME;
+      binaryPath =
+        "C:\\Users\\" + userName + "\\AppData\\Local\\atom\\atom.exe";
+    } else {
+      binaryPath = "/usr/share/atom/atom";
+    }
     this.app = new Application({
       // Put your atom binary path here
       // For windows : C:\Users\<UserName>\AppData\Local\atom\atom.exe
       // For Linux : /usr/share/atom/atom  You may try with /usr/bin/atom
       // For Mac : /usr/local/bin/atom not sure for this one
-      path: "",
+      path: binaryPath,
 
       // Assuming you have the following directory structure
 
