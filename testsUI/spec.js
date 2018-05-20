@@ -16,6 +16,7 @@ describe("Application launch", function() {
     } else {
       binaryPath = "/usr/share/atom/atom";
     }
+
     this.app = new Application({
       // Put your atom binary path here
       // For windows : C:\Users\<UserName>\AppData\Local\atom\atom.exe
@@ -61,7 +62,7 @@ describe("Application launch", function() {
 
   it("Should display Unified Diagnostics button", function() {
     return this.app.client.waitUntilTextExists(
-      "h3",
+      "span",
       "Unified Diagnostics",
       20000,
     );
@@ -69,17 +70,17 @@ describe("Application launch", function() {
 
   it("should create a Plan for NPM", function() {
     return this.app.client
-      .waitUntilTextExists("h3", "Unified Diagnostics", 20000)
+      .waitUntilTextExists("span", "Unified Diagnostics", 20000)
       .then(() => {
         return this.app.client
           .click("#jestNewPlan")
           .waitUntilTextExists("h1", "jest")
           .element("#name")
-          .setValue("testPlanJest")
+          .setValue("TestPlanJest")
           .click("button*=Create");
       })
       .then(() => {
-        return this.app.client.waitUntilTextExists("h3", "testPlanJest");
+        return this.app.client.waitUntilTextExists("span", "TestPlanJest");
       });
   });
 });
