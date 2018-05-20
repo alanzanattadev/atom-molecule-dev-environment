@@ -13,7 +13,10 @@ describe("Application launch", function() {
       const userName = process.env.USERNAME;
       binaryPath =
         "C:\\Users\\" + userName + "\\AppData\\Local\\atom\\atom.exe";
-    } else {
+    } else if (os.platform() === "darwin") {
+      binaryPath = "/usr/local/bin/atom";
+    }
+    else {
       binaryPath = "/usr/share/atom/atom";
     }
 
