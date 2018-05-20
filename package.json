@@ -158,11 +158,11 @@
       "prettier/react"
     ],
     "rules": {
-      "no-console": "warn",
+      "no-console": [ "warn", {"allow": ["warn", "error"]} ],
       "no-unused-vars": [
         "warn",
         {
-          "argsIgnorePattern": "helperAPI|taskAPI|dirname|packageName"
+          "argsIgnorePattern": "helperAPI|taskAPI|dirname|packageName|resolve|reject|directory"
         }
       ],
       "prettier/prettier": [
