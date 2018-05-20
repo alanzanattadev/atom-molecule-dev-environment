@@ -56,3 +56,11 @@ export type RefreshPackagesAction = {
     plugins: Array<Plugin>,
   },
 };
+
+export type PackageRefreshCompletedAction = {
+  type: "PACKAGE_REFRESH_COMPLETED",
+  payload: {
+    rootPath: string,
+    actionCount: number,
+  },
+};
