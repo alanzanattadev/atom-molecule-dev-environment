@@ -15,8 +15,7 @@ describe("Application launch", function() {
         "C:\\Users\\" + userName + "\\AppData\\Local\\atom\\atom.exe";
     } else if (os.platform() === "darwin") {
       binaryPath = "/usr/local/bin/atom";
-    }
-    else {
+    } else {
       binaryPath = "/usr/share/atom/atom";
     }
 
