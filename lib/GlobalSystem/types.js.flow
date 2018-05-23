@@ -10,6 +10,7 @@ import type { PackagesReducer } from "../ProjectSystemEpic/PackageFeature/Reduce
 import type { LoadingProgressReducer } from "../ExecutionControlEpic/LoadingProgressFeature/Reducers/LoadingProgress";
 import type { CacheBlobsReducer } from "../ExecutionControlEpic/CacheSystemFeature/Reducers/CacheBlobs";
 import type { ProjectsReducer } from "../EventSystemEpic/ProjectFeature/Types/types";
+import type { ConsoleLogsReducer } from "../ExecutionControlEpic/ConsoleFeature/Reducers/ConsoleLogs";
 
 export type State = {
   devtools: DevToolsInfoReducer,
@@ -21,4 +22,5 @@ export type State = {
   loadingProgress: LoadingProgressReducer,
   cacheBlobs: CacheBlobsReducer,
   projects: ProjectsReducer,
+  consolelogs: ConsoleLogsReducer,
 };
