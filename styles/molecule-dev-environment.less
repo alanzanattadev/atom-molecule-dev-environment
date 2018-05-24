@@ -131,4 +131,94 @@
   color: @text-color;
 }
 
+.console-log-checkbox {
+  &[type="checkbox"] {
+    float: right;
+    -webkit-appearance: none;
+    position: relative;
+    width: 1.4em;
+    height: 1.4em;
+    margin: 0 1em 0 5px;
+    border-radius: @component-border-radius;
+    background-color: @text-color-subtle;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 1em;
+      left: .6em;
+      height: .125em;
+      min-height: 2px;
+      max-height: 5px;
+      border-radius: 1px;
+      background-color: @base-background-color;
+      transform-origin: 0 0;
+      opacity: 0;
+    }
+    &:before {
+      width: .35em;
+      transform: translate3d(0,0,0) rotate(225deg) scale(0);
+    }
+    &:after {
+      width: .7em;
+      margin: -1px;
+      transform: translate3d(0,0,0) rotate(-45deg) scale(0);
+      transition-delay: .05s;
+    }
+
+    &:checked {
+      background-color: @background-color-info;
+      &:before {
+        opacity: 1;
+        transform: translate3d(0,0,0) rotate(225deg) scale(1);
+        transition-delay: .05s;
+      }
+      &:after {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) rotate(-45deg) scale(1);
+        transition-delay: 0;
+      }
+    }
+  }
+}
+
+.table-title {
+  color: @text-color-selected;
+  background-color: @overlay-background-color;
+}
+
+.log-line {
+  color: @text-color;
+  // &:nth-child(even) {
+  //   background-color: @button-background-color;
+  // }
+  //
+  // &:nth-child(odd) {
+  //   color: @overlay-background-color;
+  //   background-color: @text-color-highlight;
+  // }
+}
+
+.background-error {
+  color: @text-color-selected;
+  background-color: @background-color-error;
+}
+
+.background-warning {
+  color: @text-color-selected;
+  background-color: @background-color-warning;
+}
+
+.background-hint {
+  color: @text-color-selected;
+  background-color: @background-color-highlight;
+}
+
+.background-success {
+  color: @text-color-selected;
+  background-color: @background-color-success;
+}
+
 @import (inline) "../node_modules/xterm/dist/xterm.css";
