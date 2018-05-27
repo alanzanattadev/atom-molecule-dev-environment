@@ -3,7 +3,7 @@ Molecule IDE
 
 Molecule is a package that transforms [Atom](https://atom.io/) into a full-blown [Integrated Development Environment](https://en.wikipedia.org/wiki/Integrated_development_environment) (or IDE).
 
-Learn more [on our website](http://www.molecule.sh/) or read [our documentation](doc/new-user/table-of-contents.md) to get started!
+Learn more [on our website](http://www.molecule.sh/) or read [our documentation](http://www.molecule.sh/docs/getting-started-introduction.html) to get started!
 
 ![Hello there, xkcd readers!](doc/molecule-showcase.png)
 
@@ -38,49 +38,28 @@ Installation
 
 3.  **Install Molecule**
 
-    Molecule isn't available on `apm` (the official tool for downloading Atom
-    packages) yet. To install Molecule, use the following commands:
-
-    ```bash
-    git clone https://github.com/alanzanattadev/atom-molecule-dev-environment.git
-    cd atom-molecule-dev-environment
-    git checkout v0.4.0
-    npm install
-    apm link
-    ```
+    Molecule is available on `apm` (the official tool for downloading Atom
+    packages).
 
     Molecule should then be installed the next time you start Atom.
 
 ![Your screen shoud look roughly like this](doc/new-user/resources/molecule-start.png)
 
-### Update
-
-```bash
-  cd atom-molecule-dev-environment
-  git checkout vX.Y.Z # Where X.Y.Z is the current version number
-  rm -rf node_modules
-  npm install
-```
-
-And reload atom!
-
 ## Contribute
 
 ### Feedback
-
-[Comment]: # (TODO - ADD LINK TO API)
 
 We are open to any kind of feedback you could give us. From bug fixes to
 recommandations and feature requests, we would love to hear what you think of
 Molecule.
 
-You can send feedback on our [website](https://www.molecule.sh) or open a
+You can send feedback on our [website](http://www.molecule.sh) or open a
 [GitHub issue](https://github.com/alanzanattadev/molecule-landing/issues).
 We love discussing with our users!
 
 ### Make a plugin
 
-Consult the [Plugin API](doc/plugin-creator/create-plugin.md) for details.
+Consult the [Plugin API](http://www.molecule.sh/docs/plugin-creator-create-plugin.html) for details.
 
 ### Help develop Molecule
 
