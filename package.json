@@ -1,7 +1,7 @@
 {
   "name": "molecule",
   "main": "./build/babel/molecule-dev-environment.js",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Molecule IDE for Atom.io",
   "keywords": [
     "ide",
@@ -105,11 +105,14 @@
   },
   "babel": {
     "presets": [
-      ["env", {
-        "targets": {
-          "electron": "1.6"
+      [
+        "env",
+        {
+          "targets": {
+            "electron": "1.6"
+          }
         }
-      }],
+      ],
       "react",
       "flow"
     ],
