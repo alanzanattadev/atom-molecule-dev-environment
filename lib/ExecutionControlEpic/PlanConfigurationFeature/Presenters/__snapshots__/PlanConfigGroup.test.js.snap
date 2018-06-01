@@ -11,7 +11,7 @@ exports[`PlanConfigGroup should display a PlanConfigPart for every key of schema
     <ReactImageFallback
       fallbackImage="arrow-right.svg"
       initialImage={null}
-      src="atom://molecule-dev-environment/.storybook/public/arrow-right.svg"
+      src="atom://molecule/.storybook/public/arrow-right.svg"
       style={
         Object {
           "display": "flex",
