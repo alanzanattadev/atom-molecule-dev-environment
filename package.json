@@ -1,7 +1,7 @@
 {
   "name": "molecule",
   "main": "./build/babel/molecule-dev-environment.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Molecule IDE for Atom.io",
   "keywords": [
     "ide",
