@@ -1,0 +1,18 @@
+{
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Molecule IDE",
+          "submenu": [
+            {
+              "label": "Free terminal",
+              "command": "molecule:free-terminal-toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
