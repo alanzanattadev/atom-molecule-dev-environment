@@ -1,4 +1,0 @@
-{
-  "presets": ["env", "flow", "react"],
-  "plugins": ["transform-object-rest-spread", "transform-do-expressions"]
-}
