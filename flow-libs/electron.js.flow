@@ -170,8 +170,8 @@ type electron$BrowserWindowOptions = {
   darkTheme?: boolean,
   transparent?: boolean,
   type?: 'desktop' | 'dock' | 'toolbar' | 'splash' | 'notification' |
-         /* macOS */ 'desktop' | 'textured' |
-         /* Windows */ 'toolbar',
+    /* macOS */ 'desktop' | 'textured' |
+    /* Windows */ 'toolbar',
   titleBarStyle?: 'default' | 'hidden' | 'hidden-inset',
   thickFrame?: boolean,
   webPreferences?: electron$BrowserWindowWebPreferences,
@@ -343,7 +343,7 @@ declare class electron$BrowserWindow {
     click: Function,
     tooltip?: string,
     flags?: Array<'enabled' | 'disabled' | 'dismissonclick' | 'nobackground' |
-                  'hidden' | 'noninteractive'>,
+      'hidden' | 'noninteractive'>,
   }>): void, // Windows
   setThumbnailClip(region: electron$rect): void, // Windows
   showDefinitionForSelection(): void, // macOS
@@ -461,7 +461,7 @@ type electron$globalShortcut = {
  * https://github.com/electron/electron/blob/master/docs/api/ipc-main.md
  */
 
-declare class electron$IpcMain {}
+declare class electron$IpcMain extends events$EventEmitter {}
 
 /**
  * https://github.com/electron/electron/blob/master/docs/api/menu.md
@@ -472,13 +472,16 @@ declare class electron$Menu {
   static getApplicationMenu(): ?electron$Menu,
   static sendActionToFirstResponder(action: string): void,
   static buildFromTemplate(templates: Array<electron$MenuItemOptions>): electron$Menu,
-  popup(
-    browserWindow: electron$BrowserWindow,
-    x?: number,
-    y?: number,
-    positioningItem?: number,
-  ): void,
-  popup(x?: number, y?: number, positioningItem?: number): void,
+  popup({|
+          window?: electron$BrowserWindow,
+          x?: number,
+          y?: number,
+          positioningItem?: number,
+          callback?: Function,
+          // Note: this is always true in Electron 2.0+.
+          async?: boolean,
+        |}): void,
+  closePopup(window?: electron$BrowserWindow): void,
   append(menuItem: electron$MenuItem): void,
   insert(pos: number, menuItem: electron$MenuItem): void,
   items: Array<electron$MenuItem>,
@@ -495,10 +498,10 @@ type electron$MenuItemOptions = {
     event: Object
   ) => void,
   role?: 'undo' | 'redo' | 'cut' | 'copy' | 'paste' | 'pasteandmatchstyle' |
-        'selectall' | 'delete' | 'minimize' | 'close' | 'quit' | 'togglefullscreen' |
-         // macOS-only
-        'about' | 'hide' | 'hideothers' | 'unhide' | 'front' | 'zoom' | 'window' |
-        'help' | 'services',
+    'selectall' | 'delete' | 'minimize' | 'close' | 'quit' | 'togglefullscreen' |
+    // macOS-only
+    'about' | 'hide' | 'hideothers' | 'unhide' | 'front' | 'zoom' | 'window' |
+    'help' | 'services',
   type?: 'normal' | 'separator' | 'submenu' | 'checkbox' | 'radio',
   label?: string,
   sublabel?: string,
@@ -561,8 +564,8 @@ declare class electron$Tray {}
 
 type electron$InputEventModifiers =
   Array<'shift' | 'control' | 'alt' | 'meta' |
-        'isKeypad' | 'isAutoRepeat' | 'leftButtonDown' | 'middleButtonDown' |
-        'rightButtonDown' | 'capsLock' | 'numLock' | 'left' | 'right'>;
+    'isKeypad' | 'isAutoRepeat' | 'leftButtonDown' | 'middleButtonDown' |
+    'rightButtonDown' | 'capsLock' | 'numLock' | 'left' | 'right'>;
 
 declare class electron$WebContents extends events$EventEmitter {
   loadURL(
@@ -669,36 +672,36 @@ declare class electron$WebContents extends events$EventEmitter {
         modifiers?: electron$InputEventModifiers,
         keyCode: string,
       } | {
-        type: 'mouseDown' | 'mouseUp' | 'mouseEnter' | 'mouseLeave' | 'contextMenu',
-        modifiers?: electron$InputEventModifiers,
-        x: number,
-        y: number,
-        button: 'left' | 'middle' | 'right',
-        globalX: number,
-        globalY: number,
-        movementX: number,
-        movementY: number,
-        clickCount: number,
-      } | {
-        type: 'mouseWheel',
-        modifiers?: electron$InputEventModifiers,
-        x: number,
-        y: number,
-        button: 'left' | 'middle' | 'right',
-        globalX: number,
-        globalY: number,
-        movementX: number,
-        movementY: number,
-        clickCount: number,
-        deltaX: number,
-        deltaY: number,
-        wheelTicksX: number,
-        wheelTicksY: number,
-        accelerationRatioX: number,
-        accelerationRatioY: number,
-        hasPreciseScrollingDeltas: boolean,
-        canScroll: boolean,
-      },
+      type: 'mouseDown' | 'mouseUp' | 'mouseEnter' | 'mouseLeave' | 'contextMenu',
+      modifiers?: electron$InputEventModifiers,
+      x: number,
+      y: number,
+      button: 'left' | 'middle' | 'right',
+      globalX: number,
+      globalY: number,
+      movementX: number,
+      movementY: number,
+      clickCount: number,
+    } | {
+      type: 'mouseWheel',
+      modifiers?: electron$InputEventModifiers,
+      x: number,
+      y: number,
+      button: 'left' | 'middle' | 'right',
+      globalX: number,
+      globalY: number,
+      movementX: number,
+      movementY: number,
+      clickCount: number,
+      deltaX: number,
+      deltaY: number,
+      wheelTicksX: number,
+      wheelTicksY: number,
+      accelerationRatioX: number,
+      accelerationRatioY: number,
+      hasPreciseScrollingDeltas: boolean,
+      canScroll: boolean,
+    },
   ): void,
   beginFrameSubscription(
     callback: (frameBuffer: Buffer, dirtyRect: electron$rect) => void,
@@ -771,6 +774,7 @@ declare class electron$IpcRenderer {
   removeAllListeners(channel?: string): electron$IpcRenderer,
   send(channel: string, ...args: Array<any>): void,
   sendSync(channel: string, ...args: Array<any>): void,
+  sendTo(windowId: number, channel: string, ...args: Array<any>): void,
   sendToHost(channel: string, ...args: Array<any>): void,
 }
 
@@ -849,10 +853,6 @@ declare class electron$NativeImage {
   getSize(): {width: number, height: number},
   setTemplateImage(option: boolean): void,
   isTemplateImage(): boolean,
-  // Deprecated, but Atom is behind - so keep them around.
-  toPng(): Uint8Array,
-  toJpeg(quality: number): Uint8Array,
-  toDataUrl(): string,
 }
 
 /**
@@ -871,7 +871,7 @@ type electron$Display = {
 };
 
 type electron$DisplayEvents =
-    'display-added'
+  'display-added'
   | 'display-removed'
   | 'display-metrics-changed';
 
