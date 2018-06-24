@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.63.1",
+    "flow-language-server": "^0.2.5"
+  }
+}

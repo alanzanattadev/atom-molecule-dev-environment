@@ -1,6 +1,6 @@
-/.storybook/
 /build/
 /doc/
 /flow-libs/
 /flow-typed/
 /node_modules
+/testsData/
