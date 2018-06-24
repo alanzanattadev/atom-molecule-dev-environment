@@ -1,5 +1,5 @@
-// flow-typed signature: 127954d01aa89a07e16464c0db385046
-// flow-typed version: 010c66895a/react-dnd_v2.x.x/flow_>=v0.53.x
+// flow-typed signature: 6457154c7e96ef3ce4b654781625f315
+// flow-typed version: 7bc41826e1/react-dnd_v2.x.x/flow_>=v0.53.x
 
 declare module "react-dnd" {
   declare type Identifier = string;
@@ -45,7 +45,7 @@ declare module "react-dnd" {
     ) => Class<
       ConnectedComponent<C, InstanceOf<C>, { ...CP } & $Diff<P, CP>>
     >) &
-    (<P: SP, C: React$StatelessFunctionalComponent<P>>(
+    (<P: SP, C: React$ComponentType<P>>(
       component: C
     ) => Class<ConnectedComponent<C, void, { ...CP } & $Diff<P, CP>>>);
 
