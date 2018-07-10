@@ -14,10 +14,10 @@ import type {
 export type PackageTester =
   | RegExp
   | string
-  | ((packageName: string, directory: ?Directory) => PackageTesterResult);
+  | ((packagePath: string, directory: ?Directory) => PackageTesterResult);
 
 export type PackageGenerator =
-  (packageName: string) => Array<GeneratedPlanObject>;
+  (packagePath: string) => Array<GeneratedPlanObject>;
 
 export type Plugin = {
   tool: DevTool,
