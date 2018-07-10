@@ -54,6 +54,10 @@
             {
               "label": "Pinned plans",
               "command": "molecule:pinned-plans-toggle"
+            },
+            {
+              "label": "Console",
+              "command": "molecule:console-toggle"
             }
           ]
         }
