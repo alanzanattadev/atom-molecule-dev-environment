@@ -56,6 +56,10 @@
               "command": "molecule:pinned-plans-toggle"
             },
             {
+              "label": "Linter",
+              "command": "molecule:linter-toggle"
+            },
+            {
               "label": "Console",
               "command": "molecule:console-toggle"
             }
