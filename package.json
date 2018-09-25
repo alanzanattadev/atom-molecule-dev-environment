@@ -81,7 +81,7 @@
     "tree-kill": "^1.2.0",
     "vscode-jsonrpc": "^3.6.1",
     "vscode-uri": "^1.0.1",
-    "xterm": "^2.9.2"
+    "xterm": "3.7.0"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
