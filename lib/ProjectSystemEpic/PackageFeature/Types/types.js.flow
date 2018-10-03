@@ -3,13 +3,13 @@
 
 import type { DevTool } from "../../../ExecutionControlEpic/DevToolsSummaryFeature/Types/types";
 
-export type PackageTesterResult =
-  | (boolean | PackageInfo | Promise<boolean>)
-  | false;
-
 import type {
   GeneratedPlanObject,
 } from "../../../ExecutionControlEpic/PlanConfigurationFeature/Types/types.js.flow";
+
+export type PackageTesterResult =
+  | (boolean | PackageInfo | Promise<boolean>)
+  | false;
 
 export type PackageTester =
   | RegExp
@@ -22,7 +22,7 @@ export type PackageGenerator =
 export type Plugin = {
   tool: DevTool,
   isPackage?: PackageTester,
-  generatePlansForPackage?: PackageGenerator
+  generatePlansForPackage?: PlanGenerator
 };
 
 export type Directory = {
