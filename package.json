@@ -27,14 +27,6 @@
   "package-deps": [
     "linter"
   ],
-  "configSchema": {
-    "concurrentPluginsLoaded": {
-      "type": "integer",
-      "default": 4,
-      "minimum": 1,
-      "description": "How many plugins are treated at the same time when loading packages. Higher values means Molecule loads faster at startup, but may reduce Atom's responsiveness when loading large projects with many plugins."
-    }
-  },
   "consumedServices": {
     "linter-indie": {
       "versions": {
