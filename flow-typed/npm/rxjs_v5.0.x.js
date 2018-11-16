@@ -1,5 +1,5 @@
-// flow-typed signature: ba8bd69b3b15ca5144e860a8ed7c2c4e
-// flow-typed version: 5cce1617ae/rxjs_v5.0.x/flow_>=v0.34.x
+// flow-typed signature: 2c1a1b2981d6538d29ee1fcd94983cf5
+// flow-typed version: d087764128/rxjs_v5.0.x/flow_>=v0.34.x
 
 type rxjs$PartialObserver<-T> =
   | {
@@ -326,6 +326,8 @@ declare class rxjs$Observable<+T> {
   static never<U>(): rxjs$Observable<U>;
 
   static of(...values: T[]): rxjs$Observable<T>;
+
+  static race(...sources: rxjs$Observable<T>[]): rxjs$Observable<T>;
 
   static range(
     start?: number,
@@ -728,6 +730,9 @@ declare class rxjs$Observable<+T> {
     onError: ?(error: any) => mixed,
     onCompleted: ?() => mixed
   ): rxjs$Subscription;
+
+  combineAll<U>(): rxjs$Observable<U>;
+  combineAll<U>(project: (...values: any[]) => U): rxjs$Observable<U>;
 
   static combineLatest<A, B>(
     a: rxjs$Observable<A>,

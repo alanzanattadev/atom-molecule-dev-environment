@@ -12,11 +12,10 @@
     "eslint": "eslint ./",
     "flow": "flow check --show-all-errors",
     "jest:watch": "jest --watch",
-    "test": "jest && npm run eslint",
+    "test": "jest && yarn eslint",
     "babel:build": "babel lib --out-dir ./build/babel/ --source-maps",
     "babel:watch": "babel lib --out-dir ./build/babel/ --source-maps --watch",
-    "postinstall": "npm run babel:build",
-    "test:e2e": "mocha testsUI/"
+    "postinstall": "yarn babel:build"
   },
   "repository": "https://github.com/alanzanattadev/atom-molecule-dev-environment",
   "license": "MIT",
@@ -84,22 +83,20 @@
     "xterm": "3.7.0"
   },
   "devDependencies": {
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.3",
-    "eslint": "^4.11.0",
-    "eslint-config-prettier": "^2.7.0",
-    "eslint-plugin-flowtype": "^2.39.1",
-    "eslint-plugin-prettier": "^2.3.1",
-    "eslint-plugin-react": "^7.4.0",
-    "flow-bin": "^0.76.0",
-    "prettier": "^1.13.5",
-    "react-devtools": "^3.2.3",
-    "react-test-renderer": "^16.2.0",
-    "redux-mock-store": "^1.3.0",
-    "redux-mock-store-await-actions": "^2.1.0",
-    "spectron": "^3.8.0",
-    "webpack": "^3.12.0"
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.85.0",
+    "prettier": "^1.15.1",
+    "react-devtools": "^3.4.2",
+    "react-test-renderer": "^16.6.1",
+    "redux-mock-store": "^1.5.3",
+    "redux-mock-store-await-actions": "^2.1.0"
   },
   "babel": {
     "presets": [
@@ -163,6 +160,12 @@
       "prettier/flowtype",
       "prettier/react"
     ],
+    "settings": {
+      "react": {
+        "version": "16.4",
+        "flowVersion": "0.85"
+      }
+    },
     "rules": {
       "no-console": [
         "warn",

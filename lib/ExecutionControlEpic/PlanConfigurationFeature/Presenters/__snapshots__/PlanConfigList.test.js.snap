@@ -8,6 +8,8 @@ exports[`PlanConfigList should display the values 1`] = `
   <FormWatcher
     __debug={false}
     watchPath={[Function]}
-  />
+  >
+    <Component />
+  </FormWatcher>
 </styled.div>
 `;
