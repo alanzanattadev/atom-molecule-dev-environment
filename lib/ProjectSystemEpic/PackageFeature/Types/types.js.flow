@@ -4,7 +4,7 @@
 import type { DevTool } from "../../../ExecutionControlEpic/DevToolsSummaryFeature/Types/types";
 
 import type {
-  GeneratedPlanObject,
+  GeneratedPlanObject
 } from "../../../ExecutionControlEpic/PlanConfigurationFeature/Types/types.js.flow";
 
 export type PackageTesterResult =
@@ -34,6 +34,7 @@ export type PackageInfo = {
   name: string,
   path: string,
   type: "file" | "directory",
+  uriPlatform: "windows" | "posix",
 };
 
 export type Package = PackageInfo & {
