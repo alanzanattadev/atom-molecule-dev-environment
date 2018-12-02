@@ -22,7 +22,7 @@ export type PackageGenerator =
 export type Plugin = {
   tool: DevTool,
   isPackage?: PackageTester,
-  generatePlansForPackage?: PlanGenerator
+  generatePlansForPackage?: PackageGenerator
 };
 
 export type Directory = {
