@@ -33,11 +33,14 @@ on this project, and we welcome all the [feedback](#feedback) you can give us!
 Installation
 ------------
 
-1.  **[Install Atom](http://flight-manual.atom.io/getting-started/sections/installing-atom/) version 1.17.0 or higher**
+- **[Install Atom](http://flight-manual.atom.io/getting-started/sections/installing-atom/) version 1.17.0 or higher**
 
-2.  **Install [Watchman](https://facebook.github.io/watchman/)**
+- **Install [Watchman](https://facebook.github.io/watchman/)**
 
-3.  **Install Molecule**
+- *(MacOS only)* **Install *XCode Command Line Tools* (run `xcode-select --install` in the terminal)
+or [XCode](https://itunes.apple.com/fr/app/xcode/id497799835)**
+
+- **Install Molecule**
 
   Molecule is available on `apm` (the official tool for downloading Atom
   packages). Run `apm install molecule`, or install Molecule from your package
