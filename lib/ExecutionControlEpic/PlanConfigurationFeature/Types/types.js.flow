@@ -84,13 +84,18 @@ export type DevToolInfo = {
 
 export type DevToolPlanConfigSchema = ConfigSchemaPart & { tool: DevToolInfo };
 
-export type PlanObject =
+export type PlanObject = any;
+/*
+Using
   | string
   | number
   | boolean
   | Object
+  | { [string]: PlanObject }
   | Array<PlanObject>
   | { caseValue: string, expressionValue: PlanObject }
+triggers typecheck errors in some cases
+*/
 
 export type GeneratedPlanObject = {
   name: string,

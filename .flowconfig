@@ -8,6 +8,7 @@ flow-libs/
 .*\.test\..*
 .*\.story\..*
 <PROJECT_ROOT>/lib/ExecutionControlEpic/QuestionSystemFeature/
+<PROJECT_ROOT>/testsData
 
 [options]
 module.ignore_non_literal_requires=true

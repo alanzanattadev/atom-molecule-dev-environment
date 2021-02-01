@@ -16,13 +16,13 @@ export type PackageTester =
   | string
   | ((packagePath: string, directory: ?Directory) => PackageTesterResult);
 
-export type PackageGenerator =
+export type PlanGenerator =
   (packagePath: string) => Array<GeneratedPlanObject>;
 
 export type Plugin = {
   tool: DevTool,
   isPackage?: PackageTester,
-  generatePlansForPackage?: PackageGenerator
+  generatePlansForPackage?: PlanGenerator
 };
 
 export type Directory = {
